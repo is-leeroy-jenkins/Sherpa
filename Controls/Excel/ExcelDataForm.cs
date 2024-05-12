@@ -568,7 +568,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
         }
 

@@ -81,7 +81,6 @@ partial class EmailDialog
         PictureBox = new System.Windows.Forms.PictureBox( );
         Title = new Label( );
         Timer = new System.Windows.Forms.Timer( components );
-        ContextMenu = new ContextMenu( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         EmailTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
@@ -944,27 +943,6 @@ partial class EmailDialog
         // 
         Timer.Interval = 80;
         // 
-        // ContextMenu
-        // 
-        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.CanOverrideStyle = true;
-        ContextMenu.DropShadowEnabled = false;
-        ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
-        ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.Name = "ContextMenu";
-        ContextMenu.Size = new System.Drawing.Size( 184, 312 );
-        ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
-        ContextMenu.ThemeName = "Office2016Black";
-        ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
-        ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
-        ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
-        ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-        // 
         // EmailDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1056,6 +1034,5 @@ partial class EmailDialog
     public Button MenuButton;
     public SmallTip ToolTip;
     public System.Windows.Forms.Timer Timer;
-    public ContextMenu ContextMenu;
     public Label StatusLabel;
 }

@@ -43,79 +43,143 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using Syncfusion.Windows.Forms.Spreadsheet;
-    using Syncfusion.Windows.Forms.Tools;
-
+    using System.Windows.Forms;
+    using MetroSet_UI.Child;
+    using MetroSet_UI.Enums;
+    using OpenTK.Platform.Windows;
+    
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ContextMenu : ContextBase
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class ContextMenu : BasicMenu
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ContextMenu"/> class.
+        /// <see cref="T:BudgetExecution.ContextMenu" /> class.
         /// </summary>
-        public ContextMenu( )
+        public ContextMenu( ) 
+            : base( )
         {
-            BackColor = Color.FromArgb( 45, 45, 45 );
+            BackColor = Color.FromArgb( 30, 30, 30 );
+            BackgroundColor = Color.FromArgb( 30, 30, 30 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
-            Size = new Size( 199, 158 );
+            ArrowColor = Color.FromArgb( 0, 120, 212 );
+            SeparatorColor = Color.FromArgb( 0, 120, 212 );
+            AutoSize = false;
+            Size = new Size( 160, 510 );
+            IsDerivedStyle = true;
+            RenderMode = ToolStripRenderMode.ManagerRenderMode;
+            Style = Style.Custom;
             ShowCheckMargin = false;
             ShowImageMargin = true;
-            Font = new Font( "Roboto", 9 );
-            ImageScalingSize = new Size( 16, 16 );
-            ShowImageMargin = true;
-            ShowCheckMargin = false;
-            MetroColor = Color.FromArgb( 45, 45, 45 );
-            CanApplyTheme = true;
-            CanOverrideStyle = true;
-            Style = ContextMenuStyle.Office2016Black;
-            ThemeStyle = new ContextMenuStripExVisualStyle( );
-            ThemeStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
-            ThemeStyle.DisabledForeColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.HoverBackColor = Color.FromArgb( 50, 93, 129 );
-            ThemeStyle.HoverForeColor = Color.White;
-            ThemeStyle.PressedForeColor = Color.White;
-            ThemeStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
-            ThemeStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
+            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
+            SelectedItemColor = Color.White;
+            ThemeAuthor = "Terry Eppler";
 
             // Menu Items
             _file = CreateFileItem( );
-            _folder = CreateFolderItem( );
             _save = CreateSaveItem( );
-            _exit = CreateExitItem( );
+            _refresh = CreateRefreshItem( );
             _calculator = CreateCalculatorItem( );
             _calendar = CreateCalendarItem( );
             _guidance = CreateDocumentationItem( );
             _clock = CreateClockItem( );
             _maps = CreateMapsItem( );
-            _storage = CreateStorageItem( );
             _controlPanel = CreateControlPanelItem( );
             _taskManager = CreateTaskManagerItem( );
             _mediaPlayer = CreateMediaPlayerItem( );
+            _firefox = CreateFirefoxItem( );
+            _edge = CreateEdgeItem( );
+            _chrome = CreateChromeItem( );
+            _exit = base.CreateExitItem( );
+        }
+
+        /// <summary>
+        /// Creates the calendar item.
+        /// </summary>
+        /// <returns></returns>
+        private protected MetroSetToolStripMenuItem CreateCalendarItem( )
+        {
+            try
+            {
+                var _name = MenuOption.Calendar.ToString( );
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
+                _item.Font = new Font( "Roboto", 9 );
+                _item.Name = _name;
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = _name.SplitPascal( );
+                _item.Tag = MenuOption.Calendar.ToString( );
+                _item.MouseEnter += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown -= null;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Creates the documentation item.
+        /// </summary>
+        /// <returns></returns>
+        private protected MetroSetToolStripMenuItem CreateDocumentationItem( )
+        {
+            try
+            {
+                var _name = MenuOption.Documentation.ToString( );
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
+                _item.Font = new Font( "Roboto", 9 );
+                _item.Name = _name;
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = _name.SplitPascal( );
+                _item.Tag = MenuOption.Documentation.ToString( );
+                _item.MouseEnter += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown -= null;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MetroSetToolStripMenuItem );
+            }
         }
 
         /// <summary>
         /// Creates the control panel option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateControlPanelItem( )
+        private protected MetroSetToolStripMenuItem CreateControlPanelItem( )
         {
             try
             {
                 var _name = MenuOption.ControlPanel.ToString( );
                 var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
                 _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
@@ -123,7 +187,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( ToolStripMenuItemExt );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
@@ -132,22 +196,24 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private ToolStripMenuItemExt CreateTaskManagerItem( )
+        private protected MetroSetToolStripMenuItem CreateTaskManagerItem( )
         {
             try
             {
                 var _name = MenuOption.TaskManager.ToString( );
                 var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
                 _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
@@ -155,7 +221,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( ToolStripMenuItemExt );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
@@ -163,22 +229,24 @@ namespace BudgetExecution
         /// Creates the one drive option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateStorageItem( )
+        private protected MetroSetToolStripMenuItem CreateStorageItem( )
         {
             try
             {
                 var _name = MenuOption.Storage.ToString( );
                 var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
                 _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
@@ -186,7 +254,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( ToolStripMenuItemExt );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
@@ -194,22 +262,24 @@ namespace BudgetExecution
         /// Creates the maps option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateMapsItem( )
+        private protected MetroSetToolStripMenuItem CreateMapsItem( )
         {
             try
             {
                 var _name = MenuOption.Maps.ToString( );
                 var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
                 _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
@@ -217,7 +287,99 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( ToolStripMenuItemExt );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the calculator option.
+        /// </summary>
+        /// <returns>
+        /// ToolStripMenuItemExt
+        /// </returns>
+        private protected MetroSetToolStripMenuItem CreateCalculatorItem( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
+                _item.Font = new Font( "Roboto", 9 );
+                _item.Name = MenuOption.Calculator.ToString( );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{MenuOption.Calculator}";
+                _item.Tag = MenuOption.Calculator.ToString( );
+                _item.MouseEnter += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown -= null;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the edge option.
+        /// </summary>
+        /// <returns></returns>
+        private protected MetroSetToolStripMenuItem CreateEdgeItem( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
+                _item.Font = new Font( "Roboto", 9 );
+                _item.Name = MenuOption.Edge.ToString( );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{MenuOption.Edge}";
+                _item.Tag = MenuOption.Edge.ToString( );
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown -= null;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the firefox option.
+        /// </summary>
+        /// <returns></returns>
+        private protected MetroSetToolStripMenuItem CreateFirefoxItem( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
+                _item.Font = new Font( "Roboto", 9 );
+                _item.Name = MenuOption.Firefox.ToString( );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{MenuOption.Firefox}";
+                _item.Tag = MenuOption.Firefox.ToString( );
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown -= null;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
@@ -225,24 +387,26 @@ namespace BudgetExecution
         /// Creates the close option.
         /// </summary>
         /// <returns>
-        /// ToolStripMenuItemExt
+        /// MetroSetToolStripMenuItem
         /// </returns>
-        private ToolStripMenuItemExt CreateClockItem( )
+        private protected MetroSetToolStripMenuItem CreateClockItem( )
         {
             try
             {
                 var _name = MenuOption.Clock.ToString( );
                 var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
                 _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
@@ -250,7 +414,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( ToolStripMenuItemExt );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
@@ -258,22 +422,24 @@ namespace BudgetExecution
         /// Creates the windows media player option.
         /// </summary>
         /// <returns></returns>
-        private protected ToolStripMenuItemExt CreateMediaPlayerItem( )
+        private protected MetroSetToolStripMenuItem CreateMediaPlayerItem( )
         {
             try
             {
                 var _name = MenuOption.MediaPlayer.ToString( );
                 var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
+                var _item = new MetroSetToolStripMenuItem( );
+                _item.TextAlign = ContentAlignment.BottomCenter;
                 _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.Size = new Size( 160, 30 );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
@@ -281,7 +447,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( ToolStripMenuItemExt );
+                return default( MetroSetToolStripMenuItem );
             }
         }
     }

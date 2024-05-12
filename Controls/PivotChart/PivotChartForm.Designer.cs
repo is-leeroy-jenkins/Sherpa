@@ -110,7 +110,7 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
-            ContextMenu = new ContextMenu( );
+            SkinManager = new Syncfusion.Windows.Forms.SkinManager( components );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -878,20 +878,20 @@
             PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
             PivotChart.CustomPalette = new System.Drawing.Color[ ]
     {
-    System.Drawing.Color.FromArgb(0, 120, 212),
-    System.Drawing.Color.Yellow,
-    System.Drawing.Color.Red,
-    System.Drawing.Color.Olive
+    System.Drawing.Color.FromArgb(147, 208, 249),
+    System.Drawing.Color.FromArgb(102, 170, 225),
+    System.Drawing.Color.FromArgb(250, 163, 94),
+    System.Drawing.Color.FromArgb(252, 227, 127)
     };
             PivotChart.DeferLayoutUpdate = false;
             PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            PivotChart.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             PivotChart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             PivotChart.Location = new System.Drawing.Point( 1, 1 );
             PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
             PivotChart.Name = "PivotChart";
             PivotChart.ShowPivotTableFieldList = false;
             PivotChart.Size = new System.Drawing.Size( 1038, 453 );
-            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Metro;
             PivotChart.TabIndex = 0;
             PivotChart.Text = "pivotChart1";
             PivotChart.UpdateManager = null;
@@ -1600,26 +1600,10 @@
             ToolStripTable.Size = new System.Drawing.Size( 1326, 45 );
             ToolStripTable.TabIndex = 52;
             // 
-            // ContextMenu
+            // SkinManager
             // 
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.CanOverrideStyle = true;
-            ContextMenu.DropShadowEnabled = false;
-            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
-            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 159, 290 );
-            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
-            ContextMenu.ThemeName = "Office2016Black";
-            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
-            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
-            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
-            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
+            SkinManager.Controls = PivotChart;
+            SkinManager.VisualTheme = Syncfusion.Windows.Forms.VisualTheme.Office2016Black;
             // 
             // PivotChartForm
             // 
@@ -1752,7 +1736,6 @@
         public Label MetricLabel13;
         public Label MetricLabel14;
         public Label MetricLabel15;
-        public ContextMenu ContextMenu;
         public ToolStripDropDown ComboBox;
         public ToolStripButton RefreshButton;
         public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
@@ -1761,5 +1744,6 @@
         public ToolStripButton PivotButton;
         private ToolSeparator Separator18;
         public System.Windows.Forms.PictureBox Loader;
+        public Syncfusion.Windows.Forms.SkinManager SkinManager;
     }
 }

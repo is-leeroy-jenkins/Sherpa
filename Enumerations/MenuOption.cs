@@ -105,13 +105,33 @@ namespace BudgetExecution
         Documentation = 13,
 
         /// <summary>
+        /// The fire fox
+        /// </summary>
+        Firefox = 14,
+
+        /// <summary>
+        /// The chrome
+        /// </summary>
+        Chrome = 15,
+
+        /// <summary>
+        /// The edge
+        /// </summary>
+        Edge = 16, 
+
+        /// <summary>
         /// The save
         /// </summary>
-        Save = 14,
+        Save = 17,
+
+        /// <summary>
+        /// The refresh
+        /// </summary>
+        Refresh = 18, 
 
         /// <summary>
         /// The exit
         /// </summary>
-        Exit = 15
+        Exit = 19
     }
 }

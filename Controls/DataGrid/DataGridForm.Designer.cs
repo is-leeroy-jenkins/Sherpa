@@ -161,7 +161,6 @@
             BusyScreen = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
-            ContextMenu = new ContextMenu( );
             ToolStripTextBoxSeparator = new ToolSeparator( );
             ProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -2520,35 +2519,6 @@
             ToolStripTable.Size = new System.Drawing.Size( 1328, 45 );
             ToolStripTable.TabIndex = 55;
             // 
-            // ContextMenu
-            // 
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.CanOverrideStyle = true;
-            ContextMenu.DropShadowEnabled = false;
-            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
-            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 159, 290 );
-            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
-            ContextMenu.ThemeName = "Office2016Black";
-            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
-            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
-            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
-            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-            // 
-            // ToolStripTextBoxSeparator
-            // 
-            ToolStripTextBoxSeparator.ForeColor = System.Drawing.Color.Black;
-            ToolStripTextBoxSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBoxSeparator.Name = "ToolStripTextBoxSeparator";
-            ToolStripTextBoxSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBoxSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
             // ProgressBar
             // 
             ProgressBar.Name = "ProgressBar";
@@ -3144,10 +3114,6 @@
         /// The go button
         /// </summary>
         public ToolStripButton SearchButton;
-        /// <summary>
-        /// The context menu
-        /// </summary>
-        public ContextMenu ContextMenu;
         /// <summary>
         /// The application separator
         /// </summary>

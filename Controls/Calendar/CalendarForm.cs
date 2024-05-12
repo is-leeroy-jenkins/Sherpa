@@ -181,25 +181,7 @@ namespace BudgetExecution
         /// The provider
         /// </summary>
         private Provider _provider;
-
-        /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the filter.
         /// </summary>
@@ -469,25 +451,7 @@ namespace BudgetExecution
                 _dataModel = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private set
-            {
-                _dataArgs = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the selected dates.
         /// </summary>
@@ -594,7 +558,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -1497,7 +1460,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

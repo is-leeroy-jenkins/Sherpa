@@ -146,43 +146,7 @@ namespace BudgetExecution
         /// The prefix
         /// </summary>
         private string _prefix;
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
@@ -431,7 +395,6 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }

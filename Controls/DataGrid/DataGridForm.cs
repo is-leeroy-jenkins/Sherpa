@@ -589,7 +589,6 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
         }
 
@@ -3009,7 +3008,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

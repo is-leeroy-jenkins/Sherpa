@@ -166,205 +166,7 @@ namespace BudgetExecution
         /// The statements
         /// </summary>
         private IDictionary<string, object> _statements;
-
-        /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public string HoverText
-        {
-            get
-            {
-                return _hoverText;
-            }
-            private set
-            {
-                _hoverText = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
-        public string FirstCategory
-        {
-            get
-            {
-                return _firstCategory;
-            }
-            private set
-            {
-                _firstCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
-        public string FirstValue
-        {
-            get
-            {
-                return _firstValue;
-            }
-            private set
-            {
-                _firstValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
-        public string SecondCategory
-        {
-            get
-            {
-                return _secondCategory;
-            }
-            private set
-            {
-                _secondCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
-        public string SecondValue
-        {
-            get
-            {
-                return _secondValue;
-            }
-            private set
-            {
-                _secondValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
-        public string ThirdCategory
-        {
-            get
-            {
-                return _thirdCategory;
-            }
-            private set
-            {
-                _thirdCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
-        public string ThirdValue
-        {
-            get
-            {
-                return _thirdValue;
-            }
-            private set
-            {
-                _thirdValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth category.
-        /// </summary>
-        /// <value>
-        /// The fourth category.
-        /// </value>
-        public string FourthCategory
-        {
-            get
-            {
-                return _fourthCategory;
-            }
-            private set
-            {
-                _fourthCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth value.
-        /// </summary>
-        /// <value>
-        /// The fourth value.
-        /// </value>
-        public string FourthValue
-        {
-            get
-            {
-                return _fourthValue;
-            }
-            private set
-            {
-                _fourthValue = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the selected query.
         /// </summary>
@@ -527,7 +329,6 @@ namespace BudgetExecution
 
             // Form Even Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -2202,7 +2003,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

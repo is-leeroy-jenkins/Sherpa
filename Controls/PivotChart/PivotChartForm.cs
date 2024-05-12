@@ -73,12 +73,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The time
@@ -224,43 +225,7 @@ namespace BudgetExecution
         /// The current
         /// </summary>
         private DataRow _current;
-
-        /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the selected dataTable.
         /// </summary>
@@ -278,151 +243,7 @@ namespace BudgetExecution
                 _selectedTable = value;
             }
         }
-
-        /// <summary>
-        /// Gets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
-        public string FirstCategory
-        {
-            get
-            {
-                return _firstCategory;
-            }
-            private set
-            {
-                _firstCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
-        public string FirstValue
-        {
-            get
-            {
-                return _firstValue;
-            }
-            private set
-            {
-                _firstValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
-        public string SecondCategory
-        {
-            get
-            {
-                return _secondCategory;
-            }
-            private set
-            {
-                _secondCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
-        public string SecondValue
-        {
-            get
-            {
-                return _secondValue;
-            }
-            private set
-            {
-                _secondValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
-        public string ThirdCategory
-        {
-            get
-            {
-                return _thirdCategory;
-            }
-            private set
-            {
-                _thirdCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
-        public string ThirdValue
-        {
-            get
-            {
-                return _thirdValue;
-            }
-            private set
-            {
-                _thirdValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth category.
-        /// </summary>
-        /// <value>
-        /// The fourth category.
-        /// </value>
-        public string FourthCategory
-        {
-            get
-            {
-                return _fourthCategory;
-            }
-            private set
-            {
-                _fourthCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth value.
-        /// </summary>
-        /// <value>
-        /// The fourth value.
-        /// </value>
-        public string FourthValue
-        {
-            get
-            {
-                return _fourthValue;
-            }
-            private set
-            {
-                _fourthValue = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the SQL query.
         /// </summary>
@@ -638,25 +459,7 @@ namespace BudgetExecution
                 _dataTable = value;
             }
         }
-
-        /// <summary>
-        /// Gets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private set
-            {
-                _dataArgs = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the type of the chart.
         /// </summary>
@@ -687,7 +490,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -753,7 +570,6 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -778,52 +594,6 @@ namespace BudgetExecution
                 ComboBox.SelectedIndexChanged += OnComboBoxItemSelected;
                 SaveButton.Click += OnSaveButtonClick;
                 BindingSource.CurrentChanged += OnBindingSourceChanged;
-                Timer.Tick += OnTimerTick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the pivot grid.
-        /// </summary>
-        private void InitializePivotGrid( )
-        {
-            try
-            {
-                var _font = new Font( "Roboto", 9 );
-                var _gray = Color.FromArgb( 45, 45, 45 );
-                var _blue = Color.FromArgb( 106, 189, 252 );
-                var _border = Color.FromArgb( 0, 120, 212 );
-                PivotChart.ShowPivotTableFieldList = false;
-                PivotChart.AllowDrillDown = true;
-                PivotChart.BackColor = Color.FromArgb( 20, 20, 20 );
-                PivotChart.ForeColor = _blue;
-                PivotChart.ChartTypes = PivotChartTypes.Column;
-                PivotChart.PrimaryXAxis.Title.Color = _border;
-                PivotChart.PrimaryXAxis.Title.Font = _font;
-                PivotChart.PrimaryYAxis.Title.Color = _border;
-                PivotChart.PrimaryYAxis.Title.Font = _font;
-                PivotChart.AxisFieldSection.Visible = true;
-                PivotChart.LegendFieldSection.Visible = false;
-                PivotChart.ValueFieldSection.Visible = true;
-                PivotChart.FilterFieldSection.Visible = true;
-                PivotChart.AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
-                PivotChart.AxisFieldSection.ItemForeColor = Color.White;
-                PivotChart.AxisFieldSection.BackInterior = _gray;
-                PivotChart.CustomPalette = new[ ]
-                {
-                    Color.FromArgb( 0, 120, 212 ),
-                    Color.SlateGray,
-                    Color.Yellow,
-                    Color.DarkGreen,
-                    Color.Maroon,
-                    Color.Olive
-                };
-
-                PivotChart.Skins = Skins.Office2016Black;
             }
             catch( Exception _ex )
             {
@@ -890,8 +660,8 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Interval = 80;
-                Timer.Tick += OnTimerTick;
                 Timer.Enabled = false;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -978,15 +748,32 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the pivot chart.
+        /// Initializes the pivot grid.
         /// </summary>
-        private void InitializePivotChart( )
+        private void InitializeChart( )
         {
             try
             {
-                var _border = Color.FromArgb( 0, 120, 212 );
-                var _background = Color.FromArgb( 45, 45, 45 );
+                var _font = new Font( "Roboto", 9 );
+                var _gray = Color.FromArgb( 45, 45, 45 );
                 var _blue = Color.FromArgb( 106, 189, 252 );
+                var _border = Color.FromArgb( 0, 120, 212 );
+                PivotChart.ShowPivotTableFieldList = false;
+                PivotChart.AllowDrillDown = true;
+                PivotChart.BackColor = Color.FromArgb( 20, 20, 20 );
+                PivotChart.ForeColor = _blue;
+                PivotChart.ChartTypes = PivotChartTypes.Column;
+                PivotChart.PrimaryXAxis.Title.Color = _border;
+                PivotChart.PrimaryXAxis.Title.Font = _font;
+                PivotChart.PrimaryYAxis.Title.Color = _border;
+                PivotChart.PrimaryYAxis.Title.Font = _font;
+                PivotChart.AxisFieldSection.Visible = true;
+                PivotChart.LegendFieldSection.Visible = false;
+                PivotChart.ValueFieldSection.Visible = true;
+                PivotChart.FilterFieldSection.Visible = true;
+                PivotChart.AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
+                PivotChart.AxisFieldSection.ItemForeColor = Color.White;
+                PivotChart.AxisFieldSection.BackInterior = _gray;
                 PivotChart.CustomPalette = new[ ]
                 {
                     Color.FromArgb( 0, 120, 212 ),
@@ -996,27 +783,6 @@ namespace BudgetExecution
                     Color.Maroon,
                     Color.Olive
                 };
-
-                PivotChart.ShowPivotTableFieldList = false;
-                PivotChart.AllowDrillDown = true;
-                PivotChart.BackColor = _background;
-                PivotChart.ForeColor = _blue;
-                PivotChart.ChartTypes = PivotChartTypes.Column;
-                PivotChart.PrimaryXAxis.Title.Color = _border;
-                PivotChart.PrimaryXAxis.Title.Font = new Font( "Roboto", 9 );
-                PivotChart.PrimaryXAxis.ShowAxisLabelTooltip = true;
-                PivotChart.PrimaryXAxis.Title.Text = "Columns";
-                PivotChart.PrimaryYAxis.Title.Color = _border;
-                PivotChart.PrimaryYAxis.Title.Font = new Font( "Roboto", 9 );
-                PivotChart.PrimaryYAxis.ShowAxisLabelTooltip = true;
-                PivotChart.PrimaryYAxis.Title.Text = "Values";
-                PivotChart.LegendFieldSection.Visible = false;
-                PivotChart.ValueFieldSection.Visible = true;
-                PivotChart.FilterFieldSection.Visible = true;
-                PivotChart.AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
-                PivotChart.AxisFieldSection.ItemForeColor = Color.White;
-                PivotChart.AxisFieldSection.BackInterior = Color.FromArgb( 75, 75, 75 );
-                PivotChart.AllowDrillDown = true;
             }
             catch( Exception _ex )
             {
@@ -1031,17 +797,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -1060,17 +826,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -1749,19 +1515,18 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                RegisterCallbacks( );
+                InitializeChart( );
                 InitializeTitle( );
                 InitializeLabels( );
                 InitializeToolStrip( );
                 InitializeTimer( );
                 InitializeListBox( );
-                InitializePivotChart( );
                 InitializePictureBox( );
                 PopulateExecutionTables( );
                 PopulateComboBox( );
                 ClearLabels( );
                 Title.Text = string.Empty;
+                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception _ex )
@@ -1871,7 +1636,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

@@ -430,7 +430,6 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -911,7 +910,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

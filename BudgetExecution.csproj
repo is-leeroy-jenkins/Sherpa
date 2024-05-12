@@ -20,7 +20,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <Configurations>Debug;Release</Configurations>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <BaseIntermediateOutputPath>Obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>Bin\</BaseOutputPath>
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>

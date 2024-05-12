@@ -178,7 +178,6 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -1277,7 +1276,7 @@ namespace BudgetExecution
         {
             try
             {
-                InvokeIf( _beginLoad );
+                OpenPivotChartForm( );
             }
             catch( Exception _ex )
             {

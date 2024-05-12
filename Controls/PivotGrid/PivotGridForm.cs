@@ -220,43 +220,7 @@ namespace BudgetExecution
         /// The data arguments
         /// </summary>
         private DataArgs _dataArgs;
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the count.
         /// </summary>
@@ -274,25 +238,7 @@ namespace BudgetExecution
                 _count = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public virtual string HoverText
-        {
-            get
-            {
-                return _hoverText;
-            }
-            private set
-            {
-                _hoverText = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the selected row.
         /// </summary>
@@ -310,151 +256,7 @@ namespace BudgetExecution
                 _selectedTable = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
-        public string FirstCategory
-        {
-            get
-            {
-                return _firstCategory;
-            }
-            private set
-            {
-                _firstCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
-        public string FirstValue
-        {
-            get
-            {
-                return _firstValue;
-            }
-            private set
-            {
-                _firstValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
-        public string SecondCategory
-        {
-            get
-            {
-                return _secondCategory;
-            }
-            private set
-            {
-                _secondCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
-        public string SecondValue
-        {
-            get
-            {
-                return _secondValue;
-            }
-            private set
-            {
-                _secondValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
-        public string ThirdCategory
-        {
-            get
-            {
-                return _thirdCategory;
-            }
-            private set
-            {
-                _thirdCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
-        public string ThirdValue
-        {
-            get
-            {
-                return _thirdValue;
-            }
-            private set
-            {
-                _thirdValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the fourth category.
-        /// </summary>
-        /// <value>
-        /// The fourth category.
-        /// </value>
-        public string FourthCategory
-        {
-            get
-            {
-                return _fourthCategory;
-            }
-            private set
-            {
-                _fourthCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the fourth value.
-        /// </summary>
-        /// <value>
-        /// The fourth value.
-        /// </value>
-        public string FourthValue
-        {
-            get
-            {
-                return _fourthValue;
-            }
-            private set
-            {
-                _fourthValue = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the SQL query.
         /// </summary>
@@ -690,24 +492,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private set
-            {
-                _dataArgs = value;
-            }
-        }
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -719,7 +503,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -732,6 +530,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
+            InitializePivotGrid( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -781,7 +580,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -1758,8 +1556,6 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                InitializePivotGrid( );
                 InitializeToolStrip( );
                 InitializeTimer( );
                 InitializeLabels( );
@@ -1774,6 +1570,7 @@ namespace BudgetExecution
                 TabControl.SelectedIndex = 0;
                 PopulateExecutionTables( );
                 UpdateStatusLabel( );
+                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception ex )
