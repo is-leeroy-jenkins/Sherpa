@@ -62,18 +62,19 @@ namespace BudgetExecution
         public ContextMenu( ) 
             : base( )
         {
-            BackColor = Color.FromArgb( 30, 30, 30 );
-            BackgroundColor = Color.FromArgb( 30, 30, 30 );
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackgroundColor = Color.FromArgb( 10, 10, 10 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             ArrowColor = Color.FromArgb( 0, 120, 212 );
             SeparatorColor = Color.FromArgb( 0, 120, 212 );
             AutoSize = false;
-            Size = new Size( 160, 510 );
-            IsDerivedStyle = true;
-            RenderMode = ToolStripRenderMode.ManagerRenderMode;
-            Style = Style.Custom;
-            ShowCheckMargin = false;
+            Size = new Size( 203, 475 );
+            IsDerivedStyle = false;
+            RenderMode = ToolStripRenderMode.System;
+            Style = Style.Dark;
+            ShowCheckMargin = true;
             ShowImageMargin = true;
+            AutoSize = true;
             SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;
             ThemeAuthor = "Terry Eppler";
@@ -106,17 +107,18 @@ namespace BudgetExecution
             {
                 var _name = MenuOption.Calendar.ToString( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _name.SplitPascal( );
                 _item.Tag = MenuOption.Calendar.ToString( );
+                _item.Image = Resources.Images.MenuImages.CalendarItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseEnter += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
-                _item.MouseDown -= null;
+                _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
             }
@@ -137,17 +139,18 @@ namespace BudgetExecution
             {
                 var _name = MenuOption.Documentation.ToString( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _name.SplitPascal( );
                 _item.Tag = MenuOption.Documentation.ToString( );
+                _item.Image = Resources.Images.MenuImages.DocumentaionItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseEnter += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
-                _item.MouseDown -= null;
+                _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
             }
@@ -169,15 +172,16 @@ namespace BudgetExecution
                 var _name = MenuOption.ControlPanel.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.Image = Resources.Images.MenuImages.ControlPanelItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -203,15 +207,16 @@ namespace BudgetExecution
                 var _name = MenuOption.TaskManager.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.Image = Resources.Images.MenuImages.TaskManagerItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -236,15 +241,16 @@ namespace BudgetExecution
                 var _name = MenuOption.Storage.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.Image = Resources.Images.MenuImages.OneDriveItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -269,15 +275,16 @@ namespace BudgetExecution
                 var _name = MenuOption.Maps.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.Image = Resources.Images.MenuImages.MapItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -302,17 +309,18 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Calculator.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{MenuOption.Calculator}";
                 _item.Tag = MenuOption.Calculator.ToString( );
+                _item.Image = Resources.Images.MenuImages.CalculatorItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseEnter += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
-                _item.MouseDown -= null;
+                _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
             }
@@ -332,17 +340,18 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Edge.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{MenuOption.Edge}";
                 _item.Tag = MenuOption.Edge.ToString( );
+                _item.Image = Resources.Images.MenuImages.EdgeItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
-                _item.MouseDown -= null;
+                _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
             }
@@ -362,17 +371,18 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Firefox.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{MenuOption.Firefox}";
                 _item.Tag = MenuOption.Firefox.ToString( );
+                _item.Image = Resources.Images.MenuImages.FirefoxItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
-                _item.MouseDown -= null;
+                _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
                 return _item;
             }
@@ -396,15 +406,16 @@ namespace BudgetExecution
                 var _name = MenuOption.Clock.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.Image = Resources.Images.MenuImages.ClockItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -429,15 +440,16 @@ namespace BudgetExecution
                 var _name = MenuOption.MediaPlayer.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = _name;
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
+                _item.Image = Resources.Images.MenuImages.MediaPlayerItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;

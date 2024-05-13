@@ -79,6 +79,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>

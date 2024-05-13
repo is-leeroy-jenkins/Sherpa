@@ -175,14 +175,14 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.File.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = MenuOption.File.ToString( );
                 _item.Tag = MenuOption.File.ToString( );
+                _item.Image = Resources.Images.MenuImages.FileItem;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -207,14 +207,14 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Exit.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Exit} Application";
+                _item.Text = $"{MenuOption.Exit}";
                 _item.Tag = MenuOption.Exit.ToString( );
+                _item.Image = Resources.Images.MenuImages.ExitItem;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -239,14 +239,14 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Refresh.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Refresh} Data";
+                _item.Text = $"{MenuOption.Refresh}";
                 _item.Tag = MenuOption.Refresh.ToString( );
+                _item.Image = Resources.Images.MenuImages.RefreshItem;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -271,14 +271,15 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Save.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Save}".SplitPascal( ) + " PDF";
+                _item.Text = $"{MenuOption.Save}".SplitPascal( );
                 _item.Tag = MenuOption.Save.ToString( );
+                _item.Image = Resources.Images.MenuImages.SaveItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -301,14 +302,15 @@ namespace BudgetExecution
             try
             {
                 var _item = new MetroSetToolStripMenuItem( );
-                _item.TextAlign = ContentAlignment.BottomCenter;
-                _item.Font = new Font( "Roboto", 9 );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Name = MenuOption.Chrome.ToString( );
-                _item.Size = new Size( 160, 30 );
-                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.Size = new Size( 203, 30 );
+                _item.BackColor = Color.FromArgb( 10, 10, 10 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Chrome}".SplitPascal( ) + " PDF";
+                _item.Text = $"{MenuOption.Chrome}".SplitPascal( );
                 _item.Tag = MenuOption.Chrome.ToString( );
+                _item.Image = Resources.Images.MenuImages.ChromeItem;
+                _item.ImageAlign = ContentAlignment.MiddleCenter;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
@@ -364,7 +366,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                    _item.BackColor = Color.FromArgb( 10, 10, 10 );
                     _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 }
                 catch( Exception _ex )
@@ -382,7 +384,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private protected void OnItemClicked( object sender, MouseEventArgs e )
         {
-            if( sender is ToolStripMenuItemExt _item
+            if( sender is MetroSetToolStripMenuItem _item
                && ( e?.Button == MouseButtons.Left ) )
             {
                 try
@@ -416,7 +418,9 @@ namespace BudgetExecution
                             }
                             case MenuOption.Calendar:
                             {
-                                WinMinion.LaunchCalendar( );
+                                var _calendarForm = new CalendarForm( );
+                                _calendarForm.Show( );
+                                _calendarForm.Focus( );
                                 break;
                             }
                             case MenuOption.ControlPanel:
@@ -429,10 +433,25 @@ namespace BudgetExecution
                                 WinMinion.LaunchTaskManager( );
                                 break;
                             }
+                            case MenuOption.Firefox:
+                            {
+                                WebMinion.RunFirefox( );
+                                break;
+                            }
+                            case MenuOption.Edge:
+                            {
+                                WebMinion.RunEdge( );
+                                break;
+                            }
+                            case MenuOption.Chrome:
+                            {
+                                WebMinion.RunChrome( );
+                                break;
+                            }
                             case MenuOption.Documentation:
                             {
                                 var _docViewer = new DocViewer( );
-                                _docViewer.ShowDialog( );
+                                _docViewer.Show( );
                                 break;
                             }
                             case MenuOption.Storage:
@@ -449,12 +468,15 @@ namespace BudgetExecution
                             }
                             case MenuOption.Clock:
                             {
-                                WinMinion.LaunchClock( );
+                                var _clockForm = new ClockForm( );
+                                _clockForm.Location = e.Location;
+                                _clockForm.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Maps:
                             {
-                                WinMinion.LaunchMaps( );
+                                var _geoMapper = new GeoMapper( );
+                                _geoMapper.Show( );
                                 break;
                             }
                             case MenuOption.MediaPlayer:

@@ -180,6 +180,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Resources\Images\MenuImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MenuImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Images\MathImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -243,6 +248,10 @@
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Images\MenuImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Images\MathImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MathImages.Designer.cs</LastGenOutput>
@@ -489,5 +498,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Assets\MenuItems\" />
   </ItemGroup>
 </Project>

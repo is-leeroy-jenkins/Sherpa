@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class BudgetAdapter : AdapterBase, IBudgetAdapter
     {
         /// <inheritdoc />
@@ -214,7 +215,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetAdapter"/>
         /// class.
         /// </summary>
-        public BudgetAdapter( )
+        public BudgetAdapter( ) 
+            : base( )
         {
             MissingSchemaAction = MissingSchemaAction.AddWithKey;
             MissingMappingAction = MissingMappingAction.Passthrough;

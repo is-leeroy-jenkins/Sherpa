@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class AdapterBase : DbDataAdapter
     {
         /// <summary>
@@ -109,6 +110,15 @@ namespace BudgetExecution
         /// The command text
         /// </summary>
         private protected string _commandText;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterBase" /> class.
+        /// </summary>
+        protected AdapterBase( )
+        {
+        }
 
         /// <summary>
         /// Gets the sql lite adapter.
