@@ -174,6 +174,8 @@ namespace BudgetExecution
             MenuButton = new ToolStripButton( );
             Separator33 = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
+            ExportButton = new ToolStripButton( );
+            ExportSeparator = new ToolSeparator( );
             FirstSeparator = new ToolSeparator( );
             SqlEditorButton = new ToolStripButton( );
             Separator10 = new ToolSeparator( );
@@ -1823,7 +1825,7 @@ namespace BudgetExecution
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, StatusLabel, NavigationSpaceLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, Separator17, MenuButton, Separator33, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, StatusLabel, NavigationSpaceLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, Separator17, MenuButton, Separator33, ApplicationLabel, ExportButton, ExportSeparator } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -2382,6 +2384,33 @@ namespace BudgetExecution
             ApplicationLabel.Text = "      Menu:";
             ApplicationLabel.ToolTip = null;
             // 
+            // ExportButton
+            // 
+            ExportButton.AutoToolTip = false;
+            ExportButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ExportButton.BindingSource = BindingSource;
+            ExportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            ExportButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            ExportButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ExportButton.HoverText = null;
+            ExportButton.Image = Resources.Images.ToolStripImages.ExcelExportButton;
+            ExportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            ExportButton.Margin = new System.Windows.Forms.Padding( 3 );
+            ExportButton.Name = "ExportButton";
+            ExportButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ExportButton.Size = new System.Drawing.Size( 23, 21 );
+            ExportButton.Text = "toolStripButton1";
+            ExportButton.ToolTip = ToolTip;
+            ExportButton.ToolType = ToolType.ExportButton;
+            // 
+            // ExportSeparator
+            // 
+            ExportSeparator.ForeColor = System.Drawing.Color.Black;
+            ExportSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            ExportSeparator.Name = "ExportSeparator";
+            ExportSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ExportSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
             // FirstSeparator
             // 
             FirstSeparator.ForeColor = System.Drawing.Color.Black;
@@ -2636,5 +2665,7 @@ namespace BudgetExecution
         public ToolStripLabel ApplicationLabel;
         public ContextMenu ContextMenu;
         public ControlBox ControlBox;
+        public ToolStripButton ExportButton;
+        public ToolSeparator ExportSeparator;
     }
 }

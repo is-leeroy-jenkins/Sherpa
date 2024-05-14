@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-18-2023
+//     Created:                 05-14-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-18-2023
+//     Last Modified On:        05-14-2024
 // ******************************************************************************************
 // <copyright file="CalendarForm.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   CalendarForm.cs
@@ -52,136 +52,142 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
-
+    using Action = System.Action;
+    
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
         /// <summary>
         /// The locked object
         /// </summary>
         private object _path;
-
+        
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
-
+        private Action _statusUpdate;
+        
         /// <summary>
         /// The time
         /// </summary>
         private int _time;
-
+        
         /// <summary>
         /// The seconds
         /// </summary>
         private int _seconds;
-
+        
         /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
-
+        
         /// <summary>
         /// The start date
         /// </summary>
         private DateTime _startDate;
-
+        
         /// <summary>
         /// The end date
         /// </summary>
         private DateTime _endDate;
-
+        
         /// <summary>
         /// The date string
         /// </summary>
         private string _dateString;
-
+        
         /// <summary>
         /// The selected start
         /// </summary>
         private string _selectedStart;
-
+        
         /// <summary>
         /// The selected end
         /// </summary>
         private string _selectedEnd;
-
+        
         /// <summary>
         /// The filter
         /// </summary>
         private IDictionary<string, object> _filter;
-
+        
         /// <summary>
         /// The columns
         /// </summary>
         private IList<string> _columns;
-
+        
         /// <summary>
         /// The fields
         /// </summary>
         private IList<string> _fields;
-
+        
         /// <summary>
         /// The numerics
         /// </summary>
         private IList<string> _numerics;
-
+        
         /// <summary>
         /// The selected columns
         /// </summary>
         private IList<string> _selectedColumns;
-
+        
         /// <summary>
         /// The selected fields
         /// </summary>
         private IList<string> _selectedFields;
-
+        
         /// <summary>
         /// The data set
         /// </summary>
         private DataSet _dataSet;
-
+        
         /// <summary>
         /// The holidays
         /// </summary>
         private DataTable _holidays;
-
+        
         /// <summary>
         /// The fiscal years
         /// </summary>
         private DataTable _fiscalYears;
 
         /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
         /// The selected dates
         /// </summary>
         private IList<DateTime> _selectedDates;
-
+        
         /// <summary>
         /// The data model
         /// </summary>
         private DataBuilder _dataModel;
-
+        
         /// <summary>
         /// The data arguments
         /// </summary>
         private DataArgs _dataArgs;
-
+        
         /// <summary>
         /// The provider
         /// </summary>
         private Provider _provider;
-
+        
         /// <summary>
         /// Gets the filter.
         /// </summary>
@@ -199,7 +205,7 @@ namespace BudgetExecution
                 _filter = value;
             }
         }
-
+        
         /// <summary>
         /// Gets the columns.
         /// </summary>
@@ -217,7 +223,7 @@ namespace BudgetExecution
                 _columns = value;
             }
         }
-
+        
         /// <summary>
         /// Gets the fields.
         /// </summary>
@@ -235,7 +241,7 @@ namespace BudgetExecution
                 _fields = value;
             }
         }
-
+        
         /// <summary>
         /// Gets the numerics.
         /// </summary>
@@ -253,7 +259,7 @@ namespace BudgetExecution
                 _numerics = value;
             }
         }
-
+        
         /// <summary>
         /// Gets the selected columns.
         /// </summary>
@@ -271,7 +277,7 @@ namespace BudgetExecution
                 _selectedColumns = value;
             }
         }
-
+        
         /// <summary>
         /// Gets the selected fields.
         /// </summary>
@@ -289,7 +295,7 @@ namespace BudgetExecution
                 _selectedFields = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the date string.
         /// </summary>
@@ -307,7 +313,7 @@ namespace BudgetExecution
                 _dateString = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the start date.
         /// </summary>
@@ -325,7 +331,7 @@ namespace BudgetExecution
                 _startDate = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the end date.
         /// </summary>
@@ -343,7 +349,7 @@ namespace BudgetExecution
                 _endDate = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the selected start.
         /// </summary>
@@ -361,7 +367,7 @@ namespace BudgetExecution
                 _selectedStart = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the selected end.
         /// </summary>
@@ -379,7 +385,7 @@ namespace BudgetExecution
                 _selectedEnd = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
@@ -397,7 +403,7 @@ namespace BudgetExecution
                 _dataSet = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the holidays.
         /// </summary>
@@ -415,7 +421,7 @@ namespace BudgetExecution
                 _holidays = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the fiscal years.
         /// </summary>
@@ -433,7 +439,7 @@ namespace BudgetExecution
                 _fiscalYears = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the data model.
         /// </summary>
@@ -451,7 +457,7 @@ namespace BudgetExecution
                 _dataModel = value;
             }
         }
-
+        
         /// <summary>
         /// Gets or sets the selected dates.
         /// </summary>
@@ -469,7 +475,7 @@ namespace BudgetExecution
                 _selectedDates = value;
             }
         }
-
+        
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
@@ -499,7 +505,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -510,7 +516,7 @@ namespace BudgetExecution
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
-
+            
             // Basic Properties
             MaximumSize = new Size( 1920, 1080 );
             MinimumSize = new Size( 1330, 730 );
@@ -540,27 +546,27 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-
+            
             // Budget Properties
             _filter = new Dictionary<string, object>( );
             _fields = new List<string>( );
             _columns = new List<string>( );
             _dataArgs = new DataArgs( );
             _selectedDates = new List<DateTime>( );
-
+            
             // Default Provider
             _provider = Provider.Access;
-
+            
             // Timer Properties
             _time = 0;
             _seconds = 5;
-
+            
             // Event Wiring
             Load += OnLoad;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
-
+        
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
@@ -584,6 +590,7 @@ namespace BudgetExecution
                 SecondCalendarTable.MouseClick += OnRightClick;
                 ChartTable.MouseClick += OnRightClick;
                 HeaderTable.MouseClick += OnRightClick;
+                ExportButton.Click += OnExportButtonClick;
             }
             catch( Exception _ex )
             {
@@ -605,7 +612,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the tool strip.
         /// </summary>
@@ -627,7 +634,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the timer.
         /// </summary>
@@ -645,7 +652,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the labels.
         /// </summary>
@@ -662,7 +669,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the chart.
         /// </summary>
@@ -678,7 +685,7 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].SmartLabels = true;
                 Chart.Series[ 0 ].ConfigItems.PieItem.LabelStyle =
                     ChartAccumulationLabelStyle.Outside;
-
+                
                 var _today = DateTime.Today;
                 var _start = new DateTime( _today.Year, 10, 1 );
                 BindChart( _start, _today );
@@ -688,14 +695,14 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Invokes if.
         /// </summary>
         /// <param name="action">
         /// The action.
         /// </param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             try
             {
@@ -714,7 +721,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Begins the initialize.
         /// </summary>
@@ -743,7 +750,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Ends the initialize.
         /// </summary>
@@ -772,7 +779,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
@@ -788,7 +795,7 @@ namespace BudgetExecution
                     await Task.Delay( interval );
                     form.Opacity += 0.05;
                 }
-
+                
                 form.Opacity = 1;
             }
             catch( Exception _ex )
@@ -796,7 +803,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Fades the out asynchronous.
         /// </summary>
@@ -812,7 +819,7 @@ namespace BudgetExecution
                     await Task.Delay( interval );
                     form.Opacity -= 0.05;
                 }
-
+                
                 form.Opacity = 0;
             }
             catch( Exception _ex )
@@ -820,7 +827,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Sets the title text.
         /// </summary>
@@ -839,7 +846,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Clears the labels.
         /// </summary>
@@ -865,7 +872,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Clears the selections.
         /// </summary>
@@ -881,7 +888,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Clears the collections.
         /// </summary>
@@ -896,7 +903,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Clears the data.
         /// </summary>
@@ -913,6 +920,37 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "    The Data Table is null!";
+                    SendMessage( _message );
+                }
+                else if( _dataModel.Numerics == null )
+                {
+                    var _message = "    The data is not alpha-numeric";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _report = new ExcelReport( _dataTable );
+                    _report.Save( );
+                    var _message = "    The Excel File has been created!";
+                    SendNotification( _message );
+                }
             }
             catch( Exception _ex )
             {
@@ -944,7 +982,7 @@ namespace BudgetExecution
                         }
                     }
                 }
-
+                
                 return _list?.Any( ) == true
                     ? _list.ToArray( )
                     : default( Control[ ] );
@@ -955,7 +993,7 @@ namespace BudgetExecution
                 return default( Control[ ] );
             }
         }
-
+        
         /// <summary>
         /// Gets the federal holidays.
         /// </summary>
@@ -966,9 +1004,9 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataBuilder( Source.FederalHolidays, Provider.Access );
-                var _table = _data?.DataTable;
-                return _table.Rows.Count > 0
-                    ? _table
+                _dataTable = _data?.DataTable;
+                return _dataTable.Rows.Count > 0
+                    ? _dataTable
                     : default( DataTable );
             }
             catch( Exception _ex )
@@ -977,7 +1015,7 @@ namespace BudgetExecution
                 return default( DataTable );
             }
         }
-
+        
         /// <summary>
         /// Gets the fiscal years.
         /// </summary>
@@ -988,9 +1026,9 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataBuilder( Source.FiscalYears, Provider.Access );
-                var _table = _data?.DataTable;
-                return _table.Rows.Count > 0
-                    ? _table
+                _dataTable = _data?.DataTable;
+                return _dataTable.Rows.Count > 0
+                    ? _dataTable
                     : default( DataTable );
             }
             catch( Exception _ex )
@@ -999,7 +1037,7 @@ namespace BudgetExecution
                 return default( DataTable );
             }
         }
-
+        
         /// <summary>
         /// Sets the active tab.
         /// </summary>
@@ -1055,7 +1093,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Updates the label text.
         /// </summary>
@@ -1096,7 +1134,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Updates the status.
         /// </summary>
@@ -1113,7 +1151,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Binds the chart.
         /// </summary>
@@ -1148,7 +1186,7 @@ namespace BudgetExecution
                     var _pt = new ChartPoint( _k, _values[ _i ] );
                     Chart.Series[ 0 ].Points.Add( _pt );
                 }
-
+                
                 Chart.Series[ 0 ].ExplodedAll = true;
             }
             catch( Exception _ex )
@@ -1156,7 +1194,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Counts the holidays.
         /// </summary>
@@ -1181,7 +1219,7 @@ namespace BudgetExecution
                         _holiday += 1;
                     }
                 }
-
+                
                 return _holiday;
             }
             catch( Exception _ex )
@@ -1190,7 +1228,7 @@ namespace BudgetExecution
                 return 0;
             }
         }
-
+        
         /// <summary>
         /// Opens the main form.
         /// </summary>
@@ -1208,7 +1246,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Sends the notification.
         /// </summary>
@@ -1226,7 +1264,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Sends the message.
         /// </summary>
@@ -1244,7 +1282,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -1272,7 +1310,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [main menu button clicked].
         /// </summary>
@@ -1283,7 +1321,7 @@ namespace BudgetExecution
         {
             try
             {
-                base.Close( );
+                Close( );
                 OpenMainForm( );
             }
             catch( Exception _ex )
@@ -1291,7 +1329,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [close button click].
         /// </summary>
@@ -1302,14 +1340,14 @@ namespace BudgetExecution
         {
             try
             {
-                base.Close( );
+                Close( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [first calendar selection changed].
         /// </summary>
@@ -1342,7 +1380,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [second calendar selection changed].
         /// </summary>
@@ -1364,7 +1402,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [table button click].
         /// </summary>
@@ -1384,7 +1422,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [chart button click].
         /// </summary>
@@ -1404,7 +1442,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [selected tab changed].
         /// </summary>
@@ -1424,7 +1462,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [refresh button click].
         /// </summary>
@@ -1451,7 +1489,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [right click].
         /// </summary>
@@ -1472,7 +1510,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [timer tick].
         /// </summary>
@@ -1490,7 +1528,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [file dialog button clicked].
         /// </summary>
@@ -1509,7 +1547,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [save button clicked].
         /// </summary>
@@ -1528,7 +1566,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [form closing].
         /// </summary>
@@ -1547,7 +1585,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [shown].
         /// </summary>
@@ -1560,6 +1598,24 @@ namespace BudgetExecution
             {
                 Opacity = 0;
                 FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [export button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnExportButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                CreateExcelReport( );
             }
             catch( Exception _ex )
             {

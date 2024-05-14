@@ -712,6 +712,7 @@ namespace BudgetExecution
                 ChartHeaderTable.MouseClick += OnRightClick;
                 ChartHeaderPanel.MouseClick += OnRightClick;
                 SourcePanel.MouseClick += OnRightClick;
+                ExportButton.Click += OnExportButtonClick;
             }
             catch( Exception _ex )
             {
@@ -1857,6 +1858,37 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "    The Data Table is null!";
+                    SendMessage( _message );
+                }
+                else if( _dataModel.Numerics == null )
+                {
+                    var _message = "    The data is not alpha-numeric";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _report = new ExcelReport( _dataTable );
+                    _report.Save( );
+                    var _message = "    The Excel File has been created!";
+                    SendNotification( _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -3192,6 +3224,24 @@ namespace BudgetExecution
             {
                 Opacity = 0;
                 FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [export button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnExportButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                CreateExcelReport( );
             }
             catch( Exception _ex )
             {

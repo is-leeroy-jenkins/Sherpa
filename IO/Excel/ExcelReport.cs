@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public ExcelReport( string filePath )
-            : this( )
+            : base( )
         {
             _startRow = 2;
             _startColumn = 1;
@@ -219,7 +219,7 @@ namespace BudgetExecution
         /// The data table.
         /// </param>
         public ExcelReport( DataTable dataTable )
-            : this( )
+            : base( )
         {
             _startRow = 2;
             _startColumn = 1;
@@ -316,8 +316,7 @@ namespace BudgetExecution
             {
                 var _rows = _dataTable.Rows.Count.ToString( "N0" );
                 var _cols = _dataTable.Columns.Count.ToString( );
-                _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText =
-                    "Records:" + '\t'
+                _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText = "Records:" + '\t'
                     + "  "
                     + _rows.PadLeft( 16 )
                     + Environment.NewLine

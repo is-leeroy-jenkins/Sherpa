@@ -109,9 +109,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
         protected PartFactory( )
             : base( )
         {

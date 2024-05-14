@@ -638,7 +638,7 @@ namespace BudgetExecution
                 CloseButton.Click += OnCloseButtonClick;
                 BrowseButton.Click += OnBrowserButtonClick;
                 MenuButton.Click += OnMenuButtonClicked;
-                ExcelButton.Click += OnExcelButtonClicked;
+                ExportButton.Click += OnExcelButtonClicked;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 Timer.Tick += OnTimerTick;
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -655,6 +655,7 @@ namespace BudgetExecution
                 SqlCeRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
                 SqlServerRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
                 AccessRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
+                ExportButton.Click += OnExportButtonClick;
             }
             catch( Exception _ex )
             {
@@ -1228,6 +1229,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendNotification( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the worksheet properties.
         /// </summary>
         private void SetWorksheetConfiguration( )
@@ -1738,7 +1757,7 @@ namespace BudgetExecution
                         DataTab.TabVisible = true;
                         QueryTab.TabVisible = false;
                         BusyTab.TabVisible = false;
-                        ExcelButton.Visible = false;
+                        ExportButton.Visible = false;
                         ExcelSeparator.Visible = false;
                         LookupButton.Visible = false;
                         LookupSeparator.Visible = false;
@@ -1762,7 +1781,7 @@ namespace BudgetExecution
                 DataTab.TabVisible = true;
                 QueryTab.TabVisible = false;
                 BusyTab.TabVisible = false;
-                ExcelButton.Visible = false;
+                ExportButton.Visible = false;
                 ExcelSeparator.Visible = false;
                 LookupButton.Visible = true;
                 LookupSeparator.Visible = true;
@@ -1783,7 +1802,7 @@ namespace BudgetExecution
                 QueryTab.TabVisible = true;
                 DataTab.TabVisible = false;
                 BusyTab.TabVisible = false;
-                ExcelButton.Visible = true;
+                ExportButton.Visible = true;
                 ExcelSeparator.Visible = true;
                 LookupButton.Visible = false;
                 LookupSeparator.Visible = false;
@@ -1804,7 +1823,7 @@ namespace BudgetExecution
                 BusyTab.TabVisible = true;
                 QueryTab.TabVisible = false;
                 DataTab.TabVisible = false;
-                ExcelButton.Visible = false;
+                ExportButton.Visible = false;
                 ExcelSeparator.Visible = false;
                 LookupButton.Visible = false;
                 LookupSeparator.Visible = false;
@@ -1912,6 +1931,37 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "    The Data Table is null!";
+                    SendMessage( _message );
+                }
+                else if( _dataModel.Numerics == null )
+                {
+                    var _message = "    The data is not alpha-numeric";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _report = new ExcelReport( _dataTable );
+                    _report.Save( );
+                    var _message = "    The Excel File has been created!";
+                    SendNotification( _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -2679,6 +2729,24 @@ namespace BudgetExecution
             {
                 Opacity = 0;
                 FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [export button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnExportButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                CreateExcelReport( );
             }
             catch( Exception _ex )
             {

@@ -349,9 +349,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
         protected SheetConfig( )
             : base( )
         {

@@ -117,9 +117,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
         protected Workbook( )
             : base( )
         {
@@ -266,8 +266,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, 
@@ -307,8 +307,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn,
@@ -333,8 +333,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, 

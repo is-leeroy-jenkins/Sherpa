@@ -89,6 +89,8 @@
             Separator17 = new ToolSeparator( );
             MenuSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
+            ExportButton = new ToolStripButton( );
+            ExportSeparator = new ToolSeparator( );
             MenuLabel = new ToolStripLabel( );
             Separator1 = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
@@ -494,7 +496,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MenuButton, Separator17, MenuSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MenuButton, Separator17, MenuSeparator, ApplicationLabel, ExportButton, ExportSeparator } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -1052,6 +1054,33 @@
             ApplicationLabel.Tag = "";
             ApplicationLabel.Text = "                     Menu:          ";
             ApplicationLabel.ToolTip = null;
+            // 
+            // ExportButton
+            // 
+            ExportButton.AutoToolTip = false;
+            ExportButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ExportButton.BindingSource = BindingSource;
+            ExportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            ExportButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            ExportButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ExportButton.HoverText = null;
+            ExportButton.Image = Resources.Images.ToolStripImages.ExcelExportButton;
+            ExportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            ExportButton.Margin = new System.Windows.Forms.Padding( 3 );
+            ExportButton.Name = "ExportButton";
+            ExportButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ExportButton.Size = new System.Drawing.Size( 23, 21 );
+            ExportButton.Text = "toolStripButton1";
+            ExportButton.ToolTip = ToolTip;
+            ExportButton.ToolType = ToolType.ExportButton;
+            // 
+            // ExportSeparator
+            // 
+            ExportSeparator.ForeColor = System.Drawing.Color.Black;
+            ExportSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            ExportSeparator.Name = "ExportSeparator";
+            ExportSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ExportSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // MenuLabel
             // 
@@ -2387,5 +2416,7 @@
         public ToolStripLabel ApplicationLabel;
         public ControlBox ControlBox;
         public ContextMenu ContextMenu;
+        public ToolStripButton ExportButton;
+        public ToolSeparator ExportSeparator;
     }
 }

@@ -217,6 +217,9 @@
   <data name="ExcelExportButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\ToolStripImages\ExcelExportButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ExcelExportButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\ToolStripImages\ExcelExportButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ExcelImportButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\ToolStripImages\ExcelImportButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

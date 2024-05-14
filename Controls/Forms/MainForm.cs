@@ -545,7 +545,7 @@ namespace BudgetExecution
                 var _report = new ExcelReport( _dataTable );
                 _report.Save( );
                 var _message = "The Excel File has been created!";
-                SendMessage( _message );
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -1368,7 +1368,7 @@ namespace BudgetExecution
         {
             try
             {
-                OpenDelayForm( );
+                CreateExcelReport( );
             }
             catch( Exception _ex )
             {

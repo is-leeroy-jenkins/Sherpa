@@ -77,7 +77,7 @@
             MenuButton = new ToolStripButton( );
             MenuSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
-            ExcelButton = new ToolStripButton( );
+            ExportButton = new ToolStripButton( );
             ExcelSeparator = new ToolSeparator( );
             FilterSeparator = new ToolSeparator( );
             TabControl = new TabControl( );
@@ -415,7 +415,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator2, StatusLabel, StatusSpacer, StripSeparator, ToolStripTextBox, Separator3, GoButton, Label3, SystemLabel, Separator5, BrowseButton, Separator7, SaveButton, FilterSpacer, FilterLabel, RefreshButtonSeparator, RefreshButton, LookupSeparator, LookupButton, SqlSeparator, BackButtonSeparator, CloseButton, Separator10, MenuButton, MenuSeparator, ApplicationLabel, ExcelButton, ExcelSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator2, StatusLabel, StatusSpacer, StripSeparator, ToolStripTextBox, Separator3, GoButton, Label3, SystemLabel, Separator5, BrowseButton, Separator7, SaveButton, FilterSpacer, FilterLabel, RefreshButtonSeparator, RefreshButton, LookupSeparator, LookupButton, SqlSeparator, BackButtonSeparator, CloseButton, Separator10, MenuButton, MenuSeparator, ApplicationLabel, ExportButton, ExcelSeparator } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 0, 0 );
@@ -503,7 +503,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 204, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 200, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -796,24 +796,24 @@
             ApplicationLabel.Text = "               Main:";
             ApplicationLabel.ToolTip = null;
             // 
-            // ExcelButton
+            // ExportButton
             // 
-            ExcelButton.AutoToolTip = false;
-            ExcelButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ExcelButton.BindingSource = BindingSource;
-            ExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            ExcelButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            ExcelButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ExcelButton.HoverText = "View Spreadsheet";
-            ExcelButton.Image = Resources.Images.ToolStripImages.ExcelButton;
-            ExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            ExcelButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            ExcelButton.Name = "ExcelButton";
-            ExcelButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ExcelButton.Size = new System.Drawing.Size( 23, 27 );
-            ExcelButton.Text = "toolStripButton1";
-            ExcelButton.ToolTip = ToolTip;
-            ExcelButton.ToolType = ToolType.ExcelButton;
+            ExportButton.AutoToolTip = false;
+            ExportButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ExportButton.BindingSource = BindingSource;
+            ExportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            ExportButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            ExportButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ExportButton.HoverText = "View Spreadsheet";
+            ExportButton.Image = Resources.Images.ToolStripImages.ExcelButton;
+            ExportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            ExportButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            ExportButton.Name = "ExportButton";
+            ExportButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ExportButton.Size = new System.Drawing.Size( 23, 27 );
+            ExportButton.Text = "toolStripButton1";
+            ExportButton.ToolTip = ToolTip;
+            ExportButton.ToolType = ToolType.ExportButton;
             // 
             // ExcelSeparator
             // 
@@ -1785,7 +1785,7 @@
         public RadioButton SqliteRadioButton;
         public RadioButton AccessRadioButton;
         public RadioButton SqlServerRadioButton;
-        public ToolStripButton ExcelButton;
+        public ToolStripButton ExportButton;
         public ToolSeparator ExcelSeparator;
         public HeaderPanel SourceHeaderTable;
         public BackPanel SourcePanel;
