@@ -105,12 +105,7 @@ namespace BudgetExecution
         /// The count
         /// </summary>
         private int _count;
-
-        /// <summary>
-        /// The hover text
-        /// </summary>
-        private string _hoverText;
-
+        
         /// <summary>
         /// The first category
         /// </summary>
@@ -140,16 +135,6 @@ namespace BudgetExecution
         /// The third value
         /// </summary>
         private string _thirdValue;
-
-        /// <summary>
-        /// The fourth category
-        /// </summary>
-        private string _fourthCategory;
-
-        /// <summary>
-        /// The fourth value
-        /// </summary>
-        private string _fourthValue;
 
         /// <summary>
         /// The command of the SQL command
@@ -304,9 +289,9 @@ namespace BudgetExecution
             InitializeDelegates( );
 
             // Form Properties
-            Size = new Size( 1340, 740 );
-            MaximumSize = new Size( 1350, 750 );
+            MaximumSize = new Size( 1920, 1080 );
             MinimumSize = new Size( 1330, 730 );
+            Size = new Size( 1340, 740 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -332,7 +317,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
 
             // Default Provider
             _provider = Provider.Access;

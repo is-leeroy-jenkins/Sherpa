@@ -143,6 +143,7 @@ namespace BudgetExecution
             Timer = new System.Windows.Forms.Timer( components );
             TestButton = new Button( );
             ContextMenu = new ContextMenu( );
+            ControlBox = new ControlBox( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
@@ -1265,10 +1266,40 @@ namespace BudgetExecution
             ContextMenu.Name = "ContextMenu";
             ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
             ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
             ContextMenu.StyleManager = null;
             ContextMenu.ThemeAuthor = "Terry Eppler";
             ContextMenu.ThemeName = "MetroLite";
+            // 
+            // ControlBox
+            // 
+            ControlBox.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.FromArgb( 183, 40, 40 );
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 35, 35, 35 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1226, 2 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 21;
+            ControlBox.ThemeAuthor = "Terry Eppler";
+            ControlBox.ThemeName = "Dark";
             // 
             // MainForm
             // 
@@ -1283,6 +1314,7 @@ namespace BudgetExecution
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1328, 729 );
+            Controls.Add( ControlBox );
             Controls.Add( TestButton );
             Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
@@ -1295,7 +1327,7 @@ namespace BudgetExecution
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1350, 750 );
+            MaximumSize = new System.Drawing.Size( 1920, 1080 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
@@ -1357,5 +1389,6 @@ namespace BudgetExecution
         public Button TestButton;
         private ContextMenu contextMenu1;
         public ContextMenu ContextMenu;
+        public ControlBox ControlBox;
     }
 }

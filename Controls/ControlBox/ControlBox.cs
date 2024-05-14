@@ -44,26 +44,56 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Office.PowerPoint.Y2021.M06.Main;
     using MetroSet_UI.Controls;
-
+    using MetroSet_UI.Enums;
+    using Syncfusion.Windows.Forms.Tools;
+    using Syncfusion.XlsIO.Implementation.PivotAnalysis;
+    
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="MetroSet_UI.Controls.MetroSetControlBox" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class ControlBox : MetroSetControlBox
     {
+        /// <summary>
+        /// The maximum size
+        /// </summary>
+        private protected Size _maximumSize;
+
+        /// <summary>
+        /// The minimum size
+        /// </summary>
+        private protected Size _minimumSize;
+
+        /// <summary>
+        /// The normal size
+        /// </summary>
+        private protected Size _normalSize;
+
+        /// <summary>
+        /// The tool tip
+        /// </summary>
+        private SmallTip _toolTip;
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ControlBox"/> class.
         /// </summary>
-        public ControlBox( )
+        public ControlBox( ) 
+            : base( )
         {
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "DarkControls";
             Font = new Font( "Roboto", 9 );
             Size = new Size( 100, 25 );
             Margin = new Padding( 1 );
-            Padding = new Padding( 0 );
-            ForeColor = Color.FromArgb( 106, 189, 252 );
+            Padding = new Padding( 1 );
+            ForeColor = Color.FromArgb( 106, 189, 252 ); 
             DisabledForeColor = Color.FromArgb( 20, 20, 20 );
             CloseHoverBackColor = Color.Maroon;
             MinimizeHoverBackColor = Color.FromArgb( 50, 93, 129 );
@@ -71,9 +101,77 @@ namespace BudgetExecution
             CloseHoverForeColor = Color.White;
             MinimizeHoverForeColor = Color.White;
             MaximizeHoverForeColor = Color.White;
-            CloseNormalForeColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeNormalForeColor = Color.FromArgb( 20, 20, 20 );
-            MaximizeNormalForeColor = Color.FromArgb( 20, 20, 20 );
+            CloseNormalForeColor = Color.FromArgb( 45, 45, 45 );
+            MinimizeNormalForeColor = Color.FromArgb( 45, 45, 45 );
+            MaximizeNormalForeColor = Color.FromArgb( 45, 45, 45 );
+            MaximizeBox = true;
+            MinimizeBox = true;
+        }
+
+        /// <summary>
+        /// Called when [maximize button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMaximizeButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [maxmize button hover].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMaxmizeButtonHover( object sender, EventArgs e )
+        {
+            try
+            {
+                var _tip = new SmallTip( this, "Maximize" );
+                _toolTip = _tip;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnCloseButtonHover( object sender, EventArgs e )
+        {
+            try
+            {
+                var _tip = new SmallTip( this, "Close" );
+                _toolTip = _tip;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

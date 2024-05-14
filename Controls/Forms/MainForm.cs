@@ -141,7 +141,7 @@ namespace BudgetExecution
 
             // Basic Properties
             Name = nameof( MainForm );
-            MaximumSize = new Size( 1350, 750 );
+            MaximumSize = new Size( 1920, 1080 );
             MinimumSize = new Size( 1330, 730 );
             Size = new Size( 1340, 740 );
             Padding = new Padding( 1 );
@@ -248,6 +248,18 @@ namespace BudgetExecution
         /// Initializes the delegates.
         /// </summary>
         private void InitializeDelegates( )
+        {
+            try
+            {
+                _beginLoad += OpenDelayForm;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void InitializeControlBox( )
         {
             try
             {

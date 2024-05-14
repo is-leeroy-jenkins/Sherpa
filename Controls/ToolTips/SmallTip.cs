@@ -59,6 +59,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class SmallTip : MetroSetSetToolTip
     {
         /// <summary>
@@ -301,7 +304,7 @@ namespace BudgetExecution
         /// Sets the text.
         /// </summary>
         /// <param name="control">The control.</param>
-        public virtual void SetText( Control control )
+        public void SetText( Control control )
         {
             if( !string.IsNullOrEmpty( control?.Tag?.ToString( ) ) )
             {
@@ -323,7 +326,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="caption">The caption.</param>
-        public virtual void SetText( Control control, string caption )
+        public void SetText( Control control, string caption )
         {
             if( ( control != null )
                && !string.IsNullOrEmpty( caption ) )
@@ -344,7 +347,7 @@ namespace BudgetExecution
         /// Sets the text.
         /// </summary>
         /// <param name="item">The item.</param>
-        public virtual void SetText( ToolStripItem item )
+        public void SetText( ToolStripItem item )
         {
             if( ( item.GetCurrentParent( ) != null )
                && ( item != null ) )
@@ -370,7 +373,7 @@ namespace BudgetExecution
         /// Sets the text.
         /// </summary>
         /// <param name="component">The component.</param>
-        public virtual void SetText( Component component )
+        public void SetText( Component component )
         {
             if( component is Control _control )
             {

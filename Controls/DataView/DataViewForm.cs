@@ -515,9 +515,9 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Basic Properties
-            Size = new Size( 1340, 740 );
-            MaximumSize = new Size( 1350, 750 );
+            MaximumSize = new Size( 1920, 1080 );
             MinimumSize = new Size( 1330, 730 );
+            Size = new Size( 1340, 740 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -543,7 +543,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
 
             // Initialize Default Provider
             _provider = Provider.Access;

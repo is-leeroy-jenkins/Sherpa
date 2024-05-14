@@ -73,12 +73,14 @@
             PictureBox = new System.Windows.Forms.PictureBox( );
             HeaderPanel = new System.Windows.Forms.TableLayoutPanel( );
             Title = new Label( );
+            ControlBox = new ControlBox( );
             Timer = new System.Windows.Forms.Timer( components );
             GuidancePanel = new HeaderPanel( );
             TableListBoxLayout = new BackPanel( );
             ButtonPanel = new System.Windows.Forms.FlowLayoutPanel( );
             DocumentTable = new HeaderPanel( );
             PdfViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( );
+            ContextMenu = new ContextMenu( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -559,7 +561,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 182, 25 );
+            TextBox.Size = new System.Drawing.Size( 170, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -643,17 +645,19 @@
             // 
             // HeaderPanel
             // 
-            HeaderPanel.ColumnCount = 2;
+            HeaderPanel.ColumnCount = 3;
             HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.99401188F ) );
             HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.00599F ) );
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 148F ) );
             HeaderPanel.Controls.Add( PictureBox, 0, 0 );
             HeaderPanel.Controls.Add( Title, 1, 0 );
+            HeaderPanel.Controls.Add( ControlBox, 2, 0 );
             HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderPanel.Location = new System.Drawing.Point( 1, 1 );
             HeaderPanel.Name = "HeaderPanel";
             HeaderPanel.RowCount = 1;
             HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderPanel.Size = new System.Drawing.Size( 1326, 21 );
+            HeaderPanel.Size = new System.Drawing.Size( 1326, 23 );
             HeaderPanel.TabIndex = 55;
             // 
             // Title
@@ -664,11 +668,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 42, 3 );
+            Title.Location = new System.Drawing.Point( 38, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1281, 15 );
+            Title.Size = new System.Drawing.Size( 1136, 17 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 55;
@@ -677,6 +681,35 @@
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.FromArgb( 183, 40, 40 );
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 35, 35, 35 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 56;
+            ControlBox.ThemeAuthor = "Terry Eppler";
+            ControlBox.ThemeName = "Dark";
             // 
             // Timer
             // 
@@ -693,12 +726,12 @@
             GuidancePanel.Controls.Add( TableListBoxLayout, 0, 1 );
             GuidancePanel.Font = new System.Drawing.Font( "Roboto", 9F );
             GuidancePanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            GuidancePanel.Location = new System.Drawing.Point( 1049, 25 );
+            GuidancePanel.Location = new System.Drawing.Point( 1049, 30 );
             GuidancePanel.Name = "GuidancePanel";
             GuidancePanel.RowCount = 2;
-            GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
-            GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            GuidancePanel.Size = new System.Drawing.Size( 288, 661 );
+            GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.40625F ) );
+            GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.59375F ) );
+            GuidancePanel.Size = new System.Drawing.Size( 278, 656 );
             GuidancePanel.TabIndex = 57;
             // 
             // TableListBoxLayout
@@ -716,10 +749,10 @@
             TableListBoxLayout.ForeColor = System.Drawing.Color.Transparent;
             TableListBoxLayout.HoverText = null;
             TableListBoxLayout.IsDerivedStyle = true;
-            TableListBoxLayout.Location = new System.Drawing.Point( 3, 27 );
+            TableListBoxLayout.Location = new System.Drawing.Point( 3, 28 );
             TableListBoxLayout.Name = "TableListBoxLayout";
             TableListBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBoxLayout.Size = new System.Drawing.Size( 282, 631 );
+            TableListBoxLayout.Size = new System.Drawing.Size( 272, 625 );
             TableListBoxLayout.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBoxLayout.StyleManager = null;
             TableListBoxLayout.TabIndex = 0;
@@ -734,7 +767,7 @@
             ButtonPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ButtonPanel.Location = new System.Drawing.Point( 1, 1 );
             ButtonPanel.Name = "ButtonPanel";
-            ButtonPanel.Size = new System.Drawing.Size( 280, 629 );
+            ButtonPanel.Size = new System.Drawing.Size( 270, 623 );
             ButtonPanel.TabIndex = 0;
             // 
             // DocumentTable
@@ -748,12 +781,12 @@
             DocumentTable.Controls.Add( PdfViewer, 0, 1 );
             DocumentTable.Font = new System.Drawing.Font( "Roboto", 9F );
             DocumentTable.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            DocumentTable.Location = new System.Drawing.Point( 4, 25 );
+            DocumentTable.Location = new System.Drawing.Point( 4, 30 );
             DocumentTable.Name = "DocumentTable";
             DocumentTable.RowCount = 2;
             DocumentTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.275917F ) );
             DocumentTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.72408F ) );
-            DocumentTable.Size = new System.Drawing.Size( 1042, 661 );
+            DocumentTable.Size = new System.Drawing.Size( 1042, 656 );
             DocumentTable.TabIndex = 58;
             // 
             // PdfViewer
@@ -783,7 +816,7 @@
             PdfViewer.ShowHorizontalScrollBar = true;
             PdfViewer.ShowToolBar = true;
             PdfViewer.ShowVerticalScrollBar = true;
-            PdfViewer.Size = new System.Drawing.Size( 1036, 631 );
+            PdfViewer.Size = new System.Drawing.Size( 1036, 626 );
             PdfViewer.SpaceBetweenPages = 8;
             PdfViewer.TabIndex = 0;
             PdfViewer.Text = "pdfViewerControl1";
@@ -795,6 +828,20 @@
             PdfViewer.VerticalScrollOffset = 0;
             PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
             PdfViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
             // 
             // DocViewer
             // 
@@ -809,7 +856,6 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1328, 729 );
-            ControlBox = false;
             Controls.Add( HeaderPanel );
             Controls.Add( DocumentTable );
             Controls.Add( GuidancePanel );
@@ -819,7 +865,7 @@
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1350, 750 );
+            MaximumSize = new System.Drawing.Size( 1920, 1080 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1330, 730 );
@@ -880,7 +926,6 @@
         public System.Windows.Forms.PictureBox PictureBox;
         public System.Windows.Forms.TableLayoutPanel HeaderPanel;
         public Label Title;
-        private ContextMenu ContextMenu;
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
         public System.Windows.Forms.Timer Timer;
@@ -892,5 +937,7 @@
         public ToolSeparator Separator16;
         public System.Windows.Forms.FlowLayoutPanel ButtonPanel;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt MenuLabel;
+        public ControlBox ControlBox;
+        public ContextMenu ContextMenu;
     }
 }

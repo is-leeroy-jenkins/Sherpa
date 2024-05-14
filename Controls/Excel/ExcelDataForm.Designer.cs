@@ -44,8 +44,9 @@
             Separator9 = new ToolSeparator( );
             Separator11 = new ToolSeparator( );
             HeaderPanel = new System.Windows.Forms.TableLayoutPanel( );
-            Header = new Label( );
             PictureBox = new System.Windows.Forms.PictureBox( );
+            Header = new Label( );
+            ControlBox = new ControlBox( );
             LabelSeparator = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -110,6 +111,7 @@
             TableListBox = new ListBox( );
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
+            ContextMenu = new ContextMenu( );
             ( (System.ComponentModel.ISupportInitialize)Ribbon ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderPanel.SuspendLayout( );
@@ -205,7 +207,7 @@
             Spreadsheet.SelectedTabIndex = 0;
             Spreadsheet.SelectedTabItem = null;
             Spreadsheet.ShowBusyIndicator = true;
-            Spreadsheet.Size = new System.Drawing.Size( 1326, 525 );
+            Spreadsheet.Size = new System.Drawing.Size( 1326, 517 );
             Spreadsheet.TabIndex = 1;
             Spreadsheet.TabItemContextMenu = null;
             Spreadsheet.Text = "Spreadsheet";
@@ -274,41 +276,21 @@
             // 
             // HeaderPanel
             // 
-            HeaderPanel.ColumnCount = 2;
-            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 1300F ) );
-            HeaderPanel.Controls.Add( Header, 1, 0 );
+            HeaderPanel.ColumnCount = 3;
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 21.1915531F ) );
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 55.9577675F ) );
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 22.85068F ) );
             HeaderPanel.Controls.Add( PictureBox, 0, 0 );
+            HeaderPanel.Controls.Add( Header, 1, 0 );
+            HeaderPanel.Controls.Add( ControlBox, 2, 0 );
             HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
             HeaderPanel.Location = new System.Drawing.Point( 1, 1 );
             HeaderPanel.Name = "HeaderPanel";
             HeaderPanel.RowCount = 1;
-            HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderPanel.Size = new System.Drawing.Size( 1326, 24 );
+            HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+            HeaderPanel.Size = new System.Drawing.Size( 1326, 32 );
             HeaderPanel.TabIndex = 3;
-            // 
-            // Header
-            // 
-            Header.BindingSource = null;
-            Header.Dock = System.Windows.Forms.DockStyle.Fill;
-            Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
-            Header.HoverText = null;
-            Header.IsDerivedStyle = true;
-            Header.Location = new System.Drawing.Point( 29, 3 );
-            Header.Margin = new System.Windows.Forms.Padding( 3 );
-            Header.Name = "Header";
-            Header.Padding = new System.Windows.Forms.Padding( 1 );
-            Header.Size = new System.Drawing.Size( 1294, 18 );
-            Header.Style = MetroSet_UI.Enums.Style.Custom;
-            Header.StyleManager = null;
-            Header.TabIndex = 1;
-            Header.Text = "Budget Execution";
-            Header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            Header.ThemeAuthor = "Terry D. Eppler";
-            Header.ThemeName = "Budget Execution";
-            Header.ToolTip = ToolTip;
             // 
             // PictureBox
             // 
@@ -320,6 +302,56 @@
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
+            // 
+            // Header
+            // 
+            Header.BindingSource = null;
+            Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
+            Header.HoverText = null;
+            Header.IsDerivedStyle = true;
+            Header.Location = new System.Drawing.Point( 284, 3 );
+            Header.Margin = new System.Windows.Forms.Padding( 3 );
+            Header.Name = "Header";
+            Header.Padding = new System.Windows.Forms.Padding( 1 );
+            Header.Size = new System.Drawing.Size( 736, 18 );
+            Header.Style = MetroSet_UI.Enums.Style.Custom;
+            Header.StyleManager = null;
+            Header.TabIndex = 1;
+            Header.Text = "Budget Execution";
+            Header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            Header.ThemeAuthor = "Terry D. Eppler";
+            Header.ThemeName = "Budget Execution";
+            Header.ToolTip = ToolTip;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.FromArgb( 183, 40, 40 );
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 35, 35, 35 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 22;
+            ControlBox.ThemeAuthor = "Terry Eppler";
+            ControlBox.ThemeName = "Dark";
             // 
             // LabelSeparator
             // 
@@ -471,7 +503,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 210, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 206, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -804,7 +836,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1326, 657 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1326, 649 );
             TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
@@ -819,9 +851,9 @@
             TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ItemSize = new System.Drawing.Size( 150, 5 );
-            TabControl.Location = new System.Drawing.Point( 1, 25 );
+            TabControl.Location = new System.Drawing.Point( 1, 33 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1326, 657 );
+            TabControl.Size = new System.Drawing.Size( 1326, 649 );
             TabControl.TabIndex = 5;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -845,7 +877,7 @@
             DataTab.Location = new System.Drawing.Point( 0, 4 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1326, 653 );
+            DataTab.Size = new System.Drawing.Size( 1326, 645 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabIndex = 1;
@@ -865,7 +897,7 @@
             QueryTab.Location = new System.Drawing.Point( 0, 4 );
             QueryTab.Name = "QueryTab";
             QueryTab.ShowCloseButton = true;
-            QueryTab.Size = new System.Drawing.Size( 1326, 653 );
+            QueryTab.Size = new System.Drawing.Size( 1326, 645 );
             QueryTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTab.TabIndex = 5;
@@ -1592,7 +1624,7 @@
             BusyTab.Margin = new System.Windows.Forms.Padding( 1 );
             BusyTab.Name = "BusyTab";
             BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1326, 653 );
+            BusyTab.Size = new System.Drawing.Size( 1326, 645 );
             BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
@@ -1603,10 +1635,24 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 0, 0 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1326, 653 );
+            Loader.Size = new System.Drawing.Size( 1326, 645 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
             // 
             // ExcelDataForm
             // 
@@ -1621,7 +1667,6 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 1328, 728 );
-            ControlBox = false;
             Controls.Add( TabControl );
             Controls.Add( ToolStripTable );
             Controls.Add( HeaderPanel );
@@ -1630,7 +1675,7 @@
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1350, 750 );
+            MaximumSize = new System.Drawing.Size( 1920, 1080 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1330, 730 );
@@ -1753,5 +1798,7 @@
         public ComboBox ThirdComboBox;
         public ComboBox FirstComboBox;
         public ComboBox SecondComboBox;
+        public ControlBox ControlBox;
+        public ContextMenu ContextMenu;
     }
 }

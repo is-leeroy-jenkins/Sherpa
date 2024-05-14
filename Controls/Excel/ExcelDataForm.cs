@@ -515,9 +515,9 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Form Properties
-            Size = new Size( 1340, 740 );
-            MaximumSize = new Size( 1350, 750 );
+            MaximumSize = new Size( 1920, 1080 );
             MinimumSize = new Size( 1330, 730 );
+            Size = new Size( 1340, 740 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -543,7 +543,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
 
             // Data Attributes
             _filter = new Dictionary<string, object>( );
@@ -569,6 +568,7 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             FormClosing += OnFormClosing;
+            MouseClick += OnRightClick;
         }
 
         /// <inheritdoc/>
@@ -2124,7 +2124,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {
