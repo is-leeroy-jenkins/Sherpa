@@ -1636,7 +1636,7 @@ namespace BudgetExecution
                 else
                 {
                     var _report = new ExcelReport( _dataTable );
-                    _report.Save( );
+                    _report.SaveDialog( );
                     var _message = "    The Excel File has been created!";
                     SendNotification( _message );
                 }

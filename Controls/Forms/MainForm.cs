@@ -543,7 +543,7 @@ namespace BudgetExecution
                 var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
                 var _dataTable = _data.DataTable;
                 var _report = new ExcelReport( _dataTable );
-                _report.Save( );
+                _report.SaveDialog( );
                 var _message = "The Excel File has been created!";
                 SendNotification( _message );
             }

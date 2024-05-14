@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Windows.Forms;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
     using static System.Configuration.ConfigurationManager;
@@ -401,10 +402,13 @@ namespace BudgetExecution
         /// <summary>
         /// Saves this instance.
         /// </summary>
-        public void Save( )
+        public void SaveDialog( )
         {
             try
             {
+                var _browser = new FolderBrowserDialog( );
+                _browser.ShowDialog( );
+                _savePath = _browser.SelectedPath + @"\" + _dataTable.TableName + ".xlsx";
                 _excelPackage.SaveAs( _savePath );
             }
             catch( Exception _ex )
