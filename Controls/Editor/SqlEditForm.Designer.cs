@@ -283,7 +283,7 @@
             // 
             // SqlCommandTable
             // 
-            SqlCommandTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlCommandTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             SqlCommandTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             SqlCommandTable.ColumnCount = 1;
             SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
@@ -295,7 +295,7 @@
             SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 123F ) );
             SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 326F ) );
             SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            SqlCommandTable.Size = new System.Drawing.Size( 358, 564 );
+            SqlCommandTable.Size = new System.Drawing.Size( 358, 566 );
             SqlCommandTable.TabIndex = 7;
             // 
             // CommandTable
@@ -346,7 +346,7 @@
             // CommandComboBox
             // 
             CommandComboBox.AllowDrop = true;
-            CommandComboBox.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            CommandComboBox.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CommandComboBox.BackColor = System.Drawing.Color.Transparent;
             CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
@@ -393,7 +393,7 @@
             SqlStatementTable.RowCount = 2;
             SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.631579F ) );
             SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.36842F ) );
-            SqlStatementTable.Size = new System.Drawing.Size( 352, 435 );
+            SqlStatementTable.Size = new System.Drawing.Size( 352, 437 );
             SqlStatementTable.TabIndex = 1;
             // 
             // TextPanel
@@ -414,7 +414,7 @@
             TextPanel.Location = new System.Drawing.Point( 3, 30 );
             TextPanel.Name = "TextPanel";
             TextPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            TextPanel.Size = new System.Drawing.Size( 346, 402 );
+            TextPanel.Size = new System.Drawing.Size( 346, 404 );
             TextPanel.Style = MetroSet_UI.Enums.Style.Custom;
             TextPanel.StyleManager = null;
             TextPanel.TabIndex = 1;
@@ -424,7 +424,7 @@
             // 
             // QueryListBox
             // 
-            QueryListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            QueryListBox.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             QueryListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             QueryListBox.BindingSource = null;
             QueryListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
@@ -450,7 +450,7 @@
             QueryListBox.SelectedValue = null;
             QueryListBox.ShowBorder = false;
             QueryListBox.ShowScrollBar = false;
-            QueryListBox.Size = new System.Drawing.Size( 296, 371 );
+            QueryListBox.Size = new System.Drawing.Size( 296, 373 );
             QueryListBox.Style = MetroSet_UI.Enums.Style.Custom;
             QueryListBox.StyleManager = null;
             QueryListBox.TabIndex = 0;
@@ -1089,7 +1089,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 683 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 685 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -1148,7 +1148,7 @@
             // 
             // EditorTable
             // 
-            EditorTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            EditorTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
             EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             EditorTable.CaptionText = "SQL Editor";
@@ -1167,7 +1167,6 @@
             // 
             // EditorPanel
             // 
-            EditorPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             EditorPanel.BackColor = System.Drawing.Color.Transparent;
             EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorPanel.BindingSource = null;
@@ -1176,6 +1175,7 @@
             EditorPanel.Children = null;
             EditorPanel.Controls.Add( Editor );
             EditorPanel.DataFilter = null;
+            EditorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             EditorPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             EditorPanel.ForeColor = System.Drawing.Color.Transparent;
             EditorPanel.HoverText = null;
@@ -2220,12 +2220,12 @@
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ClientSize = new System.Drawing.Size( 1328, 731 );
             Controls.Add( TabControl );
             Controls.Add( ToolStripTable );
             Controls.Add( SqlCommandTable );

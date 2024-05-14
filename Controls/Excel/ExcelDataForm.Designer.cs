@@ -207,7 +207,7 @@
             Spreadsheet.SelectedTabIndex = 0;
             Spreadsheet.SelectedTabItem = null;
             Spreadsheet.ShowBusyIndicator = true;
-            Spreadsheet.Size = new System.Drawing.Size( 1326, 517 );
+            Spreadsheet.Size = new System.Drawing.Size( 1326, 519 );
             Spreadsheet.TabIndex = 1;
             Spreadsheet.TabItemContextMenu = null;
             Spreadsheet.Text = "Spreadsheet";
@@ -371,7 +371,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 682 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 684 );
             ToolStripTable.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
@@ -503,7 +503,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 206, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 204, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -836,7 +836,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1326, 649 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1326, 651 );
             TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
@@ -853,7 +853,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 150, 5 );
             TabControl.Location = new System.Drawing.Point( 1, 33 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1326, 649 );
+            TabControl.Size = new System.Drawing.Size( 1326, 651 );
             TabControl.TabIndex = 5;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -877,7 +877,7 @@
             DataTab.Location = new System.Drawing.Point( 0, 4 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1326, 645 );
+            DataTab.Size = new System.Drawing.Size( 1326, 647 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabIndex = 1;
@@ -897,7 +897,7 @@
             QueryTab.Location = new System.Drawing.Point( 0, 4 );
             QueryTab.Name = "QueryTab";
             QueryTab.ShowCloseButton = true;
-            QueryTab.Size = new System.Drawing.Size( 1326, 645 );
+            QueryTab.Size = new System.Drawing.Size( 1326, 647 );
             QueryTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTab.TabIndex = 5;
@@ -1624,7 +1624,7 @@
             BusyTab.Margin = new System.Windows.Forms.Padding( 1 );
             BusyTab.Name = "BusyTab";
             BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1326, 645 );
+            BusyTab.Size = new System.Drawing.Size( 1326, 647 );
             BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
@@ -1635,7 +1635,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 0, 0 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1326, 645 );
+            Loader.Size = new System.Drawing.Size( 1326, 647 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -1661,12 +1661,12 @@
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ClientSize = new System.Drawing.Size( 1328, 728 );
+            ClientSize = new System.Drawing.Size( 1328, 730 );
             Controls.Add( TabControl );
             Controls.Add( ToolStripTable );
             Controls.Add( HeaderPanel );

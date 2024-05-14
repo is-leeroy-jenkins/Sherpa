@@ -153,6 +153,7 @@ namespace BudgetExecution
             Timer = new System.Windows.Forms.Timer( components );
             MenuSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
+            ContextMenu = new ContextMenu( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -319,7 +320,7 @@ namespace BudgetExecution
             ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator11, StatusLabel, Spacer, DataNavigationLabel, Separator1, FirstButton, Separator2, PreviousButton, Separator3, NextButton, Separator4, LastButton, Separator5, Separator6, FilterSpacer, FilterLabel, FilterSeparator, CloseButton, BrowseButton, BrowseSeparator, SaveButton, SaveSeparator, DataLabel, RefreshSeparator, RefreshButton, NavigationSeparator, TimeSpanInformation, TableButton, Separator8, Separator13, ChartButton, ChartSeparator, MenuButton, ApplicationSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 1, 694 );
+            ToolStrip.Location = new System.Drawing.Point( 1, 696 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
@@ -940,6 +941,7 @@ namespace BudgetExecution
             // 
             // SecondCalendarTable
             // 
+            SecondCalendarTable.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Left ;
             SecondCalendarTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondCalendarTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SecondCalendarTable.CaptionText = "Second Date";
@@ -1036,6 +1038,7 @@ namespace BudgetExecution
             // 
             // ChartTable
             // 
+            ChartTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             ChartTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ChartTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ChartTable.CaptionText = "Time Delta";
@@ -1690,6 +1693,20 @@ namespace BudgetExecution
             ApplicationLabel.Text = "Application";
             ApplicationLabel.ToolTip = null;
             // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
+            // 
             // CalendarForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1697,11 +1714,11 @@ namespace BudgetExecution
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1338, 740 );
             Controls.Add( ChartTable );
             Controls.Add( SecondCalendarTable );
             Controls.Add( FirstCalendarTable );
@@ -2059,5 +2076,6 @@ namespace BudgetExecution
         /// </summary>
         public ToolStripLabel ApplicationLabel;
         public ControlBox ControlBox;
+        public ContextMenu ContextMenu;
     }
 }

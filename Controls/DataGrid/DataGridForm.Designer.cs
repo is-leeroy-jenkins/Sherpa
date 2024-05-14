@@ -342,7 +342,7 @@
             DataGridPanel.Location = new System.Drawing.Point( 0, 0 );
             DataGridPanel.Name = "DataGridPanel";
             DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 989, 539 );
+            DataGridPanel.Size = new System.Drawing.Size( 989, 540 );
             DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
@@ -408,7 +408,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            DataGrid.Size = new System.Drawing.Size( 949, 495 );
+            DataGrid.Size = new System.Drawing.Size( 949, 496 );
             DataGrid.TabIndex = 0;
             DataGrid.ToolTip = null;
             // 
@@ -424,7 +424,7 @@
             DataLabelTable.Controls.Add( GridHeaderLabel1, 0, 0 );
             DataLabelTable.Controls.Add( GridHeaderLabel3, 2, 0 );
             DataLabelTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            DataLabelTable.Location = new System.Drawing.Point( 3, 22 );
+            DataLabelTable.Location = new System.Drawing.Point( 3, 23 );
             DataLabelTable.Name = "DataLabelTable";
             DataLabelTable.RowCount = 1;
             DataLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -508,12 +508,12 @@
             SecondCalendarTable.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondCalendarTable.Font = new System.Drawing.Font( "Roboto", 9F );
             SecondCalendarTable.ForeColor = System.Drawing.Color.DarkGray;
-            SecondCalendarTable.Location = new System.Drawing.Point( 3, 303 );
+            SecondCalendarTable.Location = new System.Drawing.Point( 3, 304 );
             SecondCalendarTable.Name = "SecondCalendarTable";
             SecondCalendarTable.RowCount = 2;
             SecondCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.296875F ) );
             SecondCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.703125F ) );
-            SecondCalendarTable.Size = new System.Drawing.Size( 277, 295 );
+            SecondCalendarTable.Size = new System.Drawing.Size( 277, 296 );
             SecondCalendarTable.TabIndex = 2;
             // 
             // SecondCalendarPanel
@@ -531,7 +531,7 @@
             SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
             SecondCalendarPanel.HoverText = null;
             SecondCalendarPanel.IsDerivedStyle = true;
-            SecondCalendarPanel.Location = new System.Drawing.Point( 3, 30 );
+            SecondCalendarPanel.Location = new System.Drawing.Point( 3, 31 );
             SecondCalendarPanel.Name = "SecondCalendarPanel";
             SecondCalendarPanel.Padding = new System.Windows.Forms.Padding( 1 );
             SecondCalendarPanel.Size = new System.Drawing.Size( 271, 262 );
@@ -610,7 +610,7 @@
             FirstCalendarTable.RowCount = 2;
             FirstCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.31372547F ) );
             FirstCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.68627F ) );
-            FirstCalendarTable.Size = new System.Drawing.Size( 277, 294 );
+            FirstCalendarTable.Size = new System.Drawing.Size( 277, 295 );
             FirstCalendarTable.TabIndex = 1;
             // 
             // FirstCalendarPanel
@@ -628,7 +628,7 @@
             FirstCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
             FirstCalendarPanel.HoverText = null;
             FirstCalendarPanel.IsDerivedStyle = true;
-            FirstCalendarPanel.Location = new System.Drawing.Point( 3, 30 );
+            FirstCalendarPanel.Location = new System.Drawing.Point( 3, 31 );
             FirstCalendarPanel.Name = "FirstCalendarPanel";
             FirstCalendarPanel.Padding = new System.Windows.Forms.Padding( 1 );
             FirstCalendarPanel.Size = new System.Drawing.Size( 271, 261 );
@@ -707,7 +707,7 @@
             NumericsTable.RowCount = 2;
             NumericsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.048583F ) );
             NumericsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.951416F ) );
-            NumericsTable.Size = new System.Drawing.Size( 275, 325 );
+            NumericsTable.Size = new System.Drawing.Size( 275, 327 );
             NumericsTable.TabIndex = 2;
             // 
             // NumericPanel
@@ -728,7 +728,7 @@
             NumericPanel.Location = new System.Drawing.Point( 3, 31 );
             NumericPanel.Name = "NumericPanel";
             NumericPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            NumericPanel.Size = new System.Drawing.Size( 269, 291 );
+            NumericPanel.Size = new System.Drawing.Size( 269, 293 );
             NumericPanel.Style = MetroSet_UI.Enums.Style.Custom;
             NumericPanel.StyleManager = null;
             NumericPanel.TabIndex = 6;
@@ -764,7 +764,7 @@
             NumericListBox.SelectedValue = null;
             NumericListBox.ShowBorder = false;
             NumericListBox.ShowScrollBar = false;
-            NumericListBox.Size = new System.Drawing.Size( 226, 245 );
+            NumericListBox.Size = new System.Drawing.Size( 226, 247 );
             NumericListBox.Style = MetroSet_UI.Enums.Style.Custom;
             NumericListBox.StyleManager = null;
             NumericListBox.TabIndex = 1;
@@ -788,7 +788,7 @@
             FieldsTable.RowCount = 2;
             FieldsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.263566F ) );
             FieldsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.7364349F ) );
-            FieldsTable.Size = new System.Drawing.Size( 280, 271 );
+            FieldsTable.Size = new System.Drawing.Size( 280, 273 );
             FieldsTable.TabIndex = 1;
             // 
             // FieldPanel
@@ -809,7 +809,7 @@
             FieldPanel.Location = new System.Drawing.Point( 3, 29 );
             FieldPanel.Name = "FieldPanel";
             FieldPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            FieldPanel.Size = new System.Drawing.Size( 274, 239 );
+            FieldPanel.Size = new System.Drawing.Size( 274, 241 );
             FieldPanel.Style = MetroSet_UI.Enums.Style.Custom;
             FieldPanel.StyleManager = null;
             FieldPanel.TabIndex = 4;
@@ -845,7 +845,7 @@
             FieldListBox.SelectedValue = null;
             FieldListBox.ShowBorder = false;
             FieldListBox.ShowScrollBar = false;
-            FieldListBox.Size = new System.Drawing.Size( 234, 196 );
+            FieldListBox.Size = new System.Drawing.Size( 234, 198 );
             FieldListBox.Style = MetroSet_UI.Enums.Style.Custom;
             FieldListBox.StyleManager = null;
             FieldListBox.TabIndex = 1;
@@ -870,7 +870,7 @@
             FirstTable.RowCount = 2;
             FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.270834F ) );
             FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.7291641F ) );
-            FirstTable.Size = new System.Drawing.Size( 257, 205 );
+            FirstTable.Size = new System.Drawing.Size( 257, 206 );
             FirstTable.TabIndex = 1;
             // 
             // FirstComboBox
@@ -925,7 +925,7 @@
             FirstListBoxPanel.Location = new System.Drawing.Point( 3, 55 );
             FirstListBoxPanel.Name = "FirstListBoxPanel";
             FirstListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstListBoxPanel.Size = new System.Drawing.Size( 251, 147 );
+            FirstListBoxPanel.Size = new System.Drawing.Size( 251, 148 );
             FirstListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
             FirstListBoxPanel.StyleManager = null;
             FirstListBoxPanel.TabIndex = 26;
@@ -961,7 +961,7 @@
             FirstListBox.SelectedValue = null;
             FirstListBox.ShowBorder = false;
             FirstListBox.ShowScrollBar = false;
-            FirstListBox.Size = new System.Drawing.Size( 201, 103 );
+            FirstListBox.Size = new System.Drawing.Size( 201, 104 );
             FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             FirstListBox.StyleManager = null;
             FirstListBox.TabIndex = 0;
@@ -981,7 +981,7 @@
             SqlHeader.Margin = new System.Windows.Forms.Padding( 3 );
             SqlHeader.Name = "SqlHeader";
             SqlHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlHeader.Size = new System.Drawing.Size( 919, 0 );
+            SqlHeader.Size = new System.Drawing.Size( 919, 2 );
             SqlHeader.Style = MetroSet_UI.Enums.Style.Light;
             SqlHeader.StyleManager = null;
             SqlHeader.TabIndex = 47;
@@ -1056,7 +1056,7 @@
             QueryTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             QueryTabControl.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             QueryTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            QueryTabControl.BeforeTouchSize = new System.Drawing.Size( 309, 632 );
+            QueryTabControl.BeforeTouchSize = new System.Drawing.Size( 309, 634 );
             QueryTabControl.BindingSource = null;
             QueryTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             QueryTabControl.BorderWidth = 1;
@@ -1075,7 +1075,7 @@
             QueryTabControl.ItemSize = new System.Drawing.Size( 100, 10 );
             QueryTabControl.Location = new System.Drawing.Point( 1014, 36 );
             QueryTabControl.Name = "QueryTabControl";
-            QueryTabControl.Size = new System.Drawing.Size( 309, 632 );
+            QueryTabControl.Size = new System.Drawing.Size( 309, 634 );
             QueryTabControl.TabIndex = 44;
             QueryTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -1099,13 +1099,13 @@
             SourceTab.Location = new System.Drawing.Point( 0, 9 );
             SourceTab.Name = "SourceTab";
             SourceTab.ShowCloseButton = true;
-            SourceTab.Size = new System.Drawing.Size( 309, 623 );
+            SourceTab.Size = new System.Drawing.Size( 309, 625 );
             SourceTab.TabIndex = 5;
             SourceTab.ThemesEnabled = false;
             // 
             // SourceTable
             // 
-            SourceTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SourceTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             SourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SourceTable.CaptionText = "Sources";
@@ -1120,7 +1120,7 @@
             SourceTable.RowCount = 2;
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.37931F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.62069F ) );
-            SourceTable.Size = new System.Drawing.Size( 283, 596 );
+            SourceTable.Size = new System.Drawing.Size( 283, 598 );
             SourceTable.TabIndex = 54;
             // 
             // TableComboBox
@@ -1173,10 +1173,10 @@
             TablePanel.ForeColor = System.Drawing.Color.Transparent;
             TablePanel.HoverText = null;
             TablePanel.IsDerivedStyle = true;
-            TablePanel.Location = new System.Drawing.Point( 3, 55 );
+            TablePanel.Location = new System.Drawing.Point( 3, 56 );
             TablePanel.Name = "TablePanel";
             TablePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            TablePanel.Size = new System.Drawing.Size( 277, 538 );
+            TablePanel.Size = new System.Drawing.Size( 277, 539 );
             TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 0;
@@ -1212,7 +1212,7 @@
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
             TableListBox.ShowScrollBar = false;
-            TableListBox.Size = new System.Drawing.Size( 234, 497 );
+            TableListBox.Size = new System.Drawing.Size( 234, 498 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 0;
@@ -1228,7 +1228,7 @@
             FilterTab.Location = new System.Drawing.Point( 0, 9 );
             FilterTab.Name = "FilterTab";
             FilterTab.ShowCloseButton = true;
-            FilterTab.Size = new System.Drawing.Size( 309, 623 );
+            FilterTab.Size = new System.Drawing.Size( 309, 625 );
             FilterTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FilterTab.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
             FilterTab.TabForeColor = System.Drawing.Color.DarkGray;
@@ -1249,7 +1249,7 @@
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 36.2098122F ) );
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 31.9796963F ) );
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 31.5286617F ) );
-            FilterTable.Size = new System.Drawing.Size( 263, 583 );
+            FilterTable.Size = new System.Drawing.Size( 263, 585 );
             FilterTable.TabIndex = 46;
             // 
             // SecondTable
@@ -1264,12 +1264,12 @@
             SecondTable.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondTable.Font = new System.Drawing.Font( "Roboto", 9F );
             SecondTable.ForeColor = System.Drawing.Color.DarkGray;
-            SecondTable.Location = new System.Drawing.Point( 3, 214 );
+            SecondTable.Location = new System.Drawing.Point( 3, 215 );
             SecondTable.Name = "SecondTable";
             SecondTable.RowCount = 2;
             SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 21.5568867F ) );
             SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 78.4431152F ) );
-            SecondTable.Size = new System.Drawing.Size( 257, 180 );
+            SecondTable.Size = new System.Drawing.Size( 257, 181 );
             SecondTable.TabIndex = 1;
             // 
             // SecondListBoxPanel
@@ -1290,7 +1290,7 @@
             SecondListBoxPanel.Location = new System.Drawing.Point( 3, 54 );
             SecondListBoxPanel.Name = "SecondListBoxPanel";
             SecondListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            SecondListBoxPanel.Size = new System.Drawing.Size( 251, 123 );
+            SecondListBoxPanel.Size = new System.Drawing.Size( 251, 124 );
             SecondListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
             SecondListBoxPanel.StyleManager = null;
             SecondListBoxPanel.TabIndex = 27;
@@ -1326,7 +1326,7 @@
             SecondListBox.SelectedValue = null;
             SecondListBox.ShowBorder = false;
             SecondListBox.ShowScrollBar = false;
-            SecondListBox.Size = new System.Drawing.Size( 201, 84 );
+            SecondListBox.Size = new System.Drawing.Size( 201, 85 );
             SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             SecondListBox.StyleManager = null;
             SecondListBox.TabIndex = 0;
@@ -1380,7 +1380,7 @@
             ThirdTable.Dock = System.Windows.Forms.DockStyle.Fill;
             ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F );
             ThirdTable.ForeColor = System.Drawing.Color.DarkGray;
-            ThirdTable.Location = new System.Drawing.Point( 3, 400 );
+            ThirdTable.Location = new System.Drawing.Point( 3, 402 );
             ThirdTable.Name = "ThirdTable";
             ThirdTable.RowCount = 2;
             ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.289156F ) );
@@ -1493,7 +1493,7 @@
             GroupTab.Location = new System.Drawing.Point( 0, 9 );
             GroupTab.Name = "GroupTab";
             GroupTab.ShowCloseButton = true;
-            GroupTab.Size = new System.Drawing.Size( 309, 623 );
+            GroupTab.Size = new System.Drawing.Size( 309, 625 );
             GroupTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GroupTab.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
             GroupTab.TabForeColor = System.Drawing.Color.DarkGray;
@@ -1508,7 +1508,7 @@
             CalendarTab.Location = new System.Drawing.Point( 0, 9 );
             CalendarTab.Name = "CalendarTab";
             CalendarTab.ShowCloseButton = true;
-            CalendarTab.Size = new System.Drawing.Size( 309, 623 );
+            CalendarTab.Size = new System.Drawing.Size( 309, 625 );
             CalendarTab.TabIndex = 4;
             CalendarTab.ThemesEnabled = false;
             // 
@@ -1527,12 +1527,12 @@
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            TimeSpanTable.Size = new System.Drawing.Size( 283, 601 );
+            TimeSpanTable.Size = new System.Drawing.Size( 283, 603 );
             TimeSpanTable.TabIndex = 0;
             // 
             // ProviderTable
             // 
-            ProviderTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ProviderTable.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             ProviderTable.ColumnCount = 4;
             ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 49.25373F ) );
             ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50.74627F ) );
@@ -1551,13 +1551,13 @@
             // 
             // SQLiteRadioButton
             // 
+            SQLiteRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SQLiteRadioButton.Checked = false;
             SQLiteRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SQLiteRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SQLiteRadioButton.Group = 0;
             SQLiteRadioButton.HoverText = "SQLite Data Provider";
@@ -1576,13 +1576,13 @@
             // 
             // SqlServerRadioButton
             // 
+            SqlServerRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlServerRadioButton.Checked = false;
             SqlServerRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SqlServerRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SqlServerRadioButton.Group = 0;
             SqlServerRadioButton.HoverText = "SQL Server Provider";
@@ -1601,13 +1601,13 @@
             // 
             // AccessRadioButton
             // 
+            AccessRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AccessRadioButton.Checked = false;
             AccessRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            AccessRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             AccessRadioButton.Group = 0;
             AccessRadioButton.HoverText = "Access Data Provider";
@@ -1626,13 +1626,13 @@
             // 
             // SqlCeRadioButton
             // 
+            SqlCeRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlCeRadioButton.Checked = false;
             SqlCeRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SqlCeRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SqlCeRadioButton.Group = 0;
             SqlCeRadioButton.HoverText = "SQL Compact Provider";
@@ -2233,7 +2233,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 124, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 96, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2459,7 +2459,7 @@
             // 
             // GridHeaderPanel
             // 
-            GridHeaderPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            GridHeaderPanel.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
             GridHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             GridHeaderPanel.CaptionText = "Data";
@@ -2475,7 +2475,7 @@
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.99315071F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.00685F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridHeaderPanel.Size = new System.Drawing.Size( 995, 599 );
+            GridHeaderPanel.Size = new System.Drawing.Size( 995, 601 );
             GridHeaderPanel.TabIndex = 54;
             // 
             // DataTabControl
@@ -2483,7 +2483,7 @@
             DataTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             DataTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 989, 543 );
+            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 989, 544 );
             DataTabControl.BindingSource = null;
             DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataTabControl.CanOverrideStyle = true;
@@ -2497,9 +2497,9 @@
             DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
-            DataTabControl.Location = new System.Drawing.Point( 3, 53 );
+            DataTabControl.Location = new System.Drawing.Point( 3, 54 );
             DataTabControl.Name = "DataTabControl";
-            DataTabControl.Size = new System.Drawing.Size( 989, 543 );
+            DataTabControl.Size = new System.Drawing.Size( 989, 544 );
             DataTabControl.TabIndex = 0;
             DataTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -2523,7 +2523,7 @@
             ReadyScreen.Location = new System.Drawing.Point( 0, 4 );
             ReadyScreen.Name = "ReadyScreen";
             ReadyScreen.ShowCloseButton = true;
-            ReadyScreen.Size = new System.Drawing.Size( 989, 539 );
+            ReadyScreen.Size = new System.Drawing.Size( 989, 540 );
             ReadyScreen.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ReadyScreen.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ReadyScreen.TabIndex = 1;
@@ -2537,7 +2537,7 @@
             BusyScreen.Location = new System.Drawing.Point( 0, 4 );
             BusyScreen.Name = "BusyScreen";
             BusyScreen.ShowCloseButton = true;
-            BusyScreen.Size = new System.Drawing.Size( 989, 539 );
+            BusyScreen.Size = new System.Drawing.Size( 989, 540 );
             BusyScreen.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyScreen.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BusyScreen.TabIndex = 2;
@@ -2549,7 +2549,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 943, 504 );
+            Loader.Size = new System.Drawing.Size( 943, 505 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -2560,7 +2560,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 683 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 685 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -2589,12 +2589,12 @@
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ClientSize = new System.Drawing.Size( 1328, 728 );
+            ClientSize = new System.Drawing.Size( 1328, 730 );
             Controls.Add( ToolStripTable );
             Controls.Add( ProviderTable );
             Controls.Add( GridHeaderPanel );

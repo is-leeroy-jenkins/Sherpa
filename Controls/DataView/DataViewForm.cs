@@ -532,7 +532,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -821,6 +821,10 @@ namespace BudgetExecution
                 EditRecordButton.Click += OnEditRecordButtonClick;
                 EditColumnButton.Click += OnEditColumnButtonClick;
                 Timer.Tick += OnTimerTick;
+                GridHeaderPanel.MouseClick += OnRightClick;
+                SourceTable.MouseClick += OnRightClick;
+                Title.MouseClick += OnRightClick;
+                HeaderTable.MouseClick += OnRightClick;
             }
             catch( Exception _ex )
             {
@@ -2475,7 +2479,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

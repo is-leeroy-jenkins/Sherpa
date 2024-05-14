@@ -134,6 +134,7 @@
             TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
             TableComboBox = new ComboBox( );
+            ContextMenu = new ContextMenu( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -259,7 +260,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 683 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 685 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -948,7 +949,7 @@
             // 
             // GridHeaderPanel
             // 
-            GridHeaderPanel.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
+            GridHeaderPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             GridHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             GridHeaderPanel.CaptionText = "Data Grid";
@@ -964,7 +965,7 @@
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.405406F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.5946F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridHeaderPanel.Size = new System.Drawing.Size( 1007, 607 );
+            GridHeaderPanel.Size = new System.Drawing.Size( 1007, 609 );
             GridHeaderPanel.TabIndex = 55;
             // 
             // DataLabelTable
@@ -979,7 +980,7 @@
             DataLabelTable.Controls.Add( FirstGridLabel, 0, 0 );
             DataLabelTable.Controls.Add( ThirdGridLabel, 2, 0 );
             DataLabelTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            DataLabelTable.Location = new System.Drawing.Point( 3, 19 );
+            DataLabelTable.Location = new System.Drawing.Point( 3, 20 );
             DataLabelTable.Name = "DataLabelTable";
             DataLabelTable.RowCount = 1;
             DataLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -1079,7 +1080,7 @@
             GridTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             GridTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.BeforeTouchSize = new System.Drawing.Size( 1001, 554 );
+            GridTabControl.BeforeTouchSize = new System.Drawing.Size( 1001, 555 );
             GridTabControl.BindingSource = null;
             GridTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             GridTabControl.CanOverrideStyle = true;
@@ -1093,9 +1094,9 @@
             GridTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
-            GridTabControl.Location = new System.Drawing.Point( 3, 50 );
+            GridTabControl.Location = new System.Drawing.Point( 3, 51 );
             GridTabControl.Name = "GridTabControl";
-            GridTabControl.Size = new System.Drawing.Size( 1001, 554 );
+            GridTabControl.Size = new System.Drawing.Size( 1001, 555 );
             GridTabControl.TabIndex = 0;
             GridTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -1118,7 +1119,7 @@
             Ready.Location = new System.Drawing.Point( 0, 4 );
             Ready.Name = "Ready";
             Ready.ShowCloseButton = true;
-            Ready.Size = new System.Drawing.Size( 1001, 550 );
+            Ready.Size = new System.Drawing.Size( 1001, 551 );
             Ready.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Ready.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Ready.TabIndex = 1;
@@ -1142,7 +1143,7 @@
             DataGridPanel.Location = new System.Drawing.Point( 0, 0 );
             DataGridPanel.Name = "DataGridPanel";
             DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 1001, 550 );
+            DataGridPanel.Size = new System.Drawing.Size( 1001, 551 );
             DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
@@ -1196,7 +1197,7 @@
             Busy.Location = new System.Drawing.Point( 0, 4 );
             Busy.Name = "Busy";
             Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 1001, 547 );
+            Busy.Size = new System.Drawing.Size( 1001, 551 );
             Busy.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Busy.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Busy.TabIndex = 2;
@@ -1208,7 +1209,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1754, 962 );
+            Loader.Size = new System.Drawing.Size( 1754, 966 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -2061,11 +2062,12 @@
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.71817F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 36F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 511F ) );
-            SourceTable.Size = new System.Drawing.Size( 283, 608 );
+            SourceTable.Size = new System.Drawing.Size( 283, 610 );
             SourceTable.TabIndex = 54;
             // 
             // ProviderTable
             // 
+            ProviderTable.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             ProviderTable.ColumnCount = 4;
             ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 49.25373F ) );
             ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50.74627F ) );
@@ -2084,13 +2086,13 @@
             // 
             // SQLiteRadioButton
             // 
+            SQLiteRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SQLiteRadioButton.Checked = false;
             SQLiteRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SQLiteRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SQLiteRadioButton.Group = 0;
             SQLiteRadioButton.HoverText = "SQLite Data Provider";
@@ -2109,13 +2111,13 @@
             // 
             // SqlServerRadioButton
             // 
+            SqlServerRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlServerRadioButton.Checked = false;
             SqlServerRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SqlServerRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SqlServerRadioButton.Group = 0;
             SqlServerRadioButton.HoverText = "SQL Server Provider";
@@ -2134,13 +2136,13 @@
             // 
             // AccessRadioButton
             // 
+            AccessRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AccessRadioButton.Checked = false;
             AccessRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            AccessRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             AccessRadioButton.Group = 0;
             AccessRadioButton.HoverText = "Access Data Provider";
@@ -2159,13 +2161,13 @@
             // 
             // SqlCeRadioButton
             // 
+            SqlCeRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlCeRadioButton.Checked = false;
             SqlCeRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SqlCeRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SqlCeRadioButton.Group = 0;
             SqlCeRadioButton.HoverText = "SQL Compact Provider";
@@ -2197,7 +2199,7 @@
             TablePanel.ForeColor = System.Drawing.Color.Transparent;
             TablePanel.HoverText = null;
             TablePanel.IsDerivedStyle = true;
-            TablePanel.Location = new System.Drawing.Point( 3, 99 );
+            TablePanel.Location = new System.Drawing.Point( 3, 101 );
             TablePanel.Name = "TablePanel";
             TablePanel.Padding = new System.Windows.Forms.Padding( 1 );
             TablePanel.Size = new System.Drawing.Size( 277, 506 );
@@ -2266,7 +2268,7 @@
             TableComboBox.IsDerivedStyle = true;
             TableComboBox.ItemHeight = 24;
             TableComboBox.Items.AddRange( new object[ ] { "Execution", "Reference", "Maintenance" } );
-            TableComboBox.Location = new System.Drawing.Point( 3, 63 );
+            TableComboBox.Location = new System.Drawing.Point( 3, 65 );
             TableComboBox.Name = "TableComboBox";
             TableComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableComboBox.SelectedItemForeColor = System.Drawing.Color.White;
@@ -2278,6 +2280,20 @@
             TableComboBox.ThemeName = "Budget Execution";
             TableComboBox.ToolTip = ToolTip;
             // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
+            // 
             // DataViewForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -2285,12 +2301,12 @@
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ClientSize = new System.Drawing.Size( 1328, 731 );
             Controls.Add( SourceTable );
             Controls.Add( TableTabPage );
             Controls.Add( SelectionTabControl );
@@ -2771,5 +2787,6 @@
         /// </summary>
         public DataView DataGrid;
         public ControlBox ControlBox;
+        public ContextMenu ContextMenu;
     }
 }

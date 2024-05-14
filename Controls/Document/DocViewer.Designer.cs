@@ -97,7 +97,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 683 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 685 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -561,7 +561,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 170, 25 );
+            TextBox.Size = new System.Drawing.Size( 154, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -657,7 +657,7 @@
             HeaderPanel.Name = "HeaderPanel";
             HeaderPanel.RowCount = 1;
             HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderPanel.Size = new System.Drawing.Size( 1326, 23 );
+            HeaderPanel.Size = new System.Drawing.Size( 1326, 36 );
             HeaderPanel.TabIndex = 55;
             // 
             // Title
@@ -672,7 +672,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1136, 17 );
+            Title.Size = new System.Drawing.Size( 1136, 30 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 55;
@@ -717,7 +717,7 @@
             // 
             // GuidancePanel
             // 
-            GuidancePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            GuidancePanel.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             GuidancePanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GuidancePanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             GuidancePanel.CaptionText = "Guidance";
@@ -726,12 +726,12 @@
             GuidancePanel.Controls.Add( TableListBoxLayout, 0, 1 );
             GuidancePanel.Font = new System.Drawing.Font( "Roboto", 9F );
             GuidancePanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            GuidancePanel.Location = new System.Drawing.Point( 1049, 30 );
+            GuidancePanel.Location = new System.Drawing.Point( 1039, 43 );
             GuidancePanel.Name = "GuidancePanel";
             GuidancePanel.RowCount = 2;
             GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.40625F ) );
             GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.59375F ) );
-            GuidancePanel.Size = new System.Drawing.Size( 278, 656 );
+            GuidancePanel.Size = new System.Drawing.Size( 288, 639 );
             GuidancePanel.TabIndex = 57;
             // 
             // TableListBoxLayout
@@ -749,10 +749,10 @@
             TableListBoxLayout.ForeColor = System.Drawing.Color.Transparent;
             TableListBoxLayout.HoverText = null;
             TableListBoxLayout.IsDerivedStyle = true;
-            TableListBoxLayout.Location = new System.Drawing.Point( 3, 28 );
+            TableListBoxLayout.Location = new System.Drawing.Point( 3, 27 );
             TableListBoxLayout.Name = "TableListBoxLayout";
             TableListBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBoxLayout.Size = new System.Drawing.Size( 272, 625 );
+            TableListBoxLayout.Size = new System.Drawing.Size( 282, 609 );
             TableListBoxLayout.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBoxLayout.StyleManager = null;
             TableListBoxLayout.TabIndex = 0;
@@ -767,12 +767,12 @@
             ButtonPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ButtonPanel.Location = new System.Drawing.Point( 1, 1 );
             ButtonPanel.Name = "ButtonPanel";
-            ButtonPanel.Size = new System.Drawing.Size( 270, 623 );
+            ButtonPanel.Size = new System.Drawing.Size( 280, 607 );
             ButtonPanel.TabIndex = 0;
             // 
             // DocumentTable
             // 
-            DocumentTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            DocumentTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
             DocumentTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DocumentTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DocumentTable.CaptionText = "Document Viewer";
@@ -781,25 +781,25 @@
             DocumentTable.Controls.Add( PdfViewer, 0, 1 );
             DocumentTable.Font = new System.Drawing.Font( "Roboto", 9F );
             DocumentTable.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            DocumentTable.Location = new System.Drawing.Point( 4, 30 );
+            DocumentTable.Location = new System.Drawing.Point( 4, 43 );
             DocumentTable.Name = "DocumentTable";
             DocumentTable.RowCount = 2;
             DocumentTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.275917F ) );
             DocumentTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.72408F ) );
-            DocumentTable.Size = new System.Drawing.Size( 1042, 656 );
+            DocumentTable.Size = new System.Drawing.Size( 1029, 639 );
             DocumentTable.TabIndex = 58;
             // 
             // PdfViewer
             // 
+            PdfViewer.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
             PdfViewer.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
-            PdfViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             PdfViewer.EnableContextMenu = true;
             PdfViewer.EnableNotificationBar = true;
             PdfViewer.HorizontalScrollOffset = 0;
             PdfViewer.IsBookmarkEnabled = true;
             PdfViewer.IsTextSearchEnabled = true;
             PdfViewer.IsTextSelectionEnabled = true;
-            PdfViewer.Location = new System.Drawing.Point( 3, 27 );
+            PdfViewer.Location = new System.Drawing.Point( 3, 26 );
             messageBoxSettings1.EnableNotification = true;
             PdfViewer.MessageBoxSettings = messageBoxSettings1;
             PdfViewer.MinimumZoomPercentage = 50;
@@ -816,7 +816,7 @@
             PdfViewer.ShowHorizontalScrollBar = true;
             PdfViewer.ShowToolBar = true;
             PdfViewer.ShowVerticalScrollBar = true;
-            PdfViewer.Size = new System.Drawing.Size( 1036, 626 );
+            PdfViewer.Size = new System.Drawing.Size( 1023, 610 );
             PdfViewer.SpaceBetweenPages = 8;
             PdfViewer.TabIndex = 0;
             PdfViewer.Text = "pdfViewerControl1";
@@ -850,12 +850,12 @@
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ClientSize = new System.Drawing.Size( 1328, 731 );
             Controls.Add( HeaderPanel );
             Controls.Add( DocumentTable );
             Controls.Add( GuidancePanel );

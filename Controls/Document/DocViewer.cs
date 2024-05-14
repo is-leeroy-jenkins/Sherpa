@@ -368,7 +368,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -413,6 +413,10 @@ namespace BudgetExecution
                 TextBox.MouseEnter += OnTextBoxEnter;
                 TextBox.MouseLeave += OnTextBoxLeave;
                 Timer.Tick += OnTimerTick;
+                Title.MouseClick += OnRightClick;
+                DocumentTable.MouseClick += OnRightClick;
+                Title.MouseClick += OnRightClick;
+                GuidancePanel.MouseClick += OnRightClick;
             }
             catch( Exception _ex )
             {

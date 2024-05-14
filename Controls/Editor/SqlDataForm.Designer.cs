@@ -390,7 +390,7 @@ namespace BudgetExecution
             // 
             // EditorTable
             // 
-            EditorTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            EditorTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
             EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             EditorTable.CaptionText = "SQL Editor";
@@ -409,7 +409,6 @@ namespace BudgetExecution
             // 
             // EditorPanel
             // 
-            EditorPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             EditorPanel.BackColor = System.Drawing.Color.Transparent;
             EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorPanel.BindingSource = null;
@@ -418,6 +417,7 @@ namespace BudgetExecution
             EditorPanel.Children = null;
             EditorPanel.Controls.Add( Editor );
             EditorPanel.DataFilter = null;
+            EditorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             EditorPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             EditorPanel.ForeColor = System.Drawing.Color.Transparent;
             EditorPanel.HoverText = null;
@@ -437,7 +437,7 @@ namespace BudgetExecution
             // 
             Editor.AllowZoom = false;
             Editor.AlwaysShowScrollers = true;
-            Editor.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            Editor.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left ;
             Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Editor.BackColor = System.Drawing.SystemColors.ControlLight;
             Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1454,7 +1454,7 @@ namespace BudgetExecution
             // 
             // SqlCommandTable
             // 
-            SqlCommandTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlCommandTable.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             SqlCommandTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             SqlCommandTable.ColumnCount = 1;
             SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
@@ -1521,7 +1521,7 @@ namespace BudgetExecution
             // 
             // SqlServerRadioButton
             // 
-            SqlServerRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlServerRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlServerRadioButton.Checked = false;
@@ -1548,7 +1548,7 @@ namespace BudgetExecution
             // 
             // AccessRadioButton
             // 
-            AccessRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            AccessRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AccessRadioButton.Checked = false;
@@ -1575,7 +1575,7 @@ namespace BudgetExecution
             // 
             // SQLiteRadioButton
             // 
-            SQLiteRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SQLiteRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SQLiteRadioButton.Checked = false;
@@ -1602,7 +1602,7 @@ namespace BudgetExecution
             // 
             // SqlCeRadioButton
             // 
-            SqlCeRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlCeRadioButton.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlCeRadioButton.Checked = false;
@@ -1675,7 +1675,7 @@ namespace BudgetExecution
             // CommandComboBox
             // 
             CommandComboBox.AllowDrop = true;
-            CommandComboBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            CommandComboBox.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CommandComboBox.BackColor = System.Drawing.Color.Transparent;
             CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
@@ -1753,7 +1753,7 @@ namespace BudgetExecution
             // 
             // QueryListBox
             // 
-            QueryListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            QueryListBox.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Right ;
             QueryListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             QueryListBox.BindingSource = null;
             QueryListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );

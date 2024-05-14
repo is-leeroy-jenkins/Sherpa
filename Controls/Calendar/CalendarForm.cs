@@ -57,14 +57,14 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
+    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" )]
     public sealed partial class CalendarForm : MetroForm
     {
         /// <summary>
@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// The provider
         /// </summary>
         private Provider _provider;
-        
+
         /// <summary>
         /// Gets the filter.
         /// </summary>
@@ -451,7 +451,7 @@ namespace BudgetExecution
                 _dataModel = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the selected dates.
         /// </summary>
@@ -529,7 +529,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -579,13 +579,18 @@ namespace BudgetExecution
                 SaveButton.Click += OnSaveButtonClick;
                 BrowseButton.Click += OnBrowserButtonClick;
                 Timer.Tick += OnTimerTick;
+                Title.MouseClick += OnRightClick;
+                FirstCalendarTable.MouseClick += OnRightClick;
+                SecondCalendarTable.MouseClick += OnRightClick;
+                ChartTable.MouseClick += OnRightClick;
+                HeaderTable.MouseClick += OnRightClick;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
@@ -1100,7 +1105,7 @@ namespace BudgetExecution
             try
             {
                 var _now = DateTime.Now;
-                StatusLabel.Text = 
+                StatusLabel.Text =
                     $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
@@ -1459,7 +1464,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //ContextMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {
