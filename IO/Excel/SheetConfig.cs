@@ -364,7 +364,7 @@ namespace BudgetExecution
         /// <param name="extension">The extension.</param>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        public string GetConnectionString( string extension, string filePath )
+        public string CreateConnectionString( string extension, string filePath )
         {
             try
             {
