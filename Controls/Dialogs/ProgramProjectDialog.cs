@@ -49,8 +49,7 @@ namespace BudgetExecution
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Timer = System.Windows.Forms.Timer;
-
+    
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -149,43 +148,7 @@ namespace BudgetExecution
         /// The data arguments
         /// </summary>
         private protected DataArgs _dataArgs;
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
@@ -393,25 +356,7 @@ namespace BudgetExecution
         /// The program codes.
         /// </value>
         public IList<string> ProgramCodes { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private protected set
-            {
-                _dataArgs = value;
-            }
-        }
-
+        
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -467,7 +412,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -573,7 +517,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Enabled = false;
+                Timer.Enabled = true;
             }
             catch( Exception _ex )
             {
@@ -1091,26 +1035,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

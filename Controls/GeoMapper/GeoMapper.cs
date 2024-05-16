@@ -500,7 +500,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Enabled = false;
+                Timer.Enabled = true;
             }
             catch( Exception _ex )
             {

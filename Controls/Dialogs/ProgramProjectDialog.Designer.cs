@@ -391,7 +391,7 @@ partial class ProgramProjectDialog
         MenuButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         MenuButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         MenuButton.PressTextColor = System.Drawing.Color.White;
-        MenuButton.Size = new System.Drawing.Size( 105, 29 );
+        MenuButton.Size = new System.Drawing.Size( 105, 24 );
         MenuButton.Style = MetroSet_UI.Enums.Style.Custom;
         MenuButton.StyleManager = null;
         MenuButton.TabIndex = 20;
@@ -424,7 +424,7 @@ partial class ProgramProjectDialog
         CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         CloseButton.PressTextColor = System.Drawing.Color.White;
-        CloseButton.Size = new System.Drawing.Size( 96, 29 );
+        CloseButton.Size = new System.Drawing.Size( 96, 24 );
         CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
         CloseButton.StyleManager = null;
         CloseButton.TabIndex = 21;
@@ -457,7 +457,7 @@ partial class ProgramProjectDialog
         SearchButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         SearchButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         SearchButton.PressTextColor = System.Drawing.Color.White;
-        SearchButton.Size = new System.Drawing.Size( 101, 29 );
+        SearchButton.Size = new System.Drawing.Size( 101, 24 );
         SearchButton.Style = MetroSet_UI.Enums.Style.Custom;
         SearchButton.StyleManager = null;
         SearchButton.TabIndex = 22;
@@ -468,7 +468,6 @@ partial class ProgramProjectDialog
         // 
         // Timer
         // 
-        Timer.Enabled = true;
         Timer.Interval = 80;
         // 
         // ButtonTable
@@ -487,26 +486,26 @@ partial class ProgramProjectDialog
         ButtonTable.Controls.Add( MenuButton, 4, 0 );
         ButtonTable.Controls.Add( SearchButton, 2, 0 );
         ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-        ButtonTable.Location = new System.Drawing.Point( 0, 567 );
+        ButtonTable.Location = new System.Drawing.Point( 0, 572 );
         ButtonTable.Name = "ButtonTable";
         ButtonTable.RowCount = 1;
         ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ButtonTable.Size = new System.Drawing.Size( 1054, 35 );
+        ButtonTable.Size = new System.Drawing.Size( 1054, 30 );
         ButtonTable.TabIndex = 24;
         // 
         // StatusLabel
         // 
         StatusLabel.BindingSource = BindingSource;
-        StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+        StatusLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
         StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
         StatusLabel.HoverText = null;
         StatusLabel.IsDerivedStyle = true;
-        StatusLabel.Location = new System.Drawing.Point( 3, 3 );
+        StatusLabel.Location = new System.Drawing.Point( 3, 10 );
         StatusLabel.Margin = new System.Windows.Forms.Padding( 3 );
         StatusLabel.Name = "StatusLabel";
         StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-        StatusLabel.Size = new System.Drawing.Size( 150, 29 );
+        StatusLabel.Size = new System.Drawing.Size( 150, 17 );
         StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
         StatusLabel.StyleManager = null;
         StatusLabel.TabIndex = 0;

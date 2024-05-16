@@ -734,7 +734,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Enabled = false;
+                Timer.Enabled = true;
             }
             catch( Exception _ex )
             {
@@ -1709,7 +1709,7 @@ namespace BudgetExecution
                 var _dateTime = DateTime.Now;
                 var _dateString = _dateTime.ToShortDateString( );
                 var _timeString = _dateTime.ToLongTimeString( );
-                StatusLabel.Text = _dateString + "  " + _timeString;
+                StatusLabel.Text = _dateString + " - " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -2079,13 +2079,13 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeTimer( );
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializePictureBox( );
                 InitializeRibbon( );
                 FilterSeparator.Visible = false;
+                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception _ex )

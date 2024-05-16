@@ -48,11 +48,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using Microsoft.VisualBasic.CompilerServices;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
-    using Timer = System.Windows.Forms.Timer;
-
+    
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -174,7 +172,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
             FormClosing += OnFormClosing;
         }
 
@@ -271,7 +268,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Enabled = false;
+                Timer.Enabled = true;
             }
             catch( Exception _ex )
             {
