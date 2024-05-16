@@ -58,14 +58,6 @@ namespace BudgetExecution
     public class ApportionmentData : BudgetUnit
     {
         /// <summary>
-        /// Gets or sets the fiscal year.
-        /// </summary>
-        /// <value>
-        /// The fiscal year.
-        /// </value>
-        public string FiscalYear { get; set; }
-
-        /// <summary>
         /// Gets or sets the apportionment account code.
         /// </summary>
         /// <value>
@@ -121,9 +113,10 @@ namespace BudgetExecution
         /// </value>
         public double Amount { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/> class.
+        /// <see cref="T:BudgetExecution.ApportionmentData" /> class.
         /// </summary>
         public ApportionmentData( )
         {

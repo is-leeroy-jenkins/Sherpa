@@ -494,13 +494,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Remove=".clang-format" />
     <None Remove="Clients\Baby\storage\i18n_process.css" />
+    <None Remove="_config.yml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Assets\MenuItems\" />
-    <Folder Include="Resources\Github\" />
   </ItemGroup>
 </Project>
