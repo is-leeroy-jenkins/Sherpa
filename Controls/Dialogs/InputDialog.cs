@@ -8,10 +8,32 @@
     /// </summary>
     /// <seealso cref="Ookii.Dialogs.WinForms.InputDialog" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class InputDialog : Ookii.Dialogs.WinForms.InputDialog
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InputDialog"/> class.
+        /// The input
+        /// </summary>
+        private protected string _input;
+
+        /// <summary>
+        /// The content
+        /// </summary>
+        private protected string _content;
+
+        /// <summary>
+        /// The main content
+        /// </summary>
+        private protected string _mainContent;
+
+        /// <summary>
+        /// The window title
+        /// </summary>
+        private protected string _windowTitle;
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="InputDialog"/> class.
         /// </summary>
         public InputDialog( )
         {

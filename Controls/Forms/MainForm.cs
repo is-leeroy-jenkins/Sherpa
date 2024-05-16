@@ -158,7 +158,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -1368,7 +1368,12 @@ namespace BudgetExecution
         {
             try
             {
-                CreateExcelReport( );
+                var _title = "This is the Title";
+                var _message = "This text is to simulate a long"
+                    + " message typically recieved when an exception occurs.";
+                
+                var _error = new MessageDialog( _title, _message );
+                _error.ShowDialog( );
             }
             catch( Exception _ex )
             {

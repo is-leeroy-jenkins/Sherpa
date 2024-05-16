@@ -30,13 +30,22 @@
         /// </summary>
         private void InitializeComponent( )
         {
+            components = new System.ComponentModel.Container( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ErrorDialog ) );
             Picture = new Picture( );
             Title = new Label( );
             ToolTip = new SmallTip( );
             TextBox = new RichTextBox( );
             CloseButton = new Button( );
+            HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
+            StatusLabel = new Label( );
+            ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
+            BindingSource = new System.Windows.Forms.BindingSource( components );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize)Picture ).BeginInit( );
+            HeaderTable.SuspendLayout( );
+            ButtonTable.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             SuspendLayout( );
             // 
             // Picture
@@ -58,23 +67,23 @@
             // 
             // Title
             // 
-            Title.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Title.BindingSource = null;
+            Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 12F );
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 85, 12 );
+            Title.Location = new System.Drawing.Point( 133, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 526, 40 );
+            Title.Size = new System.Drawing.Size( 402, 23 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 13;
             Title.Text = "There has been error!";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "BudgetExecution";
             Title.ToolTip = null;
@@ -108,17 +117,17 @@
             TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            TextBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            TextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             TextBox.HoverColor = System.Drawing.Color.Maroon;
             TextBox.HoverText = null;
             TextBox.IsDerivedStyle = true;
             TextBox.Lines = null;
-            TextBox.Location = new System.Drawing.Point( 85, 91 );
+            TextBox.Location = new System.Drawing.Point( 89, 91 );
             TextBox.MaxLength = 32767;
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
             TextBox.ReadOnly = false;
-            TextBox.Size = new System.Drawing.Size( 526, 230 );
+            TextBox.Size = new System.Drawing.Size( 544, 230 );
             TextBox.Style = MetroSet_UI.Enums.Style.Custom;
             TextBox.StyleManager = null;
             TextBox.TabIndex = 0;
@@ -142,16 +151,16 @@
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 586, 397 );
+            CloseButton.Location = new System.Drawing.Point( 593, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            CloseButton.NormalTextColor = System.Drawing.Color.Red;
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Size = new System.Drawing.Size( 90, 26 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 15;
@@ -159,6 +168,68 @@
             CloseButton.ThemeAuthor = "Terry D. Eppler";
             CloseButton.ThemeName = "Budget Execution";
             CloseButton.ToolTip = null;
+            // 
+            // HeaderTable
+            // 
+            HeaderTable.ColumnCount = 3;
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 24.1635685F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 75.83643F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 149F ) );
+            HeaderTable.Controls.Add( Picture, 0, 0 );
+            HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Controls.Add( StatusLabel, 2, 0 );
+            HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
+            HeaderTable.Location = new System.Drawing.Point( 0, 0 );
+            HeaderTable.Name = "HeaderTable";
+            HeaderTable.RowCount = 1;
+            HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderTable.Size = new System.Drawing.Size( 688, 29 );
+            HeaderTable.TabIndex = 16;
+            // 
+            // StatusLabel
+            // 
+            StatusLabel.BindingSource = null;
+            StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            StatusLabel.HoverText = null;
+            StatusLabel.IsDerivedStyle = true;
+            StatusLabel.Location = new System.Drawing.Point( 541, 3 );
+            StatusLabel.Margin = new System.Windows.Forms.Padding( 3 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 144, 23 );
+            StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            StatusLabel.StyleManager = null;
+            StatusLabel.TabIndex = 15;
+            StatusLabel.Text = "Date Time";
+            StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            StatusLabel.ThemeAuthor = "Terry D. Eppler";
+            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ToolTip = ToolTip;
+            // 
+            // ButtonTable
+            // 
+            ButtonTable.ColumnCount = 7;
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 119F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 43F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 98F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 97F ) );
+            ButtonTable.Controls.Add( CloseButton, 6, 0 );
+            ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            ButtonTable.Location = new System.Drawing.Point( 0, 407 );
+            ButtonTable.Name = "ButtonTable";
+            ButtonTable.RowCount = 1;
+            ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ButtonTable.Size = new System.Drawing.Size( 688, 32 );
+            ButtonTable.TabIndex = 17;
+            // 
+            // Timer
+            // 
+            Timer.Interval = 80;
             // 
             // ErrorDialog
             // 
@@ -175,10 +246,9 @@
             CaptionForeColor = System.Drawing.Color.Red;
             ClientSize = new System.Drawing.Size( 688, 439 );
             ControlBox = false;
-            Controls.Add( CloseButton );
+            Controls.Add( ButtonTable );
+            Controls.Add( HeaderTable );
             Controls.Add( TextBox );
-            Controls.Add( Picture );
-            Controls.Add( Title );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -196,6 +266,9 @@
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             Text = "ErrorDialog";
             ( (System.ComponentModel.ISupportInitialize)Picture ).EndInit( );
+            HeaderTable.ResumeLayout( false );
+            ButtonTable.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -207,5 +280,10 @@
         public Label Title;
         public Picture Picture;
         public Button CloseButton;
+        public System.Windows.Forms.TableLayoutPanel HeaderTable;
+        private System.Windows.Forms.TableLayoutPanel ButtonTable;
+        public Label StatusLabel;
+        public System.Windows.Forms.BindingSource BindingSource;
+        public System.Windows.Forms.Timer Timer;
     }
 }

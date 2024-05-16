@@ -966,7 +966,7 @@ namespace BudgetExecution
             ExitButton.HoverText = null;
             ExitButton.HoverTextColor = System.Drawing.Color.White;
             ExitButton.IsDerivedStyle = true;
-            ExitButton.Location = new System.Drawing.Point( 1246, 699 );
+            ExitButton.Location = new System.Drawing.Point( 1246, 701 );
             ExitButton.Name = "ExitButton";
             ExitButton.NormalBorderColor = System.Drawing.Color.Transparent;
             ExitButton.NormalColor = System.Drawing.Color.Transparent;
@@ -1042,7 +1042,7 @@ namespace BudgetExecution
             ClientTable.Controls.Add( ClientPanel, 0, 1 );
             ClientTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
             ClientTable.ForeColor = System.Drawing.Color.DarkGray;
-            ClientTable.Location = new System.Drawing.Point( 704, 395 );
+            ClientTable.Location = new System.Drawing.Point( 704, 397 );
             ClientTable.Name = "ClientTable";
             ClientTable.RowCount = 2;
             ClientTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.34979439F ) );
@@ -1137,7 +1137,7 @@ namespace BudgetExecution
             DataManagementTable.Controls.Add( DataManagementPanel, 0, 1 );
             DataManagementTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
             DataManagementTable.ForeColor = System.Drawing.Color.DarkGray;
-            DataManagementTable.Location = new System.Drawing.Point( 78, 395 );
+            DataManagementTable.Location = new System.Drawing.Point( 78, 397 );
             DataManagementTable.Name = "DataManagementTable";
             DataManagementTable.RowCount = 2;
             DataManagementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.319149F ) );
@@ -1191,7 +1191,7 @@ namespace BudgetExecution
             ResourceTable.RowCount = 2;
             ResourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 7.25806475F ) );
             ResourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 92.7419357F ) );
-            ResourceTable.Size = new System.Drawing.Size( 530, 140 );
+            ResourceTable.Size = new System.Drawing.Size( 530, 142 );
             ResourceTable.TabIndex = 19;
             // 
             // ResourcePanel
@@ -1210,10 +1210,10 @@ namespace BudgetExecution
             ResourcePanel.ForeColor = System.Drawing.Color.Transparent;
             ResourcePanel.HoverText = null;
             ResourcePanel.IsDerivedStyle = true;
-            ResourcePanel.Location = new System.Drawing.Point( 3, 29 );
+            ResourcePanel.Location = new System.Drawing.Point( 3, 30 );
             ResourcePanel.Name = "ResourcePanel";
             ResourcePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ResourcePanel.Size = new System.Drawing.Size( 524, 108 );
+            ResourcePanel.Size = new System.Drawing.Size( 524, 109 );
             ResourcePanel.Style = MetroSet_UI.Enums.Style.Custom;
             ResourcePanel.StyleManager = null;
             ResourcePanel.TabIndex = 0;
@@ -1308,12 +1308,12 @@ namespace BudgetExecution
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ClientSize = new System.Drawing.Size( 1328, 731 );
             Controls.Add( ControlBox );
             Controls.Add( TestButton );
             Controls.Add( ResourceTable );

@@ -50,6 +50,7 @@ namespace BudgetExecution
             HeaderTable = new TableLayoutPanel( );
             PictureBox = new PictureBox( );
             Title = new Label( );
+            StatusLabel = new Label( );
             OpenDialog = new OpenDialog( );
             SaveDialog = new SaveDialog( );
             ( (ISupportInitialize)BindingSource ).BeginInit( );
@@ -99,11 +100,11 @@ namespace BudgetExecution
             ButtonTable.Controls.Add( BrowseButton, 3, 0 );
             ButtonTable.Controls.Add( SaveButton, 1, 0 );
             ButtonTable.Dock = DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 0, 353 );
+            ButtonTable.Location = new System.Drawing.Point( 0, 352 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            ButtonTable.Size = new System.Drawing.Size( 688, 35 );
+            ButtonTable.Size = new System.Drawing.Size( 688, 36 );
             ButtonTable.TabIndex = 18;
             // 
             // CloseButton
@@ -129,7 +130,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 103, 29 );
+            CloseButton.Size = new System.Drawing.Size( 103, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 0;
@@ -161,7 +162,7 @@ namespace BudgetExecution
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 103, 29 );
+            SelectButton.Size = new System.Drawing.Size( 103, 30 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
             SelectButton.TabIndex = 1;
@@ -193,7 +194,7 @@ namespace BudgetExecution
             BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BrowseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 103, 29 );
+            BrowseButton.Size = new System.Drawing.Size( 103, 30 );
             BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
             BrowseButton.StyleManager = null;
             BrowseButton.TabIndex = 2;
@@ -225,7 +226,7 @@ namespace BudgetExecution
             SaveButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SaveButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SaveButton.PressTextColor = System.Drawing.Color.White;
-            SaveButton.Size = new System.Drawing.Size( 103, 29 );
+            SaveButton.Size = new System.Drawing.Size( 103, 30 );
             SaveButton.Style = MetroSet_UI.Enums.Style.Custom;
             SaveButton.StyleManager = null;
             SaveButton.TabIndex = 3;
@@ -246,9 +247,9 @@ namespace BudgetExecution
             MessageTable.Name = "MessageTable";
             MessageTable.RowCount = 3;
             MessageTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            MessageTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 212F ) );
+            MessageTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 231F ) );
             MessageTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 59F ) );
-            MessageTable.Size = new System.Drawing.Size( 688, 323 );
+            MessageTable.Size = new System.Drawing.Size( 688, 322 );
             MessageTable.TabIndex = 19;
             // 
             // TextBox
@@ -257,19 +258,21 @@ namespace BudgetExecution
             TextBox.BorderStyle = BorderStyle.None;
             TextBox.Dock = DockStyle.Fill;
             TextBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            TextBox.Location = new System.Drawing.Point( 81, 55 );
+            TextBox.Location = new System.Drawing.Point( 81, 35 );
             TextBox.Name = "TextBox";
-            TextBox.Size = new System.Drawing.Size( 515, 206 );
+            TextBox.Size = new System.Drawing.Size( 515, 225 );
             TextBox.TabIndex = 0;
             TextBox.Text = "";
             // 
             // HeaderTable
             // 
-            HeaderTable.ColumnCount = 2;
-            HeaderTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 5.523256F ) );
-            HeaderTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 94.4767456F ) );
+            HeaderTable.ColumnCount = 3;
+            HeaderTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 19.4174767F ) );
+            HeaderTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 80.58253F ) );
+            HeaderTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 157F ) );
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Controls.Add( StatusLabel, 2, 0 );
             HeaderTable.Dock = DockStyle.Top;
             HeaderTable.Location = new System.Drawing.Point( 0, 0 );
             HeaderTable.Name = "HeaderTable";
@@ -297,11 +300,11 @@ namespace BudgetExecution
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 41, 3 );
+            Title.Location = new System.Drawing.Point( 106, 3 );
             Title.Margin = new Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new Padding( 1 );
-            Title.Size = new System.Drawing.Size( 644, 24 );
+            Title.Size = new System.Drawing.Size( 421, 24 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -310,6 +313,28 @@ namespace BudgetExecution
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
+            // 
+            // StatusLabel
+            // 
+            StatusLabel.BindingSource = null;
+            StatusLabel.Dock = DockStyle.Fill;
+            StatusLabel.FlatStyle = FlatStyle.Flat;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            StatusLabel.HoverText = null;
+            StatusLabel.IsDerivedStyle = true;
+            StatusLabel.Location = new System.Drawing.Point( 533, 3 );
+            StatusLabel.Margin = new Padding( 3 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 152, 24 );
+            StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            StatusLabel.StyleManager = null;
+            StatusLabel.TabIndex = 2;
+            StatusLabel.Text = "Date Time";
+            StatusLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            StatusLabel.ThemeAuthor = "Terry D. Eppler";
+            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ToolTip = null;
             // 
             // OpenDialog
             // 
@@ -328,7 +353,7 @@ namespace BudgetExecution
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
@@ -437,6 +462,7 @@ namespace BudgetExecution
         /// The save button
         /// </summary>
         public Button SaveButton;
+        public Label StatusLabel;
     }
 
 }

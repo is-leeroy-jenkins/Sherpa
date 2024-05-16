@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-10-2023
+//     Created:                 05-16-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-10-2023
+//     Last Modified On:        05-16-2024
 // ******************************************************************************************
 // <copyright file="MessageDialog.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MessageDialog.cs
@@ -46,8 +46,7 @@ namespace BudgetExecution
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Timer = System.Windows.Forms.Timer;
-
+    
     /// <summary>
     /// 
     /// </summary>
@@ -58,51 +57,80 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class MessageDialog : MetroForm
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+        
         /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
-
+        
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _updateStatus;
-
+        private Action _statusUpdate;
+        
         /// <summary>
         /// 
         /// </summary>
-        private int _time;
-
+        private protected int _time;
+        
         /// <summary>
         /// 
         /// </summary>
-        private int _seconds;
-
+        private protected int _seconds;
+        
         /// <summary>
-        /// The data
+        /// The title
         /// </summary>
-        private string _data;
-
+        private protected string _titleText;
+        
         /// <summary>
-        /// The caption
+        /// The message
         /// </summary>
-        private string _caption;
-
+        private protected string _messageText;
+        
         /// <summary>
-        /// Gets or sets the caption.
+        /// Gets the title text.
         /// </summary>
         /// <value>
-        /// The caption.
+        /// The title text.
         /// </value>
-        public string Caption { get; set; }
-
+        public string TitleText
+        {
+            get
+            {
+                return _titleText;
+            }
+            private protected set
+            {
+                _titleText = value;
+            }
+        }
+        
         /// <summary>
-        /// Gets or sets the text associated with this control.
+        /// Gets the message text.
         /// </summary>
-        public string Data { get; set; }
-
+        /// <value>
+        /// The message text.
+        /// </value>
+        public string MessageText
+        {
+            get
+            {
+                return _messageText;
+            }
+            private protected set
+            {
+                _messageText = value;
+            }
+        }
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -111,8 +139,9 @@ namespace BudgetExecution
         public MessageDialog( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
-
+            
             // Form Properties
             Size = new Size( 700, 400 );
             MinimumSize = new Size( 700, 400 );
@@ -137,17 +166,16 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-
+            
             // Timer Properties
             _time = 0;
             _seconds = 5;
-
+            
             // Wire Events
             Load += OnLoad;
-            Activated += OnActivated;
             Closing += OnFormClosing;
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -157,24 +185,24 @@ namespace BudgetExecution
         public MessageDialog( string text )
             : this( )
         {
-            _data = text;
-            TextBox.Text = Data;
+            _messageText = text;
+            _titleText = "Budget Execution Message";
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.MessageDialog" /> class.
         /// </summary>
         /// <param name="text">The text.</param>
-        /// <param name="caption">The caption.</param>
-        public MessageDialog( string text, string caption )
+        /// <param name="title">The caption.</param>
+        public MessageDialog( string title, string text )
             : this( text )
         {
-            _caption = caption;
-            Title.Text = Caption;
+            _messageText = text;
+            _titleText = title;
         }
-
+        
         /// <summary>
         /// Registers the callbacks.
         /// </summary>
@@ -192,7 +220,22 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
@@ -218,7 +261,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the Labels for this instance.
         /// </summary>
@@ -227,13 +270,15 @@ namespace BudgetExecution
             try
             {
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.MiddleCenter;
+                Title.Font = new Font( "Roboto", 10 );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the dialogs.
         /// </summary>
@@ -251,7 +296,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the timer.
         /// </summary>
@@ -262,42 +307,34 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Enabled = false;
+                Timer.Enabled = true;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Initializes the text.
         /// </summary>
-        private void InitializeText( )
+        private void InitializeTextBox( )
         {
             try
             {
-                if( !string.IsNullOrEmpty( _data ) )
-                {
-                    TextBox.Text = _data;
-                }
-
-                if( !string.IsNullOrEmpty( _caption ) )
-                {
-                    Title.Text = _caption;
-                }
+                TextBox.Font = new Font( "Roboto", 10 );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             try
             {
@@ -316,61 +353,65 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
-        /// Fades the in.
+        /// Begins the initialize.
         /// </summary>
-        private void FadeIn( )
+        private void BeginInit( )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                if( _path == null )
                 {
-                    if( Opacity == 1d )
+                    _path = new object( );
+                    lock( _path )
                     {
-                        _timer.Stop( );
+                        _busy = true;
                     }
-
-                    Opacity += 0.03d;
-                };
-
-                _timer.Start( );
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
-        /// Fades the out.
+        /// Ends the initialize.
         /// </summary>
-        private void FadeOut( )
+        private void EndInit( )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                if( _path == null )
                 {
-                    if( Opacity == 0d )
+                    _path = new object( );
+                    lock( _path )
                     {
-                        _timer.Stop( );
+                        _busy = false;
                     }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
@@ -386,7 +427,7 @@ namespace BudgetExecution
                     await Task.Delay( interval );
                     form.Opacity += 0.05;
                 }
-
+                
                 form.Opacity = 1;
             }
             catch( Exception _ex )
@@ -394,7 +435,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Fades the out asynchronous.
         /// </summary>
@@ -410,7 +451,7 @@ namespace BudgetExecution
                     await Task.Delay( interval );
                     form.Opacity -= 0.05;
                 }
-
+                
                 form.Opacity = 0;
             }
             catch( Exception _ex )
@@ -418,7 +459,25 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                var _date = _now.ToShortDateString( );
+                var _status = _now.ToLongTimeString( );
+                StatusLabel.Text = $"{_date} - {_status}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -429,11 +488,18 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeButtons( );
                 InitializeTimer( );
-                InitializeText( );
+                InitializeTextBox( );
                 InitializeDialogs( );
+                if( !string.IsNullOrEmpty( _titleText )
+                   && !string.IsNullOrEmpty( _messageText ) )
+                {
+                    TextBox.Text = _messageText;
+                    Title.Text = _titleText;
+                }
+                
+                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception _ex )
@@ -441,7 +507,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [close button click].
         /// </summary>
@@ -463,7 +529,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [select button click].
         /// </summary>
@@ -485,7 +551,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [browse button click].
         /// </summary>
@@ -494,7 +560,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private protected void OnBrowseButtonClick( object sender, EventArgs e )
         {
-            if( sender is Button _button 
+            if( sender is Button _button
                && _button.Name.Equals( "BrowseButton" ) )
             {
                 try
@@ -505,7 +571,7 @@ namespace BudgetExecution
                     var _file = new DataFile( _externalFile );
                     var _extenstion = _file.Extension ?? string.Empty;
                     var _name = _file.FileName ?? string.Empty;
-                    var _path = _file.FullPath ?? string.Empty;
+                    var _filePath = _file.FullPath ?? string.Empty;
                     var _dirPath = _file.ParentPath ?? string.Empty;
                     var _create = _file.Created;
                     var _modify = _file.Modified;
@@ -513,13 +579,13 @@ namespace BudgetExecution
                     var _nl = Environment.NewLine;
                     var _tb = char.ToString( '\t' );
                     var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                        _tb + "File Path: " + _tb + _path + _nl + _nl +
+                        _tb + "File Path: " + _tb + _filePath + _nl + _nl +
                         _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
                         _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
                         _tb + "File Size: " + _tb + _size + _nl + _nl +
                         _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
                         _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
-
+                    
                     TextBox.Text = _text;
                 }
                 catch( Exception _ex )
@@ -528,7 +594,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [save button click].
         /// </summary>
@@ -544,7 +610,7 @@ namespace BudgetExecution
                 try
                 {
                     SaveDialog.ShowDialog( );
-                    var _path = SaveDialog.FileName;
+                    //var _filePath = SaveDialog.FileName;
                 }
                 catch( Exception _ex )
                 {
@@ -552,7 +618,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [timer tick].
         /// </summary>
@@ -563,14 +629,14 @@ namespace BudgetExecution
         {
             try
             {
-                InvokeIf( _updateStatus );
+                InvokeIf( _statusUpdate );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [form closing].
         /// </summary>
@@ -589,7 +655,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [shown].
         /// </summary>
@@ -608,7 +674,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

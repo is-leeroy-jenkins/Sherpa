@@ -48,6 +48,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Ookii.Dialogs.WinForms.CredentialDialog" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class CredentialDialog : Ookii.Dialogs.WinForms.CredentialDialog
     {
         /// <summary>
@@ -58,7 +60,17 @@ namespace BudgetExecution
         {
             ShowSaveCheckBox = true;
             IsSaveChecked = false;
-            UseApplicationInstanceCredentialCache = true;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
