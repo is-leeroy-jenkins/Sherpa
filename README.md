@@ -6,7 +6,7 @@
 
 - Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
 - Charting and reporting.
-- Its own internal web browser [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md#baby-is-an-open-source-c-web-browser-released-under-the-mit-license)
+- Its own internal web browser [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md#baby-is-an-open-source-c-web-browser-released-under-the-mit-license)
 - Pre-defined schema for 100 actively used data tables.
 - SQL Editors for SQLite DB Browswer and SQL Compact Edition
 - Excel User Interface over real databases.
@@ -14,7 +14,7 @@
 - Easy access to environmental program project descriptions of statutory authority.
 - Quick calculations via Budget Calculator
 - Easily add vendor-specific branding, buttons or hotkeys
-- View online & offline webpages with Baby
+- View online & offline webpages with Baby Browser
 
 ## Providers
 
