@@ -501,5 +501,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Assets\MenuItems\" />
+    <Folder Include="Resources\Github\" />
   </ItemGroup>
 </Project>
