@@ -10,7 +10,7 @@
 - Pre-defined schema for 100 actively used data tables.
 - SQL Editors for SQLite DB Browswer, SQL Compact Edition
 - Excel User Interface over real databases.
-- Map functionality
+- Map functionality for congressional projects (earmarks) and pollution sites.
 - Easy access to environmental program project descriptions of statutory authority.
 - Quick calculations via Budget Calculator
 - Easily add vendor-specific branding, buttons or hotkeys
@@ -48,27 +48,27 @@
 
 ## Code
 
-- Baby uses CefSharp 106 and is built on NET 6
-- Baby supports AnyCPU as well as x86/x64 specific builds
-- `WebBrowser.cs` - main web browser UI and related functionality
-- `Callbacks` - various handlers that we have registered with CefSharp that enable deeper integration between us and CefSharp
-- `Serializers` - fast JSON serializer/deserializer
-- `bin` - Binaries are included in the `bin` folder due to the complex CefSharp setup required. Don't empty this folder.
+- BudgetExecution uses CefSharp 106 for b and is built on NET 6
+- BudgetExecution supports AnyCPU as well as x86/x64 specific builds
+- `Controls` - main UI layer and associated controls and related functionality
+- `Enumerations` - various enumerations used for budgetary accounting
+- `Extensions` - useful extension methods for budget analysis by type
+- `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 ## Credits
 
 ## Screenshots
 
-### Datagrids
+### Datagrids to query financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
 
-### Excel UI over SQLite database
+### Excel-like UI over a relational database
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
 
-### Maps
+### Maps for congressional projects (earmarks) and pollution sites
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.PNG)
 
@@ -91,4 +91,3 @@
 ### Data Visualization
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.PNG)
-
