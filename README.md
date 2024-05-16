@@ -8,13 +8,13 @@
 - Charting and reporting.
 - Its own internal web browser [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md#baby-is-an-open-source-c-web-browser-released-under-the-mit-license)
 - Pre-defined schema for 100 actively used data tables.
-- SQL Editors for SQLite DB Browswer and SQL Compact Edition
+- SQL Editors for SQLite DB Browswer, SQL Compact Edition
 - Excel User Interface over real databases.
 - Map functionality
 - Easy access to environmental program project descriptions of statutory authority.
 - Quick calculations via Budget Calculator
 - Easily add vendor-specific branding, buttons or hotkeys
-- View online & offline webpages with Baby Browser
+- View online & offline webpages with Baby
 
 ## Providers
 
@@ -62,15 +62,15 @@
 
 ### Datagrids
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/1.png)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
 
 ### Excel UI over SQLite database
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/5.png)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
 
 ### Maps
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/6.png)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.PNG)
 
 ### Baby Browser
 
@@ -78,20 +78,17 @@
 
 ### Budget Calculator
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/search.png)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.PNG)
 
 ### Fiscal Year Utility
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/3.png)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.PNG)
 
-### Developer Tools
+### Environmental Program Definitions
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/4.png)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.PNG)
 
-### Custom Error Pages
+### Data Visualization
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/error1.png)
-
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/error2.png)
-
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.PNG)
 
