@@ -4,23 +4,23 @@
 
 ## Features
 
-- Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
+- Mutliple providers including SQLite, MS Access, SQL CE, and SQL Server Express Edition.
 - Charting and reporting.
 - Its own internal web browser [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md)
 - Pre-defined schema for 100 actively used data tables.
-- SQL Editors for SQLite DB Browswer, SQL Compact Edition
+- SQL Editors for SQLite, SQL Compact Edition, MS Access,
 - Excel User Interface over real databases.
 - Map functionality for congressional projects (earmarks) and pollution sites.
 - Easy access to environmental program project descriptions of statutory authority.
-- Quick calculations via Budget Calculator
-- Easily add vendor-specific branding, buttons or hotkeys
-- View online & offline webpages with Baby
+- Quick budget and accouting calculations via calaculator control bound to data
+- Easily add agency/region/division-specific branding, buttons or hotkeys
+- View online & offline web data/gaes specifically targeted to reasearching .gov domains with Baby
 
 ## Providers
 
-- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Get here](https://sqlite.org/index.html) 
-- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [Get here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
-- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Get here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
+- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
+- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
+- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. 
 
 
@@ -48,13 +48,13 @@
 
 ## Code
 
-- BudgetExecution uses CefSharp 106 for b and is built on NET 6
+- BudgetExecution uses CefSharp 106 for Baby and is built on NET 6
 - BudgetExecution supports AnyCPU as well as x86/x64 specific builds
-- `Controls` - main UI layer and associated controls and related functionality
-- `Enumerations` - various enumerations used for budgetary accounting
-- `Extensions` - useful extension methods for budget analysis by type
+- `Controls` (Controls\) - main UI layer and associated controls and related functionality
+- `Enumerations` (Enumerations\) - various enumerations used for budgetary accounting
+- `Extensions` (Extensions\) - useful extension methods for budget analysis by type
+- `Clients` (Clients\) - other tools used and available
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
-- `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 ## Credits
 
@@ -76,7 +76,7 @@
 
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
 
-### Budget Calculator
+### Quick budget and accouting calculations on bound data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.PNG)
 
