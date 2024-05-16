@@ -1177,7 +1177,7 @@ namespace BudgetExecution
             // 
             // ResourceTable
             // 
-            ResourceTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ResourceTable.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             ResourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ResourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ResourceTable.CaptionText = "Resources";

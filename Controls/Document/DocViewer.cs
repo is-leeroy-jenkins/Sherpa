@@ -65,6 +65,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public partial class DocViewer : MetroForm
     {
         /// <summary>
@@ -849,12 +850,30 @@ namespace BudgetExecution
         /// Sends the notification.
         /// </summary>
         /// <param name="message">The message.</param>
-        private void PostMessage( string message )
+        private void SendMessage( string message )
         {
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
                 var _notification = new SplashMessage( message );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        private void SendNotification( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notification = new Notification( message );
                 _notification.Show( );
             }
             catch( Exception _ex )
@@ -910,7 +929,7 @@ namespace BudgetExecution
             {
                 var _names = Enum.GetNames( typeof( Guidance ) );
                 var _documentPaths = new Dictionary<string, string>( );
-                for( int _i = 0; _i < _names.Length; _i++ )
+                for( var _i = 0; _i < _names.Length; _i++ )
                 {
                     var _query = new Dictionary<string, object> 
                     {
@@ -1179,25 +1198,6 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

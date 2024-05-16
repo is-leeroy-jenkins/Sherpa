@@ -1369,9 +1369,11 @@ namespace BudgetExecution
             try
             {
                 var _title = "This is the Title";
-                var _message = "This text is to simulate a long"
+                var _nl = char.ToString( '\n' );
+                var _snip = "This text is to simulate a long"
                     + " message typically recieved when an exception occurs.";
-                
+
+                var _message = _nl + _nl + _snip;
                 var _error = new MessageDialog( _title, _message );
                 _error.ShowDialog( );
             }

@@ -1737,6 +1737,7 @@ namespace BudgetExecution
                         SetFormIcon( );
                         break;
                     }
+
                     // Filter Tab
                     case 1:
                     {
@@ -1750,6 +1751,7 @@ namespace BudgetExecution
                         ResetListBoxVisibility( );
                         break;
                     }
+
                     // Group Tab
                     case 2:
                     {
@@ -1761,6 +1763,7 @@ namespace BudgetExecution
                         PopulateNumericListBox( );
                         break;
                     }
+
                     // Calendar Tab
                     case 3:
                     {
@@ -1770,6 +1773,7 @@ namespace BudgetExecution
                         ActivateCalendarTab( );
                         break;
                     }
+
                     // Default Case
                     default:
                     {
@@ -1805,12 +1809,14 @@ namespace BudgetExecution
                         ActivateDataTab( );
                         break;
                     }
+
                     // Busy Tab
                     case 1:
                     {
                         ActivateBusyTab( );
                         break;
                     }
+
                     // Default Case
                     default:
                     {
