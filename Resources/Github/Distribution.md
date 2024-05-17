@@ -1,16 +1,10 @@
-# How to distribute Baby with your own branding
+# How to distribute BudgetExecution within your own Department/Agency/Region/Division/Branch/Section
 
 #### Step 1: Clone the source
 
-Create a Github clone of Baby using [our tutorial](Compilation.md).
+Create a Github clone of BudgetExecution using [our tutorial](Compilation.md).
 
-#### Step 2: Open BrowserConfig.cs
-
-Open the Solution explorer, and navigate to `Model > BrowserConfig.cs`.
-
-![image](https://user-images.githubusercontent.com/104514709/183605344-97a50c0f-666a-4132-bf30-760525dc253e.png)
-
-#### Step 3: Edit the configuration strings
+#### Step 2: Edit the configuration strings
  
 ![image](https://user-images.githubusercontent.com/104514709/183605417-67f274b2-fe9d-47b7-9d4e-1722387d2fb8.png)
 
