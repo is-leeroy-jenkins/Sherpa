@@ -50,10 +50,10 @@
 
 - BudgetExecution uses CefSharp 106 for Baby and is built on NET 6
 - BudgetExecution supports AnyCPU as well as x86/x64 specific builds
-- `Controls` (Controls\) - main UI layer and associated controls and related functionality
-- `Enumerations` (Enumerations\) - various enumerations used for budgetary accounting
-- `Extensions` (Extensions\) - useful extension methods for budget analysis by type
-- `Clients` (Clients\) - other tools used and available
+- `Controls`  - main UI layer and associated controls and related functionality
+- `Enumerations`  - various enumerations used for budgetary accounting
+- `Extensions`  - useful extension methods for budget analysis by type
+- `Clients`  - other tools used and available
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 
 ## Credits
