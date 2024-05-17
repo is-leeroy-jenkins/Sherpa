@@ -314,7 +314,7 @@
     <Compile Remove="Clients\Baby\net6.0-windows\Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="LICENSE">
+    <None Update="Misc\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -322,7 +322,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Update="README.md">
+    <None Update="Misc\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

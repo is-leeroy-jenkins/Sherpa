@@ -65,6 +65,9 @@ Clients/WebBrower/net6.0-windows/runtimes/win-x64/native/libcef.dll
 *.accdb
 *.db
 *.accdb
+/.vs
+*.editorconfig
+*.DotSettings
 /Clients/Baby/net6.0-windows/runtimes/win-x64/native/libcef.dll
 !/Data/Database/Access/DataModels/Data.accdb
 !/Data/Database/SQLite/DataModels/Data.db
