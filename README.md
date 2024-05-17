@@ -17,10 +17,10 @@
 
 ## Providers
 
-- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [download here](https://sqlite.org/index.html) 
-- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [download here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
-- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [download here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
-- MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [download here](https://www.microsoft.com/en-us/microsoft-365/access)
+- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [more here](https://sqlite.org/index.html) 
+- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
+- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
+- MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
 
 
 ## System requirements
