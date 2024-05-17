@@ -6,13 +6,13 @@
 
 - Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
 - Charting and reporting.
-- Its own internal web browser with queries optimized for researching data in the .gov domain [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md)
-- Pre-defined schema for 100 actively used data tables.
-- SQL Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
-- Excel User Interface over real databases.
-- Mapping for congressional earmark reporting and pollution site monitoring.
+- Its own internal web browser with searches optimized for researching data in the government domain with [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Pre-defined schema for 100 actively used environmental budget data tables.
+- Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
+- Excel-like user interface over real databases.
+- Mapping for congressional earmark reporting and montioring of polluction sites.
 - Easy access to environmental program project descriptions and statutory authority.
-- Quick budget and accouting calculations directl on bound data.
+- Quick budget and accouting calculations directly on bound data.
 - Easily add agency/region/division-specific branding.
 
 ## Providers
@@ -29,7 +29,7 @@
 
 - You will need .NET 6.
 
-- You need to install the version of VC++ Runtime that CEFSharp needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
+- You need to install the version of VC++ Runtime that Baby Browser needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
 
 
 ## Getting started
@@ -47,12 +47,12 @@
 
 ## Code
 
-- BudgetExecution uses CefSharp 106 for b and is built on NET 6
+- BudgetExecution uses CefSharp 106 for Baby Browser and is built on NET 6
 - BudgetExecution supports AnyCPU as well as x86/x64 specific builds
-- `Controls` (Controls\) - main UI layer and associated controls and related functionality
-- `Enumerations` (Enumerations\) - various enumerations used for budgetary accounting
-- `Extensions` (Extensions\) - useful extension methods for budget analysis by type
-- `Clients` (Clients\) - other tools used and available
+- [Controls](https://github.com/KarmaScripter/BudgetExecution/tree/main/Controls) - main UI layer and associated controls and related functionality
+- [Enumerations](https://github.com/KarmaScripter/BudgetExecution/tree/main/Enumerations) - various enumerations used for budgetary accounting
+- [Extensions](https://github.com/KarmaScripter/BudgetExecution/tree/main/Extensions)- useful extension methods for budget analysis by type
+- [Clients](https://github.com/KarmaScripter/BudgetExecution/tree/main/Clients) - other tools used and available
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
