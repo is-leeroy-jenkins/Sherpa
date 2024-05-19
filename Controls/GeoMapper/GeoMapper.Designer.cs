@@ -79,6 +79,7 @@
             Map = new GMap.NET.WindowsForms.GMapControl( );
             MapTable = new System.Windows.Forms.TableLayoutPanel( );
             MapPanel = new BackPanel( );
+            ControlBox = new ControlBox( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -96,12 +97,13 @@
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 133F ) );
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Controls.Add( ControlBox, 2, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1326, 36 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 32 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -127,7 +129,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1092, 30 );
+            Title.Size = new System.Drawing.Size( 1092, 26 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -353,7 +355,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 182, 25 );
+            TextBox.Size = new System.Drawing.Size( 180, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Location";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -778,7 +780,7 @@
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1159, 557 );
+            Map.Size = new System.Drawing.Size( 1159, 561 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
             // 
@@ -792,14 +794,14 @@
             MapTable.Controls.Add( MapPanel, 1, 1 );
             MapTable.Dock = System.Windows.Forms.DockStyle.Fill;
             MapTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            MapTable.Location = new System.Drawing.Point( 1, 37 );
+            MapTable.Location = new System.Drawing.Point( 1, 33 );
             MapTable.Margin = new System.Windows.Forms.Padding( 1 );
             MapTable.Name = "MapTable";
             MapTable.RowCount = 3;
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.58899665F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.411F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 64F ) );
-            MapTable.Size = new System.Drawing.Size( 1326, 645 );
+            MapTable.Size = new System.Drawing.Size( 1326, 649 );
             MapTable.TabIndex = 3;
             // 
             // MapPanel
@@ -820,13 +822,42 @@
             MapPanel.Location = new System.Drawing.Point( 81, 18 );
             MapPanel.Name = "MapPanel";
             MapPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            MapPanel.Size = new System.Drawing.Size( 1161, 559 );
+            MapPanel.Size = new System.Drawing.Size( 1161, 563 );
             MapPanel.Style = MetroSet_UI.Enums.Style.Custom;
             MapPanel.StyleManager = null;
             MapPanel.TabIndex = 3;
             MapPanel.ThemeAuthor = "Terry D. Eppler";
             MapPanel.ThemeName = "Budget Execution";
             MapPanel.ToolTip = null;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 2;
+            ControlBox.ThemeAuthor = "Terry D. Eppler";
+            ControlBox.ThemeName = "DarkControls";
             // 
             // GeoMapper
             // 
@@ -841,7 +872,6 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1328, 728 );
-            ControlBox = false;
             Controls.Add( MapTable );
             Controls.Add( ToolStripTable );
             Controls.Add( HeaderTable );
@@ -922,5 +952,6 @@
         public GMap.NET.WindowsForms.GMapControl Map;
         private BackPanel MapPanel;
         public ToolSeparator RightSeparator;
+        private ControlBox ControlBox;
     }
 }

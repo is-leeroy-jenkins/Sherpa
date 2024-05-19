@@ -358,6 +358,9 @@
   <data name="Loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\LoaderImages\Loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\NinjaImages\png\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LogoutButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\ToolStripImages\LogoutButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

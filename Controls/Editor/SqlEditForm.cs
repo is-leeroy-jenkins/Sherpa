@@ -1843,14 +1843,14 @@ namespace BudgetExecution
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    _selectedQuery = string.Empty;
+                    _selectedCommand = string.Empty;
                     var _selection = _comboBox.SelectedItem?.ToString( );
                     QueryListBox.Items?.Clear( );
                     if( _selection?.Contains( " " ) == true )
                     {
-                        _selectedQuery = _selection.Replace( " ", "" );
+                        _selectedCommand = _selection.Replace( " ", "" );
                         var _filePath = _prefix + _dbpath
-                            + @$"\{_provider}\DataModels\{_selectedQuery}";
+                            + @$"\{_provider}\DataModels\{_selectedCommand}";
 
                         var _files = Directory.GetFiles( _filePath );
                         for( var _i = 0; _i < _files.Length; _i++ )
@@ -1862,9 +1862,9 @@ namespace BudgetExecution
                     }
                     else
                     {  
-                        _selectedQuery = _comboBox.SelectedItem?.ToString( );
+                        _selectedCommand = _comboBox.SelectedItem?.ToString( );
                         var _filePath = _prefix + _dbpath
-                            + @$"\{_provider}\DataModels\{_selectedQuery}";
+                            + @$"\{_provider}\DataModels\{_selectedCommand}";
 
                         var _names = Directory.GetFiles( _filePath );
                         for( var _i = 0; _i < _names.Length; _i++ )

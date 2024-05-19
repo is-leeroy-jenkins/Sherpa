@@ -51,76 +51,6 @@ namespace BudgetExecution
     public enum Guidance
     {
         /// <summary>
-        /// The advice of allowance fiscal year2021
-        /// </summary>
-        AdviceOfAllowanceFiscalYear2021,
-
-        /// <summary>
-        /// The advice of allowance fiscal year2022
-        /// </summary>
-        AdviceOfAllowanceFiscalYear2022,
-
-        /// <summary>
-        /// The advice of allowance fiscal year2023
-        /// </summary>
-        AdviceOfAllowanceFiscalYear2023,
-
-        /// <summary>
-        /// The anti deficiency act
-        /// </summary>
-        AntiDeficiencyAct,
-
-        /// <summary>
-        /// The budget control act
-        /// </summary>
-        BudgetControlAct,
-
-        /// <summary>
-        /// The clean air act
-        /// </summary>
-        CleanAirAct,
-
-        /// <summary>
-        /// The clean water act
-        /// </summary>
-        CleanWaterAct,
-
-        /// <summary>
-        /// The comprehensive environmental response compensation and liability act
-        /// </summary>
-        ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct,
-
-        /// <summary>
-        /// The data act
-        /// </summary>
-        DataAct,
-
-        /// <summary>
-        /// The deobligation recertification guidance
-        /// </summary>
-        DeobligationRecertificationGuidance,
-
-        /// <summary>
-        /// The emergency response mission assignment guidance
-        /// </summary>
-        EmergencyResponseMissionAssignmentGuidance,
-
-        /// <summary>
-        /// The funds control manual
-        /// </summary>
-        FundsControlManual,
-
-        /// <summary>
-        /// The money and finance
-        /// </summary>
-        MoneyAndFinance,
-
-        /// <summary>
-        /// The object class manual
-        /// </summary>
-        ObjectClassManual,
-
-        /// <summary>
         /// The official travel
         /// </summary>
         OfficialTravel,
@@ -136,34 +66,34 @@ namespace BudgetExecution
         SuperfundGeneralInformation,
 
         /// <summary>
-        /// The superfund budget and resource management
+        /// The superfund resource management
         /// </summary>
-        SuperfundBudgetAndResourceManagement,
+        SuperfundResourceManagement,
 
         /// <summary>
-        /// The superfund cost recovery process
+        /// The superfund cost recovery
         /// </summary>
-        SuperfundCostRecoveryProcess,
+        SuperfundCostRecovery,
 
         /// <summary>
-        /// The superfund direct charging of superfund costs
+        /// The superfund direct charging
         /// </summary>
-        SuperfundDirectChargingOfSuperfundCosts,
+        SuperfundDirectCharging,
 
         /// <summary>
-        /// The superfund inter-agency agreements
+        /// The superfund inter agency agreements
         /// </summary>
         SuperfundInterAgencyAgreements,
 
         /// <summary>
-        /// The superfund personnel and support cost allocation
+        /// The superfund personnel and support costs
         /// </summary>
-        SuperfundPersonnelAndSupportCostAllocation,
+        SuperfundPersonnelAndSupportCosts,
 
         /// <summary>
-        /// The superfund site specific cost accounting
+        /// The superfund site specific costs
         /// </summary>
-        SuperfundSiteSpecificCostAccounting,
+        SuperfundSiteSpecificCosts,
 
         /// <summary>
         /// The superfund site special accounts
@@ -171,14 +101,29 @@ namespace BudgetExecution
         SuperfundSiteSpecialAccounts,
 
         /// <summary>
-        /// The superfund state contracts and cooperative agreements
+        /// The superfund state contracts
         /// </summary>
-        SuperfundStateContractsAndCooperativeAgreements,
+        SuperfundStateContracts,
 
         /// <summary>
-        /// The superfund state cost share provisions
+        /// The superfund state cost share
         /// </summary>
-        SuperfundStateCostShareProvisions,
+        SuperfundStateCostShare,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2021
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2021,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2022
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2022,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2023
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2023,
 
         /// <summary>
         /// The jobs act advice of allowance fiscal year2022
@@ -201,9 +146,29 @@ namespace BudgetExecution
         InflationReductionActAdviceOfAllowanceFiscalYear2023,
 
         /// <summary>
+        /// The comprehensive environmental response compensation and liability act
+        /// </summary>
+        ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct,
+
+        /// <summary>
+        /// The clean air act
+        /// </summary>
+        CleanAirAct,
+
+        /// <summary>
+        /// The budget control act
+        /// </summary>
+        BudgetControlAct,
+
+        /// <summary>
         /// The federal account symbols and titles book
         /// </summary>
         FederalAccountSymbolsAndTitlesBook,
+
+        /// <summary>
+        /// The emergency response mission assignment guidance
+        /// </summary>
+        EmergencyResponseMissionAssignmentGuidance,
 
         /// <summary>
         /// The federal trust fund accounting guide
@@ -266,9 +231,34 @@ namespace BudgetExecution
         SolidWasteDisposalAct,
 
         /// <summary>
+        /// The data act
+        /// </summary>
+        DataAct,
+
+        /// <summary>
         /// The superfund amendments and reauthorization act
         /// </summary>
         SuperfundAmendmentsAndReauthorizationAct,
+
+        /// <summary>
+        /// The water infrastructure finance and innovation act
+        /// </summary>
+        WaterInfrastructureFinanceAndInnovationAct,
+
+        /// <summary>
+        /// The indirect costs of assistance agreements
+        /// </summary>
+        IndirectCostsOfAssistanceAgreements,
+
+        /// <summary>
+        /// It code guidance
+        /// </summary>
+        ItCodeGuidance,
+
+        /// <summary>
+        /// The non direct allocable costs
+        /// </summary>
+        NonDirectAllocableCosts,
 
         /// <summary>
         /// The preparation submission and execution of the budget
@@ -286,43 +276,28 @@ namespace BudgetExecution
         PrinciplesOfFederalAppropriationsLawVolumeTwo,
 
         /// <summary>
-        /// The statutory authorities for inter-agency agreements
-        /// </summary>
-        StatutoryAuthoritiesForInterAgencyAgreements,
-
-        /// <summary>
-        /// The superfund annual allocation guidance
-        /// </summary>
-        SuperfundAnnualAllocationGuidance,
-
-        /// <summary>
-        /// IT Code guidance
-        /// </summary>
-        ItCodeGuidance,
-
-        /// <summary>
-        /// The indirect costs of assistance agreements
-        /// </summary>
-        IndirectCostsOfAssistanceAgreements,
-
-        /// <summary>
         /// The purchase card policy
         /// </summary>
         PurchaseCardPolicy,
 
         /// <summary>
-        /// The separation of duties
+        /// The separtation of duties
         /// </summary>
-        SeparationOfDuties,
-
-        /// <summary>
-        /// The non-direct costs
-        /// </summary>
-        NonDirectAllocableCosts,
+        SepartationOfDuties,
 
         /// <summary>
         /// The split funding requirements
         /// </summary>
-        SplitFundingRequirements
+        SplitFundingRequirements,
+
+        /// <summary>
+        /// The stafford act
+        /// </summary>
+        StaffordAct,
+
+        /// <summary>
+        /// The water infrastructure improvements for the nation
+        /// </summary>
+        WaterInfrastructureImprovementsForTheNation
     }
 }

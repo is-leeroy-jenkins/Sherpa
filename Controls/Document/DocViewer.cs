@@ -395,7 +395,6 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -654,7 +653,7 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
+        private void Busy( )
         {
             try
             {
@@ -683,7 +682,7 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
+        private void Chill( )
         {
             try
             {
@@ -737,60 +736,6 @@ namespace BudgetExecution
                     Title.Text = string.Empty;
                     _selectedPath = string.Empty;
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -1184,25 +1129,6 @@ namespace BudgetExecution
                 {
                     _textBox.Text = "     < Enter Keywords >     ";
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [form closing].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFormClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
             }
             catch( Exception _ex )
             {

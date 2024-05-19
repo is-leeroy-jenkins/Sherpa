@@ -159,42 +159,6 @@ namespace BudgetExecution
         private DataArgs _dataArgs;
 
         /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the selected query.
         /// </summary>
         /// <value>
@@ -322,60 +286,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns
-        {
-            get
-            {
-                return _selectedColumns;
-            }
-            private protected set
-            {
-                _selectedColumns = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
-        public IList<string> SelectedFields
-        {
-            get
-            {
-                return _selectedFields;
-            }
-            private protected set
-            {
-                _selectedFields = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
-        public IList<string> SelectedNumerics
-        {
-            get
-            {
-                return _selectedNumerics;
-            }
-            private protected set
-            {
-                _selectedNumerics = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -408,24 +318,6 @@ namespace BudgetExecution
             private protected set
             {
                 _provider = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private protected set
-            {
-                _dataArgs = value;
             }
         }
 
@@ -481,7 +373,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
 
             // Timer Properties
             _time = 0;
@@ -496,8 +387,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
-            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -518,7 +407,7 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
+        private void Busy( )
         {
             try
             {
@@ -547,7 +436,7 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
+        private void Chill( )
         {
             try
             {
@@ -1016,7 +905,6 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeToolStrip( );
                 InitializePictureBox( );
                 InitializeTimer( );
@@ -1030,8 +918,6 @@ namespace BudgetExecution
                     PopulateHeaders( );
                     PopulateCells( );
                 }
-
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -1107,48 +993,6 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnFormClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>
