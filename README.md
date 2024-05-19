@@ -53,6 +53,7 @@
 - [Enumerations](https://github.com/KarmaScripter/BudgetExecution/tree/main/Enumerations) - various enumerations used for budgetary accounting
 - [Extensions](https://github.com/KarmaScripter/BudgetExecution/tree/main/Extensions)- useful extension methods for budget analysis by type
 - [Clients](https://github.com/KarmaScripter/BudgetExecution/tree/main/Clients) - other tools used and available
+- [Ninja](https://github.com/KarmaScripter/BudgetExecution/tree/main/Ninja) - models used in EPA budget data analysis
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
