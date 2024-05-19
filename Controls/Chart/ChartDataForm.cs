@@ -2495,7 +2495,6 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeToolStrip( );
                 InitializeTimer( );
                 InitializeLabels( );
@@ -2516,7 +2515,6 @@ namespace BudgetExecution
                 UpdateStatus( );
                 SetActiveQueryTab( );
                 Chart.Title.Text = "Select a Data Table";
-                FadeInAsync( this );
             }
             catch( Exception ex )
             {

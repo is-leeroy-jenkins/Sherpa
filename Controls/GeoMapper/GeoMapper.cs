@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 05-19-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        04-04-2024
+//     Last Modified On:        05-19-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="GeoMapper.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   GeoMapper.cs
@@ -367,11 +367,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
-            }
-            private set
-            {
-                _busy = value;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -604,7 +614,7 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
+        private void StartBusy( )
         {
             try
             {
@@ -633,7 +643,7 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
+        private void StopBusy( )
         {
             try
             {

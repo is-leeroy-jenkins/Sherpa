@@ -1327,6 +1327,7 @@ namespace BudgetExecution
                     _rowCount = dataTable.Rows.Count;
                     _colCount = dataTable.Columns.Count;
                     var _blue = Color.FromArgb( 17, 69, 97 );
+
                     //Spreadsheet.ActiveGrid.ContextMenuStrip = FormMenu;
                     Spreadsheet.ActiveGrid.FrozenRows = 3;
                     Spreadsheet.ActiveGrid.AllowSelection = true;
@@ -1369,6 +1370,7 @@ namespace BudgetExecution
             try
             {
                 var _blue = Color.FromArgb( 17, 69, 97 );
+
                 //Spreadsheet.ActiveGrid.ContextMenuStrip = FormMenu;
                 Spreadsheet.ActiveGrid.FrozenRows = 3;
                 Spreadsheet.ActiveGrid.AllowSelection = true;
@@ -1734,6 +1736,7 @@ namespace BudgetExecution
                         ActivateDataTab( );
                         break;
                     }
+
                     // Query Tab
                     case 1:
                     {
@@ -1741,6 +1744,7 @@ namespace BudgetExecution
                         ActivateQueryTab( );
                         break;
                     }
+
                     // Busy Tab
                     case 2:
                     {
@@ -1749,6 +1753,7 @@ namespace BudgetExecution
                         ActivateBusyTab( );
                         break;
                     }
+
                     // Default Case
                     default:
                     {
@@ -2085,8 +2090,6 @@ namespace BudgetExecution
                 InitializePictureBox( );
                 InitializeRibbon( );
                 FilterSeparator.Visible = false;
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -2710,25 +2713,6 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

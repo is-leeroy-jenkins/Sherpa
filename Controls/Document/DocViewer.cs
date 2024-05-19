@@ -976,8 +976,6 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeTimer( );
                 InitializePictureBox( );
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -993,7 +991,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

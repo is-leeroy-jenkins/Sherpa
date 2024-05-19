@@ -759,60 +759,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -1843,8 +1789,6 @@ namespace BudgetExecution
                 _listBoxes = GetListBoxes( );
                 TabControl.SelectedIndex = 0;
                 SetActiveTab( );
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -2389,25 +2333,6 @@ namespace BudgetExecution
             {
                 var _dialog = new FileDialog( );
                 _dialog.ShowDialog( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

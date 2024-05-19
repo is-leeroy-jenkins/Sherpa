@@ -1,6 +1,7 @@
 ﻿namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using GMap.NET;
@@ -11,13 +12,15 @@
     /// 
     /// </summary>
     /// <seealso cref="GMap.NET.WindowsForms.GMapControl" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class MapControl : GMapControl
     {
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="MapControl"/> class.
         /// </summary>
-        public MapControl( )
+        public MapControl( ) 
+            : base( )
         {
             Size = new Size( 500, 250 );
             Font = new Font( "Roboto", 9 );
@@ -28,7 +31,7 @@
             GrayScaleMode = false;
             MarkersEnabled = true;
             Bearing = 0;
-            MaxZoom = 2;
+            MaxZoom = 4;
             MinZoom = 18;
             Zoom = 8;
             MouseWheelZoomEnabled = true;

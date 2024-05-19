@@ -93,7 +93,7 @@
             HeaderTable.ColumnCount = 3;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 7.91666651F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 92.0833359F ) );
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 125F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 133F ) );
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
@@ -101,12 +101,12 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1326, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 36 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.FormImages.Application;
+            PictureBox.Image = Resources.Image.Application;
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
@@ -123,11 +123,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 98, 3 );
+            Title.Location = new System.Drawing.Point( 97, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1099, 18 );
+            Title.Size = new System.Drawing.Size( 1092, 30 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -353,7 +353,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 188, 25 );
+            TextBox.Size = new System.Drawing.Size( 182, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Location";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -778,7 +778,7 @@
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1159, 569 );
+            Map.Size = new System.Drawing.Size( 1159, 557 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
             // 
@@ -792,14 +792,14 @@
             MapTable.Controls.Add( MapPanel, 1, 1 );
             MapTable.Dock = System.Windows.Forms.DockStyle.Fill;
             MapTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            MapTable.Location = new System.Drawing.Point( 1, 25 );
+            MapTable.Location = new System.Drawing.Point( 1, 37 );
             MapTable.Margin = new System.Windows.Forms.Padding( 1 );
             MapTable.Name = "MapTable";
             MapTable.RowCount = 3;
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.58899665F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.411F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 64F ) );
-            MapTable.Size = new System.Drawing.Size( 1326, 657 );
+            MapTable.Size = new System.Drawing.Size( 1326, 645 );
             MapTable.TabIndex = 3;
             // 
             // MapPanel
@@ -820,7 +820,7 @@
             MapPanel.Location = new System.Drawing.Point( 81, 18 );
             MapPanel.Name = "MapPanel";
             MapPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            MapPanel.Size = new System.Drawing.Size( 1161, 571 );
+            MapPanel.Size = new System.Drawing.Size( 1161, 559 );
             MapPanel.Style = MetroSet_UI.Enums.Style.Custom;
             MapPanel.StyleManager = null;
             MapPanel.TabIndex = 3;

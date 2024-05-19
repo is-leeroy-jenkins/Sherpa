@@ -372,42 +372,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields
-        {
-            get
-            {
-                return _fields;
-            }
-            private set
-            {
-                _fields = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics
-        {
-            get
-            {
-                return _numerics;
-            }
-            private set
-            {
-                _numerics = value;
-            }
-        }
-
-        /// <summary>
         /// Gets the selected columns.
         /// </summary>
         /// <value>
@@ -1130,7 +1094,7 @@ namespace BudgetExecution
                         FirstListBox.Items?.Clear( );
                     }
 
-                    foreach( var _item in Fields )
+                    foreach( var _item in _fields )
                     {
                         FirstComboBox.Items?.Add( _item );
                     }
@@ -2384,8 +2348,6 @@ namespace BudgetExecution
                 Timer.Start( );
                 UpdateHeaderLabels( );
                 UpdateStatus( );
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
