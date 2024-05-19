@@ -99,7 +99,11 @@
 
 
 
-## SQL Editors for SQL CE, SQLite, MS Access, and SQL Server Express
+## SQL Editors for multiple providers
+- SQLite
+- MS Access
+- SQL Compact Edition
+- SQL Server Express
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlEditor.PNG)
 
