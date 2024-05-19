@@ -64,7 +64,7 @@
 - #### Datagrids
 - ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
 
-## Confort zone.
+## UI with a familiar look & feel.
 - #### Excel-like interface over a relational database
 - ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
 
