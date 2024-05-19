@@ -61,11 +61,11 @@
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 ## Easily query financial data.
-- ### Datagrids
+- #### Datagrids
 - ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
 
 ## Confort zone.
-- ### Excel-like interface over a relational database
+- #### Excel-like interface over a relational database
 - ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
 
 ## Congressional earmark reporting and pollution site monitoring.
