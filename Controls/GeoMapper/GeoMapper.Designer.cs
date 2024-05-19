@@ -33,6 +33,7 @@
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
+            ControlBox = new ControlBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ToolStrip = new ToolStrip( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
@@ -79,7 +80,7 @@
             Map = new GMap.NET.WindowsForms.GMapControl( );
             MapTable = new System.Windows.Forms.TableLayoutPanel( );
             MapPanel = new BackPanel( );
-            ControlBox = new ControlBox( );
+            ContextMenu = new ContextMenu( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -108,7 +109,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Image.Application;
+            PictureBox.Image = (System.Drawing.Image)resources.GetObject( "PictureBox.Image" );
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
@@ -138,6 +139,35 @@
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 2;
+            ControlBox.ThemeAuthor = "Terry D. Eppler";
+            ControlBox.ThemeName = "DarkControls";
             // 
             // ToolStripTable
             // 
@@ -355,7 +385,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 180, 25 );
+            TextBox.Size = new System.Drawing.Size( 174, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Location";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -830,34 +860,19 @@
             MapPanel.ThemeName = "Budget Execution";
             MapPanel.ToolTip = null;
             // 
-            // ControlBox
+            // ContextMenu
             // 
-            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
-            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
-            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
-            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ControlBox.IsDerivedStyle = true;
-            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
-            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
-            ControlBox.MaximizeBox = true;
-            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
-            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.MinimizeBox = true;
-            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
-            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.Name = "ControlBox";
-            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ControlBox.Size = new System.Drawing.Size( 100, 25 );
-            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
-            ControlBox.StyleManager = null;
-            ControlBox.TabIndex = 2;
-            ControlBox.ThemeAuthor = "Terry D. Eppler";
-            ControlBox.ThemeName = "DarkControls";
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
             // 
             // GeoMapper
             // 
@@ -953,5 +968,6 @@
         private BackPanel MapPanel;
         public ToolSeparator RightSeparator;
         private ControlBox ControlBox;
+        public ContextMenu ContextMenu;
     }
 }
