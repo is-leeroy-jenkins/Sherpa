@@ -100,12 +100,22 @@
 
 
 ## SQL Editors for multiple providers
+
 - SQLite
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SQLite.PNG)
+
 - MS Access
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.PNG)
+
 - SQL Compact Edition
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlCe.PNG)
+
 - SQL Server Express
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlEditor.PNG)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlServer.PNG)
 
 
 
