@@ -49,11 +49,14 @@
 
 - BudgetExecution uses CefSharp 106 for Baby Browser and is built on NET 6
 - BudgetExecution supports AnyCPU as well as x86/x64 specific builds
-- [Controls](https://github.com/KarmaScripter/BudgetExecution/tree/main/Controls) - main UI layer and associated controls and related functionality
-- [Enumerations](https://github.com/KarmaScripter/BudgetExecution/tree/main/Enumerations) - various enumerations used for budgetary accounting
-- [Extensions](https://github.com/KarmaScripter/BudgetExecution/tree/main/Extensions)- useful extension methods for budget analysis by type
-- [Clients](https://github.com/KarmaScripter/BudgetExecution/tree/main/Clients) - other tools used and available
-- [Ninja](https://github.com/KarmaScripter/BudgetExecution/tree/main/Ninja) - models used in EPA budget data analysis
+- [Controls](https://github.com/KarmaScripter/BudgetExecution/tree/main/Controls) - main UI layer and associated controls and related functionality.
+- [Enumerations](https://github.com/KarmaScripter/BudgetExecution/tree/main/Enumerations) - various enumerations used for budgetary accounting.
+- [Extensions](https://github.com/KarmaScripter/BudgetExecution/tree/main/Extensions)- useful extension methods for budget analysis by type.
+- [Clients](https://github.com/KarmaScripter/BudgetExecution/tree/main/Clients) - other tools used and available.
+- [Ninja](https://github.com/KarmaScripter/BudgetExecution/tree/main/Ninja) - models used in EPA budget data analysis.
+- [IO](https://github.com/KarmaScripter/BudgetExecution/tree/main/IO) - input output classes used for networking and the file systemm.
+- [Static](https://github.com/KarmaScripter/BudgetExecution/tree/main/Static) - static types used in the analysis of environmental budget data.
+- [Interfaces](https://github.com/KarmaScripter/BudgetExecution/tree/main/Interfaces) - abstractions used in the analysis of environmental budget data.
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
