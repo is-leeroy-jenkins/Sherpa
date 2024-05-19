@@ -95,3 +95,14 @@
 ### Data Visualization
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.PNG)
+
+
+### View environmental laws & guidance via DocViewer
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.PNG)
+
+
+
+### SQL Editors for SQL CE, SQLite, MS Access, and SQL Server Express
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlEditor.PNG)
