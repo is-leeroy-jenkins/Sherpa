@@ -60,17 +60,17 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-## Datagrids to easily query financial data.
+## Easily query financial data.
+- Datagrids
+- ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
+## Confort zone.
+- Excel-like interface over a relational database
+- ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
 
-## Excel-like interface over a relational database.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
-
-## Maps for congressional earmark reporting and pollution site monitoring.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.PNG)
+## Congressional earmark reporting and pollution site monitoring.
+- Maps
+- ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.PNG)
 
 ## Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 
