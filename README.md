@@ -60,49 +60,51 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-## Credits
-
-## Screenshots
-
-### Datagrids to easily query financial data.
+## Datagrids to easily query financial data.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
 
-### Excel-like interface over a relational database.
+## Excel-like interface over a relational database.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
 
-### Maps for congressional earmark reporting and pollution site monitoring.
+## Maps for congressional earmark reporting and pollution site monitoring.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.PNG)
 
-### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+## Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
 
-### Budget Calculator for quick accounting transactions and budget calculations on the data.
+## Budget Calculator for quick accounting transactions and budget calculations on the data.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.PNG)
 
-### Federal fiscal year utilities compatable with full-time equivalency metrics.
+## Federal fiscal year utilities compatable with full-time equivalency metrics.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.PNG)
 
-### Environmental program definitions and statutory authorities bound directly to financial data
+## Environmental program definitions and statutory authorities bound directly to financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.PNG)
 
-### Data Visualization
+## Data Visualization
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.PNG)
 
 
-### View environmental laws & guidance via DocViewer
+## View environmental laws & guidance via DocViewer
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.PNG)
 
 
 
-### SQL Editors for SQL CE, SQLite, MS Access, and SQL Server Express
+## SQL Editors for SQL CE, SQLite, MS Access, and SQL Server Express
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlEditor.PNG)
+
+
+
+## Credits
+
+
