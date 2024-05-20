@@ -55,15 +55,63 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class ApportionmentData : BudgetUnit
     {
+        /// <summary>
+        /// The apportionment account code
+        /// </summary>
+        private protected string _apportionmentAccountCode;
+
+        /// <summary>
+        /// The apportionment account name
+        /// </summary>
+        private protected string _apportionmentAccountName;
+
+        /// <summary>
+        /// The availability type
+        /// </summary>
+        private protected string _availabilityType;
+
+        /// <summary>
+        /// The approval date
+        /// </summary>
+        private protected DateOnly _approvalDate;
+
+        /// <summary>
+        /// The line number
+        /// </summary>
+        private protected string _lineNumber;
+
+        /// <summary>
+        /// The line name
+        /// </summary>
+        private protected string _lineName;
+
+        /// <summary>
+        /// The amount
+        /// </summary>
+        private protected double _amount;
+
         /// <summary>
         /// Gets or sets the apportionment account code.
         /// </summary>
         /// <value>
         /// The apportionment account code.
         /// </value>
-        public string ApportionmentAccountCode { get; set; }
+        public string ApportionmentAccountCode
+        {
+            get
+            {
+                return _apportionmentAccountCode;
+            }
+
+            private protected set
+            {
+                _apportionmentAccountCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the apportionment account.
@@ -71,7 +119,18 @@ namespace BudgetExecution
         /// <value>
         /// The name of the apportionment account.
         /// </value>
-        public string ApportionmentAccountName { get; set; }
+        public string ApportionmentAccountName
+        {
+            get
+            {
+                return _apportionmentAccountName;
+            }
+
+            private protected set
+            {
+                _apportionmentAccountName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the type of the availability.
@@ -79,7 +138,18 @@ namespace BudgetExecution
         /// <value>
         /// The type of the availability.
         /// </value>
-        public string AvailabilityType { get; set; }
+        public string AvailabilityType
+        {
+            get
+            {
+                return _availabilityType;
+            }
+
+            private protected set
+            {
+                _availabilityType = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the approval date.
@@ -87,7 +157,18 @@ namespace BudgetExecution
         /// <value>
         /// The approval date.
         /// </value>
-        public DateOnly ApprovalDate { get; set; }
+        public DateOnly ApprovalDate
+        {
+            get
+            {
+                return _approvalDate;
+            }
+
+            private protected set
+            {
+                _approvalDate = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the line number.
@@ -95,7 +176,18 @@ namespace BudgetExecution
         /// <value>
         /// The line number.
         /// </value>
-        public string LineNumber { get; set; }
+        public string LineNumber
+        {
+            get
+            {
+                return _lineNumber;
+            }
+
+            private protected set
+            {
+                _lineNumber = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the line.
@@ -103,7 +195,18 @@ namespace BudgetExecution
         /// <value>
         /// The name of the line.
         /// </value>
-        public string LineName { get; set; }
+        public string LineName
+        {
+            get
+            {
+                return _lineName;
+            }
+
+            private protected set
+            {
+                _lineName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -111,14 +214,26 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public double Amount
+        {
+            get
+            {
+                return _amount;
+            }
+
+            private protected set
+            {
+                _amount = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.ApportionmentData" /> class.
         /// </summary>
-        public ApportionmentData( )
+        public ApportionmentData( ) 
+            : base( )
         {
             Source = Source.ApportionmentData;
         }
@@ -198,9 +313,10 @@ namespace BudgetExecution
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/> class.
+        /// <see cref="T:BudgetExecution.ApportionmentData" /> class.
         /// </summary>
         /// <param name="omb">The omb.</param>
         public ApportionmentData( ApportionmentData omb )
