@@ -33,6 +33,7 @@
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
+            ControlBox = new ControlBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
@@ -107,6 +108,8 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             Timer = new System.Windows.Forms.Timer( components );
+            ContextMenu = new ContextMenu( );
+            StyleManager = new Syncfusion.Windows.Forms.SkinManager( components );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -130,17 +133,19 @@
             // 
             // HeaderTable
             // 
-            HeaderTable.ColumnCount = 2;
+            HeaderTable.ColumnCount = 3;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.09267569F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.9073257F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 146F ) );
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Controls.Add( ControlBox, 2, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1326, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 25 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -162,11 +167,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 30, 3 );
+            Title.Location = new System.Drawing.Point( 27, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1293, 18 );
+            Title.Size = new System.Drawing.Size( 1149, 19 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -174,6 +179,36 @@
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 2;
+            ControlBox.Text = "controlBox1";
+            ControlBox.ThemeAuthor = "Terry D. Eppler";
+            ControlBox.ThemeName = "DarkControls";
             // 
             // ToolStripTable
             // 
@@ -852,6 +887,7 @@
             PivotGrid.BackColor = System.Drawing.Color.FromArgb( 90, 90, 90 );
             PivotGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotGrid.EditManager = null;
+            PivotGrid.ForeColor = System.Drawing.Color.WhiteSmoke;
             PivotGrid.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
             PivotGrid.Location = new System.Drawing.Point( 1, 1 );
             PivotGrid.Name = "PivotGrid";
@@ -1570,6 +1606,26 @@
             // Timer
             // 
             Timer.Interval = 80;
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
+            // 
+            // StyleManager
+            // 
+            StyleManager.Controls = PivotGrid;
+            StyleManager.VisualTheme = Syncfusion.Windows.Forms.VisualTheme.Office2016Black;
+            // 
             // PivotGridForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1583,7 +1639,6 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1328, 729 );
-            ControlBox = false;
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
             Controls.Add( ToolStripTable );
@@ -1706,5 +1761,8 @@
         public Label MetricLabel18;
         public Label MetricLabel17;
         public Label MetricLabel20;
+        public ControlBox ControlBox;
+        public ContextMenu ContextMenu;
+        public Syncfusion.Windows.Forms.SkinManager StyleManager;
     }
 }

@@ -562,7 +562,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
 
             // Data Properties
             _provider = Provider.Access;

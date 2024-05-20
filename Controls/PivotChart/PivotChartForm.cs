@@ -548,7 +548,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
 
             // Default Provider
             _provider = Provider.Access;

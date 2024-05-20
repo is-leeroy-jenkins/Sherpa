@@ -111,6 +111,8 @@
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             SkinManager = new Syncfusion.Windows.Forms.SkinManager( components );
+            ControlBox = new ControlBox( );
+            ContextMenu = new ContextMenu( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -134,17 +136,19 @@
             // 
             // HeaderTable
             // 
-            HeaderTable.ColumnCount = 2;
+            HeaderTable.ColumnCount = 3;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.54110622F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.45889F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 162F ) );
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Controls.Add( ControlBox, 2, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1326, 28 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 30 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -155,6 +159,7 @@
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 20, 18 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
@@ -166,11 +171,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 36, 3 );
+            Title.Location = new System.Drawing.Point( 32, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1287, 22 );
+            Title.Size = new System.Drawing.Size( 1128, 24 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -892,6 +897,7 @@
             PivotChart.Name = "PivotChart";
             PivotChart.ShowPivotTableFieldList = false;
             PivotChart.Size = new System.Drawing.Size( 1038, 453 );
+            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
             PivotChart.TabIndex = 0;
             PivotChart.Text = "pivotChart1";
             PivotChart.UpdateManager = null;
@@ -1605,6 +1611,50 @@
             SkinManager.Controls = PivotChart;
             SkinManager.VisualTheme = Syncfusion.Windows.Forms.VisualTheme.Office2016Black;
             // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 2;
+            ControlBox.Text = "controlBox1";
+            ControlBox.ThemeAuthor = "Terry D. Eppler";
+            ControlBox.ThemeName = "DarkControls";
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.IsDerivedStyle = false;
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            ContextMenu.ShowCheckMargin = true;
+            ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+            ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+            ContextMenu.StyleManager = null;
+            ContextMenu.ThemeAuthor = "Terry Eppler";
+            ContextMenu.ThemeName = "MetroLite";
+            // 
             // PivotChartForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1618,7 +1668,6 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 1328, 729 );
-            ControlBox = false;
             Controls.Add( ToolStripTable );
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
@@ -1745,5 +1794,7 @@
         private ToolSeparator Separator18;
         public System.Windows.Forms.PictureBox Loader;
         public Syncfusion.Windows.Forms.SkinManager SkinManager;
+        public ControlBox ControlBox;
+        public ContextMenu ContextMenu;
     }
 }

@@ -162,8 +162,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
-            Closing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -937,44 +935,6 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _statusUpdate );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [form closing].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFormClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

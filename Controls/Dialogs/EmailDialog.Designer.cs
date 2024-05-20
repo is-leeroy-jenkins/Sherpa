@@ -81,6 +81,7 @@ partial class EmailDialog
         PictureBox = new System.Windows.Forms.PictureBox( );
         Title = new Label( );
         Timer = new System.Windows.Forms.Timer( components );
+        ContextMenu = new ContextMenu( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         EmailTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
@@ -943,6 +944,20 @@ partial class EmailDialog
         // 
         Timer.Interval = 80;
         // 
+        // ContextMenu
+        // 
+        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+        ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.IsDerivedStyle = false;
+        ContextMenu.Name = "ContextMenu";
+        ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+        ContextMenu.ShowCheckMargin = true;
+        ContextMenu.Size = new System.Drawing.Size( 180, 454 );
+        ContextMenu.Style = MetroSet_UI.Enums.Style.Dark;
+        ContextMenu.StyleManager = null;
+        ContextMenu.ThemeAuthor = "Terry Eppler";
+        ContextMenu.ThemeName = "MetroLite";
+        // 
         // EmailDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1035,4 +1050,5 @@ partial class EmailDialog
     public SmallTip ToolTip;
     public System.Windows.Forms.Timer Timer;
     public Label StatusLabel;
+    private ContextMenu ContextMenu;
 }

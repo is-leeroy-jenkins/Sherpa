@@ -38,6 +38,7 @@
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
+            ControlBox = new ControlBox( );
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
@@ -70,7 +71,6 @@
             ApplicationLabel = new ToolStripLabel( );
             Timer = new System.Windows.Forms.Timer( components );
             DataSheet = new GridControl( );
-            ControlBox = new ControlBox( );
             ContextMenu = new ContextMenu( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -128,6 +128,36 @@
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 2;
+            ControlBox.Text = "controlBox1";
+            ControlBox.ThemeAuthor = "Terry D. Eppler";
+            ControlBox.ThemeName = "DarkControls";
             // 
             // ToolStrip
             // 
@@ -509,7 +539,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 210, 25 );
+            TextBox.Size = new System.Drawing.Size( 208, 25 );
             TextBox.Tag = "";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             TextBox.ToolTip = ToolTip;
@@ -593,18 +623,18 @@
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
             DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            gridBaseStyle1.Name = "Standard";
-            gridBaseStyle1.StyleInfo.Font.Facename = "Tahoma";
-            gridBaseStyle2.Name = "Column Header";
-            gridBaseStyle2.StyleInfo.BaseStyle = "Header";
-            gridBaseStyle2.StyleInfo.Font.Bold = true;
-            gridBaseStyle2.StyleInfo.Font.Facename = "Segoe UI";
-            gridBaseStyle2.StyleInfo.Font.Italic = false;
-            gridBaseStyle2.StyleInfo.Font.Size = 9F;
-            gridBaseStyle2.StyleInfo.Font.Strikeout = false;
-            gridBaseStyle2.StyleInfo.Font.Underline = false;
-            gridBaseStyle2.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle1.Name = "Column Header";
+            gridBaseStyle1.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle1.StyleInfo.Font.Bold = true;
+            gridBaseStyle1.StyleInfo.Font.Facename = "Segoe UI";
+            gridBaseStyle1.StyleInfo.Font.Italic = false;
+            gridBaseStyle1.StyleInfo.Font.Size = 9F;
+            gridBaseStyle1.StyleInfo.Font.Strikeout = false;
+            gridBaseStyle1.StyleInfo.Font.Underline = false;
+            gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
+            gridBaseStyle1.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle2.Name = "Standard";
+            gridBaseStyle2.StyleInfo.Font.Facename = "Tahoma";
             gridBaseStyle3.Name = "Row Header";
             gridBaseStyle3.StyleInfo.BaseStyle = "Header";
             gridBaseStyle3.StyleInfo.Font.Bold = true;
@@ -696,36 +726,6 @@
             DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbHoverColor = System.Drawing.Color.FromArgb( 197, 197, 197 );
             DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbPressedBorderColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
             DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbPressedColor = System.Drawing.Color.FromArgb( 197, 197, 197 );
-            // 
-            // ControlBox
-            // 
-            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
-            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
-            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
-            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ControlBox.IsDerivedStyle = true;
-            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
-            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
-            ControlBox.MaximizeBox = true;
-            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
-            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.MinimizeBox = true;
-            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
-            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.Name = "ControlBox";
-            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ControlBox.Size = new System.Drawing.Size( 100, 25 );
-            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
-            ControlBox.StyleManager = null;
-            ControlBox.TabIndex = 2;
-            ControlBox.Text = "controlBox1";
-            ControlBox.ThemeAuthor = "Terry D. Eppler";
-            ControlBox.ThemeName = "DarkControls";
             // 
             // ContextMenu
             // 

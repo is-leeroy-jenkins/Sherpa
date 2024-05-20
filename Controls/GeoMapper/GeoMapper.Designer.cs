@@ -109,7 +109,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = (System.Drawing.Image)resources.GetObject( "PictureBox.Image" );
+            PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
@@ -385,7 +385,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 174, 25 );
+            TextBox.Size = new System.Drawing.Size( 170, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Location";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
