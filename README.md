@@ -86,7 +86,7 @@
 
 ## Environmental program definitions and statutory authorities bound directly to financial data
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.PNG)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 ## Data Visualization
 
