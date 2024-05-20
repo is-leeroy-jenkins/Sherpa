@@ -603,6 +603,16 @@ namespace BudgetExecution.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MinusButton {
+            get {
+                object obj = ResourceManager.GetObject("MinusButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NextButton {
             get {
                 object obj = ResourceManager.GetObject("NextButton", resourceCulture);
@@ -656,6 +666,16 @@ namespace BudgetExecution.Resources.Images {
         internal static System.Drawing.Bitmap PivotButton {
             get {
                 object obj = ResourceManager.GetObject("PivotButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlusButton {
+            get {
+                object obj = ResourceManager.GetObject("PlusButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

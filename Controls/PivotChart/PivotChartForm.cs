@@ -537,7 +537,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -569,7 +569,6 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -1524,9 +1523,8 @@ namespace BudgetExecution
                 PopulateExecutionTables( );
                 PopulateComboBox( );
                 ClearLabels( );
+                Timer.Start( );
                 Title.Text = string.Empty;
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

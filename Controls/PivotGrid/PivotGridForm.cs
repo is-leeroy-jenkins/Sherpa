@@ -551,7 +551,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -579,7 +579,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -635,8 +634,6 @@ namespace BudgetExecution
                 var _gray = Color.FromArgb( 45, 45, 45 );
                 var _lightBlue = Color.FromArgb( 106, 189, 252 );
                 var _borderBlue = Color.FromArgb( 0, 120, 212 );
-                PivotGrid.GridVisualStyles = GridVisualStyles.Office2016Black;
-                PivotGrid.CanOverrideStyle = true;
                 PivotGrid.CanApplyTheme = true;
                 PivotGrid.Font = _font;
                 PivotGrid.ForeColor = _lightBlue;
@@ -1632,18 +1629,11 @@ namespace BudgetExecution
                 InitializeTimer( );
                 InitializeLabels( );
                 InitializePictureBox( );
-                _filter = new Dictionary<string, object>( );
-                _selectedColumns = new List<string>( );
-                _selectedFields = new List<string>( );
-                _selectedNumerics = new List<string>( );
-                _dataArgs = new DataArgs( );
                 Text = string.Empty;
                 ToolStrip.Visible = true;
                 TabControl.SelectedIndex = 0;
                 PopulateExecutionTables( );
                 UpdateStatusLabel( );
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -1881,44 +1871,6 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
-        }
-
-        /// <summary>
-        /// Called when [form closing].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFormClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>

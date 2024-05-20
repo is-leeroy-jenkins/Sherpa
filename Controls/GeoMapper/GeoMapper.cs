@@ -113,21 +113,6 @@ namespace BudgetExecution
         private IDictionary<string, object> _filter;
 
         /// <summary>
-        /// The fields
-        /// </summary>
-        private IList<string> _fields;
-
-        /// <summary>
-        /// The columns
-        /// </summary>
-        private IList<string> _columns;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private IList<string> _numerics;
-
-        /// <summary>
         /// The selected columns
         /// </summary>
         private IList<string> _selectedColumns;
@@ -158,24 +143,6 @@ namespace BudgetExecution
         private DataArgs _dataArgs;
 
         /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
         /// <value>
@@ -190,114 +157,6 @@ namespace BudgetExecution
             private protected set
             {
                 _filter = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the columns.
-        /// </summary>
-        /// <value>
-        /// The columns.
-        /// </value>
-        public IList<string> Columns
-        {
-            get
-            {
-                return _columns;
-            }
-            private protected set
-            {
-                _columns = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields
-        {
-            get
-            {
-                return _fields;
-            }
-            private protected set
-            {
-                _fields = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics
-        {
-            get
-            {
-                return _numerics;
-            }
-            private protected set
-            {
-                _numerics = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns
-        {
-            get
-            {
-                return _selectedColumns;
-            }
-            private protected set
-            {
-                _selectedColumns = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
-        public IList<string> SelectedFields
-        {
-            get
-            {
-                return _selectedFields;
-            }
-            private protected set
-            {
-                _selectedFields = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
-        public IList<string> SelectedNumerics
-        {
-            get
-            {
-                return _selectedNumerics;
-            }
-            private protected set
-            {
-                _selectedNumerics = value;
             }
         }
 
@@ -334,24 +193,6 @@ namespace BudgetExecution
             private protected set
             {
                 _provider = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private protected set
-            {
-                _dataArgs = value;
             }
         }
 
@@ -476,6 +317,8 @@ namespace BudgetExecution
                 SearchButton.Click += OnSearchButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 Timer.Tick += OnTimerTick;
+                PlusButton.Click += OnPlusButtonClick;
+                MinusButton.Click += OnMinusButtonClick;
             }
             catch( Exception _ex )
             {
@@ -568,7 +411,7 @@ namespace BudgetExecution
         {
             try
             {
-                Map.MinZoom = 2;
+                Map.MinZoom = 0;
                 Map.MaxZoom = 18;
                 Map.Zoom = 10;
                 Map.ScaleMode = ScaleModes.Integer;
@@ -612,7 +455,7 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void StartBusy( )
+        private void Busy( )
         {
             try
             {
@@ -641,7 +484,7 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void StopBusy( )
+        private void Chill( )
         {
             try
             {
@@ -700,6 +543,23 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Sets the position by keywords.
+        /// </summary>
+        /// <param name="location">The location.</param>
+        private void SetPositionByKeywords( string location )
+        {
+            try
+            {
+                ThrowIf.Null( location, nameof( location ) );
+                Map.SetPositionByKeywords( location );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -800,7 +660,7 @@ namespace BudgetExecution
             try
             {
                 var _now = DateTime.Now;
-                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
+                StatusLabel.Text = $"{_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {
@@ -1107,6 +967,74 @@ namespace BudgetExecution
             {
                 var _message = "THE SEARCH BUTTON HAS NOT BEEN IMPLEMENTED!";
                 SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [plus button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnPlusButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Map.Zoom <= 0d )
+                {
+                    Map.Zoom = 0d;
+                    var _message = "Zoom Level is minimum";
+                    SendMessage( _message );
+                }
+                else if( Map.Zoom >= 18 )
+                {
+                    Map.Zoom = 18d;
+                    var _message = "Zoom Level is maximum";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    Map.Zoom += 1;
+                    Map.ReloadMap( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [minus button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMinusButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Map.Zoom <= 0d )
+                {
+                    Map.Zoom = 0d;
+                    var _message = "Zoom Level is minimum";
+                    SendMessage( _message );
+                }
+                else if( Map.Zoom >= 18 )
+                {
+                    Map.Zoom = 18d;
+                    var _message = "Zoom Level is maximum";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    Map.Zoom -= 1;
+                    Map.ReloadMap( );
+                }
             }
             catch( Exception _ex )
             {

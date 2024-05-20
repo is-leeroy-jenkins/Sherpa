@@ -33,6 +33,7 @@
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
+            ControlBox = new ControlBox( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             Timer = new System.Windows.Forms.Timer( components );
             ToolTip = new SmallTip( );
@@ -78,7 +79,6 @@
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             ChartAreaPanel = new BackPanel( );
-            PivotChart = new Syncfusion.Windows.Forms.PivotChart.PivotChart( );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             CommandLabel2 = new Label( );
@@ -111,8 +111,8 @@
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             SkinManager = new Syncfusion.Windows.Forms.SkinManager( components );
-            ControlBox = new ControlBox( );
             ContextMenu = new ContextMenu( );
+            PivotChart = new Syncfusion.Windows.Forms.PivotChart.PivotChart( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -184,6 +184,36 @@
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
+            // 
+            // ControlBox
+            // 
+            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
+            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
+            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
+            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ControlBox.IsDerivedStyle = true;
+            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
+            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ControlBox.MaximizeBox = true;
+            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.MinimizeBox = true;
+            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ControlBox.Name = "ControlBox";
+            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ControlBox.Size = new System.Drawing.Size( 100, 25 );
+            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ControlBox.StyleManager = null;
+            ControlBox.TabIndex = 2;
+            ControlBox.Text = "controlBox1";
+            ControlBox.ThemeAuthor = "Terry D. Eppler";
+            ControlBox.ThemeName = "DarkControls";
             // 
             // Timer
             // 
@@ -756,7 +786,7 @@
             ChartHeaderTable.RowCount = 2;
             ChartHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
             ChartHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            ChartHeaderTable.Size = new System.Drawing.Size( 1069, 647 );
+            ChartHeaderTable.Size = new System.Drawing.Size( 1069, 649 );
             ChartHeaderTable.TabIndex = 50;
             // 
             // PivotLayout
@@ -774,10 +804,10 @@
             PivotLayout.ForeColor = System.Drawing.Color.Transparent;
             PivotLayout.HoverText = null;
             PivotLayout.IsDerivedStyle = true;
-            PivotLayout.Location = new System.Drawing.Point( 3, 26 );
+            PivotLayout.Location = new System.Drawing.Point( 3, 27 );
             PivotLayout.Name = "PivotLayout";
             PivotLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            PivotLayout.Size = new System.Drawing.Size( 1063, 618 );
+            PivotLayout.Size = new System.Drawing.Size( 1063, 619 );
             PivotLayout.Style = MetroSet_UI.Enums.Style.Custom;
             PivotLayout.StyleManager = null;
             PivotLayout.TabIndex = 53;
@@ -790,7 +820,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1061, 616 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1061, 617 );
             TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
@@ -806,7 +836,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
             TabControl.Location = new System.Drawing.Point( 1, 1 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1061, 616 );
+            TabControl.Size = new System.Drawing.Size( 1061, 617 );
             TabControl.TabIndex = 52;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -829,7 +859,7 @@
             DataTab.Location = new System.Drawing.Point( 0, 29 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1061, 587 );
+            DataTab.Size = new System.Drawing.Size( 1061, 588 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DataTab.TabIndex = 1;
@@ -876,31 +906,6 @@
             ChartAreaPanel.ThemeAuthor = "Terry D. Eppler";
             ChartAreaPanel.ThemeName = "Budget Execution";
             ChartAreaPanel.ToolTip = null;
-            // 
-            // PivotChart
-            // 
-            PivotChart.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
-            PivotChart.CustomPalette = new System.Drawing.Color[ ]
-    {
-    System.Drawing.Color.FromArgb(147, 208, 249),
-    System.Drawing.Color.FromArgb(102, 170, 225),
-    System.Drawing.Color.FromArgb(250, 163, 94),
-    System.Drawing.Color.FromArgb(252, 227, 127)
-    };
-            PivotChart.DeferLayoutUpdate = false;
-            PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            PivotChart.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            PivotChart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            PivotChart.Location = new System.Drawing.Point( 1, 1 );
-            PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
-            PivotChart.Name = "PivotChart";
-            PivotChart.ShowPivotTableFieldList = false;
-            PivotChart.Size = new System.Drawing.Size( 1038, 453 );
-            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
-            PivotChart.TabIndex = 0;
-            PivotChart.Text = "pivotChart1";
-            PivotChart.UpdateManager = null;
             // 
             // ChartSubTablePanel
             // 
@@ -1497,7 +1502,7 @@
             BusyTab.Location = new System.Drawing.Point( 0, 29 );
             BusyTab.Name = "BusyTab";
             BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1061, 587 );
+            BusyTab.Size = new System.Drawing.Size( 1061, 588 );
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
             // 
@@ -1507,7 +1512,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 35, 5 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 991, 566 );
+            Loader.Size = new System.Drawing.Size( 991, 567 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 1;
             Loader.TabStop = false;
@@ -1528,7 +1533,7 @@
             SourcePanel.RowCount = 2;
             SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
             SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            SourcePanel.Size = new System.Drawing.Size( 242, 643 );
+            SourcePanel.Size = new System.Drawing.Size( 242, 645 );
             SourcePanel.TabIndex = 51;
             // 
             // TableListBoxLayout
@@ -1549,7 +1554,7 @@
             TableListBoxLayout.Location = new System.Drawing.Point( 3, 26 );
             TableListBoxLayout.Name = "TableListBoxLayout";
             TableListBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBoxLayout.Size = new System.Drawing.Size( 236, 614 );
+            TableListBoxLayout.Size = new System.Drawing.Size( 236, 616 );
             TableListBoxLayout.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBoxLayout.StyleManager = null;
             TableListBoxLayout.TabIndex = 0;
@@ -1585,7 +1590,7 @@
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
             TableListBox.ShowScrollBar = true;
-            TableListBox.Size = new System.Drawing.Size( 188, 562 );
+            TableListBox.Size = new System.Drawing.Size( 188, 564 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 0;
@@ -1599,7 +1604,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 683 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 685 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -1610,36 +1615,6 @@
             // 
             SkinManager.Controls = PivotChart;
             SkinManager.VisualTheme = Syncfusion.Windows.Forms.VisualTheme.Office2016Black;
-            // 
-            // ControlBox
-            // 
-            ControlBox.CloseHoverBackColor = System.Drawing.Color.Maroon;
-            ControlBox.CloseHoverForeColor = System.Drawing.Color.White;
-            ControlBox.CloseNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            ControlBox.Font = new System.Drawing.Font( "Roboto", 9F );
-            ControlBox.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ControlBox.IsDerivedStyle = true;
-            ControlBox.Location = new System.Drawing.Point( 1225, 1 );
-            ControlBox.Margin = new System.Windows.Forms.Padding( 1 );
-            ControlBox.MaximizeBox = true;
-            ControlBox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            ControlBox.MaximizeHoverForeColor = System.Drawing.Color.White;
-            ControlBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.MinimizeBox = true;
-            ControlBox.MinimizeHoverBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            ControlBox.MinimizeHoverForeColor = System.Drawing.Color.White;
-            ControlBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ControlBox.Name = "ControlBox";
-            ControlBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ControlBox.Size = new System.Drawing.Size( 100, 25 );
-            ControlBox.Style = MetroSet_UI.Enums.Style.Custom;
-            ControlBox.StyleManager = null;
-            ControlBox.TabIndex = 2;
-            ControlBox.Text = "controlBox1";
-            ControlBox.ThemeAuthor = "Terry D. Eppler";
-            ControlBox.ThemeName = "DarkControls";
             // 
             // ContextMenu
             // 
@@ -1655,6 +1630,26 @@
             ContextMenu.ThemeAuthor = "Terry Eppler";
             ContextMenu.ThemeName = "MetroLite";
             // 
+            // PivotChart
+            // 
+            PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
+            PivotChart.CustomPalette = new System.Drawing.Color[ ]
+    {
+    System.Drawing.Color.FromArgb(165, 165, 165),
+    System.Drawing.Color.FromArgb(68, 114, 196),
+    System.Drawing.Color.FromArgb(112, 173, 71)
+    };
+            PivotChart.DeferLayoutUpdate = false;
+            PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            PivotChart.Location = new System.Drawing.Point( 1, 1 );
+            PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
+            PivotChart.Name = "PivotChart";
+            PivotChart.ShowPivotTableFieldList = false;
+            PivotChart.Size = new System.Drawing.Size( 1038, 453 );
+            PivotChart.TabIndex = 0;
+            PivotChart.Text = "pivotChart1";
+            PivotChart.UpdateManager = null;
+            // 
             // PivotChartForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1662,12 +1657,12 @@
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ClientSize = new System.Drawing.Size( 1328, 731 );
             Controls.Add( ToolStripTable );
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
@@ -1787,7 +1782,6 @@
         public Label MetricLabel15;
         public ToolStripDropDown ComboBox;
         public ToolStripButton RefreshButton;
-        public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
         public Label CommandLabel1;
         private ToolSeparator Separator17;
         public ToolStripButton PivotButton;
@@ -1796,5 +1790,6 @@
         public Syncfusion.Windows.Forms.SkinManager SkinManager;
         public ControlBox ControlBox;
         public ContextMenu ContextMenu;
+        public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
     }
 }

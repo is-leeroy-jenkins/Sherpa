@@ -145,7 +145,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1326, 25 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 26 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -171,7 +171,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1149, 19 );
+            Title.Size = new System.Drawing.Size( 1149, 20 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -216,7 +216,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 683 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 685 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -762,7 +762,7 @@
             ChartHeaderTable.RowCount = 2;
             ChartHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
             ChartHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            ChartHeaderTable.Size = new System.Drawing.Size( 1044, 647 );
+            ChartHeaderTable.Size = new System.Drawing.Size( 1044, 649 );
             ChartHeaderTable.TabIndex = 51;
             // 
             // PivotLayout
@@ -780,10 +780,10 @@
             PivotLayout.ForeColor = System.Drawing.Color.Transparent;
             PivotLayout.HoverText = null;
             PivotLayout.IsDerivedStyle = true;
-            PivotLayout.Location = new System.Drawing.Point( 3, 26 );
+            PivotLayout.Location = new System.Drawing.Point( 3, 27 );
             PivotLayout.Name = "PivotLayout";
             PivotLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            PivotLayout.Size = new System.Drawing.Size( 1038, 618 );
+            PivotLayout.Size = new System.Drawing.Size( 1038, 619 );
             PivotLayout.Style = MetroSet_UI.Enums.Style.Custom;
             PivotLayout.StyleManager = null;
             PivotLayout.TabIndex = 53;
@@ -796,7 +796,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1036, 616 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1036, 617 );
             TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
@@ -812,7 +812,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
             TabControl.Location = new System.Drawing.Point( 1, 1 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1036, 616 );
+            TabControl.Size = new System.Drawing.Size( 1036, 617 );
             TabControl.TabIndex = 52;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -835,7 +835,7 @@
             PivotTab.Location = new System.Drawing.Point( 0, 29 );
             PivotTab.Name = "PivotTab";
             PivotTab.ShowCloseButton = true;
-            PivotTab.Size = new System.Drawing.Size( 1036, 587 );
+            PivotTab.Size = new System.Drawing.Size( 1036, 588 );
             PivotTab.TabIndex = 1;
             PivotTab.ThemesEnabled = false;
             // 
@@ -853,7 +853,7 @@
             AreaTable.RowCount = 2;
             AreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.71066F ) );
             AreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.289341F ) );
-            AreaTable.Size = new System.Drawing.Size( 1036, 587 );
+            AreaTable.Size = new System.Drawing.Size( 1036, 588 );
             AreaTable.TabIndex = 6;
             // 
             // PivotPanel
@@ -874,7 +874,7 @@
             PivotPanel.Location = new System.Drawing.Point( 3, 3 );
             PivotPanel.Name = "PivotPanel";
             PivotPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            PivotPanel.Size = new System.Drawing.Size( 1030, 467 );
+            PivotPanel.Size = new System.Drawing.Size( 1030, 468 );
             PivotPanel.Style = MetroSet_UI.Enums.Style.Custom;
             PivotPanel.StyleManager = null;
             PivotPanel.TabIndex = 7;
@@ -884,14 +884,14 @@
             // 
             // PivotGrid
             // 
+            PivotGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             PivotGrid.BackColor = System.Drawing.Color.FromArgb( 90, 90, 90 );
-            PivotGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotGrid.EditManager = null;
             PivotGrid.ForeColor = System.Drawing.Color.WhiteSmoke;
             PivotGrid.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
-            PivotGrid.Location = new System.Drawing.Point( 1, 1 );
+            PivotGrid.Location = new System.Drawing.Point( 18, 18 );
             PivotGrid.Name = "PivotGrid";
-            PivotGrid.Size = new System.Drawing.Size( 1028, 465 );
+            PivotGrid.Size = new System.Drawing.Size( 995, 429 );
             PivotGrid.TabIndex = 0;
             PivotGrid.ThemeName = "Office2016Black";
             PivotGrid.UpdateManager = null;
@@ -912,7 +912,7 @@
             ChartSubTablePanel.ForeColor = System.Drawing.Color.Transparent;
             ChartSubTablePanel.HoverText = null;
             ChartSubTablePanel.IsDerivedStyle = true;
-            ChartSubTablePanel.Location = new System.Drawing.Point( 3, 476 );
+            ChartSubTablePanel.Location = new System.Drawing.Point( 3, 477 );
             ChartSubTablePanel.Name = "ChartSubTablePanel";
             ChartSubTablePanel.Padding = new System.Windows.Forms.Padding( 1 );
             ChartSubTablePanel.Size = new System.Drawing.Size( 1030, 108 );
@@ -1494,7 +1494,7 @@
             BusyTab.Location = new System.Drawing.Point( 0, 29 );
             BusyTab.Name = "BusyTab";
             BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1036, 587 );
+            BusyTab.Size = new System.Drawing.Size( 1036, 588 );
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
             // 
@@ -1538,7 +1538,7 @@
             SourcePanel.RowCount = 2;
             SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
             SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            SourcePanel.Size = new System.Drawing.Size( 240, 647 );
+            SourcePanel.Size = new System.Drawing.Size( 240, 649 );
             SourcePanel.TabIndex = 52;
             // 
             // TableListBoxLayout
@@ -1556,10 +1556,10 @@
             TableListBoxLayout.ForeColor = System.Drawing.Color.Transparent;
             TableListBoxLayout.HoverText = null;
             TableListBoxLayout.IsDerivedStyle = true;
-            TableListBoxLayout.Location = new System.Drawing.Point( 3, 26 );
+            TableListBoxLayout.Location = new System.Drawing.Point( 3, 27 );
             TableListBoxLayout.Name = "TableListBoxLayout";
             TableListBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBoxLayout.Size = new System.Drawing.Size( 234, 618 );
+            TableListBoxLayout.Size = new System.Drawing.Size( 234, 619 );
             TableListBoxLayout.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBoxLayout.StyleManager = null;
             TableListBoxLayout.TabIndex = 0;
@@ -1595,7 +1595,7 @@
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
             TableListBox.ShowScrollBar = false;
-            TableListBox.Size = new System.Drawing.Size( 186, 566 );
+            TableListBox.Size = new System.Drawing.Size( 186, 567 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 0;
@@ -1633,12 +1633,12 @@
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            CaptionBarHeight = 3;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ClientSize = new System.Drawing.Size( 1328, 731 );
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
             Controls.Add( ToolStripTable );
@@ -1683,8 +1683,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel HeaderTable;
         public System.Windows.Forms.PictureBox PictureBox;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public ToolStrip ToolStrip;
@@ -1764,5 +1762,6 @@
         public ControlBox ControlBox;
         public ContextMenu ContextMenu;
         public Syncfusion.Windows.Forms.SkinManager StyleManager;
+        public System.Windows.Forms.TableLayoutPanel HeaderTable;
     }
 }

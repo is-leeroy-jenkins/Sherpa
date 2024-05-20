@@ -54,6 +54,10 @@
             Separator5 = new ToolSeparator( );
             DownButton = new ToolStripButton( );
             Separator6 = new ToolSeparator( );
+            MinusButton = new ToolStripButton( );
+            MinusSeparator = new ToolSeparator( );
+            PlusButton = new ToolStripButton( );
+            PlusSeparator = new ToolSeparator( );
             DataSpacer = new ToolStripLabel( );
             DataLabel = new ToolStripLabel( );
             Separator7 = new ToolSeparator( );
@@ -218,7 +222,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, LeftButton, Separator3, RightButton, RightSeparator, TextBox, Separator23, SearchButton, Separator4, UpButton, Separator5, DownButton, Separator6, DataSpacer, DataLabel, Separator7, FilterButton, Separator8, RefreshButton, Separator9, FileSysSpacer, FileSysLabel, Separator10, BrowseButton, Separator11, SaveButton, Separator12, ApplicationSpacer, Separator13, CloseButton, Separator14, MenuButton, Separator15, MenuLabel, Separator22 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, LeftButton, Separator3, RightButton, RightSeparator, TextBox, Separator23, SearchButton, Separator4, UpButton, Separator5, DownButton, Separator6, MinusButton, MinusSeparator, PlusButton, PlusSeparator, DataSpacer, DataLabel, Separator7, FilterButton, Separator8, RefreshButton, Separator9, FileSysSpacer, FileSysLabel, Separator10, BrowseButton, Separator11, SaveButton, Separator12, ApplicationSpacer, Separator13, CloseButton, Separator14, MenuButton, Separator15, MenuLabel, Separator22 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -385,7 +389,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 170, 25 );
+            TextBox.Size = new System.Drawing.Size( 164, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Location";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -478,6 +482,60 @@
             Separator6.Name = "Separator6";
             Separator6.Padding = new System.Windows.Forms.Padding( 1 );
             Separator6.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // MinusButton
+            // 
+            MinusButton.AutoToolTip = false;
+            MinusButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            MinusButton.BindingSource = null;
+            MinusButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            MinusButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            MinusButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            MinusButton.HoverText = null;
+            MinusButton.Image = Resources.Images.ToolStripImages.MinusButton;
+            MinusButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            MinusButton.Margin = new System.Windows.Forms.Padding( 3 );
+            MinusButton.Name = "MinusButton";
+            MinusButton.Padding = new System.Windows.Forms.Padding( 1 );
+            MinusButton.Size = new System.Drawing.Size( 23, 21 );
+            MinusButton.Text = "toolStripButton1";
+            MinusButton.ToolTip = null;
+            MinusButton.ToolType = ToolType.NS;
+            // 
+            // MinusSeparator
+            // 
+            MinusSeparator.ForeColor = System.Drawing.Color.Black;
+            MinusSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            MinusSeparator.Name = "MinusSeparator";
+            MinusSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            MinusSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // PlusButton
+            // 
+            PlusButton.AutoToolTip = false;
+            PlusButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            PlusButton.BindingSource = null;
+            PlusButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            PlusButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            PlusButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            PlusButton.HoverText = null;
+            PlusButton.Image = Resources.Images.ToolStripImages.PlusButton;
+            PlusButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            PlusButton.Margin = new System.Windows.Forms.Padding( 3 );
+            PlusButton.Name = "PlusButton";
+            PlusButton.Padding = new System.Windows.Forms.Padding( 1 );
+            PlusButton.Size = new System.Drawing.Size( 23, 21 );
+            PlusButton.Text = "toolStripButton2";
+            PlusButton.ToolTip = null;
+            PlusButton.ToolType = ToolType.NS;
+            // 
+            // PlusSeparator
+            // 
+            PlusSeparator.ForeColor = System.Drawing.Color.Black;
+            PlusSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            PlusSeparator.Name = "PlusSeparator";
+            PlusSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            PlusSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // DataSpacer
             // 
@@ -969,5 +1027,9 @@
         public ToolSeparator RightSeparator;
         private ControlBox ControlBox;
         public ContextMenu ContextMenu;
+        private ToolStripButton MinusButton;
+        private ToolSeparator MinusSeparator;
+        private ToolStripButton PlusButton;
+        private ToolSeparator PlusSeparator;
     }
 }
