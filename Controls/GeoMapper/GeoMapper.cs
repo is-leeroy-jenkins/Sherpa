@@ -52,9 +52,11 @@ namespace BudgetExecution
     using GMap.NET.MapProviders;
     using GMap.NET.WindowsForms;
     using GMap.NET.WindowsForms.Markers;
+    using Google.Apis.Auth.OAuth2;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
+    using System.Configuration;
 
     /// <summary>
     /// 
@@ -70,6 +72,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class GeoMapper : MetroForm
     {
         /// <summary>
@@ -314,11 +317,12 @@ namespace BudgetExecution
                 DownButton.Click += OnDownButtonClick;
                 LeftButton.Click += OnLeftButtonClick;
                 RightButton.Click += OnRightButtonClick;
-                SearchButton.Click += OnSearchButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 Timer.Tick += OnTimerTick;
                 PlusButton.Click += OnPlusButtonClick;
                 MinusButton.Click += OnMinusButtonClick;
+                Map.MouseClick += OnMapMouseClick;
             }
             catch( Exception _ex )
             {
@@ -411,13 +415,15 @@ namespace BudgetExecution
         {
             try
             {
-                Map.MinZoom = 0;
+                Map.MinZoom = 1;
                 Map.MaxZoom = 18;
                 Map.Zoom = 10;
                 Map.ScaleMode = ScaleModes.Integer;
                 Map.ShowCenter = true;
-                Map.MapProvider = BingMapProvider.Instance;
-                GMaps.Instance.Mode = AccessMode.ServerAndCache;
+                Map.RoutesEnabled = true;
+                Map.MapProvider = GMapProviders.GoogleMap;
+                Map.CanDragMap = true;
+                GMaps.Instance.Mode = AccessMode.ServerOnly;
                 Map.Position = new PointLatLng( _lat, _long );
             }
             catch( Exception _ex )
@@ -578,6 +584,39 @@ namespace BudgetExecution
                 var _point = new PointLatLng( latitude, longitude );
                 var _marker = new GMarkerGoogle( _point, GMarkerGoogleType.blue_pushpin );
                 _overlay.Markers.Add( _marker );
+                Map.Overlays.Add( _overlay );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Creates the overlay.
+        /// </summary>
+        /// <param name="first">The first.</param>
+        /// <param name="second">The second.</param>
+        /// <param name="third">The third.</param>
+        /// <param name="fourth">The fourth.</param>
+        private void CreateOverlay( PointLatLng first, PointLatLng second, 
+            PointLatLng third, PointLatLng fourth )
+        {
+            try
+            {
+                var _overlay = new GMapOverlay( "polygons" );
+                var _points = new List<PointLatLng>
+                {
+                    first,
+                    second,
+                    third,
+                    fourth
+                };
+
+                var _polygon = new GMapPolygon( _points, "mypolygon" );
+                _polygon.Fill = new SolidBrush( Color.FromArgb( 50, Color.Red ) );
+                _polygon.Stroke = new Pen( Color.Red, 1 );
+                _overlay.Polygons.Add( _polygon );
                 Map.Overlays.Add( _overlay );
             }
             catch( Exception _ex )
@@ -851,8 +890,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _message = "THE UP BUTTON HAS NOT BEEN IMPLEMENTED!";
-                SendNotification( _message );
+                var _location = Map.Position;
+                var _latitude = _location.Lat + 0.1d;
+                var _longitude = _location.Lng;
+                Map.Position = new PointLatLng( _latitude, _longitude );
             }
             catch( Exception _ex )
             {
@@ -870,8 +911,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _message = "THE DOWN BUTTON HAS NOT BEEN IMPLEMENTED!";
-                SendNotification( _message );
+                var _location = Map.Position;
+                var _latitude = _location.Lat - 0.1d;
+                var _longitude = _location.Lng;
+                Map.Position = new PointLatLng( _latitude, _longitude );
             }
             catch( Exception _ex )
             {
@@ -889,8 +932,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _message = "THE LEFT HAS NOT BEEN IMPLEMENTED!";
-                SendNotification( _message );
+                var _location = Map.Position;
+                var _latitude = _location.Lat;
+                var _longitude = _location.Lng - 0.1d;
+                Map.Position = new PointLatLng( _latitude, _longitude );
             }
             catch( Exception _ex )
             {
@@ -908,8 +953,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _message = "THE RIGHT BUTTON HAS NOT BEEN IMPLEMENTED!";
-                SendNotification( _message );
+                var _location = Map.Position;
+                var _latitude = _location.Lat;
+                var _longitude = _location.Lng + 0.1d;
+                Map.Position = new PointLatLng( _latitude, _longitude );
             }
             catch( Exception _ex )
             {
@@ -956,25 +1003,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [search button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSearchButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                var _message = "THE SEARCH BUTTON HAS NOT BEEN IMPLEMENTED!";
-                SendNotification( _message );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [plus button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -984,13 +1012,13 @@ namespace BudgetExecution
         {
             try
             {
-                if( Map.Zoom <= 0d )
+                if( Map.Zoom < 0d )
                 {
                     Map.Zoom = 0d;
                     var _message = "Zoom Level is minimum";
                     SendMessage( _message );
                 }
-                else if( Map.Zoom >= 18 )
+                else if( Map.Zoom > 18 )
                 {
                     Map.Zoom = 18d;
                     var _message = "Zoom Level is maximum";
@@ -1018,13 +1046,13 @@ namespace BudgetExecution
         {
             try
             {
-                if( Map.Zoom <= 0d )
+                if( Map.Zoom < 1d )
                 {
-                    Map.Zoom = 0d;
+                    Map.Zoom = 1d;
                     var _message = "Zoom Level is minimum";
                     SendMessage( _message );
                 }
-                else if( Map.Zoom >= 18 )
+                else if( Map.Zoom > 18 )
                 {
                     Map.Zoom = 18d;
                     var _message = "Zoom Level is maximum";
@@ -1034,6 +1062,61 @@ namespace BudgetExecution
                 {
                     Map.Zoom -= 1;
                     Map.ReloadMap( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( string.IsNullOrEmpty( TextBox.TextBox.Text ) )
+                {
+                    var _message = "No keywords were provided!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _location = TextBox.TextBox.Text;
+                    var _start = new PointLatLng( Map.Location.X, Map.Location.Y );
+                    var _route = new List<PointLatLng>( );
+                    _route.Add( _start );
+                    var _end = new PointLatLng( );
+                    _route.Add( _end );
+                    Map.GeocodingProvider.GetPoints( _location, out _route );
+                    Map.Position = _route[ 1 ];
+                    TextBox.TextBox.Text = string.Empty;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnMapMouseClick( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                if( e.Button == MouseButtons.Right )
+                {
+                    TextBox.TextBox.Text = string.Empty;
+                    var _x = e.Location.X;
+                    var _y = e.Location.Y;
+                    var _latLng = Map.FromLocalToLatLng( _x, _y );
+                    Map.Position = _latLng;
+                    Map.ReloadMap( );
+                    TextBox.TextBox.Text = $"({_latLng.Lat:N2}, {_latLng.Lng:N2})";
                 }
             }
             catch( Exception _ex )

@@ -48,7 +48,7 @@
             RightSeparator = new ToolSeparator( );
             TextBox = new ToolStripTextBox( );
             Separator23 = new ToolSeparator( );
-            SearchButton = new ToolStripButton( );
+            LookupButton = new ToolStripButton( );
             Separator4 = new ToolSeparator( );
             UpButton = new ToolStripButton( );
             Separator5 = new ToolSeparator( );
@@ -222,7 +222,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, LeftButton, Separator3, RightButton, RightSeparator, TextBox, Separator23, SearchButton, Separator4, UpButton, Separator5, DownButton, Separator6, MinusButton, MinusSeparator, PlusButton, PlusSeparator, DataSpacer, DataLabel, Separator7, FilterButton, Separator8, RefreshButton, Separator9, FileSysSpacer, FileSysLabel, Separator10, BrowseButton, Separator11, SaveButton, Separator12, ApplicationSpacer, Separator13, CloseButton, Separator14, MenuButton, Separator15, MenuLabel, Separator22 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, LeftButton, Separator3, RightButton, RightSeparator, TextBox, Separator23, LookupButton, Separator4, UpButton, Separator5, DownButton, Separator6, MinusButton, MinusSeparator, PlusButton, PlusSeparator, DataSpacer, DataLabel, Separator7, FilterButton, Separator8, RefreshButton, Separator9, FileSysSpacer, FileSysLabel, Separator10, BrowseButton, Separator11, SaveButton, Separator12, ApplicationSpacer, Separator13, CloseButton, Separator14, MenuButton, Separator15, MenuLabel, Separator22 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -389,7 +389,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 164, 25 );
+            TextBox.Size = new System.Drawing.Size( 160, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Location";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -403,23 +403,23 @@
             Separator23.Padding = new System.Windows.Forms.Padding( 1 );
             Separator23.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // SearchButton
+            // LookupButton
             // 
-            SearchButton.AutoToolTip = false;
-            SearchButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            SearchButton.BindingSource = BindingSource;
-            SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SearchButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            SearchButton.HoverText = "Begin Search";
-            SearchButton.Image = Resources.Images.ToolStripImages.WebGoButton;
-            SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            SearchButton.Margin = new System.Windows.Forms.Padding( 1 );
-            SearchButton.Name = "SearchButton";
-            SearchButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SearchButton.Size = new System.Drawing.Size( 23, 25 );
-            SearchButton.ToolTip = ToolTip;
-            SearchButton.ToolType = ToolType.NS;
+            LookupButton.AutoToolTip = false;
+            LookupButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            LookupButton.BindingSource = BindingSource;
+            LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            LookupButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            LookupButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            LookupButton.HoverText = "Begin Search";
+            LookupButton.Image = Resources.Images.ToolStripImages.WebGoButton;
+            LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            LookupButton.Margin = new System.Windows.Forms.Padding( 1 );
+            LookupButton.Name = "LookupButton";
+            LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
+            LookupButton.Size = new System.Drawing.Size( 23, 25 );
+            LookupButton.ToolTip = ToolTip;
+            LookupButton.ToolType = ToolType.NS;
             // 
             // Separator4
             // 
@@ -1019,7 +1019,7 @@
         public ToolSeparator Separator14;
         public ToolStripTextBox TextBox;
         public ToolSeparator Separator23;
-        public ToolStripButton SearchButton;
+        public ToolStripButton LookupButton;
         private ToolSeparator Separator22;
         public System.Windows.Forms.TableLayoutPanel MapTable;
         public GMap.NET.WindowsForms.GMapControl Map;
