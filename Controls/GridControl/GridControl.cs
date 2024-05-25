@@ -63,7 +63,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GridControl"/>
+        /// <see cref="T:Sherpa.GridControl"/>
         /// class.
         /// </summary>
         public GridControl( )

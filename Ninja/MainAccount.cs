@@ -222,7 +222,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainAccount" />
+        /// <see cref="T:Sherpa.MainAccount" />
         /// class.
         /// </summary>
         public MainAccount( ) 
@@ -234,7 +234,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainAccounts"/>
+        /// <see cref="T:Sherpa.MainAccounts"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -258,7 +258,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainAccounts"/>
+        /// <see cref="T:Sherpa.MainAccounts"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -282,7 +282,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainAccounts"/>
+        /// <see cref="T:Sherpa.MainAccounts"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>

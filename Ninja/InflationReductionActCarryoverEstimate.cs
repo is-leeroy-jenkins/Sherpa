@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.InflationReductionActCarryoverEstimates" />
+        /// <see cref="T:Sherpa.InflationReductionActCarryoverEstimates" />
         /// class.
         /// </summary>
         public InflationReductionActCarryoverEstimate( )
@@ -68,7 +68,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.InflationReductionActCarryoverEstimates" />
+        /// <see cref="T:Sherpa.InflationReductionActCarryoverEstimates" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -98,7 +98,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.InflationReductionActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.InflationReductionActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.InflationReductionActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.InflationReductionActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -158,7 +158,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.InflationReductionActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.InflationReductionActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="carryover"> The carryover. </param>

@@ -19,7 +19,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgressBar" /> class.
+        /// <see cref="T:Sherpa.ProgressBar" /> class.
         /// </summary>
         public ProgressBar( )
         {

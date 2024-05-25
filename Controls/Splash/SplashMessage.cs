@@ -173,7 +173,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
+        /// <see cref="T:Sherpa.SplashMessage" /> class.
         /// </summary>
         public SplashMessage( )
         {
@@ -225,7 +225,7 @@ namespace Sherpa
         /// <summary>
         /// Initializes a new instance of the
         ///
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
+        /// <see cref="T:Sherpa.SplashMessage" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="duration">The duration.</param>
@@ -245,7 +245,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
+        /// <see cref="T:Sherpa.SplashMessage" /> class.
         /// </summary>
         /// <param name="lines">The lines.</param>
         /// <param name="duration">The duration.</param>

@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.FederalHoliday" />
+    /// <seealso cref="T:Sherpa.FederalHoliday" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -221,7 +221,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarYear" /> class.
+        /// <see cref="T:Sherpa.CalendarYear" /> class.
         /// </summary>
         protected CalendarYear( ) 
             : base( )

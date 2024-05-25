@@ -53,7 +53,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.ToolStripBase" />
+    /// <seealso cref="T:Sherpa.ToolStripBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -95,7 +95,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStrip" />
+        /// <see cref="T:Sherpa.ToolStrip" />
         /// class.
         /// </summary>
         public ToolStrip( )

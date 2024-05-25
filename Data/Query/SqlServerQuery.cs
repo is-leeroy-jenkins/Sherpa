@@ -46,14 +46,14 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.Query" />
+    /// <seealso cref="T:Sherpa.Query" />
     [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SqlServerQuery : BudgetQuery
     {
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         public SqlServerQuery( )
@@ -63,7 +63,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -75,7 +75,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -88,7 +88,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source Data. </param>
@@ -102,7 +102,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -118,7 +118,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -134,7 +134,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>
@@ -146,7 +146,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -159,7 +159,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -173,7 +173,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlServerQuery" />
+        /// <see cref="T:Sherpa.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The full path. </param>

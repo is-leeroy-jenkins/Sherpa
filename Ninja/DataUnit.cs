@@ -49,9 +49,9 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.IDataUnit" />
-    /// <seealso cref="T:BudgetExecution.ISource" />
-    /// <seealso cref="T:BudgetExecution.IProvider" />
+    /// <seealso cref="T:Sherpa.IDataUnit" />
+    /// <seealso cref="T:Sherpa.ISource" />
+    /// <seealso cref="T:Sherpa.IProvider" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]

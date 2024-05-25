@@ -92,7 +92,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SyncTip"/>
+        /// <see cref="T:Sherpa.SyncTip"/>
         /// class.
         /// </summary>
         public SyncTip( )
@@ -133,7 +133,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SyncTip"/>
+        /// <see cref="T:Sherpa.SyncTip"/>
         /// class.
         /// </summary>
         /// <param name="control"> The control. </param>
@@ -147,7 +147,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SyncTip"/>
+        /// <see cref="T:Sherpa.SyncTip"/>
         /// class.
         /// </summary>
         /// <param name="toolItem"> The tool item. </param>

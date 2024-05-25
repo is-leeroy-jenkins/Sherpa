@@ -46,7 +46,7 @@ namespace Sherpa
     
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit"/>
+    /// <seealso cref="T:Sherpa.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -404,7 +404,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdministrativeRequest" /> class.
+        /// <see cref="T:Sherpa.AdministrativeRequest" /> class.
         /// </summary>
         protected AdministrativeRequest( )
             : base( )
@@ -414,7 +414,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdministrativeRequest" /> class.
+        /// <see cref="T:Sherpa.AdministrativeRequest" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected AdministrativeRequest( IQuery query )
@@ -428,7 +428,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdministrativeRequest" /> class.
+        /// <see cref="T:Sherpa.AdministrativeRequest" /> class.
         /// </summary>
         /// <param name="dataBuilder">The query.</param>
         protected AdministrativeRequest( IDataModel dataBuilder )
@@ -442,7 +442,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdministrativeRequest" /> class.
+        /// <see cref="T:Sherpa.AdministrativeRequest" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected AdministrativeRequest( DataRow dataRow )

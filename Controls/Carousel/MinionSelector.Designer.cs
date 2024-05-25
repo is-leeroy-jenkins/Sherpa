@@ -66,7 +66,7 @@ partial class MinionSelector
         Header.Text = "Header";
         Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         Header.ThemeAuthor = "Terry D. Eppler";
-        Header.ThemeName = "BudgetExecution";
+        Header.ThemeName = "Sherpa";
         Header.ToolTip = null;
         // 
         // CloseButton
@@ -97,7 +97,7 @@ partial class MinionSelector
         CloseButton.TabIndex = 7;
         CloseButton.Text = "Close";
         CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "BudgetExecution";
+        CloseButton.ThemeName = "Sherpa";
         CloseButton.ToolTip = ToolTip;
         // 
         // ToolTip

@@ -329,7 +329,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Transfer" /> class.
+        /// <see cref="T:Sherpa.Transfer" /> class.
         /// </summary>
         protected Transfer( ) 
             : base( )
@@ -339,7 +339,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Transfer" /> class.
+        /// <see cref="T:Sherpa.Transfer" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected Transfer( IQuery query ) 
@@ -362,7 +362,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Transfer" /> class.
+        /// <see cref="T:Sherpa.Transfer" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         protected Transfer( IDataModel builder ) 
@@ -385,7 +385,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Transfer" /> class.
+        /// <see cref="T:Sherpa.Transfer" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected Transfer( DataRow dataRow ) 

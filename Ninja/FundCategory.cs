@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
@@ -76,7 +76,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FundCategory" />
+        /// <see cref="T:Sherpa.FundCategory" />
         /// class.
         /// </summary>
         public FundCategory( )
@@ -88,7 +88,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FundCategory" />
+        /// <see cref="T:Sherpa.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -105,7 +105,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FundCategory" />
+        /// <see cref="T:Sherpa.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -122,7 +122,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FundCategory" />
+        /// <see cref="T:Sherpa.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -139,7 +139,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FundCategory" />
+        /// <see cref="T:Sherpa.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="fundCategory"> The fund category. </param>

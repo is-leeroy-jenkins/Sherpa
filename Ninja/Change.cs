@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MissingLinebreak" ) ]
@@ -220,7 +220,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Change" />
+        /// <see cref="T:Sherpa.Change" />
         /// class.
         /// </summary>
         public Change( ) 
@@ -232,7 +232,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Change" />
+        /// <see cref="T:Sherpa.Change" />
         /// class.
         /// </summary>
         /// <param name="query">The query.</param>
@@ -254,7 +254,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Change" />
+        /// <see cref="T:Sherpa.Change" />
         /// class.
         /// </summary>
         /// <param name="builder">The builder.</param>
@@ -276,7 +276,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Change" />
+        /// <see cref="T:Sherpa.Change" />
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>

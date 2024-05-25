@@ -109,7 +109,7 @@
             FileList.StyleManager = null;
             FileList.TabIndex = 3;
             FileList.ThemeAuthor = "Terry D. Eppler";
-            FileList.ThemeName = "BudgetExecution";
+            FileList.ThemeName = "Sherpa";
             FileList.ToolTip = null;
             // 
             // FoundLabel
@@ -129,7 +129,7 @@
             FoundLabel.TabIndex = 4;
             FoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             FoundLabel.ThemeAuthor = "Terry D. Eppler";
-            FoundLabel.ThemeName = "BudgetExecution";
+            FoundLabel.ThemeName = "Sherpa";
             FoundLabel.ToolTip = null;
             // 
             // TopTablePanel
@@ -187,7 +187,7 @@
             Title.Text = "Directory Search";
             Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "BudgetExecution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // StatusLabel

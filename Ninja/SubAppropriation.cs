@@ -54,7 +54,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
+        /// <see cref="T:Sherpa.SubAppropriations" />
         /// class.
         /// </summary>
         public SubAppropriation( ) 
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
+        /// <see cref="T:Sherpa.SubAppropriations" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -82,7 +82,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
+        /// <see cref="T:Sherpa.SubAppropriations" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -98,7 +98,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
+        /// <see cref="T:Sherpa.SubAppropriations" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -114,7 +114,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriation" /> class.
+        /// <see cref="T:Sherpa.SubAppropriation" /> class.
         /// </summary>
         /// <param name="subapprop">The subapprop.</param>
         public SubAppropriation( SubAppropriation subapprop )

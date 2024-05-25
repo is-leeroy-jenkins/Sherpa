@@ -96,7 +96,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CongressionalProjects" />
+        /// <see cref="T:Sherpa.CongressionalProjects" />
         /// class.
         /// </summary>
         public CongressionalProject( ) 
@@ -108,7 +108,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CongressionalProjects" />
+        /// <see cref="T:Sherpa.CongressionalProjects" />
         /// class.
         /// </summary>
         /// <param name="query">The query.</param>
@@ -156,7 +156,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CongressionalProjects" />
+        /// <see cref="T:Sherpa.CongressionalProjects" />
         /// class.
         /// </summary>
         /// <param name="builder">The builder.</param>
@@ -204,7 +204,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CongressionalProjects" />
+        /// <see cref="T:Sherpa.CongressionalProjects" />
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
@@ -251,7 +251,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.CongressionalProjects" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.CongressionalProjects" /> class.
         /// </summary>
         /// <param name="status">The project.</param>
         public CongressionalProject( CongressionalProject status )

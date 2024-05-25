@@ -511,7 +511,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PivotChartForm" /> class.
+        /// <see cref="T:Sherpa.PivotChartForm" /> class.
         /// </summary>
         public PivotChartForm( )
         {

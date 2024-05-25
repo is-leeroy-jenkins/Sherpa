@@ -56,7 +56,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataViewBase" />
+    /// <seealso cref="T:Sherpa.DataViewBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class DataView : SfDataGrid
@@ -81,7 +81,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataView" />
+        /// <see cref="T:Sherpa.DataView" />
         /// class.
         /// </summary>
         public DataView( )
@@ -139,7 +139,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataView" />
+        /// <see cref="T:Sherpa.DataView" />
         /// class.
         /// </summary>
         /// <param name="dataTable"> The data table. </param>

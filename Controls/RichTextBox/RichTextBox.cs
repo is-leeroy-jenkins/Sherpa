@@ -121,7 +121,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RichTextBox" />
+        /// <see cref="T:Sherpa.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -136,7 +136,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RichTextBox" />
+        /// <see cref="T:Sherpa.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="location"> The location. </param>
@@ -155,7 +155,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RichTextBox" />
+        /// <see cref="T:Sherpa.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -174,7 +174,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RichTextBox" />
+        /// <see cref="T:Sherpa.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -192,7 +192,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RichTextBox" />
+        /// <see cref="T:Sherpa.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="title"> The title. </param>

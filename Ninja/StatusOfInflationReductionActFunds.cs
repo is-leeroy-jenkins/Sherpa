@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.StatusOfFunds" />
+    /// <seealso cref="T:Sherpa.StatusOfFunds" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class StatusOfInflationReductionActFunds : StatusOfFunds
@@ -54,7 +54,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfInflationReductionActFunds" />
+        /// <see cref="T:Sherpa.StatusOfInflationReductionActFunds" />
         /// class.
         /// </summary>
         public StatusOfInflationReductionActFunds( )
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfInflationReductionActFunds" />
+        /// <see cref="T:Sherpa.StatusOfInflationReductionActFunds" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -120,7 +120,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfInflationReductionActFunds" />
+        /// <see cref="T:Sherpa.StatusOfInflationReductionActFunds" />
         /// class.
         /// </summary>
         /// <param name="builder"> </param>
@@ -173,7 +173,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfInflationReductionActFunds" />
+        /// <see cref="T:Sherpa.StatusOfInflationReductionActFunds" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -231,7 +231,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfInflationReductionActFunds" />
+        /// <see cref="T:Sherpa.StatusOfInflationReductionActFunds" />
         /// class.
         /// </summary>
         /// <param name="status"> The allocation. </param>

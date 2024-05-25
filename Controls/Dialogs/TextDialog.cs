@@ -70,7 +70,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.TextDialog" /> class.
+        /// <see cref="T:Sherpa.TextDialog" /> class.
         /// </summary>
         public TextDialog( )
         {
@@ -109,7 +109,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.TextDialog" />
+        /// <see cref="T:Sherpa.TextDialog" />
         /// class.
         /// </summary>
         /// <param name="text">

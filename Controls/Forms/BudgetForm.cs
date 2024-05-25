@@ -333,7 +333,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetForm"/>
+        /// <see cref="T:Sherpa.BudgetForm"/>
         /// class.
         /// </summary>
         public BudgetForm( )

@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
@@ -60,7 +60,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
+        /// <see cref="T:Sherpa.ResponsibilityCenters" /> class.
         /// </summary>
         public ResponsibilityCenter( )
         {
@@ -70,7 +70,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
+        /// <see cref="T:Sherpa.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public ResponsibilityCenter( IQuery query )
@@ -86,7 +86,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
+        /// <see cref="T:Sherpa.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ResponsibilityCenter( IDataModel builder )
@@ -100,7 +100,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ResponsibilityCenter( DataRow dataRow )
@@ -115,7 +115,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="rcCode">The rc code.</param>
         public ResponsibilityCenter( string rcCode )

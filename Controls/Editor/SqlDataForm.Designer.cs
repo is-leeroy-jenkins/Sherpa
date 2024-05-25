@@ -432,7 +432,7 @@ namespace Sherpa
             EditorPanel.StyleManager = null;
             EditorPanel.TabIndex = 0;
             EditorPanel.ThemeAuthor = "Terry D. Eppler";
-            EditorPanel.ThemeName = "BudgetExecution";
+            EditorPanel.ThemeName = "Sherpa";
             EditorPanel.ToolTip = null;
             // 
             // Editor
@@ -675,7 +675,7 @@ namespace Sherpa
             ColumnPanel.StyleManager = null;
             ColumnPanel.TabIndex = 8;
             ColumnPanel.ThemeAuthor = "Terry D. Eppler";
-            ColumnPanel.ThemeName = "BudgetExecution";
+            ColumnPanel.ThemeName = "Sherpa";
             ColumnPanel.ToolTip = null;
             // 
             // ColumnListBox
@@ -712,7 +712,7 @@ namespace Sherpa
             ColumnListBox.TabIndex = 2;
             ColumnListBox.Text = "listBox1";
             ColumnListBox.ThemeAuthor = "Terry D. Eppler";
-            ColumnListBox.ThemeName = "BudgetExecution";
+            ColumnListBox.ThemeName = "Sherpa";
             ColumnListBox.ToolTip = ToolTip;
             // 
             // ValueTable
@@ -757,7 +757,7 @@ namespace Sherpa
             ValuePanel.StyleManager = null;
             ValuePanel.TabIndex = 9;
             ValuePanel.ThemeAuthor = "Terry D. Eppler";
-            ValuePanel.ThemeName = "BudgetExecution";
+            ValuePanel.ThemeName = "Sherpa";
             ValuePanel.ToolTip = null;
             // 
             // ValueListBox
@@ -794,7 +794,7 @@ namespace Sherpa
             ValueListBox.TabIndex = 2;
             ValueListBox.Text = "listBox1";
             ValueListBox.ThemeAuthor = "Terry D. Eppler";
-            ValueListBox.ThemeName = "BudgetExecution";
+            ValueListBox.ThemeName = "Sherpa";
             ValueListBox.ToolTip = ToolTip;
             // 
             // SourceTable
@@ -839,7 +839,7 @@ namespace Sherpa
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 7;
             TablePanel.ThemeAuthor = "Terry D. Eppler";
-            TablePanel.ThemeName = "BudgetExecution";
+            TablePanel.ThemeName = "Sherpa";
             TablePanel.ToolTip = null;
             // 
             // TableListBox
@@ -876,7 +876,7 @@ namespace Sherpa
             TableListBox.TabIndex = 1;
             TableListBox.Text = "Tables";
             TableListBox.ThemeAuthor = "Terry D. Eppler";
-            TableListBox.ThemeName = "BudgetExecution";
+            TableListBox.ThemeName = "Sherpa";
             TableListBox.ToolTip = ToolTip;
             // 
             // SchemaTab
@@ -962,7 +962,7 @@ namespace Sherpa
             SchemaPanel.StyleManager = null;
             SchemaPanel.TabIndex = 11;
             SchemaPanel.ThemeAuthor = "Terry D. Eppler";
-            SchemaPanel.ThemeName = "BudgetExecution";
+            SchemaPanel.ThemeName = "Sherpa";
             SchemaPanel.ToolTip = null;
             // 
             // DeleteColumnButton
@@ -997,7 +997,7 @@ namespace Sherpa
             DeleteColumnButton.TabIndex = 19;
             DeleteColumnButton.Text = "Delete";
             DeleteColumnButton.ThemeAuthor = "Terry D. Eppler";
-            DeleteColumnButton.ThemeName = "BudgetExecution";
+            DeleteColumnButton.ThemeName = "Sherpa";
             DeleteColumnButton.ToolTip = ToolTip;
             // 
             // AddColumnButton
@@ -1032,7 +1032,7 @@ namespace Sherpa
             AddColumnButton.TabIndex = 18;
             AddColumnButton.Text = "Add";
             AddColumnButton.ThemeAuthor = "Terry D. Eppler";
-            AddColumnButton.ThemeName = "BudgetExecution";
+            AddColumnButton.ThemeName = "Sherpa";
             AddColumnButton.ToolTip = ToolTip;
             // 
             // SelectDataTypeLabel
@@ -1109,7 +1109,7 @@ namespace Sherpa
             AddColumnTextBox.TabIndex = 6;
             AddColumnTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             AddColumnTextBox.ThemeAuthor = "Terry D. Eppler";
-            AddColumnTextBox.ThemeName = "BudgetExecution";
+            AddColumnTextBox.ThemeName = "Sherpa";
             AddColumnTextBox.ToolTip = ToolTip;
             AddColumnTextBox.UseSystemPasswordChar = false;
             AddColumnTextBox.WatermarkText = "";
@@ -1147,7 +1147,7 @@ namespace Sherpa
             DataTypeComboBox.StyleManager = null;
             DataTypeComboBox.TabIndex = 11;
             DataTypeComboBox.ThemeAuthor = "Terry D. Eppler";
-            DataTypeComboBox.ThemeName = "BudgetExecution";
+            DataTypeComboBox.ThemeName = "Sherpa";
             DataTypeComboBox.ToolTip = ToolTip;
             // 
             // AlterTablePanel
@@ -1197,7 +1197,7 @@ namespace Sherpa
             LayoutPanel.StyleManager = null;
             LayoutPanel.TabIndex = 10;
             LayoutPanel.ThemeAuthor = "Terry D. Eppler";
-            LayoutPanel.ThemeName = "BudgetExecution";
+            LayoutPanel.ThemeName = "Sherpa";
             LayoutPanel.ToolTip = null;
             // 
             // AddTableLabel
@@ -1254,7 +1254,7 @@ namespace Sherpa
             DeleteTableButton.TabIndex = 17;
             DeleteTableButton.Text = "Delete";
             DeleteTableButton.ThemeAuthor = "Terry D. Eppler";
-            DeleteTableButton.ThemeName = "BudgetExecution";
+            DeleteTableButton.ThemeName = "Sherpa";
             DeleteTableButton.ToolTip = ToolTip;
             // 
             // AddTableButton
@@ -1289,7 +1289,7 @@ namespace Sherpa
             AddTableButton.TabIndex = 15;
             AddTableButton.Text = "Add/Rename";
             AddTableButton.ThemeAuthor = "Terry D. Eppler";
-            AddTableButton.ThemeName = "BudgetExecution";
+            AddTableButton.ThemeName = "Sherpa";
             AddTableButton.ToolTip = ToolTip;
             // 
             // SelectTableLabel
@@ -1347,7 +1347,7 @@ namespace Sherpa
             TableNameComboBox.StyleManager = null;
             TableNameComboBox.TabIndex = 12;
             TableNameComboBox.ThemeAuthor = "Terry D. Eppler";
-            TableNameComboBox.ThemeName = "BudgetExecution";
+            TableNameComboBox.ThemeName = "Sherpa";
             TableNameComboBox.ToolTip = ToolTip;
             // 
             // AddTableTextBox

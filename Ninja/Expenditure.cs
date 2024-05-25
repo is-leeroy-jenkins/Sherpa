@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:Sherpa.Expenditures" />
         /// class.
         /// </summary>
         public Expenditure( ) 
@@ -68,7 +68,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:Sherpa.Expenditures" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:Sherpa.Expenditures" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -178,7 +178,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:Sherpa.Expenditures" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -233,7 +233,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" /> class.
+        /// <see cref="T:Sherpa.Expenditures" /> class.
         /// </summary>
         /// <param name="obligation">The expense.</param>
         public Expenditure( Expenditure obligation )

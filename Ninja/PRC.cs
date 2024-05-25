@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:Sherpa.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -385,7 +385,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PRC" /> class.
+        /// <see cref="T:Sherpa.PRC" /> class.
         /// </summary>
         protected PRC( ) 
             : base( )
@@ -395,7 +395,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PRC" /> class.
+        /// <see cref="T:Sherpa.PRC" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected PRC( IQuery query )
@@ -423,7 +423,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PRC" /> class.
+        /// <see cref="T:Sherpa.PRC" /> class.
         /// </summary>
         /// <param name="builder">The data builder.</param>
         protected PRC( IDataModel builder )
@@ -450,7 +450,7 @@ namespace Sherpa
         
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.PRC" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.PRC" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected PRC( DataRow dataRow )
@@ -478,7 +478,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PRC" /> class.
+        /// <see cref="T:Sherpa.PRC" /> class.
         /// </summary>
         /// <param name="map">The map.</param>
         protected PRC( IDictionary<string, object> map )

@@ -48,7 +48,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.FederalHoliday" />
+    /// <seealso cref="T:Sherpa.FederalHoliday" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -132,7 +132,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HolidayFactory" />
+        /// <see cref="T:Sherpa.HolidayFactory" />
         /// class.
         /// </summary>
         public HolidayFactory( )

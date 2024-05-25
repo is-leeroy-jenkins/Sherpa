@@ -310,7 +310,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeneralLedgerAccount" /> class.
+        /// <see cref="T:Sherpa.GeneralLedgerAccount" /> class.
         /// </summary>
         public GeneralLedgerAccount( )
             : base( )
@@ -321,7 +321,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeneralLedgerAccount" /> class.
+        /// <see cref="T:Sherpa.GeneralLedgerAccount" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public GeneralLedgerAccount( IQuery query )
@@ -349,7 +349,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeneralLedgerAccount" /> class.
+        /// <see cref="T:Sherpa.GeneralLedgerAccount" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public GeneralLedgerAccount( IDataModel builder )
@@ -377,7 +377,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeneralLedgerAccount" /> class.
+        /// <see cref="T:Sherpa.GeneralLedgerAccount" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public GeneralLedgerAccount( DataRow dataRow )
@@ -405,7 +405,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeneralLedgerAccount" /> class.
+        /// <see cref="T:Sherpa.GeneralLedgerAccount" /> class.
         /// </summary>
         /// <param name="account">The account.</param>
         public GeneralLedgerAccount( GeneralLedgerAccount account )

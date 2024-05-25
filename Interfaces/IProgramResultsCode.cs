@@ -45,8 +45,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.ISource" />
-    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:Sherpa.ISource" />
+    /// <seealso cref="T:Sherpa.ISource" />
     public interface IProgramResultsCode : ISource
     {
         /// <summary>

@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StyleManager" /> class.
+        /// <see cref="T:Sherpa.StyleManager" /> class.
         /// </summary>
         /// <param name="form">The form.</param>
         public StyleManager( Form form ) 

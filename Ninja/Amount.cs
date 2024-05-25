@@ -173,7 +173,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Amount" /> class.
+        /// <see cref="T:Sherpa.Amount" /> class.
         /// </summary>
         /// <param name="value">The value.</param>
         public Amount( double value = 0.0 )
@@ -186,7 +186,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Amount" /> class.
+        /// <see cref="T:Sherpa.Amount" /> class.
         /// </summary>
         /// <param name="value">The value.</param>
         public Amount( decimal value = 0 )
@@ -199,7 +199,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Amount" /> class.
+        /// <see cref="T:Sherpa.Amount" /> class.
         /// </summary>
         /// <param name="value">The value.</param>
         public Amount( float value = 0 )

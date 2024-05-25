@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:Sherpa.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -198,7 +198,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Outlays" /> class.
+        /// <see cref="T:Sherpa.Outlays" /> class.
         /// </summary>
         public Outlay( ) 
             : base( )
@@ -209,7 +209,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Outlays" /> class.
+        /// <see cref="T:Sherpa.Outlays" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public Outlay( IQuery query )
@@ -237,7 +237,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Outlays" /> class.
+        /// <see cref="T:Sherpa.Outlays" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Outlay( IDataModel builder )
@@ -265,7 +265,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Outlays" /> class.
+        /// <see cref="T:Sherpa.Outlays" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Outlay( DataRow dataRow )
@@ -293,7 +293,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Outlays" /> class.
+        /// <see cref="T:Sherpa.Outlays" /> class.
         /// </summary>
         /// <param name="outlay">The outlay.</param>
         public Outlay( Outlay outlay ) 

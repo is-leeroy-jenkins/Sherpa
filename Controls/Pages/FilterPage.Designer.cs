@@ -188,7 +188,7 @@ partial class FilterPage
         FirstPanel.StyleManager = null;
         FirstPanel.TabIndex = 2;
         FirstPanel.ThemeAuthor = "Terry D. Eppler";
-        FirstPanel.ThemeName = "BudgetExecution";
+        FirstPanel.ThemeName = "Sherpa";
         FirstPanel.ToolTip = null;
         // 
         // FirstListBox
@@ -224,7 +224,7 @@ partial class FilterPage
         FirstListBox.StyleManager = null;
         FirstListBox.TabIndex = 0;
         FirstListBox.ThemeAuthor = "Terry D. Eppler";
-        FirstListBox.ThemeName = "BudgetExecution";
+        FirstListBox.ThemeName = "Sherpa";
         FirstListBox.ToolTip = null;
         // 
         // FirstComboBox
@@ -259,7 +259,7 @@ partial class FilterPage
         FirstComboBox.StyleManager = null;
         FirstComboBox.TabIndex = 1;
         FirstComboBox.ThemeAuthor = "Terry D. Eppler";
-        FirstComboBox.ThemeName = "BudgetExecution";
+        FirstComboBox.ThemeName = "Sherpa";
         FirstComboBox.ToolTip = null;
         // 
         // ThirdComboBox
@@ -294,7 +294,7 @@ partial class FilterPage
         ThirdComboBox.StyleManager = null;
         ThirdComboBox.TabIndex = 1;
         ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
-        ThirdComboBox.ThemeName = "BudgetExecution";
+        ThirdComboBox.ThemeName = "Sherpa";
         ThirdComboBox.ToolTip = null;
         // 
         // ThirdPanel
@@ -320,7 +320,7 @@ partial class FilterPage
         ThirdPanel.StyleManager = null;
         ThirdPanel.TabIndex = 2;
         ThirdPanel.ThemeAuthor = "Terry D. Eppler";
-        ThirdPanel.ThemeName = "BudgetExecution";
+        ThirdPanel.ThemeName = "Sherpa";
         ThirdPanel.ToolTip = null;
         // 
         // ThirdListBox
@@ -356,7 +356,7 @@ partial class FilterPage
         ThirdListBox.StyleManager = null;
         ThirdListBox.TabIndex = 0;
         ThirdListBox.ThemeAuthor = "Terry D. Eppler";
-        ThirdListBox.ThemeName = "BudgetExecution";
+        ThirdListBox.ThemeName = "Sherpa";
         ThirdListBox.ToolTip = null;
         // 
         // ToolTip
@@ -503,7 +503,7 @@ partial class FilterPage
         FourthPanel.StyleManager = null;
         FourthPanel.TabIndex = 3;
         FourthPanel.ThemeAuthor = "Terry D. Eppler";
-        FourthPanel.ThemeName = "BudgetExecution";
+        FourthPanel.ThemeName = "Sherpa";
         FourthPanel.ToolTip = null;
         // 
         // FourthListBox
@@ -539,7 +539,7 @@ partial class FilterPage
         FourthListBox.StyleManager = null;
         FourthListBox.TabIndex = 1;
         FourthListBox.ThemeAuthor = "Terry D. Eppler";
-        FourthListBox.ThemeName = "BudgetExecution";
+        FourthListBox.ThemeName = "Sherpa";
         FourthListBox.ToolTip = null;
         // 
         // FourthComboBox
@@ -574,7 +574,7 @@ partial class FilterPage
         FourthComboBox.StyleManager = null;
         FourthComboBox.TabIndex = 1;
         FourthComboBox.ThemeAuthor = "Terry D. Eppler";
-        FourthComboBox.ThemeName = "BudgetExecution";
+        FourthComboBox.ThemeName = "Sherpa";
         FourthComboBox.ToolTip = null;
         // 
         // ThirdLayoutTable
@@ -638,7 +638,7 @@ partial class FilterPage
         SecondPanel.StyleManager = null;
         SecondPanel.TabIndex = 2;
         SecondPanel.ThemeAuthor = "Terry D. Eppler";
-        SecondPanel.ThemeName = "BudgetExecution";
+        SecondPanel.ThemeName = "Sherpa";
         SecondPanel.ToolTip = null;
         // 
         // SecondListBox
@@ -674,7 +674,7 @@ partial class FilterPage
         SecondListBox.StyleManager = null;
         SecondListBox.TabIndex = 0;
         SecondListBox.ThemeAuthor = "Terry D. Eppler";
-        SecondListBox.ThemeName = "BudgetExecution";
+        SecondListBox.ThemeName = "Sherpa";
         SecondListBox.ToolTip = null;
         // 
         // SecondComboBox
@@ -709,7 +709,7 @@ partial class FilterPage
         SecondComboBox.StyleManager = null;
         SecondComboBox.TabIndex = 1;
         SecondComboBox.ThemeAuthor = "Terry D. Eppler";
-        SecondComboBox.ThemeName = "BudgetExecution";
+        SecondComboBox.ThemeName = "Sherpa";
         SecondComboBox.ToolTip = null;
         // 
         // FirstLayoutTable
@@ -1048,7 +1048,7 @@ partial class FilterPage
         ProviderPanel.StyleManager = null;
         ProviderPanel.TabIndex = 2;
         ProviderPanel.ThemeAuthor = "Terry D. Eppler";
-        ProviderPanel.ThemeName = "BudgetExecution";
+        ProviderPanel.ThemeName = "Sherpa";
         ProviderPanel.ToolTip = null;
         // 
         // SqlCeRadioButton
@@ -1941,7 +1941,7 @@ partial class FilterPage
         EditorPanel.StyleManager = null;
         EditorPanel.TabIndex = 0;
         EditorPanel.ThemeAuthor = "Terry D. Eppler";
-        EditorPanel.ThemeName = "BudgetExecution";
+        EditorPanel.ThemeName = "Sherpa";
         EditorPanel.ToolTip = null;
         // 
         // SqlEditor

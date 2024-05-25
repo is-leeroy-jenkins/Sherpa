@@ -51,7 +51,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.TileBase"/>
+    /// <seealso cref="T:Sherpa.TileBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class Tile : TileBase
@@ -59,7 +59,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile"/>
+        /// <see cref="T:Sherpa.Tile"/>
         /// class.
         /// </summary>
         public Tile( )
@@ -102,7 +102,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile"/>
+        /// <see cref="T:Sherpa.Tile"/>
         /// class.
         /// </summary>
         /// <param name="type"> The type. </param>
@@ -115,7 +115,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile"/>
+        /// <see cref="T:Sherpa.Tile"/>
         /// class.
         /// </summary>
         /// <param name="name"> The name. </param>
@@ -130,7 +130,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile"/>
+        /// <see cref="T:Sherpa.Tile"/>
         /// class.
         /// </summary>
         /// <param name="location"> The location. </param>

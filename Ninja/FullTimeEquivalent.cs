@@ -53,7 +53,7 @@ namespace Sherpa
     /// FullTimeEquivalent of 1.0 is equivalent to a full-time worker or student, while an
     /// FullTimeEquivalent of 0.5 signals half of a full work or school load.
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.ProgramResultsCode"/>
+    /// <seealso cref="T:Sherpa.ProgramResultsCode"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -62,7 +62,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
+        /// <see cref="T:Sherpa.FullTimeEquivalent"/>
         /// class.
         /// </summary>
         public FullTimeEquivalent( )
@@ -73,7 +73,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
+        /// <see cref="T:Sherpa.FullTimeEquivalent"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -119,7 +119,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
+        /// <see cref="T:Sherpa.FullTimeEquivalent"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The databuilder. </param>
@@ -165,7 +165,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
+        /// <see cref="T:Sherpa.FullTimeEquivalent"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>

@@ -35,11 +35,11 @@ partial class WebSelector
     {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebSelector));
-            Header = new BudgetExecution.Label();
-            Carousel = new BudgetExecution.Carousel();
-            CloseButton = new BudgetExecution.Button();
-            ToolTip = new BudgetExecution.SmallTip();
-            ImageList = new BudgetExecution.ImageList();
+            Header = new Sherpa.Label();
+            Carousel = new Sherpa.Carousel();
+            CloseButton = new Sherpa.Button();
+            ToolTip = new Sherpa.SmallTip();
+            ImageList = new Sherpa.ImageList();
             SuspendLayout();
             // 
             // Header
@@ -60,7 +60,7 @@ partial class WebSelector
             Header.Text = "Header";
             Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             Header.ThemeAuthor = "Terry D. Eppler";
-            Header.ThemeName = "BudgetExecution";
+            Header.ThemeName = "Sherpa";
             Header.ToolTip = null;
             // 
             // Carousel
@@ -125,7 +125,7 @@ partial class WebSelector
             CloseButton.TabIndex = 8;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "BudgetExecution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // ToolTip

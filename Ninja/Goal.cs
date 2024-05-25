@@ -47,7 +47,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:Sherpa.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Goal" />
+        /// <see cref="T:Sherpa.Goal" />
         /// class.
         /// </summary>
         public Goal( )
@@ -72,7 +72,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Goal" />
+        /// <see cref="T:Sherpa.Goal" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -89,7 +89,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Goal" />
+        /// <see cref="T:Sherpa.Goal" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Goal" />
+        /// <see cref="T:Sherpa.Goal" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Goal" />
+        /// <see cref="T:Sherpa.Goal" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
@@ -140,7 +140,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Goal" />
+        /// <see cref="T:Sherpa.Goal" />
         /// class.
         /// </summary>
         /// <param name="goal"> The goal. </param>

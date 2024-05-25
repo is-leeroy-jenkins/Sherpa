@@ -340,7 +340,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GridForm" /> class.
+        /// <see cref="T:Sherpa.GridForm" /> class.
         /// </summary>
         public GridForm( )
         {
@@ -392,7 +392,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GridForm" /> class.
+        /// <see cref="T:Sherpa.GridForm" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         public GridForm( DataTable dataTable )

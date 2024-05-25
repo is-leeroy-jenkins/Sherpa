@@ -59,7 +59,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripLabel" />
+        /// <see cref="T:Sherpa.ToolStripLabel" />
         /// class.
         /// </summary>
         public ToolStripLabel( )
@@ -76,7 +76,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripLabel" />
+        /// <see cref="T:Sherpa.ToolStripLabel" />
         /// class.
         /// </summary>
         /// <param name="text">
@@ -93,7 +93,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripLabel" />
+        /// <see cref="T:Sherpa.ToolStripLabel" />
         /// class.
         /// </summary>
         /// <param name="text"> The text. </param>

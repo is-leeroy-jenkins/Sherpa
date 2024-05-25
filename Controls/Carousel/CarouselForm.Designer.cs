@@ -97,7 +97,7 @@
             Header.Text = "Header";
             Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             Header.ThemeAuthor = "Terry D. Eppler";
-            Header.ThemeName = "BudgetExecution";
+            Header.ThemeName = "Sherpa";
             Header.ToolTip = null;
             // 
             // Timer

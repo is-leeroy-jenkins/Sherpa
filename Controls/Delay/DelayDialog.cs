@@ -103,7 +103,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DelayDialog" /> class.
+        /// <see cref="T:Sherpa.DelayDialog" /> class.
         /// </summary>
         public DelayDialog( )
         {
@@ -151,7 +151,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DelayDialog" /> class.
+        /// <see cref="T:Sherpa.DelayDialog" /> class.
         /// </summary>
         /// <param name="status">The status.</param>
         public DelayDialog( Status status )

@@ -175,7 +175,7 @@ partial class SqlPage
         EditorPanel.StyleManager = null;
         EditorPanel.TabIndex = 0;
         EditorPanel.ThemeAuthor = "Terry D. Eppler";
-        EditorPanel.ThemeName = "BudgetExecution";
+        EditorPanel.ThemeName = "Sherpa";
         EditorPanel.ToolTip = null;
         // 
         // Editor
@@ -624,7 +624,7 @@ partial class SqlPage
         ThirdButton.Tag = "Execute";
         ThirdButton.Text = "Execute";
         ThirdButton.ThemeAuthor = "Terry D. Eppler";
-        ThirdButton.ThemeName = "BudgetExecution";
+        ThirdButton.ThemeName = "Sherpa";
         ThirdButton.ToolTip = null;
         // 
         // FirstButton
@@ -659,7 +659,7 @@ partial class SqlPage
         FirstButton.Tag = "Clear";
         FirstButton.Text = "Clear";
         FirstButton.ThemeAuthor = "Terry D. Eppler";
-        FirstButton.ThemeName = "BudgetExecution";
+        FirstButton.ThemeName = "Sherpa";
         FirstButton.ToolTip = null;
         // 
         // FourthButton
@@ -695,7 +695,7 @@ partial class SqlPage
         FourthButton.Tag = "Close";
         FourthButton.Text = "Close";
         FourthButton.ThemeAuthor = "Terry D. Eppler";
-        FourthButton.ThemeName = "BudgetExecution";
+        FourthButton.ThemeName = "Sherpa";
         FourthButton.ToolTip = null;
         // 
         // SecondButton
@@ -730,7 +730,7 @@ partial class SqlPage
         SecondButton.Tag = "Save";
         SecondButton.Text = "Save";
         SecondButton.ThemeAuthor = "Terry D. Eppler";
-        SecondButton.ThemeName = "BudgetExecution";
+        SecondButton.ThemeName = "Sherpa";
         SecondButton.ToolTip = null;
         // 
         // Timer

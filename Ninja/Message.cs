@@ -80,7 +80,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Message" /> class.
+        /// <see cref="T:Sherpa.Message" /> class.
         /// </summary>
         public Message( )
             : base( )
@@ -91,7 +91,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Message" /> class.
+        /// <see cref="T:Sherpa.Message" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public Message( IQuery query )
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Message" /> class.
+        /// <see cref="T:Sherpa.Message" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Message( IDataModel builder )
@@ -121,7 +121,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Message" /> class.
+        /// <see cref="T:Sherpa.Message" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Message( DataRow dataRow )

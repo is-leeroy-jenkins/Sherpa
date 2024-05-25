@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -60,7 +60,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffices" /> class.
+        /// <see cref="T:Sherpa.ResourcePlanningOffices" /> class.
         /// </summary>
         public ResourcePlanningOffice( )
         {
@@ -70,7 +70,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffices" /> class.
+        /// <see cref="T:Sherpa.ResourcePlanningOffices" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public ResourcePlanningOffice( IQuery query )
@@ -86,7 +86,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffices" /> class.
+        /// <see cref="T:Sherpa.ResourcePlanningOffices" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ResourcePlanningOffice( IDataModel builder ) 
@@ -102,7 +102,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffices" /> class.
+        /// <see cref="T:Sherpa.ResourcePlanningOffices" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ResourcePlanningOffice( DataRow dataRow )
@@ -118,7 +118,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <
-        /// see cref="T:BudgetExecution.ResourcePlanningOffices" /> class.
+        /// see cref="T:Sherpa.ResourcePlanningOffices" /> class.
         /// </summary>
         /// <param name="rpioCode">The rpio code.</param>
         public ResourcePlanningOffice( string rpioCode )
@@ -134,7 +134,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffices" /> class.
+        /// <see cref="T:Sherpa.ResourcePlanningOffices" /> class.
         /// </summary>
         /// <param name="rpio">The rpio.</param>
         public ResourcePlanningOffice( ResourcePlanningOffice rpio )

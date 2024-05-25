@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.PRC" />
+    /// <seealso cref="T:Sherpa.PRC" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
@@ -217,7 +217,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFunds" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.ReimbursableFunds" /> class.
         /// </summary>
         public ReimbursableFund( ) 
             : base( )
@@ -227,7 +227,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFunds" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.ReimbursableFunds" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public ReimbursableFund( IQuery query ) 
@@ -255,7 +255,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReimbursableFunds" /> class.
+        /// <see cref="T:Sherpa.ReimbursableFunds" /> class.
         /// </summary>
         /// <param name="builder"></param>
         public ReimbursableFund( IDataModel builder ) 
@@ -283,7 +283,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReimbursableFunds" /> class.
+        /// <see cref="T:Sherpa.ReimbursableFunds" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ReimbursableFund( DataRow dataRow ) 

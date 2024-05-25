@@ -51,7 +51,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ChartBase"/>
+    /// <seealso cref="T:Sherpa.ChartBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -92,7 +92,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Chart"/>
+        /// <see cref="T:Sherpa.Chart"/>
         /// class.
         /// </summary>
         public Plotter( )
@@ -113,7 +113,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Chart"/>
+        /// <see cref="T:Sherpa.Chart"/>
         /// class.
         /// </summary>
         /// <param name="bindingSource"> The binding source. </param>

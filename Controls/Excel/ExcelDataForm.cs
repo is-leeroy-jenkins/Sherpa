@@ -505,7 +505,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataForm"/>
+        /// <see cref="T:Sherpa.ExcelDataForm"/>
         /// class.
         /// </summary>
         public ExcelDataForm( )
@@ -574,7 +574,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataForm"/>
+        /// <see cref="T:Sherpa.ExcelDataForm"/>
         /// class.
         /// </summary>
         /// <param name="filePath">
@@ -592,7 +592,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataForm"/>
+        /// <see cref="T:Sherpa.ExcelDataForm"/>
         /// class.
         /// </summary>
         /// <param name="bindingSource">
@@ -611,7 +611,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataForm"/>
+        /// <see cref="T:Sherpa.ExcelDataForm"/>
         /// class.
         /// </summary>
         /// <param name="dataTable"> The data dataTable. </param>

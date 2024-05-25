@@ -52,7 +52,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
@@ -105,7 +105,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClasses" /> class.
         /// </summary>
         public BudgetObjectClass( )
             : base( )
@@ -116,7 +116,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="boc">The boc.</param>
         public BudgetObjectClass( BOC boc )
@@ -133,7 +133,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="code">The code.</param>
         public BudgetObjectClass( string code )
@@ -153,7 +153,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetObjectClass( IQuery query )
@@ -173,7 +173,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetObjectClass( IDataModel builder )
@@ -193,7 +193,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetObjectClass( DataRow dataRow )
@@ -213,7 +213,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetObjectClass" /> class.
+        /// <see cref="T:Sherpa.BudgetObjectClass" /> class.
         /// </summary>
         /// <param name="boc">The boc.</param>
         public BudgetObjectClass( BudgetObjectClass boc )

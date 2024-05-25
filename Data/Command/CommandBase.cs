@@ -50,8 +50,8 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ISource"/>
-    /// <seealso cref="T:BudgetExecution.IProvider"/>
+    /// <seealso cref="T:Sherpa.ISource"/>
+    /// <seealso cref="T:Sherpa.IProvider"/>
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -223,25 +223,25 @@ namespace Sherpa
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case BudgetExecution.Command.SELECTALL:
-                        case BudgetExecution.Command.SELECT:
+                        case Sherpa.Command.SELECTALL:
+                        case Sherpa.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
-                        case BudgetExecution.Command.INSERT:
+                        case Sherpa.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
-                        case BudgetExecution.Command.UPDATE:
+                        case Sherpa.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
-                        case BudgetExecution.Command.DELETE:
+                        case Sherpa.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
@@ -277,29 +277,29 @@ namespace Sherpa
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case BudgetExecution.Command.SELECTALL:
-                        case BudgetExecution.Command.SELECT:
+                        case Sherpa.Command.SELECTALL:
+                        case Sherpa.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
-                        case BudgetExecution.Command.INSERT:
+                        case Sherpa.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
-                        case BudgetExecution.Command.UPDATE:
+                        case Sherpa.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
-                        case BudgetExecution.Command.DELETE:
+                        case Sherpa.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
@@ -339,23 +339,23 @@ namespace Sherpa
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case BudgetExecution.Command.SELECTALL:
-                        case BudgetExecution.Command.SELECT:
+                        case Sherpa.Command.SELECTALL:
+                        case Sherpa.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
-                        case BudgetExecution.Command.INSERT:
+                        case Sherpa.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
-                        case BudgetExecution.Command.UPDATE:
+                        case Sherpa.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
-                        case BudgetExecution.Command.DELETE:
+                        case Sherpa.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
@@ -389,23 +389,23 @@ namespace Sherpa
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case BudgetExecution.Command.SELECTALL:
-                        case BudgetExecution.Command.SELECT:
+                        case Sherpa.Command.SELECTALL:
+                        case Sherpa.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
-                        case BudgetExecution.Command.INSERT:
+                        case Sherpa.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
-                        case BudgetExecution.Command.UPDATE:
+                        case Sherpa.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
-                        case BudgetExecution.Command.DELETE:
+                        case Sherpa.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );

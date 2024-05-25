@@ -23,7 +23,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PropertyDialog" /> class.
+        /// <see cref="T:Sherpa.PropertyDialog" /> class.
         /// </summary>
         public PropertyDialog( )
         {

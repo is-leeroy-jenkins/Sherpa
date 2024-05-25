@@ -90,11 +90,11 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Instantiates a new instance of
-        /// <see cref="T:BudgetExecution.EmailAttribute" />.
+        /// <see cref="T:Sherpa.EmailAttribute" />.
         /// </summary>
         /// <remarks>
         /// Creates a new
-        /// <see cref="T:BudgetExecution.EmailAttribute" />.
+        /// <see cref="T:Sherpa.EmailAttribute" />.
         /// </remarks>
         /// <param name="allowTopLevelDomains"><c>true</c>
         /// if the validator should allow addresses

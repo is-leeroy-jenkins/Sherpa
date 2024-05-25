@@ -42,7 +42,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.TreeView" /> class.
+        /// <see cref="T:Sherpa.TreeView" /> class.
         /// </summary>
         public TreeView( )
         {

@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 06-24-2023
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        11-30-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    Sherpa is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -53,9 +53,9 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ConnectionBase"/>
-    /// <seealso cref="T:BudgetExecution.ISource"/>
-    /// <seealso cref="T:BudgetExecution.IProvider"/>
+    /// <seealso cref="T:Sherpa.ConnectionBase"/>
+    /// <seealso cref="T:Sherpa.ISource"/>
+    /// <seealso cref="T:Sherpa.IProvider"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -65,7 +65,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetConnection"/>
+        /// <see cref="T:Sherpa.BudgetConnection"/>
         /// class.
         /// </summary>
         public BudgetConnection( ) 

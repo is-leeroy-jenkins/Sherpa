@@ -120,7 +120,7 @@ namespace Sherpa
             CloseButton.TabIndex = 12;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "BudgetExecution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // SaveButton
@@ -155,7 +155,7 @@ namespace Sherpa
             SaveButton.TabIndex = 13;
             SaveButton.Text = "Save";
             SaveButton.ThemeAuthor = "Terry D. Eppler";
-            SaveButton.ThemeName = "BudgetExecution";
+            SaveButton.ThemeName = "Sherpa";
             SaveButton.ToolTip = null;
             // 
             // ClearButton
@@ -190,7 +190,7 @@ namespace Sherpa
             ClearButton.TabIndex = 14;
             ClearButton.Text = "Clear";
             ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "BudgetExecution";
+            ClearButton.ThemeName = "Sherpa";
             ClearButton.ToolTip = null;
             // 
             // FormTable

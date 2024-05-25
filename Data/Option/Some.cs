@@ -46,7 +46,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <typeparam name="T"> </typeparam>
-    /// <seealso cref="T:BudgetExecution.IOption`1"/>
+    /// <seealso cref="T:Sherpa.IOption`1"/>
     [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]

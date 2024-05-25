@@ -54,7 +54,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:System.Windows.Forms.DataGridView"/>
-    /// <seealso cref="T:BudgetExecution.IDataGrid"/>
+    /// <seealso cref="T:Sherpa.IDataGrid"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -100,7 +100,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGrid"/>
+        /// <see cref="T:Sherpa.DataGrid"/>
         /// class.
         /// </summary>
         public DataGrid( )
@@ -172,7 +172,7 @@ namespace Sherpa
 
         /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the see cref="T:BudgetExecution.DataGrid" /> class.
+        /// Initializes a new instance of the see cref="T:Sherpa.DataGrid" /> class.
         /// </summary>
         /// <param name="size"> The size. </param>
         /// <param name="location"> The location. </param>
@@ -186,7 +186,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGrid"/>
+        /// <see cref="T:Sherpa.DataGrid"/>
         /// class.
         /// </summary>
         /// <param name="dataGrid"> The data grid. </param>
@@ -198,7 +198,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGrid"/>
+        /// <see cref="T:Sherpa.DataGrid"/>
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>

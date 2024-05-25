@@ -50,7 +50,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ToolStripProgressBase" />
+    /// <seealso cref="T:Sherpa.ToolStripProgressBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -59,7 +59,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripProgressBar" />
+        /// <see cref="T:Sherpa.ToolStripProgressBar" />
         /// class.
         /// </summary>
         public ToolStripProgressBar( )

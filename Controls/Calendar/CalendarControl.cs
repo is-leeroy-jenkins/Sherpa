@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarControl"/>
+        /// <see cref="T:Sherpa.CalendarControl"/>
         /// class.
         /// </summary>
         public CalendarControl( )
@@ -100,7 +100,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarControl"/>
+        /// <see cref="T:Sherpa.CalendarControl"/>
         /// class.
         /// </summary>
         /// <param name="dateTime"> The date time. </param>

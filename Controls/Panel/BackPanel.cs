@@ -133,7 +133,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BackPanel" />
+        /// <see cref="T:Sherpa.BackPanel" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>

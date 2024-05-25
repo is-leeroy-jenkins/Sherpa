@@ -94,7 +94,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Folder" /> class.
+        /// <see cref="T:Sherpa.Folder" /> class.
         /// </summary>
         public AsyncFolder( )
         {
@@ -103,7 +103,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Folder" /> class.
+        /// <see cref="T:Sherpa.Folder" /> class.
         /// </summary>
         /// <param name="input"></param>
         public AsyncFolder( string input ) 
@@ -125,7 +125,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Folder" /> class.
+        /// <see cref="T:Sherpa.Folder" /> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
         public AsyncFolder( Folder folder ) : base( folder)

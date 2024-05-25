@@ -136,7 +136,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlBase"/>
+        /// <see cref="T:Sherpa.SqlBase"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -156,7 +156,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlBase"/>
+        /// <see cref="T:Sherpa.SqlBase"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -178,7 +178,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlBase"/>
+        /// <see cref="T:Sherpa.SqlBase"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -201,7 +201,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlBase"/>
+        /// <see cref="T:Sherpa.SqlBase"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -227,7 +227,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlBase"/>
+        /// <see cref="T:Sherpa.SqlBase"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -252,7 +252,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlBase"/>
+        /// <see cref="T:Sherpa.SqlBase"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>

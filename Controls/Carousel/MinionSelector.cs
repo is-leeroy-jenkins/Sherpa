@@ -70,12 +70,12 @@ namespace Sherpa
         /// The image path.
         /// </value>
         public string ImagePath { get; } =
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Carousel\Minion";
+            @"C:\Users\terry\source\repos\Sherpa\Resources\Pictures\Carousel\Minion";
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MinionSelector" /> class.
+        /// <see cref="T:Sherpa.MinionSelector" /> class.
         /// </summary>
         public MinionSelector( )
         {
@@ -115,7 +115,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MinionSelector" /> class.
+        /// <see cref="T:Sherpa.MinionSelector" /> class.
         /// </summary>
         /// <param name="dirPath">
         /// The directory path.

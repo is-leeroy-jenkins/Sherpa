@@ -48,8 +48,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.PRC" />
-    /// <seealso cref="T:BudgetExecution.IStatusOfFunds" />
+    /// <seealso cref="T:Sherpa.PRC" />
+    /// <seealso cref="T:Sherpa.IStatusOfFunds" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -279,7 +279,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfFunds" /> class.
         /// </summary>
         public StatusOfFunds( ) 
             : base( )
@@ -290,7 +290,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfFunds" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public StatusOfFunds( IQuery query )
@@ -347,7 +347,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfFunds" /> class.
         /// </summary>
         /// <param name="builder">The data builder.</param>
         public StatusOfFunds( IDataModel builder )
@@ -404,7 +404,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfFunds" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public StatusOfFunds( DataRow dataRow )
@@ -462,7 +462,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfFunds" /> class.
         /// </summary>
         /// <param name="map">The map.</param>
         public StatusOfFunds( IDictionary<string, object> map )
@@ -518,7 +518,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfFunds" /> class.
         /// </summary>
         /// <param name="status">The status.</param>
         public StatusOfFunds( StatusOfFunds status )

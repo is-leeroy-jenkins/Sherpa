@@ -239,7 +239,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FolderDialog"/>
+        /// <see cref="T:Sherpa.FolderDialog"/>
         /// class.
         /// </summary>
         public FolderDialog( ) 
@@ -449,7 +449,7 @@ namespace Sherpa
                     Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory ),
                     Environment.GetFolderPath( Environment.SpecialFolder.Personal ),
                     Environment.GetFolderPath( Environment.SpecialFolder.Recent ),
-                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
+                    @"C:\Users\terry\source\repos\Sherpa\Resources\Documents",
                     _current
                 };
 

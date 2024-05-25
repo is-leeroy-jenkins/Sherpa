@@ -267,7 +267,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlEditForm"/>
+        /// <see cref="T:Sherpa.SqlEditForm"/>
         /// class.
         /// </summary>
         public SqlEditForm( )
@@ -330,7 +330,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlDataForm"/>
+        /// <see cref="T:Sherpa.SqlDataForm"/>
         /// class.
         /// </summary>
         /// <param name="provider"> The provider. </param>

@@ -97,7 +97,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ColumnConfiguration" />
+        /// <see cref="T:Sherpa.ColumnConfiguration" />
         /// class.
         /// </summary>
         public ColumnConfiguration( )
@@ -131,7 +131,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ColumnConfiguration" />
+        /// <see cref="T:Sherpa.ColumnConfiguration" />
         /// class.
         /// </summary>
         /// <param name="dataGrid"> The data grid. </param>

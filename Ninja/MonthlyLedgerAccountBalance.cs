@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:Sherpa.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -220,7 +220,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
+        /// <see cref="T:Sherpa.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         public MonthlyLedgerAccountBalance( )
             : base( )
@@ -231,7 +231,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
+        /// <see cref="T:Sherpa.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public MonthlyLedgerAccountBalance( IQuery query )
@@ -257,7 +257,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
+        /// <see cref="T:Sherpa.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public MonthlyLedgerAccountBalance( IDataModel builder )
@@ -283,7 +283,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
+        /// <see cref="T:Sherpa.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public MonthlyLedgerAccountBalance( DataRow dataRow )
@@ -309,7 +309,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
+        /// <see cref="T:Sherpa.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="account">The account.</param>
         public MonthlyLedgerAccountBalance( MonthlyLedgerAccountBalance account )

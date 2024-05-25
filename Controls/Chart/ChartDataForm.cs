@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 12-24-2023
 // 
@@ -605,7 +605,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ChartDataForm" /> class.
+        /// <see cref="T:Sherpa.ChartDataForm" /> class.
         /// </summary>
         public ChartDataForm( )
         {
@@ -671,7 +671,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ChartDataForm" /> class.
+        /// <see cref="T:Sherpa.ChartDataForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>

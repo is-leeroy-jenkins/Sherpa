@@ -52,7 +52,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.Query"/>
+    /// <seealso cref="T:Sherpa.Query"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelQuery"/>
+        /// <see cref="T:Sherpa.ExcelQuery"/>
         /// class.
         /// </summary>
         public ExcelQuery( )

@@ -57,7 +57,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
+        /// <see cref="T:Sherpa.SpendingRate" /> class.
         /// </summary>
         public SpendingRate( ) 
             : base( )
@@ -67,7 +67,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
+        /// <see cref="T:Sherpa.SpendingRate" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public SpendingRate( IQuery query ) 
@@ -80,7 +80,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
+        /// <see cref="T:Sherpa.SpendingRate" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public SpendingRate( IDataModel builder ) 
@@ -93,7 +93,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
+        /// <see cref="T:Sherpa.SpendingRate" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public SpendingRate( DataRow dataRow ) 

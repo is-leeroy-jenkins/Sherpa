@@ -51,8 +51,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.StateData" />
-    /// <seealso cref="T:BudgetExecution.IStateTransfer" />
+    /// <seealso cref="T:Sherpa.StateData" />
+    /// <seealso cref="T:Sherpa.IStateTransfer" />
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( " ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]

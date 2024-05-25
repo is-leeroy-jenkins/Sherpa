@@ -509,7 +509,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarForm" /> class.
+        /// <see cref="T:Sherpa.CalendarForm" /> class.
         /// </summary>
         public CalendarForm( )
         {

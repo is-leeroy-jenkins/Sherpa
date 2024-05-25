@@ -115,7 +115,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Label" />
+        /// <see cref="T:Sherpa.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -130,7 +130,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Label" />
+        /// <see cref="T:Sherpa.Label" />
         /// class.
         /// </summary>
         /// <param name="label"> The label. </param>
@@ -142,7 +142,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Label" />
+        /// <see cref="T:Sherpa.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -158,7 +158,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Label" />
+        /// <see cref="T:Sherpa.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -174,7 +174,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Label" />
+        /// <see cref="T:Sherpa.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>

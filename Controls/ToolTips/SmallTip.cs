@@ -129,7 +129,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SmallTip" />
+        /// <see cref="T:Sherpa.SmallTip" />
         /// class.
         /// </summary>
         /// <param name="control">The control.</param>
@@ -146,7 +146,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SmallTip" />
+        /// <see cref="T:Sherpa.SmallTip" />
         /// class.
         /// </summary>
         /// <param name="component">The component.</param>
@@ -163,7 +163,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SmallTip" />
+        /// <see cref="T:Sherpa.SmallTip" />
         /// class.
         /// </summary>
         /// <param name="toolItem">The tool item.</param>
@@ -176,7 +176,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SmallTip" />
+        /// <see cref="T:Sherpa.SmallTip" />
         /// class.
         /// </summary>
         /// <param name="control">The control.</param>

@@ -134,7 +134,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MessageDialog" /> class.
+        /// <see cref="T:Sherpa.MessageDialog" /> class.
         /// </summary>
         public MessageDialog( )
         {
@@ -179,7 +179,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MessageDialog" /> class.
+        /// <see cref="T:Sherpa.MessageDialog" /> class.
         /// </summary>
         /// <param name="text">The text displayed by the control.</param>
         public MessageDialog( string text )
@@ -192,7 +192,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MessageDialog" /> class.
+        /// <see cref="T:Sherpa.MessageDialog" /> class.
         /// </summary>
         /// <param name="text">The text.</param>
         /// <param name="title">The caption.</param>

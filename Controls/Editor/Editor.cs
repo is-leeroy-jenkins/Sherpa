@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Editor" />
+        /// <see cref="T:Sherpa.Editor" />
         /// class.
         /// </summary>
         public Editor( )

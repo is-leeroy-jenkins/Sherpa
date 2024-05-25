@@ -7,7 +7,7 @@
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:Sherpa.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -318,7 +318,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourceStatus" /> class.
+        /// <see cref="T:Sherpa.ResourceStatus" /> class.
         /// </summary>
         /// <param name="builder">The query.</param>
         protected BudgetaryResource( IDataModel builder )

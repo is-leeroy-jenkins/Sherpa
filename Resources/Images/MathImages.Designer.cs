@@ -39,7 +39,7 @@ namespace Sherpa.Resources.Images {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BudgetExecution.Resources.Images.MathImages", typeof(MathImages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Sherpa.Resources.Images.MathImages", typeof(MathImages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

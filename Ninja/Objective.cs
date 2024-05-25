@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Objective" />
+        /// <see cref="T:Sherpa.Objective" />
         /// class.
         /// </summary>
         public Objective( )
@@ -73,7 +73,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Objective" />
+        /// <see cref="T:Sherpa.Objective" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -90,7 +90,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Objective" />
+        /// <see cref="T:Sherpa.Objective" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -107,7 +107,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Objectives" />
+        /// <see cref="T:Sherpa.Objectives" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
@@ -124,7 +124,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Objective" />
+        /// <see cref="T:Sherpa.Objective" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
@@ -141,7 +141,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Objective" />
+        /// <see cref="T:Sherpa.Objective" />
         /// class.
         /// </summary>
         /// <param name="objective"> The objective. </param>

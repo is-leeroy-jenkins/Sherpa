@@ -72,7 +72,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarouselForm" />
+        /// <see cref="T:Sherpa.CarouselForm" />
         /// class.
         /// </summary>
         public CarouselForm( )
@@ -116,7 +116,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarouselForm" />
+        /// <see cref="T:Sherpa.CarouselForm" />
         /// class.
         /// </summary>
         /// <param name="directoryPath"> The directory path. </param>

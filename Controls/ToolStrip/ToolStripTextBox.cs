@@ -60,7 +60,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripTextBox" />
+        /// <see cref="T:Sherpa.ToolStripTextBox" />
         /// class.
         /// </summary>
         public ToolStripTextBox( )
@@ -83,7 +83,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripTextBox" />
+        /// <see cref="T:Sherpa.ToolStripTextBox" />
         /// class.
         /// </summary>
         /// <param name="text"> The text. </param>
@@ -96,7 +96,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripTextBox" />
+        /// <see cref="T:Sherpa.ToolStripTextBox" />
         /// class.
         /// </summary>
         /// <param name="text"> The text. </param>

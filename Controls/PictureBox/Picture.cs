@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Picture" />
+        /// <see cref="T:Sherpa.Picture" />
         /// class.
         /// </summary>
         /// <param name="image"> The image. </param>
@@ -118,7 +118,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Picture" />
+        /// <see cref="T:Sherpa.Picture" />
         /// class.
         /// </summary>
         /// <param name="path"> The path. </param>

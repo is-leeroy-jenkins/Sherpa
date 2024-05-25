@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.AdministrativeRequests" />
+    /// <seealso cref="T:Sherpa.AdministrativeRequests" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -57,7 +57,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollRequests" /> class.
+        /// <see cref="T:Sherpa.PayrollRequests" /> class.
         /// </summary>
         public PayrollRequest( )
             : base( )
@@ -68,7 +68,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollRequests" /> class.
+        /// <see cref="T:Sherpa.PayrollRequests" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public PayrollRequest( IQuery query ) 
@@ -89,7 +89,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollRequests" /> class.
+        /// <see cref="T:Sherpa.PayrollRequests" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public PayrollRequest( IDataModel builder ) 
@@ -110,7 +110,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollRequest" /> class.
+        /// <see cref="T:Sherpa.PayrollRequest" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public PayrollRequest( DataRow dataRow ) 
@@ -133,7 +133,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollRequests" /> class.
+        /// <see cref="T:Sherpa.PayrollRequests" /> class.
         /// </summary>
         /// <param name="request">The request.</param>
         public PayrollRequest( PayrollRequest request )

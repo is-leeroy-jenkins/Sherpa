@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 06-19-2023
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        11-26-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    Sherpa is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -49,8 +49,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataModel" />
-    /// <seealso cref="T:BudgetExecution.IDataModel" />
+    /// <seealso cref="T:Sherpa.DataModel" />
+    /// <seealso cref="T:Sherpa.IDataModel" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -142,7 +142,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         public DataBuilder( )
         {
@@ -151,7 +151,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -163,7 +163,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -176,7 +176,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="dict">The dictionary.</param>
@@ -188,7 +188,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -204,7 +204,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -220,7 +220,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -238,7 +238,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -251,7 +251,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public DataBuilder( IQuery query )
@@ -262,7 +262,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// <see cref="T:Sherpa.DataBuilder" /> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>

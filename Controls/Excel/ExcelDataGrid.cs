@@ -53,7 +53,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet"/>
-    /// <seealso cref="T:BudgetExecution.ISpreadsheet"/>
+    /// <seealso cref="T:Sherpa.ISpreadsheet"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ExcelDataGrid : Spreadsheet, ISpreadsheet
@@ -73,7 +73,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataGrid"/>
+        /// <see cref="T:Sherpa.ExcelDataGrid"/>
         /// class.
         /// </summary>
         public ExcelDataGrid( )

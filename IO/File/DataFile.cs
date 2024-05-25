@@ -54,8 +54,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.FileBase" />
-    /// <seealso cref="T:BudgetExecution.IFile" />
+    /// <seealso cref="T:Sherpa.FileBase" />
+    /// <seealso cref="T:Sherpa.IFile" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataFile" /> class.
+        /// <see cref="T:Sherpa.DataFile" /> class.
         /// </summary>
         public DataFile( )
             : base( )
@@ -133,7 +133,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataFile" /> class.
+        /// <see cref="T:Sherpa.DataFile" /> class.
         /// </summary>
         /// <param name="input">The input.</param>
         public DataFile( string input )
@@ -157,7 +157,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataFile" /> class.
+        /// <see cref="T:Sherpa.DataFile" /> class.
         /// </summary>
         /// <param name="file">The file.</param>
         public DataFile( DataFile file )

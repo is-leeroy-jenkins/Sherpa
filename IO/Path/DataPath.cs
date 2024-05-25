@@ -50,7 +50,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.PathBase"/>
+    /// <seealso cref="T:Sherpa.PathBase"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -399,7 +399,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataPath"/>
+        /// <see cref="T:Sherpa.DataPath"/>
         /// class.
         /// </summary>
         public DataPath( )
@@ -409,7 +409,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataPath"/>
+        /// <see cref="T:Sherpa.DataPath"/>
         /// class.
         /// </summary>
         /// <param name="input">

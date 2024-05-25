@@ -59,7 +59,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto"/>
+        /// <see cref="T:Sherpa.Defacto"/>
         /// class.
         /// </summary>
         public Defacto( )
@@ -71,7 +71,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto"/>
+        /// <see cref="T:Sherpa.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto"/>
+        /// <see cref="T:Sherpa.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -175,7 +175,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto"/>
+        /// <see cref="T:Sherpa.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -227,7 +227,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto"/>
+        /// <see cref="T:Sherpa.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="defacto"> The defacto. </param>

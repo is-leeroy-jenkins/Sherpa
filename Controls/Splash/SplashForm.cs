@@ -88,7 +88,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage"/>
+        /// <see cref="T:Sherpa.SplashMessage"/>
         /// class.
         /// </summary>
         public SplashForm( )

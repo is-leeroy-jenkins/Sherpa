@@ -54,7 +54,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriations" />
+        /// <see cref="T:Sherpa.Appropriations" />
         /// class.
         /// </summary>
         public Appropriation( ) 
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation"/>
+        /// <see cref="T:Sherpa.Appropriation"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -84,7 +84,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation"/>
+        /// <see cref="T:Sherpa.Appropriation"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -102,7 +102,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation"/>
+        /// <see cref="T:Sherpa.Appropriation"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -120,7 +120,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation" />
+        /// <see cref="T:Sherpa.Appropriation" />
         /// class.
         /// </summary>
         /// <param name="appropriation"> The appropriation. </param>

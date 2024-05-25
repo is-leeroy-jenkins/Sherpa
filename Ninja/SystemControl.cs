@@ -176,7 +176,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CompassControl" /> class.
+        /// <see cref="T:Sherpa.CompassControl" /> class.
         /// </summary>
         protected SystemControl( ) 
             : base( )
@@ -186,7 +186,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CompassControl" /> class.
+        /// <see cref="T:Sherpa.CompassControl" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected SystemControl( IQuery query )
@@ -199,7 +199,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CompassControl" /> class.
+        /// <see cref="T:Sherpa.CompassControl" /> class.
         /// </summary>
         /// <param name="builder"></param>
         protected SystemControl( IDataModel builder )
@@ -212,7 +212,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CompassControl" /> class.
+        /// <see cref="T:Sherpa.CompassControl" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected SystemControl( DataRow dataRow )

@@ -16,7 +16,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PivotGrid" /> class.
+        /// <see cref="T:Sherpa.PivotGrid" /> class.
         /// </summary>
         public PivotGrid( )
         {

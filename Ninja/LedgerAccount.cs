@@ -7,7 +7,7 @@
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class LedgerAccount : DataUnit
@@ -85,7 +85,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.LedgerAccount" /> class.
+        /// <see cref="T:Sherpa.LedgerAccount" /> class.
         /// </summary>
         protected LedgerAccount( ) 
             : base( )
@@ -95,7 +95,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.LedgerAccount" /> class.
+        /// <see cref="T:Sherpa.LedgerAccount" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected LedgerAccount( IQuery query ) 
@@ -106,7 +106,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.LedgerAccount" /> class.
+        /// <see cref="T:Sherpa.LedgerAccount" /> class.
         /// </summary>
         /// <param name="builder"></param>
         protected LedgerAccount( IDataModel builder ) 
@@ -117,7 +117,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.LedgerAccount" /> class.
+        /// <see cref="T:Sherpa.LedgerAccount" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected LedgerAccount( DataRow dataRow ) 

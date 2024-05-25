@@ -106,7 +106,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DialogBase" /> class.
+        /// <see cref="T:Sherpa.DialogBase" /> class.
         /// </summary>
         protected DialogBase( )
         {

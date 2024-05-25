@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// <see cref="T:Sherpa.Document" /> class.
         /// </summary>
         public Document( ) 
             : base( )
@@ -117,7 +117,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// <see cref="T:Sherpa.Document" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public Document( IQuery query ) 
@@ -135,7 +135,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// <see cref="T:Sherpa.Document" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Document( IDataModel builder ) 
@@ -153,7 +153,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// <see cref="T:Sherpa.Document" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Document( DataRow dataRow ) 
@@ -171,7 +171,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// <see cref="T:Sherpa.Document" /> class.
         /// </summary>
         /// <param name="doc">The document.</param>
         public Document( Document doc )

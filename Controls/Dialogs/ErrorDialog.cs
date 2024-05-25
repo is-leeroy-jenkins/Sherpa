@@ -145,7 +145,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ErrorDialog"/>
+        /// <see cref="T:Sherpa.ErrorDialog"/>
         /// class.
         /// </summary>
         public ErrorDialog( )
@@ -183,7 +183,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ErrorDialog" />
+        /// <see cref="T:Sherpa.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="exception"> The exception. </param>
@@ -198,7 +198,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ErrorDialog" /> class.
+        /// <see cref="T:Sherpa.ErrorDialog" /> class.
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="title">The title.</param>
@@ -213,7 +213,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ErrorDialog" />
+        /// <see cref="T:Sherpa.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="errorMessage"> The message. </param>
@@ -228,7 +228,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ErrorDialog" /> class.
+        /// <see cref="T:Sherpa.ErrorDialog" /> class.
         /// </summary>
         /// <param name="title">The title.</param>
         /// <param name="message">The message.</param>

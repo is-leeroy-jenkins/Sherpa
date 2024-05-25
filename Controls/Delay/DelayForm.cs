@@ -170,7 +170,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DelayForm"/>
+        /// <see cref="T:Sherpa.DelayForm"/>
         /// class.
         /// </summary>
         public DelayForm( )
@@ -217,7 +217,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DelayForm"/>
+        /// <see cref="T:Sherpa.DelayForm"/>
         /// class.
         /// </summary>
         /// <param name="status"> The status. </param>

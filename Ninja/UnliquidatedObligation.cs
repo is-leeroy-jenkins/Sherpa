@@ -58,7 +58,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
+        /// <see cref="T:Sherpa.UnliquidatedObligation" />
         /// class.
         /// </summary>
         public UnliquidatedObligation( ) 
@@ -70,7 +70,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
+        /// <see cref="T:Sherpa.UnliquidatedObligation" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -126,7 +126,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligations" />
+        /// <see cref="T:Sherpa.UnliquidatedObligations" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -182,7 +182,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
+        /// <see cref="T:Sherpa.UnliquidatedObligation" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -238,7 +238,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligation" /> class.
+        /// <see cref="T:Sherpa.UnliquidatedObligation" /> class.
         /// </summary>
         /// <param name="obligation">The ulo.</param>
         public UnliquidatedObligation( UnliquidatedObligation obligation )

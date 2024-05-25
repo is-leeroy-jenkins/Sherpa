@@ -95,7 +95,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StateGrantObligation" /> class.
+        /// <see cref="T:Sherpa.StateGrantObligation" /> class.
         /// </summary>
         public StateGrantObligation( ) 
             : base( )
@@ -105,7 +105,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StateGrantObligation" /> class.
+        /// <see cref="T:Sherpa.StateGrantObligation" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public StateGrantObligation( IQuery query ) 
@@ -133,7 +133,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StateGrantObligation" /> class.
+        /// <see cref="T:Sherpa.StateGrantObligation" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public StateGrantObligation( IDataModel builder )
@@ -160,7 +160,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StateGrantObligation" /> class.
+        /// <see cref="T:Sherpa.StateGrantObligation" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public StateGrantObligation( DataRow dataRow )

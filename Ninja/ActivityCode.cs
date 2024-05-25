@@ -47,7 +47,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit"/>
+    /// <seealso cref="T:Sherpa.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -81,7 +81,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ActivityCode" />
+        /// <see cref="T:Sherpa.ActivityCode" />
         /// class.
         /// </summary>
         public ActivityCode( )
@@ -93,7 +93,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ActivityCode" />
+        /// <see cref="T:Sherpa.ActivityCode" />
         /// class.
         /// </summary>
         /// <param name="query">The query.</param>
@@ -110,7 +110,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ActivityCode" />
+        /// <see cref="T:Sherpa.ActivityCode" />
         /// class.
         /// </summary>
         /// <param name="builder">The builder.</param>
@@ -127,7 +127,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ActivityCode" />
+        /// <see cref="T:Sherpa.ActivityCode" />
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
@@ -144,7 +144,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ActivityCode" />
+        /// <see cref="T:Sherpa.ActivityCode" />
         /// class.
         /// </summary>
         /// <param name="code">The code.</param>
@@ -161,7 +161,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ActivityCode" />
+        /// <see cref="T:Sherpa.ActivityCode" />
         /// class.
         /// </summary>
         /// <param name="activityCode">The activity code.</param>

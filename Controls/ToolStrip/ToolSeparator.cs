@@ -59,7 +59,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolSeparator" />
+        /// <see cref="T:Sherpa.ToolSeparator" />
         /// class.
         /// </summary>
         public ToolSeparator( )

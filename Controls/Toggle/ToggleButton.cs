@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToggleButton" /> class.
+        /// <see cref="T:Sherpa.ToggleButton" /> class.
         /// </summary>
         public ToggleButton( )
         {

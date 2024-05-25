@@ -78,7 +78,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Selector" />
+        /// <see cref="T:Sherpa.Selector" />
         /// class.
         /// </summary>
         public Carousel( )

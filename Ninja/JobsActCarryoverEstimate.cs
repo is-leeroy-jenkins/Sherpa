@@ -54,7 +54,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimates" />
+        /// <see cref="T:Sherpa.JobsActCarryoverEstimates" />
         /// class.
         /// </summary>
         public JobsActCarryoverEstimate( ) 
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -96,7 +96,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -126,7 +126,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -156,7 +156,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
+        /// <see cref="T:Sherpa.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="carryover"> The carryover. </param>

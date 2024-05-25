@@ -7,7 +7,7 @@
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class CompassControl : SystemControl
@@ -375,7 +375,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SystemControl" /> class.
+        /// <see cref="T:Sherpa.SystemControl" /> class.
         /// </summary>
         protected CompassControl( ) 
             : base( )
@@ -385,7 +385,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SystemControl" /> class.
+        /// <see cref="T:Sherpa.SystemControl" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected CompassControl( IQuery query ) 
@@ -398,7 +398,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SystemControl" /> class.
+        /// <see cref="T:Sherpa.SystemControl" /> class.
         /// </summary>
         /// <param name="builder"></param>
         protected CompassControl( IDataModel builder ) 
@@ -411,7 +411,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SystemControl" /> class.
+        /// <see cref="T:Sherpa.SystemControl" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected CompassControl( DataRow dataRow ) 

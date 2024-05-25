@@ -48,8 +48,8 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.FiscalYear" />
-    /// <seealso cref="!:BudgetExecution.IBudgetFiscalYear" />
+    /// <seealso cref="T:Sherpa.FiscalYear" />
+    /// <seealso cref="!:Sherpa.IBudgetFiscalYear" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -136,7 +136,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetFiscalYear" />
+        /// <see cref="T:Sherpa.BudgetFiscalYear" />
         /// class.
         /// </summary>
         public BudgetFiscalYear( )
@@ -152,7 +152,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetFiscalYears" />
+        /// <see cref="T:Sherpa.BudgetFiscalYears" />
         /// class.
         /// </summary>
         /// <param name="bfy"> The bfy. </param>
@@ -178,7 +178,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetFiscalYears" />
+        /// <see cref="T:Sherpa.BudgetFiscalYears" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -208,7 +208,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetFiscalYears" />
+        /// <see cref="T:Sherpa.BudgetFiscalYears" />
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The data builder. </param>
@@ -242,7 +242,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetFiscalYears" />
+        /// <see cref="T:Sherpa.BudgetFiscalYears" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -270,7 +270,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetFiscalYears" />
+        /// <see cref="T:Sherpa.BudgetFiscalYears" />
         /// class.
         /// </summary>
         /// <param name="fiscalYear"> The fiscal year. </param>

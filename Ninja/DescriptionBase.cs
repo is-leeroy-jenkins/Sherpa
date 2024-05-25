@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -172,7 +172,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:Sherpa.DescriptionBase" /> class.
         /// </summary>
         protected DescriptionBase( )
         {
@@ -181,7 +181,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:Sherpa.DescriptionBase" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected DescriptionBase( IQuery query )
@@ -191,7 +191,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:Sherpa.DescriptionBase" /> class.
         /// </summary>
         /// <param name="builder"></param>
         protected DescriptionBase( IDataModel builder )
@@ -201,7 +201,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:Sherpa.DescriptionBase" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected DescriptionBase( DataRow dataRow )

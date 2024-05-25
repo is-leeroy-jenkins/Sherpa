@@ -183,7 +183,7 @@
             ProviderPanel.StyleManager = null;
             ProviderPanel.TabIndex = 7;
             ProviderPanel.ThemeAuthor = "Terry D. Eppler";
-            ProviderPanel.ThemeName = "BudgetExecution";
+            ProviderPanel.ThemeName = "Sherpa";
             ProviderPanel.ToolTip = null;
             // 
             // SqlCeRadioButton
@@ -356,7 +356,7 @@
             SchemaLayout.StyleManager = null;
             SchemaLayout.TabIndex = 11;
             SchemaLayout.ThemeAuthor = "Terry D. Eppler";
-            SchemaLayout.ThemeName = "BudgetExecution";
+            SchemaLayout.ThemeName = "Sherpa";
             SchemaLayout.ToolTip = null;
             // 
             // DeleteColumnButton
@@ -390,7 +390,7 @@
             DeleteColumnButton.TabIndex = 19;
             DeleteColumnButton.Text = "Delete";
             DeleteColumnButton.ThemeAuthor = "Terry D. Eppler";
-            DeleteColumnButton.ThemeName = "BudgetExecution";
+            DeleteColumnButton.ThemeName = "Sherpa";
             DeleteColumnButton.ToolTip = null;
             // 
             // AddColumnButton
@@ -424,7 +424,7 @@
             AddColumnButton.TabIndex = 18;
             AddColumnButton.Text = "Add";
             AddColumnButton.ThemeAuthor = "Terry D. Eppler";
-            AddColumnButton.ThemeName = "BudgetExecution";
+            AddColumnButton.ThemeName = "Sherpa";
             AddColumnButton.ToolTip = null;
             // 
             // SelectDataTypeLable
@@ -500,7 +500,7 @@
             AddColumnTextBox.TabIndex = 6;
             AddColumnTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             AddColumnTextBox.ThemeAuthor = "Terry D. Eppler";
-            AddColumnTextBox.ThemeName = "BudgetExecution";
+            AddColumnTextBox.ThemeName = "Sherpa";
             AddColumnTextBox.ToolTip = ToolTip;
             AddColumnTextBox.UseSystemPasswordChar = false;
             AddColumnTextBox.WatermarkText = "";
@@ -537,7 +537,7 @@
             DataTypeComboBox.StyleManager = null;
             DataTypeComboBox.TabIndex = 11;
             DataTypeComboBox.ThemeAuthor = "Terry D. Eppler";
-            DataTypeComboBox.ThemeName = "BudgetExecution";
+            DataTypeComboBox.ThemeName = "Sherpa";
             DataTypeComboBox.ToolTip = ToolTip;
             // 
             // SourceTable
@@ -586,7 +586,7 @@
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 10;
             TablePanel.ThemeAuthor = "Terry D. Eppler";
-            TablePanel.ThemeName = "BudgetExecution";
+            TablePanel.ThemeName = "Sherpa";
             TablePanel.ToolTip = null;
             // 
             // AddTableLabel
@@ -643,7 +643,7 @@
             DeleteTableButton.TabIndex = 17;
             DeleteTableButton.Text = "Delete";
             DeleteTableButton.ThemeAuthor = "Terry D. Eppler";
-            DeleteTableButton.ThemeName = "BudgetExecution";
+            DeleteTableButton.ThemeName = "Sherpa";
             DeleteTableButton.ToolTip = null;
             // 
             // AddTableButton
@@ -677,7 +677,7 @@
             AddTableButton.TabIndex = 15;
             AddTableButton.Text = "Add";
             AddTableButton.ThemeAuthor = "Terry D. Eppler";
-            AddTableButton.ThemeName = "BudgetExecution";
+            AddTableButton.ThemeName = "Sherpa";
             AddTableButton.ToolTip = null;
             // 
             // SelectTableLabel
@@ -734,7 +734,7 @@
             TableNameComboBox.StyleManager = null;
             TableNameComboBox.TabIndex = 12;
             TableNameComboBox.ThemeAuthor = "Terry D. Eppler";
-            TableNameComboBox.ThemeName = "BudgetExecution";
+            TableNameComboBox.ThemeName = "Sherpa";
             TableNameComboBox.ToolTip = ToolTip;
             // 
             // TableNameTextBox
@@ -858,7 +858,7 @@
             SelectButton.TabIndex = 7;
             SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "BudgetExecution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = ToolTip;
             // 
             // ClearButton
@@ -892,7 +892,7 @@
             ClearButton.TabIndex = 5;
             ClearButton.Text = "Clear";
             ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "BudgetExecution";
+            ClearButton.ThemeName = "Sherpa";
             ClearButton.ToolTip = ToolTip;
             // 
             // CloseButton
@@ -926,7 +926,7 @@
             CloseButton.TabIndex = 6;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "BudgetExecution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = ToolTip;
             // 
             // Timer

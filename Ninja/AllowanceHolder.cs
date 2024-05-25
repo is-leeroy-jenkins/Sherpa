@@ -68,7 +68,7 @@ namespace Sherpa
     /// the Agency's funding with the Regional Administrator being identified as the primary regional
     /// Allowance Holder.
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:Sherpa.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -85,7 +85,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AllowanceHolder" />
+        /// <see cref="T:Sherpa.AllowanceHolder" />
         /// class.
         /// </summary>
         public AllowanceHolder( )
@@ -97,7 +97,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AllowanceHolders" />
+        /// <see cref="T:Sherpa.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
@@ -114,7 +114,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AllowanceHolders" />
+        /// <see cref="T:Sherpa.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -131,7 +131,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AllowanceHolders" />
+        /// <see cref="T:Sherpa.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="data"> The Data. </param>
@@ -148,7 +148,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AllowanceHolders" />
+        /// <see cref="T:Sherpa.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="ahCode"> The ahcode. </param>
@@ -165,7 +165,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AllowanceHolder" />
+        /// <see cref="T:Sherpa.AllowanceHolder" />
         /// class.
         /// </summary>
         /// <param name="allowanceHolder"> The allowance holder. </param>

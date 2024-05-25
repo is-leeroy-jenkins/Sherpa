@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.StatusOfFunds" />
+    /// <seealso cref="T:Sherpa.StatusOfFunds" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
@@ -339,7 +339,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Allocations" /> class.
+        /// <see cref="T:Sherpa.Allocations" /> class.
         /// </summary>
         /// <param name="allocations">The allocations.</param>
         public Allocation( Allocation allocations ) 

@@ -100,7 +100,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GoogleSearch" /> class.
+        /// <see cref="T:Sherpa.GoogleSearch" /> class.
         /// </summary>
         public GoogleSearch( ) 
             : base( )
@@ -112,7 +112,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GoogleSearch" /> class.
+        /// <see cref="T:Sherpa.GoogleSearch" /> class.
         /// </summary>
         /// <param name="keywords">
         /// The keywords.

@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.StatusOfFunds" />
+    /// <seealso cref="T:Sherpa.StatusOfFunds" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class StatusOfAmericanRescuePlanFunds : StatusOfFunds
@@ -54,7 +54,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfAmericanRescuePlanFunds" />
+        /// <see cref="T:Sherpa.StatusOfAmericanRescuePlanFunds" />
         /// class.
         /// </summary>
         public StatusOfAmericanRescuePlanFunds( )
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfAmericanRescuePlanFunds" />
+        /// <see cref="T:Sherpa.StatusOfAmericanRescuePlanFunds" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfAmericanRescuePlanFunds" />
+        /// <see cref="T:Sherpa.StatusOfAmericanRescuePlanFunds" />
         /// class.
         /// </summary>
         /// <param name="builder"> </param>
@@ -164,7 +164,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfAmericanRescuePlanFunds" />
+        /// <see cref="T:Sherpa.StatusOfAmericanRescuePlanFunds" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -222,7 +222,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfAmericanRescuePlanFunds" />
+        /// <see cref="T:Sherpa.StatusOfAmericanRescuePlanFunds" />
         /// class.
         /// </summary>
         /// <param name="status"> The allocation. </param>

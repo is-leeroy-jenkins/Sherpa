@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.Fund" />
+    /// <seealso cref="T:Sherpa.Fund" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
@@ -219,7 +219,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.TreasurySymbol" /> class.
+        /// <see cref="T:Sherpa.TreasurySymbol" /> class.
         /// </summary>
         public TreasurySymbol( ) 
             : base( )

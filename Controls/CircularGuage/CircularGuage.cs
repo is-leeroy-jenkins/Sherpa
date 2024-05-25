@@ -38,7 +38,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CircularGuage" /> class.
+        /// <see cref="T:Sherpa.CircularGuage" /> class.
         /// </summary>
         public CircularGuage( )
         {

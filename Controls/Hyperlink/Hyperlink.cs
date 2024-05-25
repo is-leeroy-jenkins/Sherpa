@@ -76,7 +76,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Hyperlink"/>
+        /// <see cref="T:Sherpa.Hyperlink"/>
         /// class.
         /// </summary>
         /// <param name="text"> The text displayed by the control. </param>

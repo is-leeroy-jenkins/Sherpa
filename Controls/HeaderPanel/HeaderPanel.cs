@@ -74,7 +74,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeaderPanel" />
+        /// <see cref="T:Sherpa.HeaderPanel" />
         /// class.
         /// </summary>
         /// <param name="header"> The header. </param>

@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 01-06-2024
 // 
@@ -46,7 +46,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.InnerWebs" />
+    /// <seealso cref="T:Sherpa.InnerWebs" />
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
@@ -129,7 +129,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SearchResult" /> class.
+        /// <see cref="T:Sherpa.SearchResult" /> class.
         /// </summary>
         public SearchResult( )
         {
@@ -138,7 +138,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SearchResult" /> class.
+        /// <see cref="T:Sherpa.SearchResult" /> class.
         /// </summary>
         /// <param name="link">The link.</param>
         /// <param name="name">The name.</param>
@@ -155,7 +155,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SearchResult" /> class.
+        /// <see cref="T:Sherpa.SearchResult" /> class.
         /// </summary>
         /// <param name="result">The result.</param>
         public SearchResult( SearchResult result )

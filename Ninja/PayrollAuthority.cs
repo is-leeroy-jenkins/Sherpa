@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollAuthority" />
+        /// <see cref="T:Sherpa.PayrollAuthority" />
         /// class.
         /// </summary>
         public PayrollAuthority( )
@@ -68,7 +68,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollAuthority" />
+        /// <see cref="T:Sherpa.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -112,7 +112,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollAuthority" />
+        /// <see cref="T:Sherpa.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -156,7 +156,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollAuthority" />
+        /// <see cref="T:Sherpa.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -200,7 +200,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PayrollAuthority" />
+        /// <see cref="T:Sherpa.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="pay"> The pay. </param>

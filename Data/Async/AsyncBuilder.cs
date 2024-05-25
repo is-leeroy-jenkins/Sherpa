@@ -49,14 +49,14 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.AsyncModel" />
+    /// <seealso cref="T:Sherpa.AsyncModel" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AsyncBuilder : AsyncModel
     {
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         public AsyncBuilder( )
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -79,7 +79,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -93,7 +93,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -140,7 +140,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -160,7 +160,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -174,7 +174,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -186,7 +186,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// <see cref="T:Sherpa.AsyncBuilder"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The full path. </param>

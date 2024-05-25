@@ -271,7 +271,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripBase" /> class.
+        /// <see cref="T:Sherpa.ToolStripBase" /> class.
         /// </summary>
         protected ToolStripBase( )
         {

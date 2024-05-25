@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
+        /// <see cref="T:Sherpa.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         public ProgramProjectDescription( ) 
@@ -67,7 +67,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
+        /// <see cref="T:Sherpa.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -89,7 +89,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
+        /// <see cref="T:Sherpa.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -111,7 +111,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
+        /// <see cref="T:Sherpa.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>

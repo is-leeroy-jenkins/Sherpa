@@ -51,8 +51,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.FolderBase" />
-    /// <seealso cref="T:BudgetExecution.IFolder" />
+    /// <seealso cref="T:Sherpa.FolderBase" />
+    /// <seealso cref="T:Sherpa.IFolder" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -136,7 +136,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Folder" /> class.
+        /// <see cref="T:Sherpa.Folder" /> class.
         /// </summary>
         public Folder( )
             : base( )
@@ -146,7 +146,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Folder" /> class.
+        /// <see cref="T:Sherpa.Folder" /> class.
         /// </summary>
         /// <param name="input"></param>
         public Folder( string input ) 
@@ -167,7 +167,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Folder" /> class.
+        /// <see cref="T:Sherpa.Folder" /> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
         public Folder( Folder folder )

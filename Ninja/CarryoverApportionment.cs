@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:Sherpa.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
@@ -360,7 +360,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverApportionment" /> class.
+        /// <see cref="T:Sherpa.CarryoverApportionment" /> class.
         /// </summary>
         public CarryoverApportionment( ) 
             : base( )
@@ -371,7 +371,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
+        /// <see cref="T:Sherpa.CarryoverApportionments" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public CarryoverApportionment( IQuery query )
@@ -402,7 +402,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
+        /// <see cref="T:Sherpa.CarryoverApportionments" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CarryoverApportionment( IDataModel builder )
@@ -433,7 +433,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
+        /// <see cref="T:Sherpa.CarryoverApportionments" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CarryoverApportionment( DataRow dataRow )
@@ -464,7 +464,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
+        /// <see cref="T:Sherpa.CarryoverApportionments" /> class.
         /// </summary>
         /// <param name="carryover">The carryover.</param>
         public CarryoverApportionment( CarryoverApportionment carryover )

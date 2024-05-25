@@ -366,7 +366,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GuidanceDialog" /> class.
+        /// <see cref="T:Sherpa.GuidanceDialog" /> class.
         /// </summary>
         public GuidanceDialog( )
         {

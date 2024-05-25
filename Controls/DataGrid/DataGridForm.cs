@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 12-24-2023
 // 
@@ -494,7 +494,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// <see cref="T:Sherpa.DataGridForm" /> class.
         /// </summary>
         public DataGridForm( )
         {
@@ -555,7 +555,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// <see cref="T:Sherpa.DataGridForm" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public DataGridForm( BindingSource bindingSource )
@@ -575,7 +575,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// <see cref="T:Sherpa.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -597,7 +597,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// <see cref="T:Sherpa.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>

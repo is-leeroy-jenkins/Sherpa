@@ -131,7 +131,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainForm" /> class.
+        /// <see cref="T:Sherpa.MainForm" /> class.
         /// </summary>
         public MainForm( )
         {

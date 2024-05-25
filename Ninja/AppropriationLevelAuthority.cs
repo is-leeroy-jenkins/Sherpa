@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.PRC" />
+    /// <seealso cref="T:Sherpa.PRC" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -151,7 +151,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
+        /// <see cref="T:Sherpa.AppropriationLevelAuthority" /> class.
         /// </summary>
         public AppropriationLevelAuthority( ) 
             : base( )
@@ -162,7 +162,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
+        /// <see cref="T:Sherpa.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public AppropriationLevelAuthority( IQuery query ) 
@@ -189,7 +189,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
+        /// <see cref="T:Sherpa.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="builder"></param>
         public AppropriationLevelAuthority( IDataModel builder ) 
@@ -216,7 +216,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
+        /// <see cref="T:Sherpa.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AppropriationLevelAuthority( DataRow dataRow ) 
@@ -243,7 +243,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
+        /// <see cref="T:Sherpa.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="authority">The authority.</param>
         public AppropriationLevelAuthority( AppropriationLevelAuthority authority ) 

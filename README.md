@@ -1,4 +1,4 @@
-## ﻿![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Sherpa.png)
+## ﻿![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Sherpa.png)
 
 #### An open source data analysis and budget execution application for EPA analysts and released under the MIT license.
 
@@ -49,14 +49,14 @@
 
 - Uses CefSharp 106 for Baby and is built on NET 6/7/8
 - Supports AnyCPU as well as x86/x64 specific builds
-- [Controls](https://github.com/KarmaScripter/BudgetExecution/tree/main/Controls) - main UI layer and associated controls and related functionality.
-- [Enumerations](https://github.com/KarmaScripter/BudgetExecution/tree/main/Enumerations) - various enumerations used for budgetary accounting.
-- [Extensions](https://github.com/KarmaScripter/BudgetExecution/tree/main/Extensions)- useful extension methods for budget analysis by type.
-- [Clients](https://github.com/KarmaScripter/BudgetExecution/tree/main/Clients) - other tools used and available.
-- [Ninja](https://github.com/KarmaScripter/BudgetExecution/tree/main/Ninja) - models used in EPA budget data analysis.
-- [IO](https://github.com/KarmaScripter/BudgetExecution/tree/main/IO) - input output classes used for networking and the file systemm.
-- [Static](https://github.com/KarmaScripter/BudgetExecution/tree/main/Static) - static types used in the analysis of environmental budget data.
-- [Interfaces](https://github.com/KarmaScripter/BudgetExecution/tree/main/Interfaces) - abstractions used in the analysis of environmental budget data.
+- [Controls](https://github.com/KarmaScripter/Sherpa/tree/main/Controls) - main UI layer and associated controls and related functionality.
+- [Enumerations](https://github.com/KarmaScripter/Sherpa/tree/main/Enumerations) - various enumerations used for budgetary accounting.
+- [Extensions](https://github.com/KarmaScripter/Sherpa/tree/main/Extensions)- useful extension methods for budget analysis by type.
+- [Clients](https://github.com/KarmaScripter/Sherpa/tree/main/Clients) - other tools used and available.
+- [Ninja](https://github.com/KarmaScripter/Sherpa/tree/main/Ninja) - models used in EPA budget data analysis.
+- [IO](https://github.com/KarmaScripter/Sherpa/tree/main/IO) - input output classes used for networking and the file systemm.
+- [Static](https://github.com/KarmaScripter/Sherpa/tree/main/Static) - static types used in the analysis of environmental budget data.
+- [Interfaces](https://github.com/KarmaScripter/Sherpa/tree/main/Interfaces) - abstractions used in the analysis of environmental budget data.
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
@@ -64,17 +64,17 @@
 ## Financial Data Analysis
 - ##### Datagrids
 - ##### Pivot Tables
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 ## User Interface with a familiar look & feel.
 - ##### Excel-like interface over a relational database
 - ##### Import and export spreadsheet data
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
 ## Geospatial Information (GIS) Mapping.
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 ## Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
@@ -84,12 +84,12 @@
 - ##### Quick & dirty accounting and budget calculations directly on bound data.
 - ##### Easy access to the full functionality of the widows calculator
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
 ## Federal Fiscal Year Calendar
 - ##### Calculations using full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
 ## Ad-hoc web development with  [Orca](https://github.com/KarmaScripter/Orca)
 - ##### Create ad-hoc web information
@@ -101,20 +101,20 @@
 - ##### Definitions and statutory authorities
 - ##### Information bound directly to financial data
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 ## Data Visualization
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting from ScottPlot
   
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
 ## Document Viewer
 - ##### Library of legal documentation used in evnironmental data analysis.
 - ##### Interact with, view and access PDFs outside the application
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
 
@@ -122,19 +122,19 @@
 
 - SQLite
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
 - MS Access
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
 - SQL Compact Edition
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
 - SQL Server Express
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
+![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
 
 
 

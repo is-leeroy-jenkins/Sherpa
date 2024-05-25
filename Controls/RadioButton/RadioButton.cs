@@ -102,7 +102,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RadioButton" />
+        /// <see cref="T:Sherpa.RadioButton" />
         /// class.
         /// </summary>
         /// <param name="text"> The text displayed by the control. </param>

@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
+        /// <see cref="T:Sherpa.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         public HeadquartersAuthority( )
@@ -68,7 +68,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
+        /// <see cref="T:Sherpa.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -121,7 +121,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
+        /// <see cref="T:Sherpa.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -162,7 +162,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
+        /// <see cref="T:Sherpa.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -203,7 +203,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
+        /// <see cref="T:Sherpa.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="allocation"> The allocation. </param>

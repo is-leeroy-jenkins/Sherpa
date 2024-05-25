@@ -119,7 +119,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailDialog" /> class.
+        /// <see cref="T:Sherpa.EmailDialog" /> class.
         /// </summary>
         public EmailDialog( )
         {

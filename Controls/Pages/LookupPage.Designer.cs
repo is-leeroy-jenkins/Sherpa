@@ -170,7 +170,7 @@
             ColumnPanel.StyleManager = null;
             ColumnPanel.TabIndex = 8;
             ColumnPanel.ThemeAuthor = "Terry D. Eppler";
-            ColumnPanel.ThemeName = "BudgetExecution";
+            ColumnPanel.ThemeName = "Sherpa";
             ColumnPanel.ToolTip = null;
             // 
             // ColumnListBox
@@ -207,7 +207,7 @@
             ColumnListBox.TabIndex = 2;
             ColumnListBox.Text = "listBox1";
             ColumnListBox.ThemeAuthor = "Terry D. Eppler";
-            ColumnListBox.ThemeName = "BudgetExecution";
+            ColumnListBox.ThemeName = "Sherpa";
             ColumnListBox.ToolTip = ToolTip;
             // 
             // ToolTip
@@ -274,7 +274,7 @@
             ProviderPanel.StyleManager = null;
             ProviderPanel.TabIndex = 5;
             ProviderPanel.ThemeAuthor = "Terry D. Eppler";
-            ProviderPanel.ThemeName = "BudgetExecution";
+            ProviderPanel.ThemeName = "Sherpa";
             ProviderPanel.ToolTip = null;
             // 
             // SqlCeRadioButton
@@ -426,7 +426,7 @@
             ValuePanel.StyleManager = null;
             ValuePanel.TabIndex = 9;
             ValuePanel.ThemeAuthor = "Terry D. Eppler";
-            ValuePanel.ThemeName = "BudgetExecution";
+            ValuePanel.ThemeName = "Sherpa";
             ValuePanel.ToolTip = null;
             // 
             // ValueListBox
@@ -462,7 +462,7 @@
             ValueListBox.TabIndex = 2;
             ValueListBox.Text = "listBox1";
             ValueListBox.ThemeAuthor = "Terry D. Eppler";
-            ValueListBox.ThemeName = "BudgetExecution";
+            ValueListBox.ThemeName = "Sherpa";
             ValueListBox.ToolTip = ToolTip;
             // 
             // SourceTable
@@ -506,7 +506,7 @@
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 7;
             TablePanel.ThemeAuthor = "Terry D. Eppler";
-            TablePanel.ThemeName = "BudgetExecution";
+            TablePanel.ThemeName = "Sherpa";
             TablePanel.ToolTip = null;
             // 
             // TableListBox
@@ -542,7 +542,7 @@
             TableListBox.TabIndex = 1;
             TableListBox.Text = "Tables";
             TableListBox.ThemeAuthor = "Terry D. Eppler";
-            TableListBox.ThemeName = "BudgetExecution";
+            TableListBox.ThemeName = "Sherpa";
             TableListBox.ToolTip = ToolTip;
             // 
             // BusyTab
@@ -587,7 +587,7 @@
             SelectButton.TabIndex = 7;
             SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "BudgetExecution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = ToolTip;
             // 
             // RefreshButton
@@ -620,7 +620,7 @@
             RefreshButton.TabIndex = 5;
             RefreshButton.Text = "Clear";
             RefreshButton.ThemeAuthor = "Terry D. Eppler";
-            RefreshButton.ThemeName = "BudgetExecution";
+            RefreshButton.ThemeName = "Sherpa";
             RefreshButton.ToolTip = ToolTip;
             // 
             // CloseButton
@@ -654,7 +654,7 @@
             CloseButton.TabIndex = 6;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "BudgetExecution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = ToolTip;
             // 
             // Timer

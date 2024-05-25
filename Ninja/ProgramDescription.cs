@@ -57,7 +57,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
+        /// <see cref="T:Sherpa.ProgramDescriptions" /> class.
         /// </summary>
         public ProgramDescription( ) 
             : base( )
@@ -67,7 +67,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
+        /// <see cref="T:Sherpa.ProgramDescriptions" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public ProgramDescription( IQuery query )
@@ -80,7 +80,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
+        /// <see cref="T:Sherpa.ProgramDescriptions" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ProgramDescription( IDataModel builder ) 
@@ -93,7 +93,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
+        /// <see cref="T:Sherpa.ProgramDescriptions" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ProgramDescription( DataRow dataRow ) 

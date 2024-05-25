@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.StatusOfFunds" />
+    /// <seealso cref="T:Sherpa.StatusOfFunds" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -487,7 +487,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Obligation" /> class.
+        /// <see cref="T:Sherpa.Obligation" /> class.
         /// </summary>
         /// <param name="obligation">The obligation.</param>
         public Obligation( Obligation obligation )

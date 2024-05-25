@@ -48,8 +48,8 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.SqlBase"/>
-    /// <seealso cref="T:BudgetExecution.ISqlStatement"/>
+    /// <seealso cref="T:Sherpa.SqlBase"/>
+    /// <seealso cref="T:Sherpa.ISqlStatement"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -304,7 +304,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         public SqlStatement( )
@@ -314,7 +314,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -328,7 +328,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -342,7 +342,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -357,7 +357,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -373,7 +373,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -390,7 +390,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -406,7 +406,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -423,7 +423,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement"/>
+        /// <see cref="T:Sherpa.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>

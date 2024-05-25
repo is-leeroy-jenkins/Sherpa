@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
@@ -135,7 +135,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
+        /// <see cref="T:Sherpa.FinanceObjectClass" /> class.
         /// </summary>
         public FinanceObjectClass( )
             : base( )
@@ -145,7 +145,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
+        /// <see cref="T:Sherpa.FinanceObjectClass" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public FinanceObjectClass( IQuery query )
@@ -164,7 +164,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
+        /// <see cref="T:Sherpa.FinanceObjectClass" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public FinanceObjectClass( IDataModel builder )
@@ -183,7 +183,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
+        /// <see cref="T:Sherpa.FinanceObjectClass" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public FinanceObjectClass( DataRow dataRow )
@@ -202,7 +202,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
+        /// <see cref="T:Sherpa.FinanceObjectClass" /> class.
         /// </summary>
         /// <param name="focCode">The foc code.</param>
         public FinanceObjectClass( string focCode )
@@ -221,7 +221,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
+        /// <see cref="T:Sherpa.FinanceObjectClass" /> class.
         /// </summary>
         /// <param name="foc">The foc.</param>
         public FinanceObjectClass( FinanceObjectClass foc )

@@ -58,7 +58,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfJobsActFunds" />
+        /// <see cref="T:Sherpa.StatusOfJobsActFunds" />
         /// class.
         /// </summary>
         public StatusOfJobsActFunds( )
@@ -70,7 +70,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfJobsActFunds" />
+        /// <see cref="T:Sherpa.StatusOfJobsActFunds" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfJobsActFunds" />
+        /// <see cref="T:Sherpa.StatusOfJobsActFunds" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -186,7 +186,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfJobsActFunds" />
+        /// <see cref="T:Sherpa.StatusOfJobsActFunds" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -300,7 +300,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfJobsActFunds" /> class.
+        /// <see cref="T:Sherpa.StatusOfJobsActFunds" /> class.
         /// </summary>
         /// <param name="status">The allocation.</param>
         public StatusOfJobsActFunds( StatusOfJobsActFunds status )

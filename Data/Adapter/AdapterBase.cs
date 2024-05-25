@@ -52,8 +52,8 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:System.Data.Common.DbDataAdapter"/>
-    /// <seealso cref="T:BudgetExecution.ISource"/>
-    /// <seealso cref="T:BudgetExecution.IProvider"/>
+    /// <seealso cref="T:Sherpa.ISource"/>
+    /// <seealso cref="T:Sherpa.IProvider"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -114,7 +114,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterBase" /> class.
+        /// <see cref="T:Sherpa.AdapterBase" /> class.
         /// </summary>
         protected AdapterBase( )
         {

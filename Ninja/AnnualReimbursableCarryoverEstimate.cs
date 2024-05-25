@@ -54,7 +54,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:Sherpa.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         public AnnualReimbursableCarryoverEstimate( )
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:Sherpa.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -96,7 +96,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:Sherpa.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -126,7 +126,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:Sherpa.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>

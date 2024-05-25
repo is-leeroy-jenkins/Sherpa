@@ -46,7 +46,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.IDataUnit" />
+    /// <seealso cref="T:Sherpa.IDataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public interface IBudgetUnit : IDataUnit

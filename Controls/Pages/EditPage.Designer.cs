@@ -979,7 +979,7 @@
             SelectButton.TabIndex = 7;
             SelectButton.Text = "Save";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "BudgetExecution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = ToolTip;
             // 
             // RefreshButton
@@ -1013,7 +1013,7 @@
             RefreshButton.TabIndex = 5;
             RefreshButton.Text = "Clear";
             RefreshButton.ThemeAuthor = "Terry D. Eppler";
-            RefreshButton.ThemeName = "BudgetExecution";
+            RefreshButton.ThemeName = "Sherpa";
             RefreshButton.ToolTip = ToolTip;
             // 
             // CloseButton
@@ -1047,7 +1047,7 @@
             CloseButton.TabIndex = 6;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "BudgetExecution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = ToolTip;
             // 
             // Timer

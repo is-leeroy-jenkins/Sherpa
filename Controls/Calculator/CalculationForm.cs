@@ -143,7 +143,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalculationForm"/>
+        /// <see cref="T:Sherpa.CalculationForm"/>
         /// class.
         /// </summary>
         public CalculationForm( )
@@ -178,7 +178,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalculationForm"/>
+        /// <see cref="T:Sherpa.CalculationForm"/>
         /// class.
         /// </summary>
         /// <param name="initial"> The initial. </param>

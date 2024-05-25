@@ -103,7 +103,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
+        /// <see cref="T:Sherpa.SchemaTypes" /> class.
         /// </summary>
         public SchemaType( )
         {
@@ -113,7 +113,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
+        /// <see cref="T:Sherpa.SchemaTypes" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public SchemaType( IQuery query )
@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
+        /// <see cref="T:Sherpa.SchemaTypes" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public SchemaType( IDataModel builder )
@@ -143,7 +143,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
+        /// <see cref="T:Sherpa.SchemaTypes" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public SchemaType( DataRow dataRow )

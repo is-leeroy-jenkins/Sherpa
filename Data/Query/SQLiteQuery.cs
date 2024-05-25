@@ -52,14 +52,14 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.Query"/>
+    /// <seealso cref="T:Sherpa.Query"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : BudgetQuery
     {
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SQLiteQuery"/>
+        /// <see cref="T:Sherpa.SQLiteQuery"/>
         /// class.
         /// </summary>
         public SQLiteQuery( )
@@ -69,7 +69,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SQLiteQuery"/>
+        /// <see cref="T:Sherpa.SQLiteQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -81,7 +81,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SQLiteQuery"/>
+        /// <see cref="T:Sherpa.SQLiteQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>

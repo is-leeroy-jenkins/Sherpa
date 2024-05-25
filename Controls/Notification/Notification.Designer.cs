@@ -68,7 +68,7 @@
             Title.StyleManager = null;
             Title.TabIndex = 3;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "BudgetExecution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // Message
@@ -89,7 +89,7 @@
             Message.Text = "label1";
             Message.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Message.ThemeAuthor = "Terry D. Eppler";
-            Message.ThemeName = "BudgetExecution";
+            Message.ThemeName = "Sherpa";
             Message.ToolTip = null;
             // 
             // Header

@@ -301,7 +301,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarDialog" /> class.
+        /// <see cref="T:Sherpa.CalendarDialog" /> class.
         /// </summary>
         public CalendarDialog( )
         {

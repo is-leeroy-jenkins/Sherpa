@@ -53,7 +53,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase"/>
+    /// <seealso cref="T:Sherpa.EditBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -202,7 +202,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaLayout"/>
+        /// <see cref="T:Sherpa.SchemaLayout"/>
         /// class.
         /// </summary>
         public SchemaPage( )
@@ -275,7 +275,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaLayout"/>
+        /// <see cref="T:Sherpa.SchemaLayout"/>
         /// class.
         /// </summary>
         /// <param name="tool"> Type of the tool. </param>
@@ -288,7 +288,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SchemaLayout"/>
+        /// <see cref="T:Sherpa.SchemaLayout"/>
         /// class.
         ///
         /// 

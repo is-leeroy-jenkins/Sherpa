@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.Transfer" />
+    /// <seealso cref="T:Sherpa.Transfer" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -590,7 +590,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Reprogrammings" /> class.
+        /// <see cref="T:Sherpa.Reprogrammings" /> class.
         /// </summary>
         public Reprogramming( ) 
             : base( )
@@ -601,7 +601,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Reprogrammings" /> class.
+        /// <see cref="T:Sherpa.Reprogrammings" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public Reprogramming( IQuery query )
@@ -648,7 +648,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Reprogrammings" /> class.
+        /// <see cref="T:Sherpa.Reprogrammings" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Reprogramming( IDataModel builder )
@@ -695,7 +695,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Reprogramming" /> class.
+        /// <see cref="T:Sherpa.Reprogramming" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Reprogramming( DataRow dataRow )
@@ -743,7 +743,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Reprogrammings" /> class.
+        /// <see cref="T:Sherpa.Reprogrammings" /> class.
         /// </summary>
         /// <param name="reprogramming">The reprogramming.</param>
         public Reprogramming( Reprogramming reprogramming )

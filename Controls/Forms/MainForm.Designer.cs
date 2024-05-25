@@ -981,7 +981,7 @@ namespace Sherpa
             ExitButton.TabIndex = 7;
             ExitButton.Text = "Exit ";
             ExitButton.ThemeAuthor = "Terry D. Eppler";
-            ExitButton.ThemeName = "BudgetExecution";
+            ExitButton.ThemeName = "Sherpa";
             ExitButton.ToolTip = ToolTip;
             // 
             // BrowserTable
@@ -1255,7 +1255,7 @@ namespace Sherpa
             TestButton.TabIndex = 20;
             TestButton.Text = "Test A";
             TestButton.ThemeAuthor = "Terry D. Eppler";
-            TestButton.ThemeName = "BudgetExecution";
+            TestButton.ThemeName = "Sherpa";
             TestButton.ToolTip = ToolTip;
             // 
             // ContextMenu

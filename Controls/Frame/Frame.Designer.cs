@@ -70,7 +70,7 @@ partial class Frame
         TextBox.Text = "textBox1";
         TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
         TextBox.ThemeAuthor = "Terry D. Eppler";
-        TextBox.ThemeName = "BudgetExecution";
+        TextBox.ThemeName = "Sherpa";
         TextBox.ToolTip = null;
         TextBox.UseSystemPasswordChar = false;
         TextBox.WatermarkText = "";

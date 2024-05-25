@@ -149,7 +149,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Partition" /> class.
+        /// <see cref="T:Sherpa.Partition" /> class.
         /// </summary>
         public Partition( )
             : base( )
@@ -160,7 +160,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Partitions" /> class.
+        /// <see cref="T:Sherpa.Partitions" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public Partition( IQuery query )
@@ -185,7 +185,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Partitions" /> class.
+        /// <see cref="T:Sherpa.Partitions" /> class.
         /// </summary>
         /// <param name="dataBuilder">The data builder.</param>
         public Partition( IDataModel dataBuilder )
@@ -210,7 +210,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Partitions" /> class.
+        /// <see cref="T:Sherpa.Partitions" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Partition( DataRow dataRow )

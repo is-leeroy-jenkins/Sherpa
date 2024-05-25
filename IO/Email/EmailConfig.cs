@@ -180,7 +180,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailConfig" /> class.
+        /// <see cref="T:Sherpa.EmailConfig" /> class.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="recipients">The recipients.</param>
@@ -200,7 +200,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailConfig" /> class.
+        /// <see cref="T:Sherpa.EmailConfig" /> class.
         /// </summary>
         /// <param name="config">The configuration.</param>
         public EmailConfig( EmailConfig config )

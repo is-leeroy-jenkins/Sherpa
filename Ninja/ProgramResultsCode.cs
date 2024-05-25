@@ -53,8 +53,8 @@ namespace Sherpa
     /// February and then formally established in IFMS with the enactment of EPA's appropriation act. PRCs
     /// may be updated at any time.
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.IProgramResultsCode" />
-    /// <seealso cref="T:BudgetExecution.IProgramResultsCode" />
+    /// <seealso cref="T:Sherpa.IProgramResultsCode" />
+    /// <seealso cref="T:Sherpa.IProgramResultsCode" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -69,7 +69,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCode" />
+        /// <see cref="T:Sherpa.ProgramResultsCode" />
         /// class.
         /// </summary>
         public ProgramResultsCode( )
@@ -80,7 +80,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCode" />
+        /// <see cref="T:Sherpa.ProgramResultsCode" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -132,7 +132,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCode"/>
+        /// <see cref="T:Sherpa.ProgramResultsCode"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -184,7 +184,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCodes" />
+        /// <see cref="T:Sherpa.ProgramResultsCodes" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
@@ -235,7 +235,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCodes" />
+        /// <see cref="T:Sherpa.ProgramResultsCodes" />
         /// class.
         /// </summary>
         /// <param name="dict"> </param>
@@ -287,7 +287,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCodes" /> class.
+        /// <see cref="T:Sherpa.ProgramResultsCodes" /> class.
         /// </summary>
         /// <param name="prc">The PRC.</param>
         public ProgramResultsCode( ProgramResultsCode prc )

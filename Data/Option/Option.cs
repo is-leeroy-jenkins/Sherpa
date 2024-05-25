@@ -45,7 +45,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <typeparam name="T"> </typeparam>
-    /// <seealso cref="T:BudgetExecution.IOption`1"/>
+    /// <seealso cref="T:Sherpa.IOption`1"/>
     public abstract class Option<T> : IOption<T>
     {
         /// <inheritdoc/>

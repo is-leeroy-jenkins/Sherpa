@@ -64,7 +64,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase" />
+    /// <seealso cref="T:Sherpa.EditBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -333,7 +333,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlDialog" /> class.
+        /// <see cref="T:Sherpa.SqlDialog" /> class.
         /// </summary>
         /// <param name="source">The binding source.</param>
         /// <param name="provider">The provider.</param>

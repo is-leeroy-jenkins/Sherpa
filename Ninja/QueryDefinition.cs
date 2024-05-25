@@ -81,7 +81,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
+        /// <see cref="T:Sherpa.QueryDefinition" /> class.
         /// </summary>
         public QueryDefinition( ) 
             : base( )
@@ -91,7 +91,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
+        /// <see cref="T:Sherpa.QueryDefinition" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public QueryDefinition( IQuery query ) 
@@ -105,7 +105,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
+        /// <see cref="T:Sherpa.QueryDefinition" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public QueryDefinition( IDataModel builder ) 
@@ -119,7 +119,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
+        /// <see cref="T:Sherpa.QueryDefinition" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public QueryDefinition( DataRow dataRow ) 

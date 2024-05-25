@@ -171,7 +171,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
+        /// <see cref="T:Sherpa.UnobligatedBalance" /> class.
         /// </summary>
         public UnobligatedBalance( ) 
             : base( )
@@ -181,7 +181,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
+        /// <see cref="T:Sherpa.UnobligatedBalance" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public UnobligatedBalance( IQuery query ) 
@@ -199,7 +199,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
+        /// <see cref="T:Sherpa.UnobligatedBalance" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public UnobligatedBalance( IDataModel builder ) 
@@ -217,7 +217,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
+        /// <see cref="T:Sherpa.UnobligatedBalance" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public UnobligatedBalance( DataRow dataRow ) 

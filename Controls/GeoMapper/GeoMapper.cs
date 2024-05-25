@@ -232,7 +232,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeoMapper" /> class.
+        /// <see cref="T:Sherpa.GeoMapper" /> class.
         /// </summary>
         public GeoMapper( )
         {

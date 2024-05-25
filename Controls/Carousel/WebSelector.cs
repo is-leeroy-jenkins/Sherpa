@@ -75,7 +75,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.WebSelector" /> class.
+        /// <see cref="T:Sherpa.WebSelector" /> class.
         /// </summary>
         public WebSelector( )
         {
@@ -116,7 +116,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.WebSelector" /> class.
+        /// <see cref="T:Sherpa.WebSelector" /> class.
         /// </summary>
         /// <param name="dirPath">
         /// The directory path.

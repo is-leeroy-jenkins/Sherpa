@@ -142,7 +142,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Button" />
+        /// <see cref="T:Sherpa.Button" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -157,7 +157,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Button" />
+        /// <see cref="T:Sherpa.Button" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -172,7 +172,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Button" />
+        /// <see cref="T:Sherpa.Button" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -188,7 +188,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Button" />
+        /// <see cref="T:Sherpa.Button" />
         /// class.
         /// </summary>
         /// <param name="parent">
@@ -207,7 +207,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Button" />
+        /// <see cref="T:Sherpa.Button" />
         /// class.
         /// </summary>
         /// <param name="parent"> The parent. </param>
@@ -220,7 +220,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Button" />
+        /// <see cref="T:Sherpa.Button" />
         /// class.
         /// </summary>
         /// <param name="parent"> The parent. </param>

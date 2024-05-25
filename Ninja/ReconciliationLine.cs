@@ -82,7 +82,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReconciliationLines" />
+        /// <see cref="T:Sherpa.ReconciliationLines" />
         /// class.
         /// </summary>
         public ReconciliationLine( )
@@ -93,7 +93,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReconciliationLines"/>
+        /// <see cref="T:Sherpa.ReconciliationLines"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -110,7 +110,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReconciliationLines"/>
+        /// <see cref="T:Sherpa.ReconciliationLines"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The data builder. </param>
@@ -127,7 +127,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReconciliationLines"/>
+        /// <see cref="T:Sherpa.ReconciliationLines"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>

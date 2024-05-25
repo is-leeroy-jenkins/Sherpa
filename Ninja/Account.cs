@@ -50,7 +50,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.PRC" />
+    /// <seealso cref="T:Sherpa.PRC" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -64,7 +64,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account"/>
+        /// <see cref="T:Sherpa.Account"/>
         /// class.
         /// </summary>
         public Account( ) 
@@ -76,7 +76,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account"/>
+        /// <see cref="T:Sherpa.Account"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -102,7 +102,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account"/>
+        /// <see cref="T:Sherpa.Account"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The data builder. </param>
@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account"/>
+        /// <see cref="T:Sherpa.Account"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -154,7 +154,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account"/>
+        /// <see cref="T:Sherpa.Account"/>
         /// class.
         /// </summary>
         /// <param name="code">
@@ -181,7 +181,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account"/>
+        /// <see cref="T:Sherpa.Account"/>
         /// class.
         /// </summary>
         /// <param name="account"> The account. </param>

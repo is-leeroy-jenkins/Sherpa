@@ -49,14 +49,14 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.Query" />
+    /// <seealso cref="T:Sherpa.Query" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SqlCeQuery : BudgetQuery
     {
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         public SqlCeQuery( )
@@ -66,7 +66,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -78,7 +78,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -91,7 +91,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -105,7 +105,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -121,7 +121,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -137,7 +137,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>
@@ -149,7 +149,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -162,7 +162,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -176,7 +176,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlCeQuery" />
+        /// <see cref="T:Sherpa.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>

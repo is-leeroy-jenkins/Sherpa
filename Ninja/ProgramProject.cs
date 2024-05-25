@@ -47,7 +47,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DescriptionBase" />
+    /// <seealso cref="T:Sherpa.DescriptionBase" />
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjects" />
+        /// <see cref="T:Sherpa.ProgramProjects" />
         /// class.
         /// </summary>
         public ProgramProject( )
@@ -72,7 +72,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjects" />
+        /// <see cref="T:Sherpa.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -89,7 +89,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjects" />
+        /// <see cref="T:Sherpa.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjects" />
+        /// <see cref="T:Sherpa.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjects" />
+        /// <see cref="T:Sherpa.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
@@ -140,7 +140,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjects" /> class.
+        /// <see cref="T:Sherpa.ProgramProjects" /> class.
         /// </summary>
         /// <param name="project">The project.</param>
         public ProgramProject( ProgramProject project ) 

@@ -697,7 +697,7 @@
             Label3.Text = "Text";
             Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Label3.ThemeAuthor = "Terry D. Eppler";
-            Label3.ThemeName = "BudgetExecution";
+            Label3.ThemeName = "Sherpa";
             Label3.ToolTip = null;
             // 
             // Label1
@@ -720,7 +720,7 @@
             Label1.Text = "Text";
             Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Label1.ThemeAuthor = "Terry D. Eppler";
-            Label1.ThemeName = "BudgetExecution";
+            Label1.ThemeName = "Sherpa";
             Label1.ToolTip = null;
             // 
             // Label2
@@ -743,7 +743,7 @@
             Label2.Text = "Text";
             Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Label2.ThemeAuthor = "Terry D. Eppler";
-            Label2.ThemeName = "BudgetExecution";
+            Label2.ThemeName = "Sherpa";
             Label2.ToolTip = null;
             // 
             // Label4
@@ -766,7 +766,7 @@
             Label4.Text = "Text";
             Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Label4.ThemeAuthor = "Terry D. Eppler";
-            Label4.ThemeName = "BudgetExecution";
+            Label4.ThemeName = "Sherpa";
             Label4.ToolTip = null;
             // 
             // Label7

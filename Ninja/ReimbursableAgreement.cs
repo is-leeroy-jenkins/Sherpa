@@ -427,7 +427,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReimbursableAgreement" /> class.
+        /// <see cref="T:Sherpa.ReimbursableAgreement" /> class.
         /// </summary>
         public ReimbursableAgreement( ) 
             : base( )
@@ -438,7 +438,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReimbursableAgreement" /> class.
+        /// <see cref="T:Sherpa.ReimbursableAgreement" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public ReimbursableAgreement( IQuery query ) 
@@ -476,7 +476,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.ReimbursableAgreement" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ReimbursableAgreement( IDataModel builder )
@@ -513,7 +513,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.ReimbursableAgreement" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ReimbursableAgreement( DataRow dataRow )

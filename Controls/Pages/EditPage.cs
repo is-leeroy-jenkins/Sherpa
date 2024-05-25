@@ -54,7 +54,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase"/>
+    /// <seealso cref="T:Sherpa.EditBase"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -285,7 +285,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditPanel"/>
+        /// <see cref="T:Sherpa.EditPanel"/>
         /// class.
         /// </summary>
         public EditPage( )
@@ -351,7 +351,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditPanel"/>
+        /// <see cref="T:Sherpa.EditPanel"/>
         /// class.
         /// </summary>
         /// <param name="bindingSource">
@@ -374,7 +374,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditPanel"/>
+        /// <see cref="T:Sherpa.EditPanel"/>
         /// class.
         /// </summary>
         /// <param name="dataModel">
@@ -398,7 +398,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditPanel"/>
+        /// <see cref="T:Sherpa.EditPanel"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -423,7 +423,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditPanel" /> class.
+        /// <see cref="T:Sherpa.EditPanel" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>

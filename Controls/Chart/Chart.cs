@@ -65,7 +65,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Chart" />
+        /// <see cref="T:Sherpa.Chart" />
         /// class.
         /// </summary>
         public Chart( )

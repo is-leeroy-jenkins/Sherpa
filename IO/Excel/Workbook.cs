@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Workbook" /> class.
+        /// <see cref="T:Sherpa.Workbook" /> class.
         /// </summary>
         public void FormatDataWorksheet( )
         {

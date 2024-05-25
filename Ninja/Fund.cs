@@ -150,7 +150,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Funds" />
+        /// <see cref="T:Sherpa.Funds" />
         /// class.
         /// </summary>
         public Fund( ) 
@@ -162,7 +162,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund"/>
+        /// <see cref="T:Sherpa.Fund"/>
         /// class.
         /// </summary>
         /// <param name="fundCode"> The fundCode. </param>
@@ -200,7 +200,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund"/>
+        /// <see cref="T:Sherpa.Fund"/>
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
@@ -237,7 +237,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund"/>
+        /// <see cref="T:Sherpa.Fund"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -270,7 +270,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund"/>
+        /// <see cref="T:Sherpa.Fund"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -303,7 +303,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund"/>
+        /// <see cref="T:Sherpa.Fund"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The Data. </param>
@@ -336,7 +336,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Funds" />
+        /// <see cref="T:Sherpa.Funds" />
         /// class.
         /// </summary>
         /// <param name="fund"> The fund. </param>

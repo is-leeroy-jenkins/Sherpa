@@ -85,7 +85,7 @@
             Title.Text = "There has been error!";
             Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "BudgetExecution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // ToolTip

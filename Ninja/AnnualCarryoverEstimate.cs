@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:Sherpa.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
@@ -218,7 +218,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimate" />
+        /// <see cref="T:Sherpa.AnnualCarryoverEstimate" />
         /// class.
         /// </summary>
         public AnnualCarryoverEstimate( )
@@ -229,7 +229,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:Sherpa.AnnualCarryoverEstimates" />
         /// class.
         /// </summary>
         /// <param name="query">The query.</param>
@@ -259,7 +259,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:Sherpa.AnnualCarryoverEstimates" />
         /// class.
         /// </summary>
         /// <param name="builder">The builder.</param>
@@ -289,7 +289,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:Sherpa.AnnualCarryoverEstimates" />
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
@@ -319,7 +319,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:Sherpa.AnnualCarryoverEstimates" />
         /// class.
         /// </summary>
         /// <param name="carryover">The carryover.</param>

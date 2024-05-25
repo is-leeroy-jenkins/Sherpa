@@ -312,7 +312,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
+        /// <see cref="T:Sherpa.FederalHoliday" /> class.
         /// </summary>
         protected FederalHoliday( )
             : base( )
@@ -323,7 +323,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
+        /// <see cref="T:Sherpa.FederalHoliday" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected FederalHoliday( IQuery query )
@@ -336,7 +336,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
+        /// <see cref="T:Sherpa.FederalHoliday" /> class.
         /// </summary>
         /// <param name="builder"></param>
         protected FederalHoliday( IDataModel builder )
@@ -349,7 +349,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
+        /// <see cref="T:Sherpa.FederalHoliday" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected FederalHoliday( DataRow dataRow )

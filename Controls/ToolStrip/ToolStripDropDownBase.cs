@@ -86,7 +86,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripDropDownBase" /> class.
+        /// <see cref="T:Sherpa.ToolStripDropDownBase" /> class.
         /// </summary>
         protected ToolStripDropDownBase( )
         {

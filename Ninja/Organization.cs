@@ -48,8 +48,8 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
+    /// <seealso cref="T:Sherpa.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Organizations" />
+        /// <see cref="T:Sherpa.Organizations" />
         /// class.
         /// </summary>
         public Organization( )
@@ -72,7 +72,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Organizations" />
+        /// <see cref="T:Sherpa.Organizations" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -89,7 +89,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Organizations" />
+        /// <see cref="T:Sherpa.Organizations" />
         /// class.
         /// </summary>
         /// <param name="org"> The org. </param>
@@ -106,7 +106,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Organizations" />
+        /// <see cref="T:Sherpa.Organizations" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Organizations" />
+        /// <see cref="T:Sherpa.Organizations" />
         /// class.
         /// </summary>
         /// <param name="org"> The org. </param>
@@ -138,7 +138,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Organizations" />
+        /// <see cref="T:Sherpa.Organizations" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>

@@ -51,8 +51,8 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ToolStripDropDownBase"/>
-    /// <seealso cref="T:BudgetExecution.IToolStripComboBox"/>
+    /// <seealso cref="T:Sherpa.ToolStripDropDownBase"/>
+    /// <seealso cref="T:Sherpa.IToolStripComboBox"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

@@ -243,7 +243,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
+        /// <see cref="T:Sherpa.AppropriationAvailableBalances" /> class.
         /// </summary>
         public AppropriationAvailableBalance( ) 
             : base( )
@@ -254,7 +254,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
+        /// <see cref="T:Sherpa.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public AppropriationAvailableBalance( IQuery query ) 
@@ -284,7 +284,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
+        /// <see cref="T:Sherpa.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="builder"></param>
         public AppropriationAvailableBalance( IDataModel builder ) 
@@ -315,7 +315,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
+        /// <see cref="T:Sherpa.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AppropriationAvailableBalance( DataRow dataRow ) 
@@ -346,7 +346,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
+        /// <see cref="T:Sherpa.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="balance">The balance.</param>
         public AppropriationAvailableBalance( AppropriationAvailableBalance balance ) 

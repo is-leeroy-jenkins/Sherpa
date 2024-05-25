@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -134,7 +134,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// <see cref="T:Sherpa.NationalProgram" /> class.
         /// </summary>
         public NationalProgram( ) 
             : base( )
@@ -144,7 +144,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// <see cref="T:Sherpa.NationalProgram" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public NationalProgram( IQuery query ) 
@@ -163,7 +163,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// <see cref="T:Sherpa.NationalProgram" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public NationalProgram( IDataModel builder ) 
@@ -182,7 +182,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// <see cref="T:Sherpa.NationalProgram" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public NationalProgram( DataRow dataRow ) 
@@ -201,7 +201,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// <see cref="T:Sherpa.NationalProgram" /> class.
         /// </summary>
         /// <param name="code">The code.</param>
         public NationalProgram( string code ) 
@@ -220,7 +220,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// <see cref="T:Sherpa.NationalProgram" /> class.
         /// </summary>
         /// <param name="npm">The NPM.</param>
         public NationalProgram( NationalProgram npm ) 

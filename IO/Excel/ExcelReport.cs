@@ -52,7 +52,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.SheetConfig"/>
+    /// <seealso cref="T:Sherpa.SheetConfig"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -124,7 +124,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelReport" /> class.
+        /// <see cref="T:Sherpa.ExcelReport" /> class.
         /// </summary>
         public ExcelReport( )
             : base( )
@@ -169,7 +169,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetWorkbook" /> class.
+        /// <see cref="T:Sherpa.BudgetWorkbook" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public ExcelReport( string filePath )
@@ -213,7 +213,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetWorkbook"/>
+        /// <see cref="T:Sherpa.BudgetWorkbook"/>
         /// class.
         /// </summary>
         /// <param name="dataTable">

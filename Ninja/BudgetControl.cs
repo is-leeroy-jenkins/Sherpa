@@ -47,7 +47,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -61,7 +61,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetControls" /> class.
+        /// <see cref="T:Sherpa.BudgetControls" /> class.
         /// </summary>
         public BudgetControl( ) 
             : base( )
@@ -72,7 +72,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetControls" /> class.
+        /// <see cref="T:Sherpa.BudgetControls" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetControl( IQuery query )
@@ -108,7 +108,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetControls" /> class.
+        /// <see cref="T:Sherpa.BudgetControls" /> class.
         /// </summary>
         /// <param name="builder"></param>
         public BudgetControl( IDataModel builder )
@@ -144,7 +144,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetControls" /> class.
+        /// <see cref="T:Sherpa.BudgetControls" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetControl( DataRow dataRow )

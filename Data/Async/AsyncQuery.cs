@@ -65,7 +65,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Query"/>
+        /// <see cref="T:Sherpa.Query"/>
         /// class.
         /// </summary>
         public AsyncQuery( )

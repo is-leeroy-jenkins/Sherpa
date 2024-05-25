@@ -110,7 +110,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Deobligation"/>
+        /// <see cref="T:Sherpa.Deobligation"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>

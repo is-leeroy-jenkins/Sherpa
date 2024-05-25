@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 12-24-2023
 // 
@@ -127,7 +127,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Notification"/>
+        /// <see cref="T:Sherpa.Notification"/>
         /// class.
         /// </summary>
         public Notification( )
@@ -172,7 +172,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Notification"/>
+        /// <see cref="T:Sherpa.Notification"/>
         /// class.
         /// </summary>
         /// <param name="body"> The body. </param>
@@ -193,7 +193,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Notification"/>
+        /// <see cref="T:Sherpa.Notification"/>
         /// class.
         /// </summary>
         /// <param name="title"> The title. </param>

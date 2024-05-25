@@ -50,7 +50,7 @@ namespace Sherpa
     /// <inheritdoc/>
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.AdapterBase"/>
+    /// <seealso cref="T:Sherpa.AdapterBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -212,7 +212,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter"/>
+        /// <see cref="T:Sherpa.BudgetAdapter"/>
         /// class.
         /// </summary>
         public BudgetAdapter( ) 
@@ -229,7 +229,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -248,7 +248,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -267,7 +267,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -286,7 +286,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -307,7 +307,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -328,7 +328,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -353,7 +353,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter"/>
+        /// <see cref="T:Sherpa.BudgetAdapter"/>
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The SQL statement. </param>
@@ -371,7 +371,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// <see cref="T:Sherpa.BudgetAdapter" /> class.
         /// </summary>
         /// <param name="command">The command.</param>
         public BudgetAdapter( IBudgetCommand command )

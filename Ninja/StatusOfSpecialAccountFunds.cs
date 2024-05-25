@@ -46,7 +46,7 @@ namespace Sherpa
     
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.PRC"/>
+    /// <seealso cref="T:Sherpa.PRC"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
@@ -55,7 +55,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds"/>
+        /// <see cref="T:Sherpa.StatusOfSpecialAccountFunds"/>
         /// class.
         /// </summary>
         public StatusOfSpecialAccountFunds( )
@@ -67,7 +67,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds" />
+        /// <see cref="T:Sherpa.StatusOfSpecialAccountFunds" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -141,7 +141,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds" />
+        /// <see cref="T:Sherpa.StatusOfSpecialAccountFunds" />
         /// class.
         /// </summary>
         /// <param name="builder"> </param>
@@ -215,7 +215,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds" />
+        /// <see cref="T:Sherpa.StatusOfSpecialAccountFunds" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>

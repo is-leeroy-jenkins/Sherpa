@@ -506,7 +506,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataViewForm" /> class.
+        /// <see cref="T:Sherpa.DataViewForm" /> class.
         /// </summary>
         public DataViewForm( )
         {

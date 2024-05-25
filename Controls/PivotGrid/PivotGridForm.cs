@@ -524,7 +524,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PivotGridForm" /> class.
+        /// <see cref="T:Sherpa.PivotGridForm" /> class.
         /// </summary>
         public PivotGridForm( )
         {

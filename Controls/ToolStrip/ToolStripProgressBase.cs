@@ -90,7 +90,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ToolStripProgressBase" /> class.
+        /// <see cref="T:Sherpa.ToolStripProgressBase" /> class.
         /// </summary>
         protected ToolStripProgressBase( )
         {

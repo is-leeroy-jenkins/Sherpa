@@ -1169,7 +1169,7 @@
             MetricLabel3.Text = "Text";
             MetricLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel3.ThemeAuthor = "Terry D. Eppler";
-            MetricLabel3.ThemeName = "BudgetExecution";
+            MetricLabel3.ThemeName = "Sherpa";
             MetricLabel3.ToolTip = ToolTip;
             // 
             // MetricLabel1
@@ -1192,7 +1192,7 @@
             MetricLabel1.Text = "Text";
             MetricLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel1.ThemeAuthor = "Terry D. Eppler";
-            MetricLabel1.ThemeName = "BudgetExecution";
+            MetricLabel1.ThemeName = "Sherpa";
             MetricLabel1.ToolTip = ToolTip;
             // 
             // MetricLabel2
@@ -1215,7 +1215,7 @@
             MetricLabel2.Text = "Text";
             MetricLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel2.ThemeAuthor = "Terry D. Eppler";
-            MetricLabel2.ThemeName = "BudgetExecution";
+            MetricLabel2.ThemeName = "Sherpa";
             MetricLabel2.ToolTip = ToolTip;
             // 
             // MetricLabel4
@@ -1238,7 +1238,7 @@
             MetricLabel4.Text = "Text";
             MetricLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel4.ThemeAuthor = "Terry D. Eppler";
-            MetricLabel4.ThemeName = "BudgetExecution";
+            MetricLabel4.ThemeName = "Sherpa";
             MetricLabel4.ToolTip = ToolTip;
             // 
             // MetricLabel5

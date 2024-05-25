@@ -47,7 +47,7 @@ namespace Sherpa
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
+    /// <seealso cref="Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]

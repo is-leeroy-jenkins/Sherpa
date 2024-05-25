@@ -278,7 +278,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FileDialog" /> class.
+        /// <see cref="T:Sherpa.FileDialog" /> class.
         /// </summary>
         public FileDialog( )
         {
@@ -334,7 +334,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FileDialog" /> class.
+        /// <see cref="T:Sherpa.FileDialog" /> class.
         /// </summary>
         /// <param name="extension">The extension.</param>
         public FileDialog( EXT extension )
@@ -920,7 +920,7 @@ namespace Sherpa
                     GetFolderPath( SpecialFolder.Personal ),
                     GetFolderPath( SpecialFolder.Recent ),
                     Environment.CurrentDirectory,
-                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
+                    @"C:\Users\terry\source\repos\Sherpa\Resources\Documents",
                     _current
                 };
 

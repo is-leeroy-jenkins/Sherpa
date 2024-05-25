@@ -946,7 +946,7 @@
             backPanel2.StyleManager = null;
             backPanel2.TabIndex = 9;
             backPanel2.ThemeAuthor = "Terry D. Eppler";
-            backPanel2.ThemeName = "BudgetExecution";
+            backPanel2.ThemeName = "Sherpa";
             backPanel2.ToolTip = null;
             // 
             // ThirdListBox
@@ -982,7 +982,7 @@
             ThirdListBox.TabIndex = 2;
             ThirdListBox.Text = "listBox1";
             ThirdListBox.ThemeAuthor = "Terry D. Eppler";
-            ThirdListBox.ThemeName = "BudgetExecution";
+            ThirdListBox.ThemeName = "Sherpa";
             ThirdListBox.ToolTip = ToolTip;
             // 
             // ThirdComboBox
@@ -1062,7 +1062,7 @@
             SourcePanel.StyleManager = null;
             SourcePanel.TabIndex = 5;
             SourcePanel.ThemeAuthor = "Terry D. Eppler";
-            SourcePanel.ThemeName = "BudgetExecution";
+            SourcePanel.ThemeName = "Sherpa";
             SourcePanel.ToolTip = null;
             // 
             // ExecutionRadioButton
@@ -1190,7 +1190,7 @@
             ProviderPanel.StyleManager = null;
             ProviderPanel.TabIndex = 5;
             ProviderPanel.ThemeAuthor = "Terry D. Eppler";
-            ProviderPanel.ThemeName = "BudgetExecution";
+            ProviderPanel.ThemeName = "Sherpa";
             ProviderPanel.ToolTip = null;
             // 
             // SqlCeRadioButton
@@ -1345,7 +1345,7 @@
             ColumnPanel.StyleManager = null;
             ColumnPanel.TabIndex = 8;
             ColumnPanel.ThemeAuthor = "Terry D. Eppler";
-            ColumnPanel.ThemeName = "BudgetExecution";
+            ColumnPanel.ThemeName = "Sherpa";
             ColumnPanel.ToolTip = null;
             // 
             // FirstListBox
@@ -1381,7 +1381,7 @@
             FirstListBox.TabIndex = 2;
             FirstListBox.Text = "listBox1";
             FirstListBox.ThemeAuthor = "Terry D. Eppler";
-            FirstListBox.ThemeName = "BudgetExecution";
+            FirstListBox.ThemeName = "Sherpa";
             FirstListBox.ToolTip = ToolTip;
             // 
             // FirstComboBox
@@ -1462,7 +1462,7 @@
             ValuePanel.StyleManager = null;
             ValuePanel.TabIndex = 9;
             ValuePanel.ThemeAuthor = "Terry D. Eppler";
-            ValuePanel.ThemeName = "BudgetExecution";
+            ValuePanel.ThemeName = "Sherpa";
             ValuePanel.ToolTip = null;
             // 
             // SecondListBox
@@ -1498,7 +1498,7 @@
             SecondListBox.TabIndex = 2;
             SecondListBox.Text = "listBox1";
             SecondListBox.ThemeAuthor = "Terry D. Eppler";
-            SecondListBox.ThemeName = "BudgetExecution";
+            SecondListBox.ThemeName = "Sherpa";
             SecondListBox.ToolTip = ToolTip;
             // 
             // SecondComboBox
@@ -1576,7 +1576,7 @@
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 7;
             TablePanel.ThemeAuthor = "Terry D. Eppler";
-            TablePanel.ThemeName = "BudgetExecution";
+            TablePanel.ThemeName = "Sherpa";
             TablePanel.ToolTip = null;
             // 
             // TableListBox
@@ -1612,7 +1612,7 @@
             TableListBox.TabIndex = 1;
             TableListBox.Text = "Tables";
             TableListBox.ThemeAuthor = "Terry D. Eppler";
-            TableListBox.ThemeName = "BudgetExecution";
+            TableListBox.ThemeName = "Sherpa";
             TableListBox.ToolTip = ToolTip;
             // 
             // BusyTab

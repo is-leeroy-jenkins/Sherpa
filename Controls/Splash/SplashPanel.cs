@@ -57,7 +57,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashPanel" /> class.
+        /// <see cref="T:Sherpa.SplashPanel" /> class.
         /// </summary>
         /// <remarks>
         /// The default value for the

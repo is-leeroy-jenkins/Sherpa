@@ -154,7 +154,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailContent" />
+        /// <see cref="T:Sherpa.EmailContent" />
         /// class.
         /// </summary>
         public EmailContent( )
@@ -176,7 +176,7 @@ namespace Sherpa
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.EmailContent" /> class.
+        /// Initializes a new instance of the <see cref="T:Sherpa.EmailContent" /> class.
         /// </summary>
         /// <param name="subject">The subject.</param>
         /// <param name="message">The message.</param>
@@ -192,7 +192,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailContent" /> class.
+        /// <see cref="T:Sherpa.EmailContent" /> class.
         /// </summary>
         /// <param name="content">The email.</param>
         public EmailContent( EmailContent content )

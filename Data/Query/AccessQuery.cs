@@ -49,13 +49,13 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.Query" />
+    /// <seealso cref="T:Sherpa.Query" />
     public class AccessQuery : BudgetQuery
     {
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         public AccessQuery( )
@@ -65,7 +65,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -77,7 +77,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -90,7 +90,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -104,7 +104,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -120,7 +120,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -136,7 +136,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>
@@ -148,7 +148,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -161,7 +161,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -175,7 +175,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccessQuery" />
+        /// <see cref="T:Sherpa.AccessQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>

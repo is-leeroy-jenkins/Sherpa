@@ -119,7 +119,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncFolderBase" /> class.
+        /// <see cref="T:Sherpa.AsyncFolderBase" /> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
         public AsyncFolderBase( Folder folder )

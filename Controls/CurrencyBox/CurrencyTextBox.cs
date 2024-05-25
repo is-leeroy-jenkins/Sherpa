@@ -53,7 +53,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.CurrencyBase"/>
+    /// <seealso cref="T:Sherpa.CurrencyBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -94,7 +94,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CurrencyTextBox"/>
+        /// <see cref="T:Sherpa.CurrencyTextBox"/>
         /// class.
         /// </summary>
         /// <remarks>

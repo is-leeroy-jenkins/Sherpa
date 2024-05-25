@@ -557,7 +557,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FilterDialog" /> class.
+        /// <see cref="T:Sherpa.FilterDialog" /> class.
         /// </summary>
         public FilterPage( )
         {
@@ -620,7 +620,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FilterDialog" /> class.
+        /// <see cref="T:Sherpa.FilterDialog" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -640,7 +640,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FilterDialog" /> class.
+        /// <see cref="T:Sherpa.FilterDialog" /> class.
         /// </summary>
         /// <param name="bindingSource">
         /// The binding source.

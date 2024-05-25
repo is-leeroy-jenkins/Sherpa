@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
+        /// <see cref="T:Sherpa.OpenCommitments" />
         /// class.
         /// </summary>
         public OpenCommitment( )
@@ -67,7 +67,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
+        /// <see cref="T:Sherpa.OpenCommitments" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -123,7 +123,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
+        /// <see cref="T:Sherpa.OpenCommitments" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -179,7 +179,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
+        /// <see cref="T:Sherpa.OpenCommitments" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -235,7 +235,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" /> class.
+        /// <see cref="T:Sherpa.OpenCommitments" /> class.
         /// </summary>
         /// <param name="commitment">The commitment.</param>
         public OpenCommitment( OpenCommitment commitment )

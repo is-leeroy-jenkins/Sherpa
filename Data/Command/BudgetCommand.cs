@@ -48,7 +48,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ICommand"/>
+    /// <seealso cref="T:Sherpa.ICommand"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
@@ -57,7 +57,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetCommand"/>
+        /// <see cref="T:Sherpa.BudgetCommand"/>
         /// class.
         /// </summary>
         public BudgetCommand( )
@@ -72,7 +72,7 @@ namespace Sherpa
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
         public BudgetCommand( Source source, Provider provider,
-            Command commandType = BudgetExecution.Command.SELECTALL )
+            Command commandType = Sherpa.Command.SELECTALL )
         {
             _source = _sqlStatement.Source;
             _provider = provider;
@@ -112,7 +112,7 @@ namespace Sherpa
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IDictionary<string, object> where,
-            Command commandType = BudgetExecution.Command.SELECTALL )
+            Command commandType = Sherpa.Command.SELECTALL )
         {
             _source = source;
             _provider = provider;
@@ -133,7 +133,7 @@ namespace Sherpa
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IDictionary<string, object> update,
-            IDictionary<string, object> where, Command commandType = BudgetExecution.Command.UPDATE )
+            IDictionary<string, object> where, Command commandType = Sherpa.Command.UPDATE )
         {
             _source = source;
             _provider = provider;
@@ -150,7 +150,7 @@ namespace Sherpa
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, Command commandType = BudgetExecution.Command.SELECT )
+            IDictionary<string, object> where, Command commandType = Sherpa.Command.SELECT )
         {
             _source = source;
             _provider = provider;
@@ -173,7 +173,7 @@ namespace Sherpa
         /// <param name="commandType"> Type of the command. </param>
         public BudgetCommand( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            Command commandType = BudgetExecution.Command.SELECT )
+            Command commandType = Sherpa.Command.SELECT )
         {
             _source = source;
             _provider = provider;

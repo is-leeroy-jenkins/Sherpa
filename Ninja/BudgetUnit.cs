@@ -47,8 +47,8 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    /// <seealso cref="T:BudgetExecution.IBudgetUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
+    /// <seealso cref="T:Sherpa.IBudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -297,7 +297,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// <see cref="T:Sherpa.BudgetUnit" /> class.
         /// </summary>
         protected BudgetUnit( ) 
             : base( )
@@ -307,7 +307,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// <see cref="T:Sherpa.BudgetUnit" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         protected BudgetUnit( IQuery query ) 
@@ -329,7 +329,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// <see cref="T:Sherpa.BudgetUnit" /> class.
         /// </summary>
         /// <param name="dataBuilder">The query.</param>
         protected BudgetUnit( IDataModel dataBuilder ) 
@@ -351,7 +351,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// <see cref="T:Sherpa.BudgetUnit" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected BudgetUnit( DataRow dataRow ) 

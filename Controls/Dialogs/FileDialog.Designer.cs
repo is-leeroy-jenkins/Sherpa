@@ -139,7 +139,7 @@ namespace Sherpa
             FoundLabel.Text = "Files:";
             FoundLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             FoundLabel.ThemeAuthor = "Terry D. Eppler";
-            FoundLabel.ThemeName = "BudgetExecution";
+            FoundLabel.ThemeName = "Sherpa";
             FoundLabel.ToolTip = null;
             // 
             // DurationLabel
@@ -545,7 +545,7 @@ namespace Sherpa
             FileListBox.StyleManager = null;
             FileListBox.TabIndex = 3;
             FileListBox.ThemeAuthor = "Terry D. Eppler";
-            FileListBox.ThemeName = "BudgetExecution";
+            FileListBox.ThemeName = "Sherpa";
             FileListBox.ToolTip = ToolTip;
             // 
             // ToolTip
@@ -624,7 +624,7 @@ namespace Sherpa
             Title.Text = "File Search";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "BudgetExecution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // StatusLabel
@@ -666,7 +666,7 @@ namespace Sherpa
             PathLabel.TabIndex = 12;
             PathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             PathLabel.ThemeAuthor = "Terry D. Eppler";
-            PathLabel.ThemeName = "BudgetExecution";
+            PathLabel.ThemeName = "Sherpa";
             PathLabel.ToolTip = null;
             // 
             // Timer

@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.AdministrativeRequest"/>
+    /// <seealso cref="T:Sherpa.AdministrativeRequest"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
@@ -57,7 +57,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverRequest" />
+        /// <see cref="T:Sherpa.CarryoverRequest" />
         /// class.
         /// </summary>
         public CarryoverRequest( ) 
@@ -69,7 +69,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverRequest" />
+        /// <see cref="T:Sherpa.CarryoverRequest" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -91,7 +91,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverRequest" />
+        /// <see cref="T:Sherpa.CarryoverRequest" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -113,7 +113,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverRequest" />
+        /// <see cref="T:Sherpa.CarryoverRequest" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -137,7 +137,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CarryoverRequest" />
+        /// <see cref="T:Sherpa.CarryoverRequest" />
         /// class.
         /// </summary>
         /// <param name="request"> The request. </param>

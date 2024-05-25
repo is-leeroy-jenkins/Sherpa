@@ -48,7 +48,7 @@ namespace Sherpa
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.ResourcePlanningOffices" />
+    /// <seealso cref="T:Sherpa.ResourcePlanningOffices" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class RegionalOffice : ResourcePlanningOffice
@@ -56,7 +56,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RegionalOffices" /> class.
+        /// <see cref="T:Sherpa.RegionalOffices" /> class.
         /// </summary>
         public RegionalOffice( )
         {
@@ -81,7 +81,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RegionalOffices" /> class.
+        /// <see cref="T:Sherpa.RegionalOffices" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public RegionalOffice( IDataModel builder ) 

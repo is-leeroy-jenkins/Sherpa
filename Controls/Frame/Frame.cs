@@ -74,7 +74,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Frame"/>
+        /// <see cref="T:Sherpa.Frame"/>
         /// class.
         /// </summary>
         public Frame( )

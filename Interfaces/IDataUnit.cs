@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:             Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 04-19-2024
 // 
@@ -46,8 +46,8 @@ namespace Sherpa
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="Sherpa.ISource" />
+    /// <seealso cref="Sherpa.IProvider" />
     public interface IDataUnit : ISource, IProvider
     {
         /// <summary>

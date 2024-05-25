@@ -46,7 +46,7 @@ namespace Sherpa
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:Sherpa.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -80,7 +80,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
+        /// <see cref="T:Sherpa.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         public CapitalPlanningInvestmentCode( ) 
@@ -92,7 +92,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCodes" />
+        /// <see cref="T:Sherpa.CapitalPlanningInvestmentCodes" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -110,7 +110,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
+        /// <see cref="T:Sherpa.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
+        /// <see cref="T:Sherpa.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -145,7 +145,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
+        /// <see cref="T:Sherpa.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>

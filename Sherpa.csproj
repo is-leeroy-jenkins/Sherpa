@@ -3,17 +3,17 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
-    <StartupObject>BudgetExecution.Program</StartupObject>
+    <StartupObject>Sherpa.Program</StartupObject>
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <AnalysisLevel>6.0-minimum</AnalysisLevel>
     <LangVersion>10</LangVersion>
     <TargetFramework>net6.0-windows7.0</TargetFramework>
-    <RootNamespace>BudgetExecution</RootNamespace>
+    <RootNamespace>Sherpa</RootNamespace>
     <Authors>Terry D. Eppler</Authors>
     <Company>US EPA</Company>
-    <Product>BudgetExecution</Product>
-    <RepositoryUrl>https://github.com/KarmaScripter/BudgetExecution</RepositoryUrl>
+    <Product>Sherpa</Product>
+    <RepositoryUrl>https://github.com/KarmaScripter/Sherpa</RepositoryUrl>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     <IsPublishable>False</IsPublishable>
     <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
@@ -26,7 +26,7 @@
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageProjectUrl>https://github.com/KarmaScripter/BudgetExecution</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/KarmaScripter/Sherpa</PackageProjectUrl>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Budget Execution</Title>
     <PackageIcon>Application.png</PackageIcon>
@@ -39,14 +39,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
-    <OutputPath>C:\Users\terry\source\repos\BudgetExecution\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\Sherpa\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BudgetExecution|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sherpa|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
-    <OutputPath>C:\Users\terry\source\repos\BudgetExecution\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\Sherpa\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <Optimize>True</Optimize>
@@ -120,11 +120,11 @@
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="BudgetExecution.Winforms.Charts">
-      <HintPath>Libraries\BudgetExecution.Winforms.Charts.dll</HintPath>
+    <Reference Include="Sherpa.Winforms.Charts">
+      <HintPath>Libraries\Sherpa.Winforms.Charts.dll</HintPath>
     </Reference>
-    <Reference Include="BudgetExecution.Winforms.Metro">
-      <HintPath>Libraries\BudgetExecution.Winforms.Metro.dll</HintPath>
+    <Reference Include="Sherpa.Winforms.Metro">
+      <HintPath>Libraries\Sherpa.Winforms.Metro.dll</HintPath>
     </Reference>
     <Reference Include="C1.Win.4.8">
       <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
