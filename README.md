@@ -11,8 +11,8 @@
 - Multiple SQL Editors including SQLite, SQL Compact, MS Access, and SQL Server
 - Excel-like user interface over real databases.
 - GIS mapping for reporting and monitoring.
-- Easy access to environmental program project descriptions with their statutory authority.
-- Ad-hoc budget and accouting calculations directly to bound data.
+- Easy access to environmental program descriptions with their statutory authority.
+- Ad-hoc calculations on bound data.
 - Add agency/region/division-specific branding.
 
 ## Providers
@@ -111,7 +111,7 @@
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## DocViewer
+## Document Viewer
 - ##### Library of legal documentation used in evnironmental data analysis.
 - ##### Interact with, view and access PDFs outside the application
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
@@ -138,6 +138,5 @@
 
 
 
-## Credits
 
 
