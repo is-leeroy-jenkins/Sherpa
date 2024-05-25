@@ -7,10 +7,10 @@
 - Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
 - Charting and reporting.
 - Web browser with searches optimized for querying .gov domains with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
-- Pre-defined schema for 100 actively used budgetary data tables.
+- Pre-defined schema for budgetary data tables.
 - Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
 - Excel-like user interface over real databases.
-- Mapping for congressional earmark reporting and montioring of polluction sites.
+- GIS data and mapping for congressional earmark reporting and montioring of polluction sites.
 - Easy access to environmental program project descriptions and statutory authority.
 - Quick budget and accouting calculations directly on bound data.
 - Easily add agency/region/division-specific branding.
