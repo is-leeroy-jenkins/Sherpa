@@ -61,17 +61,17 @@
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 
-## Easily query financial data.
+## Easily analyze financial data.
 - #### Datagrids
 - #### Pivot Tables
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## UI with a familiar look & feel.
+## User Interface with a familiar look & feel.
 - #### Excel-like interface over a relational database
 - #### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## GIS Mapping.
+## Geospatial Information (GIS) Mapping.
 - #### Congressional earmark reporting
 - #### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
@@ -89,9 +89,12 @@
 ## Federal Fiscal Year Calendar
 - #### Calculations using full-time equivalency metrics.
 - #### Ad-hoc analysis of variable periods of availability.
-
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
+## Web development on the fly with [Orca](https://github.com/KarmaScripter/Orca)
+- #### Create ad-hoc web information
+- #### HTML5, CSS, and Javascript
+   
 ## Environmental Program Anaylsis
 - #### Definitions and statutory authorities
 - #### Information bound directly to financial data
