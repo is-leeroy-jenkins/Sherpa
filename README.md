@@ -1,26 +1,26 @@
 ## ﻿![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Sherpa.png)
 
-#### An open source data analysis and financial management application for EPA analysts developed in C# and released under the MIT license.
+#### An open source data analysis and budgetary execution application for EPA analysts and released under the MIT license.
 
 ## Features
 
 - Mutliple data providers.
-- Charting and reporting.
+- Visualizations and reporting.
 - Conduct analysis with a unique web-browser providing searches optimized for researching .gov domains with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
 - Pre-defined schema for budgetary data tables for environmental data analysis.
 - Multiple SQL Editors including SQLite, SQL Compact, MS Access, and SQL Server
 - Excel-like user interface over real databases.
-- GIS data and mapping for congressional earmark reporting and montioring of pollution sites.
+- GIS mapping for reporting and monitoring.
 - Easy access to environmental program project descriptions with their statutory authority.
-- Quick budget and accouting calculations directly on bound data.
-- Easily add agency/region/division-specific branding.
+- Ad-hoc budget and accouting calculations directly to bound data.
+- Add agency/region/division-specific branding.
 
 ## Providers
 
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [more here](https://sqlite.org/index.html) 
-- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
+- SQL CE is a discontinued but still super-useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
-- MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
+- MS Access is the OG of enterprise database management systems (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
 
 
 ## System requirements
