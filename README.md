@@ -1,6 +1,6 @@
 ## ﻿![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/BudgetExecution.png)
 
-## An open source application for  data analysis and financial management for EPA analysts developed in C# and released under the MIT license.
+## An open source data analysis and financial management application for EPA analysts developed in C# and released under the MIT license.
 
 ## Features
 
