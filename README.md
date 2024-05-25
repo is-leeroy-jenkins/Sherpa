@@ -76,9 +76,9 @@
 - #### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-## Baby Browser 
-- #### Using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
+## Baby
+- #### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
 ## Budget Calculator 
 - #### For quick & dirty accounting and budget calculations on bound data.
