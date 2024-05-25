@@ -8,7 +8,7 @@
 - Charting and reporting.
 - Conduct analysis with a unique web-browser providing searches optimized for researching .gov domains with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
 - Pre-defined schema for budgetary data tables for environmental data analysis.
-- SQL Editors for SQLite (.db), SQL Compact Edition (.sdf), MS Access (.accdb), SQL Server Express (.mdf).
+- SQL Editors for SQLite ( .db ), SQL Compact Edition ( .sdf ), MS Access ( .accdb ), SQL Server Express ( .mdf ).
 - Excel-like user interface over real databases.
 - GIS data and mapping for congressional earmark reporting and montioring of pollution sites.
 - Easy access to environmental program project descriptions with their statutory authority.
