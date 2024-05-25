@@ -1,6 +1,6 @@
 ## ﻿![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/BudgetExecution.png)
 
-## Budget Execution is an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
+## An open source data analysis and financial management application for EPA analysts developed in C# and released under the MIT license.
 
 ## Features
 
