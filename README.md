@@ -72,8 +72,8 @@
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
 ### GIS Mapping.
-- ### Congressional earmark reporting
-- ### Monitor pollution site remediation costs
+- #### Congressional earmark reporting
+- #### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 ### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
@@ -81,14 +81,14 @@
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
 
 ### Budget Calculator 
-- ### For quick & dirty accounting and budget calculations on bound data.
-- ### Easy access to the full functionality of MicroSoft's Calc.exe
+- #### For quick & dirty accounting and budget calculations on bound data.
+- #### Easy access to the full functionality of MicroSoft's Calc.exe
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
 ### Federal fiscal year calendar
-- ### Calculations using full-time equivalency metrics.
-- ### Ad-hoc analysis of variable periods of availability.
+- #### Calculations using full-time equivalency metrics.
+- #### Ad-hoc analysis of variable periods of availability.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
