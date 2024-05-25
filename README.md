@@ -91,9 +91,10 @@
 - #### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-## Web development with [Orca](https://github.com/KarmaScripter/Orca)
+## Ad-hoc web development with  [Orca](https://github.com/KarmaScripter/Orca)
 - #### Create ad-hoc web information
 - #### HTML5, CSS, and Javascript
+  
 ![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
    
 ## Environmental Program Anaylsis
@@ -106,6 +107,7 @@
 - #### 3D Charting
 - #### Pivot Charts
 - #### Plotting from ScottPlot
+  
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
@@ -116,7 +118,7 @@
 
 
 
-## SQL Editors for multiple providers
+## SQL Editors
 
 - SQLite
 
