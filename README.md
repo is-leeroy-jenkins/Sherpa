@@ -47,8 +47,8 @@
 
 ## Code
 
-- BudgetExecution uses CefSharp 106 for Baby Browser and is built on NET 6
-- BudgetExecution supports AnyCPU as well as x86/x64 specific builds
+- Uses CefSharp 106 for Baby and is built on NET 6/7/8
+- Supports AnyCPU as well as x86/x64 specific builds
 - [Controls](https://github.com/KarmaScripter/BudgetExecution/tree/main/Controls) - main UI layer and associated controls and related functionality.
 - [Enumerations](https://github.com/KarmaScripter/BudgetExecution/tree/main/Enumerations) - various enumerations used for budgetary accounting.
 - [Extensions](https://github.com/KarmaScripter/BudgetExecution/tree/main/Extensions)- useful extension methods for budget analysis by type.
