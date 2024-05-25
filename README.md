@@ -1,6 +1,6 @@
 ## ﻿![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Sherpa.png)
 
-#### An open source data analysis and budgetary execution application for EPA analysts and released under the MIT license.
+#### An open source data analysis and budget execution application for EPA analysts and released under the MIT license.
 
 ## Features
 
