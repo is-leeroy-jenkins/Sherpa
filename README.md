@@ -63,25 +63,32 @@
 ## Overview
 ### Easily query financial data.
 - #### Datagrids
+- #### Pivot Tables
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 ### UI with a familiar look & feel.
 - #### Excel-like interface over a relational database
+- #### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-### Congressional earmark reporting and pollution site monitoring.
-- ### Maps
+### GIS Mapping.
+- ### Congressional earmark reporting
+- ### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 ### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
 
-### Budget Calculator for quick accounting transactions and budget calculations on the data.
+### Budget Calculator 
+- ### For quick & dirty accounting and budget calculations on bound data.
+- ### Easy access to the full functionality of MicroSoft's Calc.exe
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-### Federal fiscal year utilities compatable with full-time equivalency metrics.
+### Federal fiscal year calendar
+- ### Calculations using full-time equivalency metrics.
+- ### Ad-hoc analysis of variable periods of availability.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
