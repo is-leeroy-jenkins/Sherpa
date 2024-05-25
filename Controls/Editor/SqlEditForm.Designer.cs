@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class SqlEditForm
     {
@@ -191,7 +191,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -251,7 +251,7 @@
             Title.Text = "Title";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // ControlBox
@@ -342,7 +342,7 @@
             CommandPanel.StyleManager = null;
             CommandPanel.TabIndex = 2;
             CommandPanel.ThemeAuthor = "Terry D. Eppler";
-            CommandPanel.ThemeName = "Budget Execution";
+            CommandPanel.ThemeName = "Sherpa";
             CommandPanel.ToolTip = null;
             // 
             // CommandComboBox
@@ -376,7 +376,7 @@
             CommandComboBox.StyleManager = null;
             CommandComboBox.TabIndex = 0;
             CommandComboBox.ThemeAuthor = "Terry D. Eppler";
-            CommandComboBox.ThemeName = "Budget Execution";
+            CommandComboBox.ThemeName = "Sherpa";
             CommandComboBox.ToolTip = null;
             // 
             // SqlStatementTable
@@ -421,7 +421,7 @@
             TextPanel.StyleManager = null;
             TextPanel.TabIndex = 1;
             TextPanel.ThemeAuthor = "Terry D. Eppler";
-            TextPanel.ThemeName = "Budget Execution";
+            TextPanel.ThemeName = "Sherpa";
             TextPanel.ToolTip = null;
             // 
             // QueryListBox
@@ -457,7 +457,7 @@
             QueryListBox.StyleManager = null;
             QueryListBox.TabIndex = 0;
             QueryListBox.ThemeAuthor = "Terry D. Eppler";
-            QueryListBox.ThemeName = "Budget Execution";
+            QueryListBox.ThemeName = "Sherpa";
             QueryListBox.ToolTip = null;
             // 
             // ToolStrip
@@ -1337,7 +1337,7 @@
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
             DataGridPanel.ThemeAuthor = "Terry D. Eppler";
-            DataGridPanel.ThemeName = "Budget Execution";
+            DataGridPanel.ThemeName = "Sherpa";
             DataGridPanel.ToolTip = null;
             // 
             // DataGrid
@@ -1835,7 +1835,7 @@
             SelectDataTypeLable.Text = "Select Data Type";
             SelectDataTypeLable.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             SelectDataTypeLable.ThemeAuthor = "Terry D. Eppler";
-            SelectDataTypeLable.ThemeName = "Budget Execution";
+            SelectDataTypeLable.ThemeName = "Sherpa";
             SelectDataTypeLable.ToolTip = null;
             // 
             // AddColumnLabel
@@ -1857,7 +1857,7 @@
             AddColumnLabel.Text = "Enter New Column Name";
             AddColumnLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             AddColumnLabel.ThemeAuthor = "Terry D. Eppler";
-            AddColumnLabel.ThemeName = "Budget Execution";
+            AddColumnLabel.ThemeName = "Sherpa";
             AddColumnLabel.ToolTip = null;
             // 
             // AddColumnTextBox
@@ -1998,7 +1998,7 @@
             AddTableLabel.Text = "Enter New Table Name";
             AddTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             AddTableLabel.ThemeAuthor = "Terry D. Eppler";
-            AddTableLabel.ThemeName = "Budget Execution";
+            AddTableLabel.ThemeName = "Sherpa";
             AddTableLabel.ToolTip = null;
             // 
             // DeleteTableButton
@@ -2089,7 +2089,7 @@
             SelectTableLabel.Text = "Select Data Table";
             SelectTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             SelectTableLabel.ThemeAuthor = "Terry D. Eppler";
-            SelectTableLabel.ThemeName = "Budget Execution";
+            SelectTableLabel.ThemeName = "Sherpa";
             SelectTableLabel.ToolTip = null;
             // 
             // TableNameComboBox
@@ -2156,7 +2156,7 @@
             AddTableTextBox.TabIndex = 7;
             AddTableTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             AddTableTextBox.ThemeAuthor = "Terry D. Eppler";
-            AddTableTextBox.ThemeName = "Budget Execution";
+            AddTableTextBox.ThemeName = "Sherpa";
             AddTableTextBox.ToolTip = ToolTip;
             AddTableTextBox.UseSystemPasswordChar = false;
             AddTableTextBox.WatermarkText = "";

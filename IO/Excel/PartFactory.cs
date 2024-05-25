@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 2-3-2024
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        2-3-2024
 // ******************************************************************************************
 // <copyright file="PartFactory.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    Sherpa is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Collections.Generic;
@@ -128,7 +128,7 @@ namespace BudgetExecution
                 _dataRange = (ExcelRange)_dataWorksheet.Cells[ "A2" ]
                     ?.LoadFromDataTable( dataTable, true, TableStyles.Light1 );
 
-                var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
+                var _title = _dataTable.TableName.SplitPascal( ) ?? "Sherpa";
                 _dataWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
                 _dataRange.Style.Font.Name = "Roboto";
                 _dataRange.Style.Font.Size = 8;
@@ -254,7 +254,7 @@ namespace BudgetExecution
                 }
 
                 _pivotTable.DataOnRows = true;
-                var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
+                var _title = _dataTable.TableName.SplitPascal( ) ?? "Sherpa";
                 _pivotWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
                 _pivotTable.EnableDrill = true;
                 _pivotTable.ShowDrill = true;

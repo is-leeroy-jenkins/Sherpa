@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class DataViewForm
     {
@@ -240,7 +240,7 @@
             Title.Text = "Form Title ";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // PictureBox
@@ -942,7 +942,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -1148,7 +1148,7 @@
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
             DataGridPanel.ThemeAuthor = "Terry D. Eppler";
-            DataGridPanel.ThemeName = "Budget Execution";
+            DataGridPanel.ThemeName = "Sherpa";
             DataGridPanel.ToolTip = null;
             // 
             // DataGrid
@@ -1398,7 +1398,7 @@
             SecondComboBox.StyleManager = null;
             SecondComboBox.TabIndex = 5;
             SecondComboBox.ThemeAuthor = "Terry D. Eppler";
-            SecondComboBox.ThemeName = "Budget Execution";
+            SecondComboBox.ThemeName = "Sherpa";
             SecondComboBox.ToolTip = null;
             // 
             // FirstTable
@@ -1452,7 +1452,7 @@
             FirstComboBox.StyleManager = null;
             FirstComboBox.TabIndex = 4;
             FirstComboBox.ThemeAuthor = "Terry D. Eppler";
-            FirstComboBox.ThemeName = "Budget Execution";
+            FirstComboBox.ThemeName = "Sherpa";
             FirstComboBox.ToolTip = null;
             // 
             // FirstListBoxPanel
@@ -1629,7 +1629,7 @@
             ThirdComboBox.StyleManager = null;
             ThirdComboBox.TabIndex = 5;
             ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
-            ThirdComboBox.ThemeName = "Budget Execution";
+            ThirdComboBox.ThemeName = "Sherpa";
             ThirdComboBox.ToolTip = null;
             // 
             // GroupTabPage
@@ -1725,7 +1725,7 @@
             NumericListBox.StyleManager = null;
             NumericListBox.TabIndex = 1;
             NumericListBox.ThemeAuthor = "Terry D. Eppler";
-            NumericListBox.ThemeName = "Budget Execution";
+            NumericListBox.ThemeName = "Sherpa";
             NumericListBox.ToolTip = null;
             // 
             // FieldsTable
@@ -1805,7 +1805,7 @@
             FieldListBox.StyleManager = null;
             FieldListBox.TabIndex = 1;
             FieldListBox.ThemeAuthor = "Terry D. Eppler";
-            FieldListBox.ThemeName = "Budget Execution";
+            FieldListBox.ThemeName = "Sherpa";
             FieldListBox.ToolTip = null;
             // 
             // CalendarTabPage
@@ -1880,7 +1880,7 @@
             SecondCalendarPanel.StyleManager = null;
             SecondCalendarPanel.TabIndex = 46;
             SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
-            SecondCalendarPanel.ThemeName = "Budget Execution";
+            SecondCalendarPanel.ThemeName = "Sherpa";
             SecondCalendarPanel.ToolTip = null;
             // 
             // SecondCalendar
@@ -1976,7 +1976,7 @@
             FirstCalendarPanel.StyleManager = null;
             FirstCalendarPanel.TabIndex = 45;
             FirstCalendarPanel.ThemeAuthor = "Terry D. Eppler";
-            FirstCalendarPanel.ThemeName = "Budget Execution";
+            FirstCalendarPanel.ThemeName = "Sherpa";
             FirstCalendarPanel.ToolTip = null;
             // 
             // FirstCalendar
@@ -2106,7 +2106,7 @@
             SQLiteRadioButton.TabIndex = 50;
             SQLiteRadioButton.Text = "SQLite";
             SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SQLiteRadioButton.ThemeName = "Budget Execution";
+            SQLiteRadioButton.ThemeName = "Sherpa";
             SQLiteRadioButton.ToolTip = null;
             // 
             // SqlServerRadioButton
@@ -2131,7 +2131,7 @@
             SqlServerRadioButton.TabIndex = 48;
             SqlServerRadioButton.Text = "MS SQL";
             SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlServerRadioButton.ThemeName = "Budget Execution";
+            SqlServerRadioButton.ThemeName = "Sherpa";
             SqlServerRadioButton.ToolTip = null;
             // 
             // AccessRadioButton
@@ -2156,7 +2156,7 @@
             AccessRadioButton.TabIndex = 49;
             AccessRadioButton.Text = "Access";
             AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-            AccessRadioButton.ThemeName = "Budget Execution";
+            AccessRadioButton.ThemeName = "Sherpa";
             AccessRadioButton.ToolTip = null;
             // 
             // SqlCeRadioButton
@@ -2181,7 +2181,7 @@
             SqlCeRadioButton.TabIndex = 51;
             SqlCeRadioButton.Text = "SQL CE";
             SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlCeRadioButton.ThemeName = "Budget Execution";
+            SqlCeRadioButton.ThemeName = "Sherpa";
             SqlCeRadioButton.ToolTip = null;
             // 
             // TablePanel
@@ -2207,7 +2207,7 @@
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 0;
             TablePanel.ThemeAuthor = "Terry D. Eppler";
-            TablePanel.ThemeName = "Budget Execution";
+            TablePanel.ThemeName = "Sherpa";
             TablePanel.ToolTip = null;
             // 
             // TableListBox
@@ -2243,7 +2243,7 @@
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 0;
             TableListBox.ThemeAuthor = "Terry D. Eppler";
-            TableListBox.ThemeName = "Budget Execution";
+            TableListBox.ThemeName = "Sherpa";
             TableListBox.ToolTip = null;
             // 
             // TableComboBox
@@ -2277,7 +2277,7 @@
             TableComboBox.StyleManager = null;
             TableComboBox.TabIndex = 1;
             TableComboBox.ThemeAuthor = "Terry D. Eppler";
-            TableComboBox.ThemeName = "Budget Execution";
+            TableComboBox.ThemeName = "Sherpa";
             TableComboBox.ToolTip = ToolTip;
             // 
             // ContextMenu

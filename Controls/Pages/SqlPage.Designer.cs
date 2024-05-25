@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
+namespace Sherpa;
 
 partial class SqlPage
 {
@@ -306,7 +306,7 @@ partial class SqlPage
         SecondPanel.StyleManager = null;
         SecondPanel.TabIndex = 3;
         SecondPanel.ThemeAuthor = "Terry D. Eppler";
-        SecondPanel.ThemeName = "Budget Execution";
+        SecondPanel.ThemeName = "Sherpa";
         SecondPanel.ToolTip = null;
         // 
         // SqlServerRadioButton
@@ -332,7 +332,7 @@ partial class SqlPage
         SqlServerRadioButton.Tag = "SqlServer";
         SqlServerRadioButton.Text = "SQL Server";
         SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SqlServerRadioButton.ThemeName = "Budget Execution";
+        SqlServerRadioButton.ThemeName = "Sherpa";
         SqlServerRadioButton.ToolTip = null;
         // 
         // AccessRadioButton
@@ -358,7 +358,7 @@ partial class SqlPage
         AccessRadioButton.Tag = "Access";
         AccessRadioButton.Text = "Access";
         AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-        AccessRadioButton.ThemeName = "Budget Execution";
+        AccessRadioButton.ThemeName = "Sherpa";
         AccessRadioButton.ToolTip = ToollTip;
         // 
         // ToollTip
@@ -376,7 +376,7 @@ partial class SqlPage
         ToollTip.Style = MetroSet_UI.Enums.Style.Custom;
         ToollTip.StyleManager = null;
         ToollTip.ThemeAuthor = "Terry D. Eppler";
-        ToollTip.ThemeName = "Budget Execution";
+        ToollTip.ThemeName = "Sherpa";
         ToollTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToollTip.TipText = null;
         ToollTip.TipTitle = null;
@@ -404,7 +404,7 @@ partial class SqlPage
         SQLiteRadioButton.Tag = "SQLite";
         SQLiteRadioButton.Text = "SQLite";
         SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SQLiteRadioButton.ThemeName = "Budget Execution";
+        SQLiteRadioButton.ThemeName = "Sherpa";
         SQLiteRadioButton.ToolTip = null;
         // 
         // SqlCeRadioButton
@@ -430,7 +430,7 @@ partial class SqlPage
         SqlCeRadioButton.Tag = "SqlCe";
         SqlCeRadioButton.Text = "SQL Compact";
         SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SqlCeRadioButton.ThemeName = "Budget Execution";
+        SqlCeRadioButton.ThemeName = "Sherpa";
         SqlCeRadioButton.ToolTip = null;
         // 
         // CommandTable
@@ -474,7 +474,7 @@ partial class SqlPage
         ThirdPanel.StyleManager = null;
         ThirdPanel.TabIndex = 2;
         ThirdPanel.ThemeAuthor = "Terry D. Eppler";
-        ThirdPanel.ThemeName = "Budget Execution";
+        ThirdPanel.ThemeName = "Sherpa";
         ThirdPanel.ToolTip = null;
         // 
         // SqlComboBox
@@ -508,7 +508,7 @@ partial class SqlPage
         SqlComboBox.StyleManager = null;
         SqlComboBox.TabIndex = 0;
         SqlComboBox.ThemeAuthor = "Terry D. Eppler";
-        SqlComboBox.ThemeName = "Budget Execution";
+        SqlComboBox.ThemeName = "Sherpa";
         SqlComboBox.ToolTip = null;
         // 
         // SqlStatementTable
@@ -553,7 +553,7 @@ partial class SqlPage
         TextPanel.StyleManager = null;
         TextPanel.TabIndex = 1;
         TextPanel.ThemeAuthor = "Terry D. Eppler";
-        TextPanel.ThemeName = "Budget Execution";
+        TextPanel.ThemeName = "Sherpa";
         TextPanel.ToolTip = null;
         // 
         // SqlListBox
@@ -589,7 +589,7 @@ partial class SqlPage
         SqlListBox.StyleManager = null;
         SqlListBox.TabIndex = 0;
         SqlListBox.ThemeAuthor = "Terry D. Eppler";
-        SqlListBox.ThemeName = "Budget Execution";
+        SqlListBox.ThemeName = "Sherpa";
         SqlListBox.ToolTip = null;
         // 
         // ThirdButton

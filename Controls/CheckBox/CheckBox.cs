@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                CheckBox.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -41,7 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Collections.Generic;
@@ -101,7 +101,7 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
+            ThemeName = "Sherpa";
             Size = new Size( 125, 25 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             DisabledBorderColor = Color.FromArgb( 20, 20, 20 );

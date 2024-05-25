@@ -1,5 +1,5 @@
 ﻿
-namespace BudgetExecution
+namespace Sherpa
 {
 
 
@@ -102,7 +102,7 @@ namespace BudgetExecution
             CloseButton.TabIndex = 6;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // ColumnConfigurationImage
@@ -140,7 +140,7 @@ namespace BudgetExecution
             HeaderLabel.Text = "Table Data Column Configuration";
             HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             HeaderLabel.ThemeAuthor = "Terry D. Eppler";
-            HeaderLabel.ThemeName = "Budget Execution";
+            HeaderLabel.ThemeName = "Sherpa";
             HeaderLabel.ToolTip = null;
             // 
             // ColumnConfiguration

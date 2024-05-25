@@ -1,5 +1,5 @@
 ﻿// ************************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:              19-10-2023
 // 
@@ -37,7 +37,7 @@
 //   Eppler, Terry.cs
 // </summary>
 // ************************************************************************************************
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Collections.Generic;

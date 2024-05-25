@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 2-13-2024
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        2-13-2024
 // ******************************************************************************************
 // <copyright file="FilterPage.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    Sherpa is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Collections.Generic;

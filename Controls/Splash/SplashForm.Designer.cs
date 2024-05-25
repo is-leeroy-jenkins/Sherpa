@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class SplashForm
     {
@@ -82,7 +82,7 @@
             Title.TabIndex = 1;
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // Timer
@@ -119,7 +119,7 @@
             CloseButton.TabIndex = 1;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // SplashForm

@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Diagnostics.CodeAnalysis;

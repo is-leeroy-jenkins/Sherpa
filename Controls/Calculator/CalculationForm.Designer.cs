@@ -2,7 +2,7 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 //
-namespace BudgetExecution
+namespace Sherpa
 {
     partial class CalculationForm
     {
@@ -80,7 +80,7 @@ namespace BudgetExecution
             TopPanel.StyleManager = null;
             TopPanel.TabIndex = 0;
             TopPanel.ThemeAuthor = "Terry D. Eppler";
-            TopPanel.ThemeName = "Budget Execution";
+            TopPanel.ThemeName = "Sherpa";
             TopPanel.ToolTip = null;
             // 
             // TopTable
@@ -118,7 +118,7 @@ namespace BudgetExecution
             ValueLabel.Text = "0.0";
             ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             ValueLabel.ThemeAuthor = "Terry D. Eppler";
-            ValueLabel.ThemeName = "Budget Execution";
+            ValueLabel.ThemeName = "Sherpa";
             ValueLabel.ToolTip = null;
             // 
             // CalculatorButton
@@ -154,7 +154,7 @@ namespace BudgetExecution
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -182,7 +182,7 @@ namespace BudgetExecution
             CalculatorPanel.StyleManager = null;
             CalculatorPanel.TabIndex = 1;
             CalculatorPanel.ThemeAuthor = "Terry D. Eppler";
-            CalculatorPanel.ThemeName = "Budget Execution";
+            CalculatorPanel.ThemeName = "Sherpa";
             CalculatorPanel.ToolTip = null;
             // 
             // Calculator
@@ -239,7 +239,7 @@ namespace BudgetExecution
             CloseButton.TabIndex = 0;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = ToolTip;
             // 
             // CalculatorTable
@@ -312,7 +312,7 @@ namespace BudgetExecution
             ClearButton.TabIndex = 1;
             ClearButton.Text = "Clear";
             ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "Budget Execution";
+            ClearButton.ThemeName = "Sherpa";
             ClearButton.ToolTip = ToolTip;
             // 
             // StatusLabel
@@ -333,7 +333,7 @@ namespace BudgetExecution
             StatusLabel.TabIndex = 1;
             StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             StatusLabel.ThemeAuthor = "Terry D. Eppler";
-            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ThemeName = "Sherpa";
             StatusLabel.ToolTip = ToolTip;
             // 
             // Timer

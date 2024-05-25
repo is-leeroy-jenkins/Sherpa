@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                RadioButton.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -41,7 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
@@ -82,7 +82,7 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
+            ThemeName = "Sherpa";
             BackgroundColor = Color.FromArgb( 30, 30, 30 );
             Font = new Font( "Roboto", 8, FontStyle.Regular );
             ForeColor = Color.FromArgb( 106, 189, 252 );

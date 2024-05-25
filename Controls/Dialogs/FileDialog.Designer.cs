@@ -1,5 +1,5 @@
 ﻿
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.ComponentModel;
@@ -161,7 +161,7 @@ namespace BudgetExecution
             DurationLabel.Text = "Time:";
             DurationLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             DurationLabel.ThemeAuthor = "Terry D. Eppler";
-            DurationLabel.ThemeName = "Budget Execution";
+            DurationLabel.ThemeName = "Sherpa";
             DurationLabel.ToolTip = null;
             // 
             // CheckBoxLayout
@@ -223,7 +223,7 @@ namespace BudgetExecution
             LibraryRadioButton.Tag = ".dll";
             LibraryRadioButton.Text = "  DLL Files";
             LibraryRadioButton.ThemeAuthor = "Terry D. Eppler";
-            LibraryRadioButton.ThemeName = "Budget Execution";
+            LibraryRadioButton.ThemeName = "Sherpa";
             LibraryRadioButton.ToolTip = null;
             // 
             // PowerPointRadioButton
@@ -249,7 +249,7 @@ namespace BudgetExecution
             PowerPointRadioButton.Tag = ".pptx";
             PowerPointRadioButton.Text = "  Power Point";
             PowerPointRadioButton.ThemeAuthor = "Terry D. Eppler";
-            PowerPointRadioButton.ThemeName = "Budget Execution";
+            PowerPointRadioButton.ThemeName = "Sherpa";
             PowerPointRadioButton.ToolTip = null;
             // 
             // ExecutableRadioButton
@@ -275,7 +275,7 @@ namespace BudgetExecution
             ExecutableRadioButton.Tag = ".exe";
             ExecutableRadioButton.Text = "  EXE Files";
             ExecutableRadioButton.ThemeAuthor = "Terry D. Eppler";
-            ExecutableRadioButton.ThemeName = "Budget Execution";
+            ExecutableRadioButton.ThemeName = "Sherpa";
             ExecutableRadioButton.ToolTip = null;
             // 
             // TextRadioButton
@@ -301,7 +301,7 @@ namespace BudgetExecution
             TextRadioButton.Tag = ".txt";
             TextRadioButton.Text = "  Text Files";
             TextRadioButton.ThemeAuthor = "Terry D. Eppler";
-            TextRadioButton.ThemeName = "Budget Execution";
+            TextRadioButton.ThemeName = "Sherpa";
             TextRadioButton.ToolTip = null;
             // 
             // SqlCeRadioButton
@@ -327,7 +327,7 @@ namespace BudgetExecution
             SqlCeRadioButton.Tag = ".sdf";
             SqlCeRadioButton.Text = "  SQL Compact";
             SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlCeRadioButton.ThemeName = "Budget Execution";
+            SqlCeRadioButton.ThemeName = "Sherpa";
             SqlCeRadioButton.ToolTip = null;
             // 
             // ExcelRadioButton
@@ -353,7 +353,7 @@ namespace BudgetExecution
             ExcelRadioButton.Tag = ".xlsx";
             ExcelRadioButton.Text = "  Excel Files";
             ExcelRadioButton.ThemeAuthor = "Terry D. Eppler";
-            ExcelRadioButton.ThemeName = "Budget Execution";
+            ExcelRadioButton.ThemeName = "Sherpa";
             ExcelRadioButton.ToolTip = null;
             // 
             // CsvRadioButton
@@ -379,7 +379,7 @@ namespace BudgetExecution
             CsvRadioButton.Tag = ".csv";
             CsvRadioButton.Text = "  CSV Files";
             CsvRadioButton.ThemeAuthor = "Terry D. Eppler";
-            CsvRadioButton.ThemeName = "Budget Execution";
+            CsvRadioButton.ThemeName = "Sherpa";
             CsvRadioButton.ToolTip = null;
             // 
             // AccessRadioButton
@@ -405,7 +405,7 @@ namespace BudgetExecution
             AccessRadioButton.Tag = ".accdb";
             AccessRadioButton.Text = "  MS Access";
             AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-            AccessRadioButton.ThemeName = "Budget Execution";
+            AccessRadioButton.ThemeName = "Sherpa";
             AccessRadioButton.ToolTip = null;
             // 
             // SQLiteRadioButton
@@ -431,7 +431,7 @@ namespace BudgetExecution
             SQLiteRadioButton.Tag = ".db";
             SQLiteRadioButton.Text = "  SQLite";
             SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SQLiteRadioButton.ThemeName = "Budget Execution";
+            SQLiteRadioButton.ThemeName = "Sherpa";
             SQLiteRadioButton.ToolTip = null;
             // 
             // SqlServerRadioButton
@@ -457,7 +457,7 @@ namespace BudgetExecution
             SqlServerRadioButton.Tag = ".mdf";
             SqlServerRadioButton.Text = "  SQL Server";
             SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlServerRadioButton.ThemeName = "Budget Execution";
+            SqlServerRadioButton.ThemeName = "Sherpa";
             SqlServerRadioButton.ToolTip = null;
             // 
             // WordRadioButton
@@ -483,7 +483,7 @@ namespace BudgetExecution
             WordRadioButton.Tag = ".docx";
             WordRadioButton.Text = "  Word";
             WordRadioButton.ThemeAuthor = "Terry D. Eppler";
-            WordRadioButton.ThemeName = "Budget Execution";
+            WordRadioButton.ThemeName = "Sherpa";
             WordRadioButton.ToolTip = null;
             // 
             // PdfRadioButton
@@ -509,7 +509,7 @@ namespace BudgetExecution
             PdfRadioButton.Tag = ".pdf";
             PdfRadioButton.Text = "  PDF";
             PdfRadioButton.ThemeAuthor = "Terry D. Eppler";
-            PdfRadioButton.ThemeName = "Budget Execution";
+            PdfRadioButton.ThemeName = "Sherpa";
             PdfRadioButton.ToolTip = null;
             // 
             // FileListBox
@@ -563,7 +563,7 @@ namespace BudgetExecution
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -646,7 +646,7 @@ namespace BudgetExecution
             StatusLabel.Text = "label1";
             StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             StatusLabel.ThemeAuthor = "Terry D. Eppler";
-            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ThemeName = "Sherpa";
             StatusLabel.ToolTip = ToolTip;
             // 
             // PathLabel
@@ -728,7 +728,7 @@ namespace BudgetExecution
             ClearButton.TabIndex = 22;
             ClearButton.Text = "Clear";
             ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "Budget Execution";
+            ClearButton.ThemeName = "Sherpa";
             ClearButton.ToolTip = null;
             // 
             // BrowseButton
@@ -760,7 +760,7 @@ namespace BudgetExecution
             BrowseButton.TabIndex = 18;
             BrowseButton.Text = "Browse";
             BrowseButton.ThemeAuthor = "Terry D. Eppler";
-            BrowseButton.ThemeName = "Budget Execution";
+            BrowseButton.ThemeName = "Sherpa";
             BrowseButton.ToolTip = null;
             // 
             // CloseButton
@@ -792,7 +792,7 @@ namespace BudgetExecution
             CloseButton.TabIndex = 17;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // SelectButton
@@ -824,7 +824,7 @@ namespace BudgetExecution
             SelectButton.TabIndex = 19;
             SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "Budget Execution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = null;
             // 
             // FileDialog

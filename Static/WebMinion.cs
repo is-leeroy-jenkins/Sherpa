@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     using System;
     using System.Diagnostics;

@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
 
 
@@ -103,7 +103,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -133,7 +133,7 @@
             TextBox.TabIndex = 0;
             TextBox.Text = "TextBox";
             TextBox.ThemeAuthor = "Terry D. Eppler";
-            TextBox.ThemeName = "Budget Execution";
+            TextBox.ThemeName = "Sherpa";
             TextBox.ToolTip = ToolTip;
             TextBox.WordWrap = true;
             // 
@@ -166,7 +166,7 @@
             CloseButton.TabIndex = 15;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // HeaderTable
@@ -205,7 +205,7 @@
             StatusLabel.Text = "Date Time";
             StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             StatusLabel.ThemeAuthor = "Terry D. Eppler";
-            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ThemeName = "Sherpa";
             StatusLabel.ToolTip = ToolTip;
             // 
             // ButtonTable

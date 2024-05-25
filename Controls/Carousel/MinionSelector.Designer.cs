@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
+namespace Sherpa;
 
 partial class MinionSelector
 {
@@ -115,7 +115,7 @@ partial class MinionSelector
         ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
         ToolTip.StyleManager = null;
         ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.ThemeName = "Sherpa";
         ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToolTip.TipText = null;
         ToolTip.TipTitle = null;
@@ -197,7 +197,7 @@ partial class MinionSelector
         SelectionPanel.StyleManager = null;
         SelectionPanel.TabIndex = 10;
         SelectionPanel.ThemeAuthor = "Terry D. Eppler";
-        SelectionPanel.ThemeName = "Budget Execution";
+        SelectionPanel.ThemeName = "Sherpa";
         SelectionPanel.ToolTip = null;
         // 
         // Timer

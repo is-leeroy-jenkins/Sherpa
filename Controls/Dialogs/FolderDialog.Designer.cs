@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class FolderDialog
     {
@@ -207,7 +207,7 @@
             StatusLabel.TabIndex = 2;
             StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             StatusLabel.ThemeAuthor = "Terry D. Eppler";
-            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ThemeName = "Sherpa";
             StatusLabel.ToolTip = ToolTip;
             // 
             // ToolTip
@@ -225,7 +225,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -259,7 +259,7 @@
             SelectButton.TabIndex = 19;
             SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "Budget Execution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = null;
             // 
             // FindButton
@@ -291,7 +291,7 @@
             FindButton.TabIndex = 18;
             FindButton.Text = "Browse";
             FindButton.ThemeAuthor = "Terry D. Eppler";
-            FindButton.ThemeName = "Budget Execution";
+            FindButton.ThemeName = "Sherpa";
             FindButton.ToolTip = null;
             // 
             // CloseButton
@@ -323,7 +323,7 @@
             CloseButton.TabIndex = 17;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // Timer
@@ -347,7 +347,7 @@
             MessageLabel.TabIndex = 20;
             MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MessageLabel.ThemeAuthor = "Terry D. Eppler";
-            MessageLabel.ThemeName = "Budget Execution";
+            MessageLabel.ThemeName = "Sherpa";
             MessageLabel.ToolTip = null;
             // 
             // ButtonTable
@@ -401,7 +401,7 @@
             ClearButton.TabIndex = 22;
             ClearButton.Text = "Clear";
             ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "Budget Execution";
+            ClearButton.ThemeName = "Sherpa";
             ClearButton.ToolTip = null;
             // 
             // FolderDialog

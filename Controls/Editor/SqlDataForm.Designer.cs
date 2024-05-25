@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 $CREATED_MONTH$-$CREATED_DAY$-$CREATED_YEAR$
 //
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
 
@@ -279,7 +279,7 @@ namespace BudgetExecution
             Title.Text = "Title";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // ControlBox
@@ -326,7 +326,7 @@ namespace BudgetExecution
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -552,7 +552,7 @@ namespace BudgetExecution
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
             DataGridPanel.ThemeAuthor = "Terry D. Eppler";
-            DataGridPanel.ThemeName = "Budget Execution";
+            DataGridPanel.ThemeName = "Sherpa";
             DataGridPanel.ToolTip = null;
             // 
             // DataGrid
@@ -1054,7 +1054,7 @@ namespace BudgetExecution
             SelectDataTypeLabel.Text = "Select Data Type";
             SelectDataTypeLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             SelectDataTypeLabel.ThemeAuthor = "Terry D. Eppler";
-            SelectDataTypeLabel.ThemeName = "Budget Execution";
+            SelectDataTypeLabel.ThemeName = "Sherpa";
             SelectDataTypeLabel.ToolTip = null;
             // 
             // AddColumnLabel
@@ -1076,7 +1076,7 @@ namespace BudgetExecution
             AddColumnLabel.Text = "Enter New Column Name";
             AddColumnLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             AddColumnLabel.ThemeAuthor = "Terry D. Eppler";
-            AddColumnLabel.ThemeName = "Budget Execution";
+            AddColumnLabel.ThemeName = "Sherpa";
             AddColumnLabel.ToolTip = null;
             // 
             // AddColumnTextBox
@@ -1219,7 +1219,7 @@ namespace BudgetExecution
             AddTableLabel.Text = "Enter New Table Name";
             AddTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             AddTableLabel.ThemeAuthor = "Terry D. Eppler";
-            AddTableLabel.ThemeName = "Budget Execution";
+            AddTableLabel.ThemeName = "Sherpa";
             AddTableLabel.ToolTip = null;
             // 
             // DeleteTableButton
@@ -1311,7 +1311,7 @@ namespace BudgetExecution
             SelectTableLabel.Text = "Select Data Table";
             SelectTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             SelectTableLabel.ThemeAuthor = "Terry D. Eppler";
-            SelectTableLabel.ThemeName = "Budget Execution";
+            SelectTableLabel.ThemeName = "Sherpa";
             SelectTableLabel.ToolTip = null;
             // 
             // TableNameComboBox
@@ -1380,7 +1380,7 @@ namespace BudgetExecution
             AddTableTextBox.TabIndex = 7;
             AddTableTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             AddTableTextBox.ThemeAuthor = "Terry D. Eppler";
-            AddTableTextBox.ThemeName = "Budget Execution";
+            AddTableTextBox.ThemeName = "Sherpa";
             AddTableTextBox.ToolTip = ToolTip;
             AddTableTextBox.UseSystemPasswordChar = false;
             AddTableTextBox.WatermarkText = "";
@@ -1441,7 +1441,7 @@ namespace BudgetExecution
             BusyPanel.StyleManager = null;
             BusyPanel.TabIndex = 47;
             BusyPanel.ThemeAuthor = "Terry D. Eppler";
-            BusyPanel.ThemeName = "Budget Execution";
+            BusyPanel.ThemeName = "Sherpa";
             BusyPanel.ToolTip = ToolTip;
             // 
             // Loader
@@ -1518,7 +1518,7 @@ namespace BudgetExecution
             SecondPanel.StyleManager = null;
             SecondPanel.TabIndex = 3;
             SecondPanel.ThemeAuthor = "Terry D. Eppler";
-            SecondPanel.ThemeName = "Budget Execution";
+            SecondPanel.ThemeName = "Sherpa";
             SecondPanel.ToolTip = null;
             // 
             // SqlServerRadioButton
@@ -1545,7 +1545,7 @@ namespace BudgetExecution
             SqlServerRadioButton.Tag = "SqlServer";
             SqlServerRadioButton.Text = "SQL Server";
             SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlServerRadioButton.ThemeName = "Budget Execution";
+            SqlServerRadioButton.ThemeName = "Sherpa";
             SqlServerRadioButton.ToolTip = null;
             // 
             // AccessRadioButton
@@ -1572,7 +1572,7 @@ namespace BudgetExecution
             AccessRadioButton.Tag = "Access";
             AccessRadioButton.Text = "Access";
             AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-            AccessRadioButton.ThemeName = "Budget Execution";
+            AccessRadioButton.ThemeName = "Sherpa";
             AccessRadioButton.ToolTip = null;
             // 
             // SQLiteRadioButton
@@ -1599,7 +1599,7 @@ namespace BudgetExecution
             SQLiteRadioButton.Tag = "SQLite";
             SQLiteRadioButton.Text = "SQLite";
             SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SQLiteRadioButton.ThemeName = "Budget Execution";
+            SQLiteRadioButton.ThemeName = "Sherpa";
             SQLiteRadioButton.ToolTip = null;
             // 
             // SqlCeRadioButton
@@ -1626,7 +1626,7 @@ namespace BudgetExecution
             SqlCeRadioButton.Tag = "SqlCe";
             SqlCeRadioButton.Text = "SQL Compact";
             SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlCeRadioButton.ThemeName = "Budget Execution";
+            SqlCeRadioButton.ThemeName = "Sherpa";
             SqlCeRadioButton.ToolTip = null;
             // 
             // CommandTable
@@ -1671,7 +1671,7 @@ namespace BudgetExecution
             CommandPanel.StyleManager = null;
             CommandPanel.TabIndex = 2;
             CommandPanel.ThemeAuthor = "Terry D. Eppler";
-            CommandPanel.ThemeName = "Budget Execution";
+            CommandPanel.ThemeName = "Sherpa";
             CommandPanel.ToolTip = null;
             // 
             // CommandComboBox
@@ -1705,7 +1705,7 @@ namespace BudgetExecution
             CommandComboBox.StyleManager = null;
             CommandComboBox.TabIndex = 0;
             CommandComboBox.ThemeAuthor = "Terry D. Eppler";
-            CommandComboBox.ThemeName = "Budget Execution";
+            CommandComboBox.ThemeName = "Sherpa";
             CommandComboBox.ToolTip = ToolTip;
             // 
             // SqlStatementTable
@@ -1750,7 +1750,7 @@ namespace BudgetExecution
             TextPanel.StyleManager = null;
             TextPanel.TabIndex = 1;
             TextPanel.ThemeAuthor = "Terry D. Eppler";
-            TextPanel.ThemeName = "Budget Execution";
+            TextPanel.ThemeName = "Sherpa";
             TextPanel.ToolTip = null;
             // 
             // QueryListBox
@@ -1786,7 +1786,7 @@ namespace BudgetExecution
             QueryListBox.StyleManager = null;
             QueryListBox.TabIndex = 0;
             QueryListBox.ThemeAuthor = "Terry D. Eppler";
-            QueryListBox.ThemeName = "Budget Execution";
+            QueryListBox.ThemeName = "Sherpa";
             QueryListBox.ToolTip = null;
             // 
             // ToolStrip

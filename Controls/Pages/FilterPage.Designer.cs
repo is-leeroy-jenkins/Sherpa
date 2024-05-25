@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
+namespace Sherpa;
 
 partial class FilterPage
 {
@@ -374,7 +374,7 @@ partial class FilterPage
         ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
         ToolTip.StyleManager = null;
         ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.ThemeName = "Sherpa";
         ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToolTip.TipText = null;
         ToolTip.TipTitle = null;
@@ -458,7 +458,7 @@ partial class FilterPage
         FilterHeader.TabIndex = 16;
         FilterHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         FilterHeader.ThemeAuthor = "Terry D. Eppler";
-        FilterHeader.ThemeName = "Budget Execution";
+        FilterHeader.ThemeName = "Sherpa";
         FilterHeader.ToolTip = null;
         // 
         // FourthLayoutTable
@@ -768,7 +768,7 @@ partial class FilterPage
         SourceHeader.TabIndex = 15;
         SourceHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
         SourceHeader.ThemeAuthor = "Terry D. Eppler";
-        SourceHeader.ThemeName = "Budget Execution";
+        SourceHeader.ThemeName = "Sherpa";
         SourceHeader.ToolTip = null;
         // 
         // MaintenanceTable
@@ -811,7 +811,7 @@ partial class FilterPage
         MaintenancePanel.StyleManager = null;
         MaintenancePanel.TabIndex = 2;
         MaintenancePanel.ThemeAuthor = "Terry D. Eppler";
-        MaintenancePanel.ThemeName = "Budget Execution";
+        MaintenancePanel.ThemeName = "Sherpa";
         MaintenancePanel.ToolTip = null;
         // 
         // MaintenanceListBox
@@ -846,7 +846,7 @@ partial class FilterPage
         MaintenanceListBox.StyleManager = null;
         MaintenanceListBox.TabIndex = 1;
         MaintenanceListBox.ThemeAuthor = "Terry D. Eppler";
-        MaintenanceListBox.ThemeName = "Budget Execution";
+        MaintenanceListBox.ThemeName = "Sherpa";
         MaintenanceListBox.ToolTip = null;
         // 
         // ReferenceTable
@@ -889,7 +889,7 @@ partial class FilterPage
         ReferencePanel.StyleManager = null;
         ReferencePanel.TabIndex = 2;
         ReferencePanel.ThemeAuthor = "Terry D. Eppler";
-        ReferencePanel.ThemeName = "Budget Execution";
+        ReferencePanel.ThemeName = "Sherpa";
         ReferencePanel.ToolTip = null;
         // 
         // ReferenceListBox
@@ -924,7 +924,7 @@ partial class FilterPage
         ReferenceListBox.StyleManager = null;
         ReferenceListBox.TabIndex = 1;
         ReferenceListBox.ThemeAuthor = "Terry D. Eppler";
-        ReferenceListBox.ThemeName = "Budget Execution";
+        ReferenceListBox.ThemeName = "Sherpa";
         ReferenceListBox.ToolTip = null;
         // 
         // SourceTable
@@ -967,7 +967,7 @@ partial class FilterPage
         TablePanel.StyleManager = null;
         TablePanel.TabIndex = 1;
         TablePanel.ThemeAuthor = "Terry D. Eppler";
-        TablePanel.ThemeName = "Budget Execution";
+        TablePanel.ThemeName = "Sherpa";
         TablePanel.ToolTip = null;
         // 
         // TableListBox
@@ -1002,7 +1002,7 @@ partial class FilterPage
         TableListBox.StyleManager = null;
         TableListBox.TabIndex = 1;
         TableListBox.ThemeAuthor = "Terry D. Eppler";
-        TableListBox.ThemeName = "Budget Execution";
+        TableListBox.ThemeName = "Sherpa";
         TableListBox.ToolTip = null;
         // 
         // ProviderTable
@@ -1073,7 +1073,7 @@ partial class FilterPage
         SqlCeRadioButton.Tag = "SqlCe";
         SqlCeRadioButton.Text = "  SQL Compact";
         SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SqlCeRadioButton.ThemeName = "Budget Execution";
+        SqlCeRadioButton.ThemeName = "Sherpa";
         SqlCeRadioButton.ToolTip = ToolTip;
         // 
         // AccessRadioButton
@@ -1098,7 +1098,7 @@ partial class FilterPage
         AccessRadioButton.Tag = "Access";
         AccessRadioButton.Text = "  MS Access";
         AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-        AccessRadioButton.ThemeName = "Budget Execution";
+        AccessRadioButton.ThemeName = "Sherpa";
         AccessRadioButton.ToolTip = ToolTip;
         // 
         // SqlServerRadioButton
@@ -1123,7 +1123,7 @@ partial class FilterPage
         SqlServerRadioButton.Tag = "SqlServer";
         SqlServerRadioButton.Text = "  SQL Server";
         SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SqlServerRadioButton.ThemeName = "Budget Execution";
+        SqlServerRadioButton.ThemeName = "Sherpa";
         SqlServerRadioButton.ToolTip = ToolTip;
         // 
         // SQLiteRadioButton
@@ -1148,7 +1148,7 @@ partial class FilterPage
         SQLiteRadioButton.Tag = "SQLite";
         SQLiteRadioButton.Text = "  SQLite";
         SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SQLiteRadioButton.ThemeName = "Budget Execution";
+        SQLiteRadioButton.ThemeName = "Sherpa";
         SQLiteRadioButton.ToolTip = ToolTip;
         // 
         // GroupTab
@@ -1188,7 +1188,7 @@ partial class FilterPage
         GroupHeader.TabIndex = 17;
         GroupHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
         GroupHeader.ThemeAuthor = "Terry D. Eppler";
-        GroupHeader.ThemeName = "Budget Execution";
+        GroupHeader.ThemeName = "Sherpa";
         GroupHeader.ToolTip = null;
         // 
         // SqlTable
@@ -1231,7 +1231,7 @@ partial class FilterPage
         SqlPanel.StyleManager = null;
         SqlPanel.TabIndex = 0;
         SqlPanel.ThemeAuthor = "Terry D. Eppler";
-        SqlPanel.ThemeName = "Budget Execution";
+        SqlPanel.ThemeName = "Sherpa";
         SqlPanel.ToolTip = null;
         // 
         // SqlTextBox
@@ -1263,7 +1263,7 @@ partial class FilterPage
         SqlTextBox.TabIndex = 0;
         SqlTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
         SqlTextBox.ThemeAuthor = "Terry D. Eppler";
-        SqlTextBox.ThemeName = "Budget Execution";
+        SqlTextBox.ThemeName = "Sherpa";
         SqlTextBox.ToolTip = ToolTip;
         SqlTextBox.UseSystemPasswordChar = false;
         SqlTextBox.WatermarkText = "";
@@ -1309,7 +1309,7 @@ partial class FilterPage
         NumericPanel.StyleManager = null;
         NumericPanel.TabIndex = 0;
         NumericPanel.ThemeAuthor = "Terry D. Eppler";
-        NumericPanel.ThemeName = "Budget Execution";
+        NumericPanel.ThemeName = "Sherpa";
         NumericPanel.ToolTip = null;
         // 
         // NumericListBox
@@ -1344,7 +1344,7 @@ partial class FilterPage
         NumericListBox.StyleManager = null;
         NumericListBox.TabIndex = 0;
         NumericListBox.ThemeAuthor = "Terry D. Eppler";
-        NumericListBox.ThemeName = "Budget Execution";
+        NumericListBox.ThemeName = "Sherpa";
         NumericListBox.ToolTip = null;
         // 
         // FieldTable
@@ -1388,7 +1388,7 @@ partial class FilterPage
         FieldPanel.StyleManager = null;
         FieldPanel.TabIndex = 0;
         FieldPanel.ThemeAuthor = "Terry D. Eppler";
-        FieldPanel.ThemeName = "Budget Execution";
+        FieldPanel.ThemeName = "Sherpa";
         FieldPanel.ToolTip = null;
         // 
         // FieldListBox
@@ -1423,7 +1423,7 @@ partial class FilterPage
         FieldListBox.StyleManager = null;
         FieldListBox.TabIndex = 0;
         FieldListBox.ThemeAuthor = "Terry D. Eppler";
-        FieldListBox.ThemeName = "Budget Execution";
+        FieldListBox.ThemeName = "Sherpa";
         FieldListBox.ToolTip = null;
         // 
         // CalendarTab
@@ -1467,7 +1467,7 @@ partial class FilterPage
         TimeSpanPanel.StyleManager = null;
         TimeSpanPanel.TabIndex = 21;
         TimeSpanPanel.ThemeAuthor = "Terry D. Eppler";
-        TimeSpanPanel.ThemeName = "Budget Execution";
+        TimeSpanPanel.ThemeName = "Sherpa";
         TimeSpanPanel.ToolTip = null;
         // 
         // TimeSpanTable
@@ -1518,7 +1518,7 @@ partial class FilterPage
         TimeSpanLabel.Text = "Label";
         TimeSpanLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         TimeSpanLabel.ThemeAuthor = "Terry D. Eppler";
-        TimeSpanLabel.ThemeName = "Budget Execution";
+        TimeSpanLabel.ThemeName = "Sherpa";
         TimeSpanLabel.ToolTip = null;
         // 
         // FirstLabel
@@ -1540,7 +1540,7 @@ partial class FilterPage
         FirstLabel.Text = "Label";
         FirstLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         FirstLabel.ThemeAuthor = "Terry D. Eppler";
-        FirstLabel.ThemeName = "Budget Execution";
+        FirstLabel.ThemeName = "Sherpa";
         FirstLabel.ToolTip = null;
         // 
         // SecondLabel
@@ -1562,7 +1562,7 @@ partial class FilterPage
         SecondLabel.Text = "Label";
         SecondLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         SecondLabel.ThemeAuthor = "Terry D. Eppler";
-        SecondLabel.ThemeName = "Budget Execution";
+        SecondLabel.ThemeName = "Sherpa";
         SecondLabel.ToolTip = null;
         // 
         // ThirdLabel
@@ -1584,7 +1584,7 @@ partial class FilterPage
         ThirdLabel.Text = "Label";
         ThirdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         ThirdLabel.ThemeAuthor = "Terry D. Eppler";
-        ThirdLabel.ThemeName = "Budget Execution";
+        ThirdLabel.ThemeName = "Sherpa";
         ThirdLabel.ToolTip = null;
         // 
         // FourthLabel
@@ -1606,7 +1606,7 @@ partial class FilterPage
         FourthLabel.Text = "Label";
         FourthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         FourthLabel.ThemeAuthor = "Terry D. Eppler";
-        FourthLabel.ThemeName = "Budget Execution";
+        FourthLabel.ThemeName = "Sherpa";
         FourthLabel.ToolTip = null;
         // 
         // FifthLable
@@ -1628,7 +1628,7 @@ partial class FilterPage
         FifthLable.Text = "Label";
         FifthLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         FifthLable.ThemeAuthor = "Terry D. Eppler";
-        FifthLable.ThemeName = "Budget Execution";
+        FifthLable.ThemeName = "Sherpa";
         FifthLable.ToolTip = null;
         // 
         // TimeSpanHeader
@@ -1649,7 +1649,7 @@ partial class FilterPage
         TimeSpanHeader.TabIndex = 18;
         TimeSpanHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
         TimeSpanHeader.ThemeAuthor = "Terry D. Eppler";
-        TimeSpanHeader.ThemeName = "Budget Execution";
+        TimeSpanHeader.ThemeName = "Sherpa";
         TimeSpanHeader.ToolTip = null;
         // 
         // StartDatePanel
@@ -1674,7 +1674,7 @@ partial class FilterPage
         StartDatePanel.StyleManager = null;
         StartDatePanel.TabIndex = 19;
         StartDatePanel.ThemeAuthor = "Terry D. Eppler";
-        StartDatePanel.ThemeName = "Budget Execution";
+        StartDatePanel.ThemeName = "Sherpa";
         StartDatePanel.ToolTip = null;
         // 
         // FirstCalendarTable
@@ -1764,7 +1764,7 @@ partial class FilterPage
         FirstCalendarLabel.Text = "Label";
         FirstCalendarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         FirstCalendarLabel.ThemeAuthor = "Terry D. Eppler";
-        FirstCalendarLabel.ThemeName = "Budget Execution";
+        FirstCalendarLabel.ThemeName = "Sherpa";
         FirstCalendarLabel.ToolTip = null;
         // 
         // EndDatePanel
@@ -1789,7 +1789,7 @@ partial class FilterPage
         EndDatePanel.StyleManager = null;
         EndDatePanel.TabIndex = 20;
         EndDatePanel.ThemeAuthor = "Terry D. Eppler";
-        EndDatePanel.ThemeName = "Budget Execution";
+        EndDatePanel.ThemeName = "Sherpa";
         EndDatePanel.ToolTip = null;
         // 
         // SecondCalendarTable
@@ -1880,7 +1880,7 @@ partial class FilterPage
         SecondCalendarLabel.Text = "Label";
         SecondCalendarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         SecondCalendarLabel.ThemeAuthor = "Terry D. Eppler";
-        SecondCalendarLabel.ThemeName = "Budget Execution";
+        SecondCalendarLabel.ThemeName = "Sherpa";
         SecondCalendarLabel.ToolTip = null;
         // 
         // SqlTab
@@ -2066,7 +2066,7 @@ partial class FilterPage
         TextPanel.StyleManager = null;
         TextPanel.TabIndex = 1;
         TextPanel.ThemeAuthor = "Terry D. Eppler";
-        TextPanel.ThemeName = "Budget Execution";
+        TextPanel.ThemeName = "Sherpa";
         TextPanel.ToolTip = null;
         // 
         // CommandQueryListBox
@@ -2102,7 +2102,7 @@ partial class FilterPage
         CommandQueryListBox.StyleManager = null;
         CommandQueryListBox.TabIndex = 0;
         CommandQueryListBox.ThemeAuthor = "Terry D. Eppler";
-        CommandQueryListBox.ThemeName = "Budget Execution";
+        CommandQueryListBox.ThemeName = "Sherpa";
         CommandQueryListBox.ToolTip = null;
         // 
         // CommandTable
@@ -2145,7 +2145,7 @@ partial class FilterPage
         CommandPanel.StyleManager = null;
         CommandPanel.TabIndex = 2;
         CommandPanel.ThemeAuthor = "Terry D. Eppler";
-        CommandPanel.ThemeName = "Budget Execution";
+        CommandPanel.ThemeName = "Sherpa";
         CommandPanel.ToolTip = null;
         // 
         // CommandQueryComboBox
@@ -2179,7 +2179,7 @@ partial class FilterPage
         CommandQueryComboBox.StyleManager = null;
         CommandQueryComboBox.TabIndex = 0;
         CommandQueryComboBox.ThemeAuthor = "Terry D. Eppler";
-        CommandQueryComboBox.ThemeName = "Budget Execution";
+        CommandQueryComboBox.ThemeName = "Sherpa";
         CommandQueryComboBox.ToolTip = null;
         // 
         // CloseButton
@@ -2211,7 +2211,7 @@ partial class FilterPage
         CloseButton.TabIndex = 15;
         CloseButton.Text = "Close";
         CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "Budget Execution";
+        CloseButton.ThemeName = "Sherpa";
         CloseButton.ToolTip = ToolTip;
         // 
         // SelectButton
@@ -2243,7 +2243,7 @@ partial class FilterPage
         SelectButton.TabIndex = 16;
         SelectButton.Text = "Select";
         SelectButton.ThemeAuthor = "Terry D. Eppler";
-        SelectButton.ThemeName = "Budget Execution";
+        SelectButton.ThemeName = "Sherpa";
         SelectButton.ToolTip = ToolTip;
         // 
         // GroupButton
@@ -2275,7 +2275,7 @@ partial class FilterPage
         GroupButton.TabIndex = 17;
         GroupButton.Text = "Group";
         GroupButton.ThemeAuthor = "Terry D. Eppler";
-        GroupButton.ThemeName = "Budget Execution";
+        GroupButton.ThemeName = "Sherpa";
         GroupButton.ToolTip = ToolTip;
         // 
         // ClearButton
@@ -2307,7 +2307,7 @@ partial class FilterPage
         ClearButton.TabIndex = 18;
         ClearButton.Text = "Clear";
         ClearButton.ThemeAuthor = "Terry D. Eppler";
-        ClearButton.ThemeName = "Budget Execution";
+        ClearButton.ThemeName = "Sherpa";
         ClearButton.ToolTip = ToolTip;
         // 
         // Timer

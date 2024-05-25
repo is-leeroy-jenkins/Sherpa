@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                RichTextBox.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -43,7 +43,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Collections.Generic;
@@ -99,7 +99,7 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
+            ThemeName = "Sherpa";
             Size = new Size( 140, 30 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;

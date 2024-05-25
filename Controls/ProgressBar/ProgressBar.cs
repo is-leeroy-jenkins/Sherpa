@@ -3,7 +3,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 
-namespace BudgetExecution 
+namespace Sherpa 
 {
     using System;
     using Syncfusion.Windows.Forms.Tools;

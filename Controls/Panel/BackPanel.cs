@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                BackPanel.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -43,7 +43,7 @@
 
 using System.Collections;
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Collections.Generic;
@@ -111,7 +111,7 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
+            ThemeName = "Sherpa";
             Size = new Size( 700, 428 );
             Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;

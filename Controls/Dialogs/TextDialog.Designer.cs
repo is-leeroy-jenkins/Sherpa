@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 $CREATED_MONTH$-$CREATED_DAY$-$CREATED_YEAR$
 //
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     partial class TextDialog
     {
@@ -266,7 +266,7 @@ namespace BudgetExecution
             Title.Text = "Text Editor";
             Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // PictureBox
@@ -309,7 +309,7 @@ namespace BudgetExecution
             EditorPanel.StyleManager = null;
             EditorPanel.TabIndex = 2;
             EditorPanel.ThemeAuthor = "Terry D. Eppler";
-            EditorPanel.ThemeName = "Budget Execution";
+            EditorPanel.ThemeName = "Sherpa";
             EditorPanel.ToolTip = null;
             // 
             // Editor

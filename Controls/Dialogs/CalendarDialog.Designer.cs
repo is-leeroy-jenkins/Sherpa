@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     using System.ComponentModel;
     using System.Windows.Forms;
@@ -105,7 +105,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -139,7 +139,7 @@
             CloseButton.TabIndex = 1;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // Header
@@ -186,7 +186,7 @@
             HeaderLabel.Text = "Budget Calendar";
             HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             HeaderLabel.ThemeAuthor = "Terry D. Eppler";
-            HeaderLabel.ThemeName = "Budget Execution";
+            HeaderLabel.ThemeName = "Sherpa";
             HeaderLabel.ToolTip = null;
             // 
             // SelectButton
@@ -218,7 +218,7 @@
             SelectButton.TabIndex = 4;
             SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "Budget Execution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = null;
             // 
             // CalendarDialog

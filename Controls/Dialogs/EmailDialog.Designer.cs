@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
+namespace Sherpa;
 
 partial class EmailDialog
 {
@@ -158,7 +158,7 @@ partial class EmailDialog
         ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
         ToolTip.StyleManager = null;
         ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.ThemeName = "Sherpa";
         ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToolTip.TipText = null;
         ToolTip.TipTitle = null;
@@ -342,7 +342,7 @@ partial class EmailDialog
         FirstPanel.StyleManager = null;
         FirstPanel.TabIndex = 0;
         FirstPanel.ThemeAuthor = "Terry D. Eppler";
-        FirstPanel.ThemeName = "Budget Execution";
+        FirstPanel.ThemeName = "Sherpa";
         FirstPanel.ToolTip = null;
         // 
         // FirstListBox
@@ -378,7 +378,7 @@ partial class EmailDialog
         FirstListBox.StyleManager = null;
         FirstListBox.TabIndex = 0;
         FirstListBox.ThemeAuthor = "Terry D. Eppler";
-        FirstListBox.ThemeName = "Budget Execution";
+        FirstListBox.ThemeName = "Sherpa";
         FirstListBox.ToolTip = null;
         // 
         // SentTab
@@ -416,7 +416,7 @@ partial class EmailDialog
         SecondPanel.StyleManager = null;
         SecondPanel.TabIndex = 1;
         SecondPanel.ThemeAuthor = "Terry D. Eppler";
-        SecondPanel.ThemeName = "Budget Execution";
+        SecondPanel.ThemeName = "Sherpa";
         SecondPanel.ToolTip = null;
         // 
         // SecondListBox
@@ -452,7 +452,7 @@ partial class EmailDialog
         SecondListBox.StyleManager = null;
         SecondListBox.TabIndex = 0;
         SecondListBox.ThemeAuthor = "Terry D. Eppler";
-        SecondListBox.ThemeName = "Budget Execution";
+        SecondListBox.ThemeName = "Sherpa";
         SecondListBox.ToolTip = null;
         // 
         // ThirdTabPage
@@ -490,7 +490,7 @@ partial class EmailDialog
         ThirdPanel.StyleManager = null;
         ThirdPanel.TabIndex = 2;
         ThirdPanel.ThemeAuthor = "Terry D. Eppler";
-        ThirdPanel.ThemeName = "Budget Execution";
+        ThirdPanel.ThemeName = "Sherpa";
         ThirdPanel.ToolTip = null;
         // 
         // ThirdListBox
@@ -525,7 +525,7 @@ partial class EmailDialog
         ThirdListBox.StyleManager = null;
         ThirdListBox.TabIndex = 0;
         ThirdListBox.ThemeAuthor = "Terry D. Eppler";
-        ThirdListBox.ThemeName = "Budget Execution";
+        ThirdListBox.ThemeName = "Sherpa";
         ThirdListBox.ToolTip = null;
         // 
         // TileTable
@@ -572,7 +572,7 @@ partial class EmailDialog
         TilePanel.StyleManager = null;
         TilePanel.TabIndex = 0;
         TilePanel.ThemeAuthor = "Terry D. Eppler";
-        TilePanel.ThemeName = "Budget Execution";
+        TilePanel.ThemeName = "Sherpa";
         TilePanel.ToolTip = null;
         // 
         // RadioButtonTable
@@ -614,7 +614,7 @@ partial class EmailDialog
         ThirdRadioButton.TabIndex = 2;
         ThirdRadioButton.Text = "Deleted";
         ThirdRadioButton.ThemeAuthor = "Terry D. Eppler";
-        ThirdRadioButton.ThemeName = "Budget Execution";
+        ThirdRadioButton.ThemeName = "Sherpa";
         ThirdRadioButton.ToolTip = null;
         // 
         // SecondRadioButton
@@ -639,7 +639,7 @@ partial class EmailDialog
         SecondRadioButton.TabIndex = 1;
         SecondRadioButton.Text = "Sent";
         SecondRadioButton.ThemeAuthor = "Terry D. Eppler";
-        SecondRadioButton.ThemeName = "Budget Execution";
+        SecondRadioButton.ThemeName = "Sherpa";
         SecondRadioButton.ToolTip = null;
         // 
         // FirstRadioButton
@@ -664,7 +664,7 @@ partial class EmailDialog
         FirstRadioButton.TabIndex = 0;
         FirstRadioButton.Text = "Inbox";
         FirstRadioButton.ThemeAuthor = "Terry D. Eppler";
-        FirstRadioButton.ThemeName = "Budget Execution";
+        FirstRadioButton.ThemeName = "Sherpa";
         FirstRadioButton.ToolTip = null;
         // 
         // ButtonTable
@@ -721,7 +721,7 @@ partial class EmailDialog
         CloseButton.TabIndex = 0;
         CloseButton.Text = "Close";
         CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "Budget Execution";
+        CloseButton.ThemeName = "Sherpa";
         CloseButton.ToolTip = ToolTip;
         // 
         // ClearButton
@@ -753,7 +753,7 @@ partial class EmailDialog
         ClearButton.TabIndex = 1;
         ClearButton.Text = "Clear";
         ClearButton.ThemeAuthor = "Terry D. Eppler";
-        ClearButton.ThemeName = "Budget Execution";
+        ClearButton.ThemeName = "Sherpa";
         ClearButton.ToolTip = ToolTip;
         // 
         // MenuButton
@@ -785,7 +785,7 @@ partial class EmailDialog
         MenuButton.TabIndex = 2;
         MenuButton.Text = "Menu";
         MenuButton.ThemeAuthor = "Terry D. Eppler";
-        MenuButton.ThemeName = "Budget Execution";
+        MenuButton.ThemeName = "Sherpa";
         MenuButton.ToolTip = null;
         // 
         // StatusLabel
@@ -807,7 +807,7 @@ partial class EmailDialog
         StatusLabel.Text = "Date and Time";
         StatusLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
         StatusLabel.ThemeAuthor = "Terry D. Eppler";
-        StatusLabel.ThemeName = "Budget Execution";
+        StatusLabel.ThemeName = "Sherpa";
         StatusLabel.ToolTip = ToolTip;
         // 
         // EditorTable
@@ -937,7 +937,7 @@ partial class EmailDialog
         Title.Text = "Title";
         Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
         Title.ThemeAuthor = "Terry D. Eppler";
-        Title.ThemeName = "Budget Execution";
+        Title.ThemeName = "Sherpa";
         Title.ToolTip = ToolTip;
         // 
         // Timer

@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                SmallTip.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -41,7 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.ComponentModel;
@@ -113,7 +113,7 @@ namespace BudgetExecution
         {
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
+            ThemeName = "Sherpa";
             BackColor = Color.FromArgb( 5, 5, 5 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ForeColor = Color.White;

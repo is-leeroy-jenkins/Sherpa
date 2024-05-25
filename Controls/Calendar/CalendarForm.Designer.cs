@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     sealed partial class CalendarForm
     {
@@ -214,7 +214,7 @@ namespace BudgetExecution
             Title.Text = "Budget Fiscal Year";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // HeaderTable
@@ -278,7 +278,7 @@ namespace BudgetExecution
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -913,7 +913,7 @@ namespace BudgetExecution
             FirstCalendarPanel.StyleManager = null;
             FirstCalendarPanel.TabIndex = 0;
             FirstCalendarPanel.ThemeAuthor = "Terry D. Eppler";
-            FirstCalendarPanel.ThemeName = "Budget Execution";
+            FirstCalendarPanel.ThemeName = "Sherpa";
             FirstCalendarPanel.ToolTip = null;
             // 
             // FirstCalendar
@@ -1010,7 +1010,7 @@ namespace BudgetExecution
             SecondCalendarPanel.StyleManager = null;
             SecondCalendarPanel.TabIndex = 0;
             SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
-            SecondCalendarPanel.ThemeName = "Budget Execution";
+            SecondCalendarPanel.ThemeName = "Sherpa";
             SecondCalendarPanel.ToolTip = null;
             // 
             // SecondCalendar
@@ -1161,7 +1161,7 @@ namespace BudgetExecution
             ChartLayout.StyleManager = null;
             ChartLayout.TabIndex = 0;
             ChartLayout.ThemeAuthor = "Terry D. Eppler";
-            ChartLayout.ThemeName = "Budget Execution";
+            ChartLayout.ThemeName = "Sherpa";
             ChartLayout.ToolTip = null;
             // 
             // Chart
@@ -1280,7 +1280,7 @@ namespace BudgetExecution
             GridPanel.StyleManager = null;
             GridPanel.TabIndex = 0;
             GridPanel.ThemeAuthor = "Terry D. Eppler";
-            GridPanel.ThemeName = "Budget Execution";
+            GridPanel.ThemeName = "Sherpa";
             GridPanel.ToolTip = null;
             // 
             // DataGrid
@@ -1393,7 +1393,7 @@ namespace BudgetExecution
             TimeTableLayout.StyleManager = null;
             TimeTableLayout.TabIndex = 1;
             TimeTableLayout.ThemeAuthor = "Terry D. Eppler";
-            TimeTableLayout.ThemeName = "Budget Execution";
+            TimeTableLayout.ThemeName = "Sherpa";
             TimeTableLayout.ToolTip = null;
             // 
             // TimeSpanTable
@@ -1444,7 +1444,7 @@ namespace BudgetExecution
             Label11.Text = "Text";
             Label11.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label11.ThemeAuthor = "Terry D. Eppler";
-            Label11.ThemeName = "Budget Execution";
+            Label11.ThemeName = "Sherpa";
             Label11.ToolTip = null;
             // 
             // Label3
@@ -1466,7 +1466,7 @@ namespace BudgetExecution
             Label3.Text = "Text";
             Label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label3.ThemeAuthor = "Terry D. Eppler";
-            Label3.ThemeName = "Budget Execution";
+            Label3.ThemeName = "Sherpa";
             Label3.ToolTip = null;
             // 
             // Label2
@@ -1488,7 +1488,7 @@ namespace BudgetExecution
             Label2.Text = "Text";
             Label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label2.ThemeAuthor = "Terry D. Eppler";
-            Label2.ThemeName = "Budget Execution";
+            Label2.ThemeName = "Sherpa";
             Label2.ToolTip = null;
             // 
             // Label1
@@ -1510,7 +1510,7 @@ namespace BudgetExecution
             Label1.Text = "Text";
             Label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label1.ThemeAuthor = "Terry D. Eppler";
-            Label1.ThemeName = "Budget Execution";
+            Label1.ThemeName = "Sherpa";
             Label1.ToolTip = null;
             // 
             // Label4
@@ -1532,7 +1532,7 @@ namespace BudgetExecution
             Label4.Text = "Text";
             Label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label4.ThemeAuthor = "Terry D. Eppler";
-            Label4.ThemeName = "Budget Execution";
+            Label4.ThemeName = "Sherpa";
             Label4.ToolTip = null;
             // 
             // Label5
@@ -1554,7 +1554,7 @@ namespace BudgetExecution
             Label5.Text = "Text";
             Label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label5.ThemeAuthor = "Terry D. Eppler";
-            Label5.ThemeName = "Budget Execution";
+            Label5.ThemeName = "Sherpa";
             Label5.ToolTip = null;
             // 
             // Label6
@@ -1576,7 +1576,7 @@ namespace BudgetExecution
             Label6.Text = "Text";
             Label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label6.ThemeAuthor = "Terry D. Eppler";
-            Label6.ThemeName = "Budget Execution";
+            Label6.ThemeName = "Sherpa";
             Label6.ToolTip = null;
             // 
             // Label7
@@ -1598,7 +1598,7 @@ namespace BudgetExecution
             Label7.Text = "Text";
             Label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label7.ThemeAuthor = "Terry D. Eppler";
-            Label7.ThemeName = "Budget Execution";
+            Label7.ThemeName = "Sherpa";
             Label7.ToolTip = null;
             // 
             // Label8
@@ -1620,7 +1620,7 @@ namespace BudgetExecution
             Label8.Text = "Text";
             Label8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label8.ThemeAuthor = "Terry D. Eppler";
-            Label8.ThemeName = "Budget Execution";
+            Label8.ThemeName = "Sherpa";
             Label8.ToolTip = null;
             // 
             // Label9
@@ -1642,7 +1642,7 @@ namespace BudgetExecution
             Label9.Text = "Text";
             Label9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label9.ThemeAuthor = "Terry D. Eppler";
-            Label9.ThemeName = "Budget Execution";
+            Label9.ThemeName = "Sherpa";
             Label9.ToolTip = null;
             // 
             // Label12
@@ -1664,7 +1664,7 @@ namespace BudgetExecution
             Label12.Text = "Text";
             Label12.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label12.ThemeAuthor = "Terry D. Eppler";
-            Label12.ThemeName = "Budget Execution";
+            Label12.ThemeName = "Sherpa";
             Label12.ToolTip = null;
             // 
             // Label10
@@ -1686,7 +1686,7 @@ namespace BudgetExecution
             Label10.Text = "Text";
             Label10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             Label10.ThemeAuthor = "Terry D. Eppler";
-            Label10.ThemeName = "Budget Execution";
+            Label10.ThemeName = "Sherpa";
             Label10.ToolTip = null;
             // 
             // Timer

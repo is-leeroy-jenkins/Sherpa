@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                Hyperlink.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -41,7 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Drawing;
@@ -70,7 +70,7 @@ namespace BudgetExecution
             TextAlign = ContentAlignment.MiddleLeft;
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
+            ThemeName = "Sherpa";
         }
 
         /// <inheritdoc/>

@@ -1,5 +1,5 @@
 ﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
+//      Assembly:                Sherpa
 //      Filename:                Label.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
@@ -41,7 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
@@ -93,7 +93,7 @@ namespace BudgetExecution
             // Basic Properties
             base.Style = Style.Custom;
             base.ThemeAuthor = "Terry D. Eppler";
-            base.ThemeName = "Budget Execution";
+            base.ThemeName = "Sherpa";
             base.Size = new Size( 165, 23 );
             base.BackColor = Color.Transparent;
             base.ForeColor = Color.FromArgb( 106, 189, 252 );

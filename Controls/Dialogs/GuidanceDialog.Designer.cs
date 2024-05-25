@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution
+namespace Sherpa
 {
     public partial class GuidanceDialog
     {
@@ -93,7 +93,7 @@ namespace BudgetExecution
             ListBox.StyleManager = null;
             ListBox.TabIndex = 0;
             ListBox.ThemeAuthor = "Terry D. Eppler";
-            ListBox.ThemeName = "Budget Execution";
+            ListBox.ThemeName = "Sherpa";
             ListBox.ToolTip = null;
             // 
             // Picture
@@ -132,7 +132,7 @@ namespace BudgetExecution
             Title.Text = "Guidance";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = ToolTip;
             // 
             // ToolTip
@@ -150,7 +150,7 @@ namespace BudgetExecution
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -193,7 +193,7 @@ namespace BudgetExecution
             PathLabel.TabIndex = 10;
             PathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             PathLabel.ThemeAuthor = "Terry D. Eppler";
-            PathLabel.ThemeName = "Budget Execution";
+            PathLabel.ThemeName = "Sherpa";
             PathLabel.ToolTip = null;
             // 
             // ButtonTable
@@ -246,7 +246,7 @@ namespace BudgetExecution
             ClearButton.TabIndex = 0;
             ClearButton.Text = "Clear";
             ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "Budget Execution";
+            ClearButton.ThemeName = "Sherpa";
             ClearButton.ToolTip = null;
             // 
             // BrowseButton
@@ -278,7 +278,7 @@ namespace BudgetExecution
             BrowseButton.TabIndex = 1;
             BrowseButton.Text = "Browse";
             BrowseButton.ThemeAuthor = "Terry D. Eppler";
-            BrowseButton.ThemeName = "Budget Execution";
+            BrowseButton.ThemeName = "Sherpa";
             BrowseButton.ToolTip = null;
             // 
             // SelectButton
@@ -310,7 +310,7 @@ namespace BudgetExecution
             SelectButton.TabIndex = 4;
             SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
-            SelectButton.ThemeName = "Budget Execution";
+            SelectButton.ThemeName = "Sherpa";
             SelectButton.ToolTip = null;
             // 
             // MenuButton
@@ -342,7 +342,7 @@ namespace BudgetExecution
             MenuButton.TabIndex = 2;
             MenuButton.Text = "Menu";
             MenuButton.ThemeAuthor = "Terry D. Eppler";
-            MenuButton.ThemeName = "Budget Execution";
+            MenuButton.ThemeName = "Sherpa";
             MenuButton.ToolTip = null;
             // 
             // CloseButton
@@ -374,7 +374,7 @@ namespace BudgetExecution
             CloseButton.TabIndex = 3;
             CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ThemeName = "Sherpa";
             CloseButton.ToolTip = null;
             // 
             // ListBoxPanel
@@ -399,7 +399,7 @@ namespace BudgetExecution
             ListBoxPanel.StyleManager = null;
             ListBoxPanel.TabIndex = 12;
             ListBoxPanel.ThemeAuthor = "Terry D. Eppler";
-            ListBoxPanel.ThemeName = "Budget Execution";
+            ListBoxPanel.ThemeName = "Sherpa";
             ListBoxPanel.ToolTip = null;
             // 
             // GuidanceDialog

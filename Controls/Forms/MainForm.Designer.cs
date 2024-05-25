@@ -1,5 +1,5 @@
 ﻿
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
 
@@ -215,7 +215,7 @@ namespace BudgetExecution
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -1028,7 +1028,7 @@ namespace BudgetExecution
             BrowserPanel.StyleManager = null;
             BrowserPanel.TabIndex = 0;
             BrowserPanel.ThemeAuthor = "Terry D. Eppler";
-            BrowserPanel.ThemeName = "Budget Execution";
+            BrowserPanel.ThemeName = "Sherpa";
             BrowserPanel.ToolTip = null;
             // 
             // ClientTable
@@ -1076,7 +1076,7 @@ namespace BudgetExecution
             ClientPanel.StyleManager = null;
             ClientPanel.TabIndex = 0;
             ClientPanel.ThemeAuthor = "Terry D. Eppler";
-            ClientPanel.ThemeName = "Budget Execution";
+            ClientPanel.ThemeName = "Sherpa";
             ClientPanel.ToolTip = null;
             // 
             // UtilityTable
@@ -1123,7 +1123,7 @@ namespace BudgetExecution
             UtilityPanel.StyleManager = null;
             UtilityPanel.TabIndex = 0;
             UtilityPanel.ThemeAuthor = "Terry D. Eppler";
-            UtilityPanel.ThemeName = "Budget Execution";
+            UtilityPanel.ThemeName = "Sherpa";
             UtilityPanel.ToolTip = null;
             // 
             // DataManagementTable
@@ -1172,7 +1172,7 @@ namespace BudgetExecution
             DataManagementPanel.StyleManager = null;
             DataManagementPanel.TabIndex = 0;
             DataManagementPanel.ThemeAuthor = "Terry D. Eppler";
-            DataManagementPanel.ThemeName = "Budget Execution";
+            DataManagementPanel.ThemeName = "Sherpa";
             DataManagementPanel.ToolTip = null;
             // 
             // ResourceTable
@@ -1218,7 +1218,7 @@ namespace BudgetExecution
             ResourcePanel.StyleManager = null;
             ResourcePanel.TabIndex = 0;
             ResourcePanel.ThemeAuthor = "Terry D. Eppler";
-            ResourcePanel.ThemeName = "Budget Execution";
+            ResourcePanel.ThemeName = "Sherpa";
             ResourcePanel.ToolTip = null;
             // 
             // Timer

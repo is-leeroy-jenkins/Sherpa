@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
+namespace Sherpa;
 
 partial class ProgramProjectDialog
 {
@@ -93,7 +93,7 @@ partial class ProgramProjectDialog
         StatutoryAuthorityTextBox.TabIndex = 1;
         StatutoryAuthorityTextBox.Tag = "Laws";
         StatutoryAuthorityTextBox.ThemeAuthor = "Terry D. Eppler";
-        StatutoryAuthorityTextBox.ThemeName = "Budget Execution";
+        StatutoryAuthorityTextBox.ThemeName = "Sherpa";
         StatutoryAuthorityTextBox.ToolTip = ToolTip;
         StatutoryAuthorityTextBox.WordWrap = true;
         // 
@@ -112,7 +112,7 @@ partial class ProgramProjectDialog
         ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
         ToolTip.StyleManager = null;
         ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.ThemeName = "Sherpa";
         ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToolTip.TipText = null;
         ToolTip.TipTitle = null;
@@ -144,7 +144,7 @@ partial class ProgramProjectDialog
         ProgramDescriptionTextBox.TabIndex = 1;
         ProgramDescriptionTextBox.Tag = "Description";
         ProgramDescriptionTextBox.ThemeAuthor = "Terry D. Eppler";
-        ProgramDescriptionTextBox.ThemeName = "Budget Execution";
+        ProgramDescriptionTextBox.ThemeName = "Sherpa";
         ProgramDescriptionTextBox.ToolTip = ToolTip;
         ProgramDescriptionTextBox.WordWrap = true;
         // 
@@ -174,7 +174,7 @@ partial class ProgramProjectDialog
         ProgramAreaNameTextBox.StyleManager = null;
         ProgramAreaNameTextBox.TabIndex = 1;
         ProgramAreaNameTextBox.ThemeAuthor = "Terry D. Eppler";
-        ProgramAreaNameTextBox.ThemeName = "Budget Execution";
+        ProgramAreaNameTextBox.ThemeName = "Sherpa";
         ProgramAreaNameTextBox.ToolTip = ToolTip;
         ProgramAreaNameTextBox.WordWrap = true;
         // 
@@ -205,7 +205,7 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.TabIndex = 1;
         ProgramProjectNameTextBox.Tag = "Code";
         ProgramProjectNameTextBox.ThemeAuthor = "Terry D. Eppler";
-        ProgramProjectNameTextBox.ThemeName = "Budget Execution";
+        ProgramProjectNameTextBox.ThemeName = "Sherpa";
         ProgramProjectNameTextBox.ToolTip = ToolTip;
         ProgramProjectNameTextBox.WordWrap = true;
         // 
@@ -328,7 +328,7 @@ partial class ProgramProjectDialog
         Header.Text = "label1";
         Header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
         Header.ThemeAuthor = "Terry D. Eppler";
-        Header.ThemeName = "Budget Execution";
+        Header.ThemeName = "Sherpa";
         Header.ToolTip = null;
         // 
         // ComboBox
@@ -364,7 +364,7 @@ partial class ProgramProjectDialog
         ComboBox.StyleManager = null;
         ComboBox.TabIndex = 19;
         ComboBox.ThemeAuthor = "Terry D. Eppler";
-        ComboBox.ThemeName = "Budget Execution";
+        ComboBox.ThemeName = "Sherpa";
         ComboBox.ToolTip = ToolTip;
         // 
         // MenuButton
@@ -397,7 +397,7 @@ partial class ProgramProjectDialog
         MenuButton.TabIndex = 20;
         MenuButton.Text = "Main";
         MenuButton.ThemeAuthor = "Terry D. Eppler";
-        MenuButton.ThemeName = "Budget Execution";
+        MenuButton.ThemeName = "Sherpa";
         MenuButton.ToolTip = ToolTip;
         // 
         // CloseButton
@@ -430,7 +430,7 @@ partial class ProgramProjectDialog
         CloseButton.TabIndex = 21;
         CloseButton.Text = "Close";
         CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "Budget Execution";
+        CloseButton.ThemeName = "Sherpa";
         CloseButton.ToolTip = ToolTip;
         // 
         // SearchButton
@@ -463,7 +463,7 @@ partial class ProgramProjectDialog
         SearchButton.TabIndex = 22;
         SearchButton.Text = "Search";
         SearchButton.ThemeAuthor = "Terry D. Eppler";
-        SearchButton.ThemeName = "Budget Execution";
+        SearchButton.ThemeName = "Sherpa";
         SearchButton.ToolTip = ToolTip;
         // 
         // Timer
@@ -512,7 +512,7 @@ partial class ProgramProjectDialog
         StatusLabel.Text = "Date and Time";
         StatusLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
         StatusLabel.ThemeAuthor = "Terry D. Eppler";
-        StatusLabel.ThemeName = "Budget Execution";
+        StatusLabel.ThemeName = "Sherpa";
         StatusLabel.ToolTip = ToolTip;
         // 
         // ProgramProjectDialog

@@ -7,7 +7,7 @@
 //     Last Modified On:        04-03-2024
 // ******************************************************************************************
 // <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    Sherpa is a small Federal Budget, Finance, and Accounting data management
 //    application for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -44,7 +44,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms;
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using static Screen;

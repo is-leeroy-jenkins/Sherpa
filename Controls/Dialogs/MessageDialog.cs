@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 05-16-2024
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
@@ -186,7 +186,7 @@ namespace BudgetExecution
             : this( )
         {
             _messageText = text;
-            _titleText = "Budget Execution Message";
+            _titleText = "Sherpa Message";
         }
         
         /// <inheritdoc />

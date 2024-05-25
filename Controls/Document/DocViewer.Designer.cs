@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class DocViewer
     {
@@ -337,7 +337,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -679,7 +679,7 @@
             Title.Text = "Title";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // ControlBox
@@ -757,7 +757,7 @@
             TableListBoxLayout.StyleManager = null;
             TableListBoxLayout.TabIndex = 0;
             TableListBoxLayout.ThemeAuthor = "Terry D. Eppler";
-            TableListBoxLayout.ThemeName = "Budget Execution";
+            TableListBoxLayout.ThemeName = "Sherpa";
             TableListBoxLayout.ToolTip = null;
             // 
             // ButtonPanel

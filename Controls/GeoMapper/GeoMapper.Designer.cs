@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class GeoMapper
     {
@@ -141,7 +141,7 @@
             Title.Text = "Geo Map";
             Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
+            Title.ThemeName = "Sherpa";
             Title.ToolTip = null;
             // 
             // ControlBox
@@ -338,7 +338,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -915,7 +915,7 @@
             MapPanel.StyleManager = null;
             MapPanel.TabIndex = 3;
             MapPanel.ThemeAuthor = "Terry D. Eppler";
-            MapPanel.ThemeName = "Budget Execution";
+            MapPanel.ThemeName = "Sherpa";
             MapPanel.ToolTip = null;
             // 
             // ContextMenu

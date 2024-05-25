@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 2-3-2024
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        2-3-2024
 // ******************************************************************************************
 // <copyright file="ExcelReport.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    Sherpa is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+namespace Sherpa
 {
     using System;
     using System.Data;
@@ -388,7 +388,7 @@ namespace BudgetExecution
             try
             {
                 _excelWorkbook.Properties.Author = "Terry D. Eppler, PhD.";
-                _excelWorkbook.Properties.Application = "Budget Execution";
+                _excelWorkbook.Properties.Application = "Sherpa";
                 _excelWorkbook.Properties.Company = "US EPA";
                 _excelWorkbook.Properties.Modified = DateTime.Now;
             }

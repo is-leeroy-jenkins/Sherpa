@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BudgetExecution.Resources.Images {
+namespace Sherpa.Resources.Images {
     using System;
     
     

@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     partial class Notification
     {
@@ -129,7 +129,7 @@
             Panel.StyleManager = null;
             Panel.TabIndex = 6;
             Panel.ThemeAuthor = "Terry D. Eppler";
-            Panel.ThemeName = "Budget Execution";
+            Panel.ThemeName = "Sherpa";
             Panel.ToolTip = null;
             // 
             // Notification

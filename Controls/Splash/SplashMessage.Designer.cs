@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
     public partial class SplashMessage
     {
@@ -110,7 +110,7 @@
             BackPanel.StyleManager = null;
             BackPanel.TabIndex = 3;
             BackPanel.ThemeAuthor = "Terry D. Eppler";
-            BackPanel.ThemeName = "Budget Execution";
+            BackPanel.ThemeName = "Sherpa";
             BackPanel.ToolTip = null;
             // 
             // Message
@@ -131,7 +131,7 @@
             Message.Text = "label1";
             Message.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Message.ThemeAuthor = "Terry D. Eppler";
-            Message.ThemeName = "Budget Execution";
+            Message.ThemeName = "Sherpa";
             Message.ToolTip = null;
             // 
             // SplashMessage

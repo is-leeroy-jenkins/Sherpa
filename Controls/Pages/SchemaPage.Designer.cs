@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
 
 
@@ -209,7 +209,7 @@
             SqlCeRadioButton.Tag = "SqlCe";
             SqlCeRadioButton.Text = "    SQL Compact  ( *.sdf )";
             SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlCeRadioButton.ThemeName = "Budget Execution";
+            SqlCeRadioButton.ThemeName = "Sherpa";
             SqlCeRadioButton.ToolTip = ToolTip;
             // 
             // ToolTip
@@ -227,7 +227,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -281,7 +281,7 @@
             AccessRadioButton.Tag = "Access";
             AccessRadioButton.Text = "    MS Access  ( *.accdb )";
             AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-            AccessRadioButton.ThemeName = "Budget Execution";
+            AccessRadioButton.ThemeName = "Sherpa";
             AccessRadioButton.ToolTip = ToolTip;
             // 
             // SqlServerRadioButton
@@ -307,7 +307,7 @@
             SqlServerRadioButton.Tag = "SqlServer";
             SqlServerRadioButton.Text = "    SQL Server  ( *.mdf )";
             SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlServerRadioButton.ThemeName = "Budget Execution";
+            SqlServerRadioButton.ThemeName = "Sherpa";
             SqlServerRadioButton.ToolTip = ToolTip;
             // 
             // SchemaTable
@@ -446,7 +446,7 @@
             SelectDataTypeLable.Text = "Select Data Type";
             SelectDataTypeLable.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             SelectDataTypeLable.ThemeAuthor = "Terry D. Eppler";
-            SelectDataTypeLable.ThemeName = "Budget Execution";
+            SelectDataTypeLable.ThemeName = "Sherpa";
             SelectDataTypeLable.ToolTip = null;
             // 
             // AddColumnLabel
@@ -468,7 +468,7 @@
             AddColumnLabel.Text = "Enter New Column Name";
             AddColumnLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             AddColumnLabel.ThemeAuthor = "Terry D. Eppler";
-            AddColumnLabel.ThemeName = "Budget Execution";
+            AddColumnLabel.ThemeName = "Sherpa";
             AddColumnLabel.ToolTip = null;
             // 
             // AddColumnTextBox
@@ -608,7 +608,7 @@
             AddTableLabel.Text = "Enter New Table Name";
             AddTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             AddTableLabel.ThemeAuthor = "Terry D. Eppler";
-            AddTableLabel.ThemeName = "Budget Execution";
+            AddTableLabel.ThemeName = "Sherpa";
             AddTableLabel.ToolTip = null;
             // 
             // DeleteTableButton
@@ -699,7 +699,7 @@
             SelectTableLabel.Text = "Select Data Table";
             SelectTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             SelectTableLabel.ThemeAuthor = "Terry D. Eppler";
-            SelectTableLabel.ThemeName = "Budget Execution";
+            SelectTableLabel.ThemeName = "Sherpa";
             SelectTableLabel.ToolTip = null;
             // 
             // TableNameComboBox
@@ -766,7 +766,7 @@
             TableNameTextBox.TabIndex = 7;
             TableNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             TableNameTextBox.ThemeAuthor = "Terry D. Eppler";
-            TableNameTextBox.ThemeName = "Budget Execution";
+            TableNameTextBox.ThemeName = "Sherpa";
             TableNameTextBox.ToolTip = ToolTip;
             TableNameTextBox.UseSystemPasswordChar = false;
             TableNameTextBox.WatermarkText = "";
@@ -807,7 +807,7 @@
             LoadingPanel.StyleManager = null;
             LoadingPanel.TabIndex = 1;
             LoadingPanel.ThemeAuthor = "Terry D. Eppler";
-            LoadingPanel.ThemeName = "Budget Execution";
+            LoadingPanel.ThemeName = "Sherpa";
             LoadingPanel.ToolTip = null;
             // 
             // Loader

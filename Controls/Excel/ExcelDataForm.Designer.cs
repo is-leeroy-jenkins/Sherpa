@@ -1,4 +1,4 @@
-﻿namespace BudgetExecution
+﻿namespace Sherpa
 {
 
 
@@ -228,7 +228,7 @@
             ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             ToolTip.StyleManager = null;
             ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.ThemeName = "Sherpa";
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
@@ -318,10 +318,10 @@
             Header.Style = MetroSet_UI.Enums.Style.Custom;
             Header.StyleManager = null;
             Header.TabIndex = 1;
-            Header.Text = "Budget Execution";
+            Header.Text = "Sherpa";
             Header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Header.ThemeAuthor = "Terry D. Eppler";
-            Header.ThemeName = "Budget Execution";
+            Header.ThemeName = "Sherpa";
             Header.ToolTip = ToolTip;
             // 
             // ControlBox
@@ -1016,7 +1016,7 @@
             ThirdComboBox.StyleManager = null;
             ThirdComboBox.TabIndex = 10;
             ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
-            ThirdComboBox.ThemeName = "Budget Execution";
+            ThirdComboBox.ThemeName = "Sherpa";
             ThirdComboBox.ToolTip = ToolTip;
             // 
             // SourceHeaderTable
@@ -1089,7 +1089,7 @@
             ExecutionRadioButton.Tag = "EXECUTION";
             ExecutionRadioButton.Text = "    Execution Tables";
             ExecutionRadioButton.ThemeAuthor = "Terry D. Eppler";
-            ExecutionRadioButton.ThemeName = "Budget Execution";
+            ExecutionRadioButton.ThemeName = "Sherpa";
             ExecutionRadioButton.ToolTip = ToolTip;
             // 
             // MaintenanceRadioButton
@@ -1116,7 +1116,7 @@
             MaintenanceRadioButton.Tag = "MAINTENANCE";
             MaintenanceRadioButton.Text = "    Maintenance Tables";
             MaintenanceRadioButton.ThemeAuthor = "Terry D. Eppler";
-            MaintenanceRadioButton.ThemeName = "Budget Execution";
+            MaintenanceRadioButton.ThemeName = "Sherpa";
             MaintenanceRadioButton.ToolTip = ToolTip;
             // 
             // ReferenceRadioButton
@@ -1143,7 +1143,7 @@
             ReferenceRadioButton.Tag = "REFERENCE";
             ReferenceRadioButton.Text = "    Reference Tables";
             ReferenceRadioButton.ThemeAuthor = "Terry D. Eppler";
-            ReferenceRadioButton.ThemeName = "Budget Execution";
+            ReferenceRadioButton.ThemeName = "Sherpa";
             ReferenceRadioButton.ToolTip = ToolTip;
             // 
             // ProviderHeaderTable
@@ -1415,7 +1415,7 @@
             FirstComboBox.StyleManager = null;
             FirstComboBox.TabIndex = 9;
             FirstComboBox.ThemeAuthor = "Terry D. Eppler";
-            FirstComboBox.ThemeName = "Budget Execution";
+            FirstComboBox.ThemeName = "Sherpa";
             FirstComboBox.ToolTip = ToolTip;
             // 
             // SecondFilterTableable
@@ -1532,7 +1532,7 @@
             SecondComboBox.StyleManager = null;
             SecondComboBox.TabIndex = 10;
             SecondComboBox.ThemeAuthor = "Terry D. Eppler";
-            SecondComboBox.ThemeName = "Budget Execution";
+            SecondComboBox.ThemeName = "Sherpa";
             SecondComboBox.ToolTip = ToolTip;
             // 
             // SourceTable

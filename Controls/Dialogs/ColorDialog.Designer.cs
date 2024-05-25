@@ -3,7 +3,7 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
+namespace Sherpa;
 
 partial class ColorDialog
 {
@@ -79,7 +79,7 @@ partial class ColorDialog
         CloseButton.TabIndex = 2;
         CloseButton.Text = "Close ";
         CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "Budget Execution";
+        CloseButton.ThemeName = "Sherpa";
         CloseButton.ToolTip = ToolTip;
         // 
         // ToolTip
@@ -97,7 +97,7 @@ partial class ColorDialog
         ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
         ToolTip.StyleManager = null;
         ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.ThemeName = "Sherpa";
         ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToolTip.TipText = "";
         ToolTip.TipTitle = null;
@@ -123,7 +123,7 @@ partial class ColorDialog
         ButtonPanel.StyleManager = null;
         ButtonPanel.TabIndex = 5;
         ButtonPanel.ThemeAuthor = "Terry D. Eppler";
-        ButtonPanel.ThemeName = "Budget Execution";
+        ButtonPanel.ThemeName = "Sherpa";
         ButtonPanel.ToolTip = null;
         // 
         // HeaderTable
@@ -171,7 +171,7 @@ partial class ColorDialog
         Title.Text = "Color Selector";
         Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         Title.ThemeAuthor = "Terry D. Eppler";
-        Title.ThemeName = "Budget Execution";
+        Title.ThemeName = "Sherpa";
         Title.ToolTip = ToolTip;
         // 
         // ColorPicker
@@ -227,7 +227,7 @@ partial class ColorDialog
         SelectButton.TabIndex = 3;
         SelectButton.Text = "Select";
         SelectButton.ThemeAuthor = "Terry D. Eppler";
-        SelectButton.ThemeName = "Budget Execution";
+        SelectButton.ThemeName = "Sherpa";
         SelectButton.ToolTip = ToolTip;
         // 
         // ColorDialog
