@@ -61,7 +61,7 @@
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 # Overview
-- ## Easily query financial data.
+## Easily query financial data.
 - #### Datagrids
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
