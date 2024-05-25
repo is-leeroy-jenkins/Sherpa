@@ -60,49 +60,54 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-## Overview
-### Easily query financial data.
+
+## Easily query financial data.
 - #### Datagrids
 - #### Pivot Tables
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-### UI with a familiar look & feel.
+## UI with a familiar look & feel.
 - #### Excel-like interface over a relational database
 - #### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-### GIS Mapping.
+## GIS Mapping.
 - #### Congressional earmark reporting
 - #### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
-
+## Baby Browser 
+- #### Using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
 
-### Budget Calculator 
+## Budget Calculator 
 - #### For quick & dirty accounting and budget calculations on bound data.
-- #### Easy access to the full functionality of MicroSoft's Calc.exe
+- #### Easy access to the full functionality of CALC.EXE
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-### Federal fiscal year calendar
+## Federal Fiscal Year Calendar
 - #### Calculations using full-time equivalency metrics.
 - #### Ad-hoc analysis of variable periods of availability.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-### Environmental program definitions and statutory authorities bound directly to financial data
+## Environmental Program Anaylsis
+- #### Definitions and statutory authorities
+- #### Information bound directly to financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-### Data Visualization
-
+## Data Visualization
+- #### 3D Charting
+- #### Pivot Charts
+- #### Plotting from ScottPlot
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-### View environmental laws & guidance via DocViewer
-
+## DocViewer
+- #### Library of legal documentation used in evnironmental data analysis.
+- #### Interact with, view and access PDFs outside the application
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
