@@ -6,7 +6,7 @@
 
 - Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
 - Charting and reporting.
-- Web browser with searches optimized for querying .gov domains with ![Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Web browser with searches optimized for querying .gov domains with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
 - Pre-defined schema for 100 actively used environmental budget data tables.
 - Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
 - Excel-like user interface over real databases.
