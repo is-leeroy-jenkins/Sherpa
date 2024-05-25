@@ -2,7 +2,7 @@
 
 #### An open source data analysis and financial management application for EPA analysts developed in C# and released under the MIT license.
 
-## Feature Overview
+## Features
 
 - Mutliple data providers.
 - Charting and reporting.
@@ -60,41 +60,41 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-# Overview
-## Easily query financial data.
+## Overview
+### Easily query financial data.
 - #### Datagrids
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## UI with a familiar look & feel.
+### UI with a familiar look & feel.
 - #### Excel-like interface over a relational database
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## Congressional earmark reporting and pollution site monitoring.
+### Congressional earmark reporting and pollution site monitoring.
 - ### Maps
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-## Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
 
-## Budget Calculator for quick accounting transactions and budget calculations on the data.
+### Budget Calculator for quick accounting transactions and budget calculations on the data.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## Federal fiscal year utilities compatable with full-time equivalency metrics.
+### Federal fiscal year utilities compatable with full-time equivalency metrics.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-## Environmental program definitions and statutory authorities bound directly to financial data
+### Environmental program definitions and statutory authorities bound directly to financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-## Data Visualization
+### Data Visualization
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## View environmental laws & guidance via DocViewer
+### View environmental laws & guidance via DocViewer
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
