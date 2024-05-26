@@ -63,11 +63,12 @@
 
 
 ## Data Tools
-- ##### Datagrids
-- ##### Pivot Tables
+- ##### Datagrids & Filters
+- ##### Pivot Charts & Tables
+- ##### Plotting & Graphs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## User Interface with a familiar look & feel.
+## Familiar User Interface
 - ##### Excel-like UI over a relational database
 - ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
@@ -79,6 +80,7 @@
 
 ## Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+- ##### Ad-hoc searches with customized pop-up input.
 - ##### Search across multiple .gov domains
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
