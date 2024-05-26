@@ -14,6 +14,7 @@
 - Easy access to environmental program descriptions with their statutory authority.
 - Ad-hoc calculations on bound data.
 - Add agency/region/division-specific branding.
+- The WPF-based version of Sherpa is [Badger](https://github.com/KarmaScripter/Badger)
 
 ## Providers
 
