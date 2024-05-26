@@ -61,13 +61,13 @@
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 
-## Financial Data Analysis
+## Data Tools
 - ##### Datagrids
 - ##### Pivot Tables
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 ## User Interface with a familiar look & feel.
-- ##### Excel-like interface over a relational database
+- ##### Excel-like UI over a relational database
 - ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
@@ -78,6 +78,7 @@
 
 ## Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+- ##### Search across multiple .gov domains
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
 ## Budget Calculator 
@@ -86,13 +87,15 @@
 
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## Federal Fiscal Year Calendar
-- ##### Calculations using full-time equivalency metrics.
+## Federal Calendar
+- ##### Calculations using the federal fiscal year. 
+- ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-## Ad-hoc web development with  [Orca](https://github.com/KarmaScripter/Orca)
-- ##### Create ad-hoc web information
+## [Orca](https://github.com/KarmaScripter/Orca)
+- ##### Ad-hoc web development
+- ##### Network communications
 - ##### HTML5, CSS, and Javascript
   
 ![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
@@ -103,17 +106,17 @@
 
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-## Data Visualization
+## Visualization Tools
 - ##### 3D Charting
 - ##### Pivot Charts
-- ##### Plotting from ScottPlot
+- ##### Plotting & Graphs
   
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
 ## Document Viewer
-- ##### Library of legal documentation used in evnironmental data analysis.
-- ##### Interact with, view and access PDFs outside the application
+- ##### Access to legal documentation used in evnironmental data analysis.
+- ##### Interact with external PDFs.
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
