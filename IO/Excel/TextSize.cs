@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Sherpa
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
 //     Created:                 1-27-2024
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        1-27-2024
 // ******************************************************************************************
 // <copyright file="ExcelMeasure.cs" company="Terry D. Eppler">
-//    Sherpa is a Federal Budget, Finance, and Accounting application
+//    Badger is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Sherpa
+namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;

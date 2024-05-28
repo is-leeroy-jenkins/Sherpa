@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Sherpa
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
 //     Created:                 04-22-2023
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Sherpa
+namespace Badger
 {
     using System;
     using System.Collections.Generic;
