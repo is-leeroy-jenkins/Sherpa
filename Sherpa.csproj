@@ -242,8 +242,7 @@
       <DependentUpon>ToolStripImages.resx</DependentUpon>
     </Compile>
     <Compile Remove="bin\**" />
-    <Compile Remove="Clients\WebBrower\**" />
-    <Compile Remove="Minions\SqlCe\C# Source code\**" />
+    <Compile Remove="Minions\WebBrower\**" />
     <Compile Remove="Resources\Pictures\**" />
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
@@ -302,16 +301,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
-    <EmbeddedResource Remove="Clients\WebBrower\**" />
-    <EmbeddedResource Remove="Minions\SqlCe\C# Source code\**" />
+    <EmbeddedResource Remove="Minions\WebBrower\**" />
     <EmbeddedResource Remove="Resources\Pictures\**" />
     <EmbeddedResource Remove="WebBrowser\**" />
-    <None Remove="Clients\WebBrower\**" />
+    <None Remove="Minions\WebBrower\**" />
     <None Remove="Resources\Pictures\**" />
     <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Clients\Baby\net6.0-windows\Properties\AssemblyInfo.cs" />
+    <Compile Remove="Minions\Baby\net6.0-windows\Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Misc\LICENSE">
@@ -495,14 +493,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove=".clang-format" />
-    <None Remove="Clients\Baby\storage\i18n_process.css" />
+    <None Remove="Minions\Baby\storage\i18n_process.css" />
     <None Remove="_config.yml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\" />
     <Folder Include="Resources\Assets\MenuItems\" />
   </ItemGroup>
 </Project>
