@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 04-22-2023
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Badger
+namespace Sherpa
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
@@ -50,7 +50,7 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.Grid" />
+    /// <seealso cref="T:Sherpa.Grid" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -180,7 +180,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Section" /> class.
+        /// <see cref="T:Sherpa.Section" /> class.
         /// </summary>
         public Section( )
         {
@@ -189,7 +189,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Section" /> class.
+        /// <see cref="T:Sherpa.Section" /> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="range">The range.</param>
@@ -206,7 +206,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Section" /> class.
+        /// <see cref="T:Sherpa.Section" /> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="startRow">From row.</param>
@@ -227,7 +227,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Section" /> class.
+        /// <see cref="T:Sherpa.Section" /> class.
         /// </summary>
         /// <param name="excel">The worksheet.</param>
         /// <param name="cell">The cell.</param>
@@ -244,7 +244,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Section" /> class.
+        /// <see cref="T:Sherpa.Section" /> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="from">From.</param>
@@ -263,7 +263,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Section" /> class.
+        /// <see cref="T:Sherpa.Section" /> class.
         /// </summary>
         /// <param name="section">The section.</param>
         public Section( Section section )

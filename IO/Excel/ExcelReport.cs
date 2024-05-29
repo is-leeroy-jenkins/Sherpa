@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Sherpa
 //     Author:                  Terry D. Eppler
 //     Created:                 2-3-2024
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        2-3-2024
 // ******************************************************************************************
 // <copyright file="ExcelReport.cs" company="Terry D. Eppler">
-//    Badger is a Federal Budget, Finance, and Accounting application
+//    Sherpa is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Badger
+namespace Sherpa
 {
     using System;
     using System.Data;
@@ -52,7 +52,7 @@ namespace Badger
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:Badger.SheetConfig"/>
+    /// <seealso cref="T:Sherpa.SheetConfig"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -124,7 +124,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ExcelReport" /> class.
+        /// <see cref="T:Sherpa.ExcelReport" /> class.
         /// </summary>
         public ExcelReport( )
             : base( )
@@ -169,7 +169,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.BudgetWorkbook" /> class.
+        /// <see cref="T:Sherpa.BudgetWorkbook" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public ExcelReport( string filePath )
@@ -213,7 +213,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.BudgetWorkbook"/>
+        /// <see cref="T:Sherpa.BudgetWorkbook"/>
         /// class.
         /// </summary>
         /// <param name="dataTable">
@@ -388,7 +388,7 @@ namespace Badger
             try
             {
                 _excelWorkbook.Properties.Author = "Terry D. Eppler, PhD.";
-                _excelWorkbook.Properties.Application = "Badger";
+                _excelWorkbook.Properties.Application = "Sherpa";
                 _excelWorkbook.Properties.Company = "US EPA";
                 _excelWorkbook.Properties.Modified = DateTime.Now;
             }
