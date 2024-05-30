@@ -7,7 +7,7 @@
 //     Last Modified On:        2-3-2024
 // ******************************************************************************************
 // <copyright file="ExcelReport.cs" company="Terry D. Eppler">
-//    Sherpa is a Federal Budget, Finance, and Accounting application
+//    Badger is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
@@ -52,7 +52,7 @@ namespace Sherpa
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:Sherpa.SheetConfig"/>
+    /// <seealso cref="T:Badger.SheetConfig"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -124,7 +124,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Sherpa.ExcelReport" /> class.
+        /// <see cref="T:Badger.ExcelReport" /> class.
         /// </summary>
         public ExcelReport( )
             : base( )
@@ -169,7 +169,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Sherpa.BudgetWorkbook" /> class.
+        /// <see cref="T:Badger.BudgetWorkbook" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public ExcelReport( string filePath )
@@ -213,7 +213,7 @@ namespace Sherpa
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Sherpa.BudgetWorkbook"/>
+        /// <see cref="T:Badger.BudgetWorkbook"/>
         /// class.
         /// </summary>
         /// <param name="dataTable">
@@ -388,7 +388,7 @@ namespace Sherpa
             try
             {
                 _excelWorkbook.Properties.Author = "Terry D. Eppler, PhD.";
-                _excelWorkbook.Properties.Application = "Sherpa";
+                _excelWorkbook.Properties.Application = "Badger";
                 _excelWorkbook.Properties.Company = "US EPA";
                 _excelWorkbook.Properties.Modified = DateTime.Now;
             }

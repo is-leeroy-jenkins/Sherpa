@@ -1,5 +1,5 @@
 ﻿﻿// ******************************************************************************************
-//     Assembly:                Sherpa
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
 //     Created:                 04-22-2023
 // 
@@ -38,7 +38,7 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Sherpa
+namespace Badger
 {
     using System;
     using System.Collections.Generic;
@@ -128,7 +128,7 @@ namespace Sherpa
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Sherpa.Workbook" /> class.
+        /// <see cref="T:Badger.Workbook" /> class.
         /// </summary>
         public void FormatDataWorksheet( )
         {
