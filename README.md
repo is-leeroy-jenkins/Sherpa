@@ -2,7 +2,7 @@
 
 #### An open source data analysis and budget execution application for EPA analysts and released under the MIT license.
 
-## Features
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/features.png)  Features
 
 - Mutliple data providers.
 - Visualizations and reporting.
