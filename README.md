@@ -109,7 +109,7 @@
 
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-##![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/tools.png) Visualization Tools
+##  ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/tools.png) Visualization Tools
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting & Graphs
