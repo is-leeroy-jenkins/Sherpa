@@ -33,11 +33,6 @@
 - You need to install the version of VC++ Runtime that Baby Browser needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
 
 
-## Getting started
-
-- See the [Compilation Guide](Resources/Github/Compilation.md) for steps to get started.
-
-
 ## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
 - [User Guide](Resources/Github/Users.md)
