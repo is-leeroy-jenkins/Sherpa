@@ -117,14 +117,14 @@
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## ![]() Document Viewer
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/document.png) Document Viewer
 - ##### Access to legal documentation used in evnironmental data analysis.
 - ##### Interact with external PDFs.
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
 
-## ![]() SQL Editors
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/sql.png) SQL Editors
 
 - SQLite
 
