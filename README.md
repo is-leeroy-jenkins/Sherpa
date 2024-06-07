@@ -38,7 +38,7 @@
 - See the [Compilation Guide](Resources/Github/Compilation.md) for steps to get started.
 
 
-## Documentation
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
 - [User Guide](Resources/Github/Users.md)
 - [Compilation Guide](Resources/Github/Compilation.md)
@@ -46,7 +46,7 @@
 - [Distribution Guide](Resources/Github/Distribution.md)
 
 
-## Code
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
 
 - Uses CefSharp 106 for Baby and is built on NET 6/7/8
 - Supports AnyCPU as well as x86/x64 specific builds
@@ -62,13 +62,13 @@
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 
-## Data Tools
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/tools.png) Data Tools
 - ##### Datagrids & Filters
 - ##### Pivot Charts & Tables
 - ##### Plotting & Graphs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## Familiar User Interface
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/excel.png) Familiar User Interface
 - ##### Excel-like UI over a relational database
 - ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
@@ -78,19 +78,19 @@
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-## Baby
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/web.png) Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### Search across multiple .gov domains
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
-## Budget Calculator 
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculator 
 - ##### Quick & dirty accounting and budget calculations directly on bound data.
 - ##### Easy access to the full functionality of the widows calculator
 
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## Federal Calendar
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
 - ##### Calculations using the federal fiscal year. 
 - ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
@@ -103,13 +103,13 @@
   
 ![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
    
-## Environmental Program Anaylsis
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Anaylsis
 - ##### Definitions and statutory authorities
 - ##### Information bound directly to financial data
 
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-## Visualization Tools
+##![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/tools.png) Visualization Tools
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting & Graphs
@@ -117,14 +117,14 @@
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## Document Viewer
+## ![]() Document Viewer
 - ##### Access to legal documentation used in evnironmental data analysis.
 - ##### Interact with external PDFs.
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
 
-## SQL Editors
+## ![]() SQL Editors
 
 - SQLite
 
