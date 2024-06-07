@@ -24,7 +24,7 @@
 - MS Access is the OG of enterprise database management systems (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
 
 
-## System requirements
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/system_requirements.png)  System requirements
 
 - You need [VC++ 2019 Runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) 32-bit and 64-bit versions
 
@@ -58,9 +58,7 @@
 - [IO](https://github.com/KarmaScripter/Sherpa/tree/main/IO) - input output classes used for networking and the file systemm.
 - [Static](https://github.com/KarmaScripter/Sherpa/tree/main/Static) - static types used in the analysis of environmental budget data.
 - [Interfaces](https://github.com/KarmaScripter/Sherpa/tree/main/Interfaces) - abstractions used in the analysis of environmental budget data.
-- `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
-- `bin/storage` - HTML and JS required for downloads manager and custom error pages
-
+- `bin` - Binaries are included in the `bin` folder due to the complex Baby setup 
 
 ## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/tools.png) Data Tools
 - ##### Datagrids & Filters
@@ -68,12 +66,12 @@
 - ##### Plotting & Graphs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/excel.png) Familiar User Interface
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/excel.png) Familiar Interface
 - ##### Excel-like UI over a relational database
 - ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## Geospatial Information (GIS) Mapping.
+## GIS Mapping.
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Map.gif)
@@ -84,13 +82,13 @@
 - ##### Search across multiple .gov domains
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculator 
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations
 - ##### Quick & dirty accounting and budget calculations directly on bound data.
 - ##### Easy access to the full functionality of the widows calculator
 
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/calendar.png) FY Calendar
 - ##### Calculations using the federal fiscal year. 
 - ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
@@ -124,7 +122,7 @@
 
 
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/sql.png) SQL Editors
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/sql.png)  Editors
 
 - SQLite
 
