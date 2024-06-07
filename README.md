@@ -2,7 +2,7 @@
 
 #### An open source data analysis and budget execution application for EPA analysts and released under the MIT license.
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/features.png)Features
+## Features
 
 - Mutliple data providers.
 - Visualizations and reporting.
@@ -16,7 +16,7 @@
 - Add agency/region/division-specific branding.
 - The WPF-based version of Sherpa is [Badger](https://github.com/KarmaScripter/Badger)
 
-## Providers
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Providers.png)Providers
 
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [more here](https://sqlite.org/index.html) 
 - SQL CE is a discontinued but still super-useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
