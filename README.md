@@ -67,12 +67,12 @@
 - ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## Mapping.
+## ![](https://github.com/KarmaScripter/Sherpa/tree/main/Resources/Assets/GitHubImages) Maps.
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/web.png) Baby
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/baby.png) Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### Search across multiple .gov domains
