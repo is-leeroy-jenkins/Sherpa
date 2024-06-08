@@ -62,12 +62,12 @@
 - ##### Plotting & Graphs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/excel.png) Familiar Interface
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/excel.png) The Interface
 - ##### Excel-like UI over a relational database
 - ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## ![](https://github.com/KarmaScripter/Sherpa/tree/main/Resources/Assets/GitHubImages) Maps.
+## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Maps.png) Maps.
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Map.gif)
