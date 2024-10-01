@@ -11,6 +11,39 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="UI\Controls\Clock\ClockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\ContextMenu\BasicMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\ControlBox\ControlBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\ScrollFrame\ScrollFrame.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\Style\StyleManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\Tile\MetroTile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Dialogs\CredentialDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Dialogs\DialogBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Dialogs\InputDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Dialogs\OpenDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Dialogs\SaveDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="UI\Forms\Main\BudgetWindow.cs">
       <SubType>Form</SubType>
     </Compile>
