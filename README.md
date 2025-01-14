@@ -70,7 +70,7 @@
 > This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
 
 - #### Example gpt-4o-mini run
-## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Sherpa.gif)
+## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Bubba.gif)
 
 > Sherpa incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
 This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies.
