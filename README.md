@@ -6,7 +6,7 @@
 ## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/features.png)  Features
 
 - Mutliple data providers.
-- Datasets can be found on [Kaggle](https://www.kaggle.com/datasets/terryeppler/badger)
+- Datasets can be found on [Kaggle](https://www.kaggle.com/datasets/terryeppler/sherpa)
 - Visualizations and reporting.
 - Conduct analysis with a unique web-browser providing searches optimized for researching .gov domains with [Baby](https://github.com/is-leeroy-jenkins/Baby/blob/main/README.md)
 - Pre-defined schema for budgetary data tables for environmental data analysis.
