@@ -1,13 +1,14 @@
 ##  Sherpa
-## ﻿![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Sherpa.png)
+## ﻿![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Sherpa.png)
 
 #### An open source data analysis and budget execution application for EPA analysts and released under the MIT license.
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/features.png)  Features
+## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/features.png)  Features
 
 - Mutliple data providers.
+- Datasets can be found on [Kaggle](https://www.kaggle.com/datasets/terryeppler/badger)
 - Visualizations and reporting.
-- Conduct analysis with a unique web-browser providing searches optimized for researching .gov domains with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Conduct analysis with a unique web-browser providing searches optimized for researching .gov domains with [Baby](https://github.com/is-leeroy-jenkins/Baby/blob/main/README.md)
 - Pre-defined schema for budgetary data tables for environmental data analysis.
 - Multiple SQL Editors including SQLite, SQL Compact, MS Access, and SQL Server
 - Excel-like user interface over real databases.
@@ -15,9 +16,9 @@
 - Easy access to environmental program descriptions with their statutory authority.
 - Ad-hoc calculations on bound data.
 - Add agency/region/division-specific branding.
-- The WPF-based version of Sherpa is [Badger](https://github.com/KarmaScripter/Badger)
+- The WPF-based version of Sherpa is [Badger](https://github.com/is-leeroy-jenkins/Badger?tab=readme-ov-file#badger)
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/Providers.png)Providers
+## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Providers.png)Providers
 
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [more here](https://sqlite.org/index.html) 
 - SQL CE is a discontinued but still super-useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
@@ -26,7 +27,7 @@
 - Schema and test data are available [here](https://drive.google.com/drive/folders/16jRZA_5sgN4kGSfVYl-13wzszoVTwVFO?usp=sharing).
 
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/system_requirements.png)  System requirements
+## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/system_requirements.png)  System requirements
 
 - You need [VC++ 2019 Runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) 32-bit and 64-bit versions
 
@@ -35,7 +36,7 @@
 - You need to install the version of VC++ Runtime that Baby Browser needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
 
 
-## ![](https://github.com/KarmaScripter/Sherpa/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
+## ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
 - [User Guide](Resources/Github/Users.md)
 - [Compilation Guide](Resources/Github/Compilation.md)
@@ -47,14 +48,14 @@
 
 - Uses CefSharp 106 for Baby and is built on NET 6/7/8
 - Supports AnyCPU as well as x86/x64 specific builds
-- [Controls](https://github.com/KarmaScripter/Sherpa/tree/main/Controls) - main UI layer and associated controls and related functionality.
-- [Enumerations](https://github.com/KarmaScripter/Sherpa/tree/main/Enumerations) - various enumerations used for budgetary accounting.
-- [Extensions](https://github.com/KarmaScripter/Sherpa/tree/main/Extensions)- useful extension methods for budget analysis by type.
-- [Clients](https://github.com/KarmaScripter/Sherpa/tree/main/Clients) - other tools used and available.
-- [Ninja](https://github.com/KarmaScripter/Sherpa/tree/main/Ninja) - models used in EPA budget data analysis.
-- [IO](https://github.com/KarmaScripter/Sherpa/tree/main/IO) - input output classes used for networking and the file systemm.
-- [Static](https://github.com/KarmaScripter/Sherpa/tree/main/Static) - static types used in the analysis of environmental budget data.
-- [Interfaces](https://github.com/KarmaScripter/Sherpa/tree/main/Interfaces) - abstractions used in the analysis of environmental budget data.
+- [Controls](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Controls) - main UI layer and associated controls and related functionality.
+- [Enumerations](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Enumerations) - various enumerations used for budgetary accounting.
+- [Extensions](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Extensions)- useful extension methods for budget analysis by type.
+- [Clients](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Clients) - other tools used and available.
+- [Ninja](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Ninja) - models used in EPA budget data analysis.
+- [IO](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/IO) - input output classes used for networking and the file systemm.
+- [Static](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Static) - static types used in the analysis of environmental budget data.
+- [Interfaces](https://github.com/is-leeroy-jenkins/Sherpa/tree/main/Interfaces) - abstractions used in the analysis of environmental budget data.
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup 
 
 
