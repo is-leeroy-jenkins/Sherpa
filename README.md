@@ -64,8 +64,12 @@
 > Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
 > It can help improve the execution speed and reduce the training time of your code. Sherpa provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
 
-- #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
-- #### [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+- #### [US Federal Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations) - Enacted appropriations from 1990-2024 available for fine-tuning learning models
+- #### [Federal Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations) - Collection of federal regulations on the use of appropriatied funds
+- #### [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) - The Report on Budget Execution and Budgetary Resources
+- #### [Balances](https://huggingface.co/datasets/leeroy-jankins/Balances) -  U.S. federal agency Account Balances (File A) submitted as part of the DATA Act 2014.
+- #### [Outlays](https://huggingface.co/datasets/leeroy-jankins/Outlays) -  The actual disbursements of funds by the U.S. federal government from 1996 to 2025
+___
 
 > Sherpa incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
 > This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
